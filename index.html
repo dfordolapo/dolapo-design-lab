@@ -9,10 +9,11 @@
   <meta property="og:description" content="Enter the lab where digital products are researched, designed, written, prototyped, and built.">
   <meta property="og:type" content="website">
   <title>Dolapo's Design Lab — Enter the Experience</title>
-  <link rel="preload" as="image" href="/lab-entrance.jpg">
-  <link rel="preload" as="image" href="/lab-interior.jpg">
 </head>
 <body>
+  <!-- Hidden images to force immediate load without preload warnings -->
+  <img src="/lab-entrance.jpg" style="position: absolute; width: 0; height: 0; opacity: 0; pointer-events: none;" alt="" />
+  <img src="/lab-interior.jpg" style="position: absolute; width: 0; height: 0; opacity: 0; pointer-events: none;" alt="" />
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
