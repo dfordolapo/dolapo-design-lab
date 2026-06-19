@@ -5,8 +5,10 @@ import WelcomeScreen from './components/WelcomeScreen'
 import DepartmentSelect from './components/DepartmentSelect'
 import ElevatorScreen from './components/ElevatorScreen'
 import DepartmentVault from './components/DepartmentVault'
+import CaseStudyViewer from './components/CaseStudyViewer'
 import useCinematicEngine from './hooks/useCinematicEngine'
 import { CONFIG } from './utils/cinematicConfig'
+import { CASE_STUDIES } from './utils/caseStudies'
 
 const SESSION_KEY = 'portfolio-session'
 
@@ -28,6 +30,7 @@ export default function App() {
   const [showElevator, setShowElevator] = useState(saved?.showElevator || false)
   const [selectedDept, setSelectedDept] = useState(saved?.selectedDept || null)
   const [showDepartmentView, setShowDepartmentView] = useState(saved?.showDepartmentView || false)
+  const [activeProject, setActiveProject] = useState(null)
 
   const {
     phase,
@@ -102,15 +105,24 @@ export default function App() {
 
   const handleViewProject = (project) => {
     console.log("Opening case study viewer for:", project)
+    setActiveProject(project)
   }
 
   if (showDepartmentView) {
     return (
-      <DepartmentVault 
-        departmentId={selectedDept} 
-        onBack={handleLeaveDepartment} 
-        onViewProject={handleViewProject} 
-      />
+      <>
+        <DepartmentVault 
+          departmentId={selectedDept} 
+          onBack={handleLeaveDepartment} 
+          onViewProject={handleViewProject} 
+        />
+        {activeProject && (
+          <CaseStudyViewer 
+            project={activeProject} 
+            onClose={() => setActiveProject(null)} 
+          />
+        )}
+      </>
     )
   }
 
