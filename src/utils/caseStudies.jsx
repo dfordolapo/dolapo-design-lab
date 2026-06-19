@@ -125,6 +125,28 @@ export const CASE_STUDIES = [
     ]
   },
   
+  {
+    id: 'builder-1',
+    departmentId: 'builder',
+    vaultImage: '/assets/mockup_laptop_vault.png',
+    noGlow: true,
+    vaultLogo: <img src="/assets/vurdict-logo.png" alt="Vurdict" style={{ width: '320px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
+    category: 'SOFTWARE PRODUCT',
+    title: 'Vurdict',
+    role: 'Full-Stack Development',
+    duration: 'Ongoing',
+    platform: 'Web Platform',
+    goal: 'Build a comprehensive review and analytics platform.',
+    content: [
+      { type: 'hero', image: '/assets/mockup_laptop_vault.png' },
+      { 
+        type: 'text-block',
+        heading: 'Project Overview',
+        body: 'Details for this case study will be added later.'
+      }
+    ]
+  },
+  
   ...ROLES.flatMap(role => {
     const items = [];
     
@@ -132,7 +154,7 @@ export const CASE_STUDIES = [
     let startIndex = 1;
     if (role.id === 'writer') startIndex = 2;
     if (role.id === 'designer') startIndex = 4;
-    if (role.id === 'builder') startIndex = 1;
+    if (role.id === 'builder') startIndex = 2;
     
     for (let i = startIndex; i <= 3; i++) {
       const isMobile = i % 2 === 0;
