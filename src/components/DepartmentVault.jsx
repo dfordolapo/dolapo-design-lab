@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import TopBar from './TopBar'
 import useSoundEffects from '../hooks/useSoundEffects'
 import { CASE_STUDIES } from '../utils/caseStudies'
+import { ROLES } from '../utils/roles.jsx'
 
 const THEME_COLORS = {
   designer: '#8b5cf6',
@@ -19,6 +20,7 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
   const displayProjects = projects.length > 0 ? projects : CASE_STUDIES
   const activeProject = displayProjects[activeProjectIdx]
   const themeColor = THEME_COLORS[departmentId] || '#8b5cf6'
+  const activeRole = ROLES.find(r => r.id === departmentId) || ROLES[0]
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -84,7 +86,7 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
               {departmentId.replace('-', ' ')}<br/>Lab
             </h1>
             <p className="vault-dept-desc">
-              A collection of selected products I've designed, written, and built.
+              {activeRole.vaultDescription}
             </p>
           </div>
 
