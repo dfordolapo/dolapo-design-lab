@@ -1291,7 +1291,7 @@ p {
 
 .dept-screen__title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 300;
   color: var(--text-primary);
   text-align: center;
