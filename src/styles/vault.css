@@ -189,7 +189,7 @@
 .cylinder-glass {
   position: absolute;
   width: min(50vh, 40vw);
-  height: min(65vh, 50vw);
+  height: min(30vh, 25vw);
   border-radius: 50% / 10%;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-top: 4px solid rgba(160, 160, 180, 0.7);
@@ -234,7 +234,7 @@
 .cylinder-glow {
   position: absolute;
   width: min(50vh, 40vw);
-  height: min(65vh, 50vw);
+  height: min(30vh, 25vw);
   border-radius: 50% / 10%;
   box-shadow: 0 0 120px rgba(139, 92, 246, 0.15);
   z-index: 0;

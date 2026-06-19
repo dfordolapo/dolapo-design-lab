@@ -119,10 +119,7 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
               <div className="cylinder-base"></div>
 
               <div className="cylinder-content">
-                <div className="cylinder-content__text">
-                  <h2 className="project-title">{proj.title}</h2>
-                </div>
-                
+
                 <div className="cylinder-content__visual">
                   <img src={proj.vaultImage} alt={proj.title} className="project-hero-image" />
                 </div>
