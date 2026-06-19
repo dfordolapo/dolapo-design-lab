@@ -1,3 +1,4 @@
+import React from 'react';
 import { ROLES } from './roles.jsx';
 
 export const CASE_STUDIES = ROLES.flatMap(role => [

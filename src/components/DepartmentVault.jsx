@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import TopBar from './TopBar'
 import useSoundEffects from '../hooks/useSoundEffects'
-import { CASE_STUDIES } from '../utils/caseStudies'
+import { CASE_STUDIES } from '../utils/caseStudies.jsx'
 import { ROLES } from '../utils/roles.jsx'
 
 const THEME_COLORS = {
