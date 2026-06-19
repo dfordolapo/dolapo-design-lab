@@ -32,7 +32,6 @@ export default function CaseStudyViewer({ project, onClose }) {
         {/* Header Navigation */}
         <header className="case-study-header">
           <BackButton onClick={handleClose} label="RETURN TO VAULT" />
-          <div className="case-study-header__category">{project.category}</div>
         </header>
 
         {/* Scrollable Content */}

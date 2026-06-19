@@ -50,6 +50,25 @@ export default function App() {
     sessionStorage.setItem(SESSION_KEY, JSON.stringify(state))
   }, [showDeptSelect, showElevator, showDepartmentView, selectedDept])
 
+  // Preload all case study images in the background
+  useEffect(() => {
+    const imagesToPreload = [];
+    Object.values(CASE_STUDIES).forEach(project => {
+      if (project.vaultImage) imagesToPreload.push(project.vaultImage);
+      if (project.content) {
+        project.content.forEach(block => {
+          if (block.image) imagesToPreload.push(block.image);
+        });
+      }
+    });
+    
+    // Load images invisibly
+    imagesToPreload.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   const handleLoadingComplete = useCallback(() => {
     setShowCinematic(true)
     setLoadingComplete(true)
