@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
-import { ROLES } from '../utils/roles'
+import { ROLES } from '../utils/roles.jsx'
+import BackButton from './BackButton'
+import useSoundEffects from '../hooks/useSoundEffects'
 
-export default function ElevatorScreen({ selectedDeptId, onComplete }) {
+export default function ElevatorScreen({ selectedDeptId, onComplete, onAbort }) {
   const [currentFloor, setCurrentFloor] = useState('00')
   const [arrived, setArrived] = useState(false)
+  const { startHum, stopHum, playDing } = useSoundEffects()
   
   const targetRole = ROLES.find(r => r.id === selectedDeptId) || ROLES[0]
 
@@ -11,32 +14,49 @@ export default function ElevatorScreen({ selectedDeptId, onComplete }) {
     // animate floor numbers
     let floor = 0;
     const targetFloor = parseInt(targetRole.number, 10);
+    
+    startHum()
+    
     const interval = setInterval(() => {
       floor++;
       setCurrentFloor(floor < 10 ? `0${floor}` : `${floor}`);
       if (floor >= targetFloor) {
         clearInterval(interval);
-        setTimeout(() => setArrived(true), 500);
+        setTimeout(() => {
+          setArrived(true)
+          stopHum()
+          playDing()
+        }, 500);
         if (onComplete) {
             setTimeout(onComplete, 2500); // 2.5s after arrival, trigger onComplete
         }
       }
     }, 600); // speed of elevator
     
-    return () => clearInterval(interval);
-  }, [targetRole, onComplete]);
+    return () => {
+      clearInterval(interval)
+      stopHum()
+    }
+  }, [targetRole, onComplete, startHum, stopHum, playDing]);
 
   return (
-    <div className={`elevator-screen ${arrived ? 'elevator-screen--arrived' : ''}`}>
+    <div 
+      className={`elevator-screen ${arrived ? 'elevator-screen--arrived' : ''}`}
+      style={{ '--theme-color': targetRole.accent }}
+    >
+        {onAbort && !arrived && (
+          <BackButton onClick={onAbort} label="ABORT TRANSIT" style={{ zIndex: 1000 }} />
+        )}
         <div className="elevator-panel-left">
-            <div className="elevator-brand">
-                <span className="icon">🏢</span> ELEVATOR ACCESS
+            <div className="elevator-direction-block" style={{ marginBottom: 'auto' }}>
+                <div className="elevator-direction" style={{ margin: '0 0 8px 0', gap: '16px' }}>
+                    <div className="up-arrow">▲</div>
+                    <h1 className="elevator-title" style={{ marginBottom: 0 }}>GOING <span>UP</span></h1>
+                </div>
+                <p className="elevator-desc elevator-led-text" style={{ marginLeft: '10px', marginBottom: '32px' }}>DEST: FLOOR {targetRole.number}</p>
             </div>
-            <h1 className="elevator-title">Select Your<br/><span>Destination</span></h1>
-            <p className="elevator-desc">Each floor leads you to a different expertise inside the lab.</p>
             
             <div className="elevator-floor-display">
-                <div className="floor-label">CURRENT FLOOR</div>
                 <div className="floor-number">{currentFloor}</div>
                 
                 <div className="elevator-buttons">
@@ -91,28 +111,6 @@ export default function ElevatorScreen({ selectedDeptId, onComplete }) {
             </div>
         </div>
         
-        <div className="elevator-footer">
-            <div className="explorer-info">
-                <div className="explorer-avatar">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                </div>
-                <div>
-                    <div className="label">EXPLORER</div>
-                    <div className="value">New Visitor</div>
-                </div>
-            </div>
-            <div className="mission-statement">
-                <span className="sparkle">✦</span> Every department. Every skill. One mission:<br/><strong>Build meaningful products.</strong>
-            </div>
-            <div className="progress-info">
-                <div className="label">LAB PROGRESS</div>
-                <div className="ring">0%</div>
-                <div className="explored">
-                    <div className="label">DEPARTMENTS EXPLORED</div>
-                    <div className="value">0 / 3</div>
-                </div>
-            </div>
-        </div>
     </div>
   )
 }

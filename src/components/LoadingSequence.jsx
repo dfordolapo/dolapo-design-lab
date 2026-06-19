@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { CONFIG, LOADING_MESSAGES } from '../utils/cinematicConfig'
+import useSoundEffects from '../hooks/useSoundEffects'
 
 export default function LoadingSequence({ onComplete }) {
   const [messageIndex, setMessageIndex] = useState(0)
   const [hidden, setHidden] = useState(false)
+  const { playPowerOn } = useSoundEffects()
 
   useEffect(() => {
     const interval = CONFIG.loadingDuration / LOADING_MESSAGES.length
@@ -13,6 +15,7 @@ export default function LoadingSequence({ onComplete }) {
 
     const hideTimer = setTimeout(() => {
       setHidden(true)
+      playPowerOn()
       setTimeout(onComplete, 1200)
     }, CONFIG.loadingDuration)
 
@@ -20,7 +23,7 @@ export default function LoadingSequence({ onComplete }) {
       clearInterval(msgTimer)
       clearTimeout(hideTimer)
     }
-  }, [onComplete])
+  }, [onComplete, playPowerOn])
 
   return (
     <div className={`loading-sequence${hidden ? ' hidden' : ''}`}>

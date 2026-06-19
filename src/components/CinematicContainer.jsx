@@ -10,13 +10,14 @@ import DoorLight from './DoorLight'
 import SensorIndicators from './SensorIndicators'
 import DiscoveryCue from './DiscoveryCue'
 import PhaseIndicator from './PhaseIndicator'
-import AudioToggle from './AudioToggle'
 import ParticleCanvas from './ParticleCanvas'
 import TransitionOverlay from './TransitionOverlay'
 import useParallax from '../hooks/useParallax'
+import useSoundEffects from '../hooks/useSoundEffects'
 
-export default function CinematicContainer({ phase, onEnterLab, transitioning, onToggleAudio }) {
+export default function CinematicContainer({ phase, onEnterLab, transitioning }) {
   const containerRef = useRef(null)
+  const { playDoors } = useSoundEffects()
 
   useParallax(phase)
 
@@ -24,7 +25,10 @@ export default function CinematicContainer({ phase, onEnterLab, transitioning, o
     if (containerRef.current) {
       containerRef.current.className = `cinematic-container phase-${phase}`
     }
-  }, [phase])
+    if (phase === 'entering') {
+      playDoors()
+    }
+  }, [phase, playDoors])
 
   return (
     <>
@@ -45,7 +49,6 @@ export default function CinematicContainer({ phase, onEnterLab, transitioning, o
 
         <DiscoveryCue />
         <PhaseIndicator phase={phase} />
-        <AudioToggle onToggle={onToggleAudio} />
       </div>
       <TransitionOverlay active={transitioning} />
     </>

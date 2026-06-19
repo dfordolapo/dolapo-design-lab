@@ -44,6 +44,10 @@ export default function useCinematicEngine() {
     return true
   }, [])
 
+  const resetTransition = useCallback(() => {
+    hasTransitioned.current = false
+  }, [])
+
   return {
     phase,
     showCinematic,
@@ -51,5 +55,6 @@ export default function useCinematicEngine() {
     setLoadingComplete,
     setShowCinematic,
     triggerTransition,
+    resetTransition,
   }
 }

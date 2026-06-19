@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
-import { ROLES } from '../utils/roles'
+import { ROLES } from '../utils/roles.jsx'
+import BackButton from './BackButton'
+import useSoundEffects from '../hooks/useSoundEffects'
 
-export default function DepartmentSelect({ onSelect }) {
+export default function DepartmentSelect({ onSelect, onBack }) {
   const [entered, setEntered] = useState(false)
   const [selected, setSelected] = useState(null)
+  const { playHover, playClick } = useSoundEffects()
 
   useEffect(() => {
     const t = setTimeout(() => setEntered(true), 100)
@@ -11,6 +14,7 @@ export default function DepartmentSelect({ onSelect }) {
   }, [])
 
   const handleSelect = (roleId) => {
+    playClick()
     setSelected(roleId)
     if (onSelect) {
       setTimeout(() => {
@@ -30,6 +34,8 @@ export default function DepartmentSelect({ onSelect }) {
         <div className="dept-screen__scanline"></div>
       </div>
 
+      {onBack && <BackButton onClick={onBack} label="EXIT DIRECTORY" />}
+
       <div className="dept-screen__content">
         <h1 className="dept-screen__title">Choose a <span>Department</span></h1>
         
@@ -40,9 +46,9 @@ export default function DepartmentSelect({ onSelect }) {
               className={`dept-card${selected === role.id ? ' dept-card--selected' : ''}`}
               style={{ '--card-accent': role.accent, '--card-hue': role.hue }}
               onClick={() => handleSelect(role.id)}
+              onMouseEnter={playHover}
             >
               <div className="dept-card__header">
-                <span className="dept-card__number">{role.number}</span>
                 <h2 className="dept-card__name">{role.name}</h2>
                 <p className="dept-card__desc">{role.description}</p>
               </div>
@@ -82,40 +88,6 @@ export default function DepartmentSelect({ onSelect }) {
               </div>
             </button>
           ))}
-        </div>
-      </div>
-
-      <div className="dept-screen__footer-bar">
-        <div className="dept-screen__tip">
-          <div className="tip-icon">💡</div>
-          <div className="tip-text">
-            <strong>LAB TIP</strong>
-            <span>You can explore all<br/>departments anytime.</span>
-          </div>
-        </div>
-        
-        <div className="dept-screen__progress">
-          <div className="progress-info">
-            <div className="explorer-details">
-              <strong>EXPLORER STATUS</strong>
-              <div className="explorer-name">
-                <div className="explorer-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                </div>
-                New Visitor
-              </div>
-              <div className="departments-visited">
-                DEPARTMENTS VISITED<br/>0 / 3
-              </div>
-            </div>
-          </div>
-          <div className="progress-ring">
-            <span>0%</span>
-            <svg viewBox="0 0 36 36">
-              <path className="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-              <path className="circle" strokeDasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-            </svg>
-          </div>
         </div>
       </div>
     </div>
