@@ -19,7 +19,7 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
   const projects = CASE_STUDIES.filter(cs => cs.departmentId === departmentId)
   const displayProjects = projects.length > 0 ? projects : CASE_STUDIES
   const activeProject = displayProjects[activeProjectIdx]
-  const themeColor = THEME_COLORS[departmentId] || '#8b5cf6'
+  const themeColor = activeProject?.themeColor || THEME_COLORS[departmentId] || '#8b5cf6'
   const activeRole = ROLES.find(r => r.id === departmentId) || ROLES[0]
 
   useEffect(() => {
@@ -124,9 +124,12 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
 
                 <div className="cylinder-content">
                   <div className="cylinder-content__visual">
-                    <div className={`cylinder-content__visual vault-logo-wrapper ${proj.noGlow ? 'no-glow' : ''}`}>
-                      {proj.vaultLogo}
-                    </div>
+                    {/* Foreground brand logo/mockup overlay */}
+                    {proj.vaultLogo && (
+                      <div className={`vault-logo-overlay ${proj.noGlow ? 'no-glow' : ''}`}>
+                        {proj.vaultLogo}
+                      </div>
+                    )}
                   </div>
 
                   <button 
@@ -153,9 +156,9 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
                 onClick={() => handleSelectProject(idx)}
                 onMouseEnter={playHover}
               >
-                <img src={proj.vaultImage} alt={proj.title} />
+                <img src={proj.vaultImage} alt={proj.shortTitle || proj.title} />
                 <div className="carousel-item__overlay">
-                  <span>{proj.title}</span>
+                  <span>{proj.shortTitle || proj.title}</span>
                 </div>
               </div>
             ))}

@@ -102,10 +102,11 @@
 }
 
 .case-study-goal {
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
   max-width: 600px;
   margin: 0 auto;
+  line-height: 1.4;
 }
 
 /* BLOCKS */

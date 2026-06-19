@@ -39,7 +39,7 @@ export default function CaseStudyViewer({ project, onClose }) {
           
           <div className="case-study-hero-title">
             <h1>{project.title}</h1>
-            <p className="case-study-goal">{project.goal}</p>
+            {project.goal && <p className="case-study-goal">{project.goal}</p>}
           </div>
 
           {/* Map through dynamic content blocks */}
