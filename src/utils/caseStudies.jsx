@@ -226,16 +226,16 @@ export const CASE_STUDIES = [
         heading: 'User Persona',
         body: 'Meet Oluwadoyinsola, 28, works a 9–5 and loves to have fun within a budget. Her goals and frustrations guided every decision in this content strategy.'
       },
-      { type: 'presentation-slide', image: '/assets/mockup_mobile_vault.png', caption: 'Oluwadoyinsola’s Persona: Goals and pain points informed every tone and structural decision in the app.' },
+      { type: 'presentation-slide', image: '/assets/jolli-persona.webp', caption: 'Oluwadoyinsola’s Persona: Goals and pain points informed every tone and structural decision in the app.' },
       { 
         type: 'text-block',
         heading: 'Mapping the Journey',
         body: 'Next, I created a full user flow map for the product. This was my favorite part of this project because the map helped me to see how users would move through it. This was how I was able to understand the user’s pain points at every turn and align the content to their intent for using the product.'
       },
-      { type: 'presentation-slide', image: '/assets/mockup_mobile_vault.png', caption: 'The complete user flow for Jolli, from onboarding to post-booking (Part 1)' },
-      { type: 'presentation-slide', image: '/assets/mockup_mobile_vault.png', caption: 'The complete user flow for Jolli, from onboarding to post-booking (Part 2)' },
-      { type: 'presentation-slide', image: '/assets/mockup_mobile_vault.png', caption: 'The complete user flow for Jolli, from onboarding to post-booking (Part 3)' },
-      { type: 'presentation-slide', image: '/assets/mockup_mobile_vault.png', caption: 'A tone map for Jolli, showing how the voice shifts dynamically across the user’s journey' },
+      { type: 'presentation-slide', image: '/assets/jolli-flow-1.webp', caption: 'The complete user flow for Jolli, from onboarding to post-booking (Part 1)' },
+      { type: 'presentation-slide', image: '/assets/jolli-flow-2.webp', caption: 'The complete user flow for Jolli, from onboarding to post-booking (Part 2)' },
+      { type: 'presentation-slide', image: '/assets/jolli-flow-3.webp', caption: 'The complete user flow for Jolli, from onboarding to post-booking (Part 3)' },
+      { type: 'presentation-slide', image: '/assets/jolli-tone-map.webp', caption: 'A tone map for Jolli, showing how the voice shifts dynamically across the user’s journey' },
       { 
         type: 'text-block',
         heading: 'Voice, Tone & Messaging Guidelines',
@@ -256,7 +256,7 @@ export const CASE_STUDIES = [
         heading: 'Information Architecture (IA) Approach',
         body: 'The content for Jolli is built on two pillars: Clarity (achieved through writing principles) and Direction (achieved through structure). I treated the Information Architecture (IA) like a dialogue structure; every screen either asked, answered, or reassured the user.\n\nThe core categories are Discover, Plan, Book & Pay, Host & Earn and Account & Support and the structure follows a simple logic: group related actions, minimize cognitive load, make the next steps obvious. This makes it feel like a good conversation that knows when to pause and when to move forward.'
       },
-      { type: 'presentation-slide', image: '/assets/mockup_mobile_vault.png', caption: 'Jolli’s Information Architecture organized around five core categories that group related actions, minimize cognitive load, and make next steps obvious.' },
+      { type: 'presentation-slide', image: '/assets/jolli-ia-map.webp', caption: 'Jolli’s Information Architecture organized around five core categories that group related actions, minimize cognitive load, and make next steps obvious.' },
       { 
         type: 'text-block',
         heading: 'Next Steps',
