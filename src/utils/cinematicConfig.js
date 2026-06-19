@@ -14,9 +14,9 @@ export const PHASE_LABELS = {
 }
 
 export const LOADING_MESSAGES = [
-  'Initializing environment...',
-  'Loading design assets...',
-  'Syncing prototypes...',
-  'Calibrating holographics...',
-  'Environment ready.',
+  'Establishing neural link...',
+  'Decrypting design files...',
+  'Routing UI vectors...',
+  'Bypassing creative blocks...',
+  'Access granted.',
 ]
