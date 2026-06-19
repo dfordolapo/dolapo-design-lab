@@ -478,7 +478,7 @@ p {
 
 
 .cta-container {
-  margin-top: -40px;
+  margin-top: -30px;
   opacity: 0;
   animation: dropIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s forwards;
 }
@@ -1007,11 +1007,11 @@ p {
 
   .cta-container {
     margin-top: auto;
-    margin-bottom: 55px;
+    margin-bottom: 90px;
   }
 
   .discovery-cue {
-    bottom: 38px;
+    bottom: 45px;
     top: auto;
   }
 
