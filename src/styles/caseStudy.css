@@ -142,7 +142,8 @@
 }
 
 .hero-image-block .image-placeholder-glass {
-  height: 400px;
+  min-height: 400px;
+  height: auto;
 }
 
 .split-image.image-placeholder-glass {
@@ -152,8 +153,9 @@
 
 .hero-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .placeholder-text {
@@ -270,7 +272,6 @@
 .presentation-img {
   width: 100%;
   height: auto;
-  max-height: 80vh;
   object-fit: contain;
   border-radius: var(--radius-sm);
   display: block;
