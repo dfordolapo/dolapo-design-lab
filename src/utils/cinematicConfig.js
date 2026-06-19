@@ -1,10 +1,10 @@
 export const CONFIG = {
   loadingDuration: 3000,
-  walkingDelay: 800,
-  walkingDuration: 2000,
-  doorOpenDuration: 1500,
+  walkingDelay: 400,
+  walkingDuration: 1000,
+  doorOpenDuration: 800,
   particleCount: 60,
-  transitionDuration: 2000,
+  transitionDuration: 500,
 }
 
 export const PHASE_LABELS = {

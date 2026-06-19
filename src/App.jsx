@@ -1,6 +1,9 @@
 import { useState, useCallback } from 'react'
 import LoadingSequence from './components/LoadingSequence'
 import CinematicContainer from './components/CinematicContainer'
+import WelcomeScreen from './components/WelcomeScreen'
+import DepartmentSelect from './components/DepartmentSelect'
+import ElevatorScreen from './components/ElevatorScreen'
 import useAmbientAudio from './hooks/useAmbientAudio'
 import useCinematicEngine from './hooks/useCinematicEngine'
 import { CONFIG } from './utils/cinematicConfig'
@@ -8,7 +11,10 @@ import { CONFIG } from './utils/cinematicConfig'
 export default function App() {
   const [showCinematic, setShowCinematic] = useState(false)
   const [transitioning, setTransitioning] = useState(false)
-  const [portalReady, setPortalReady] = useState(false)
+  const [showWelcome, setShowWelcome] = useState(false)
+  const [showDeptSelect, setShowDeptSelect] = useState(false)
+  const [showElevator, setShowElevator] = useState(false)
+  const [selectedDept, setSelectedDept] = useState(null)
   const { toggleAudio } = useAmbientAudio()
   const {
     phase,
@@ -26,55 +32,58 @@ export default function App() {
     const shouldTransition = triggerTransition()
     if (shouldTransition) {
       setTransitioning(true)
-      setTimeout(() => setPortalReady(true), CONFIG.transitionDuration)
+      setTimeout(() => {
+        setShowCinematic(false)
+        setShowWelcome(true)
+        setTransitioning(false)
+      }, CONFIG.transitionDuration)
     }
   }, [triggerTransition])
 
-  if (portalReady) {
+  const handleWelcomeComplete = useCallback(() => {
+    setShowWelcome(false)
+    setShowDeptSelect(true)
+  }, [])
+
+  const [showDepartmentView, setShowDepartmentView] = useState(false)
+
+  const handleDepartmentSelect = useCallback((deptId) => {
+    setSelectedDept(deptId)
+    setShowDeptSelect(false)
+    setShowElevator(true)
+  }, [])
+
+  const handleElevatorComplete = useCallback(() => {
+    setShowElevator(false)
+    setShowDepartmentView(true)
+  }, [])
+
+  if (showDepartmentView) {
     return (
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
-        background: '#07060B',
-        fontFamily: "'Outfit', sans-serif",
-        color: '#F8F7FF',
-        gap: '1.5rem',
-        animation: 'portalFade 1.5s ease forwards',
-      }}>
-        <style>{`
-          @keyframes portalFade { from { opacity: 0; } to { opacity: 1; } }
-          @keyframes portalPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
-          @keyframes loadLoop {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(350%); }
-          }
-        `}</style>
-        <div style={{
-          width: 80, height: 80, borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%)',
-          border: '1px solid rgba(139,92,246,0.3)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: '2rem', animation: 'portalPulse 2s ease-in-out infinite',
-        }}>🔬</div>
-        <h1 style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '0.15em' }}>WELCOME TO THE LAB</h1>
-        <p style={{ fontSize: '0.85rem', color: 'rgba(248,247,255,0.5)', letterSpacing: '0.1em', fontFamily: "'JetBrains Mono', monospace" }}>
-          Expertise Selection Portal loading...
-        </p>
-        <div style={{ width: 120, height: 2, background: 'rgba(255,255,255,0.06)', borderRadius: 2, overflow: 'hidden', marginTop: '0.5rem' }}>
-          <div style={{ height: '100%', width: '40%', background: 'linear-gradient(90deg, #8B5CF6, #E879F9)', borderRadius: 2, animation: 'loadLoop 1.5s ease-in-out infinite' }}></div>
-        </div>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', color: 'white', background: '#000', flexDirection: 'column', gap: '20px' }}>
+        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '3rem' }}>Welcome to {selectedDept.toUpperCase()}</h1>
+        <p style={{ color: 'var(--text-secondary)' }}>The elevator has arrived. This is where the department content will go.</p>
+        <button onClick={() => { setShowDepartmentView(false); setShowDeptSelect(true) }} style={{ padding: '10px 20px', background: 'white', color: 'black', border: 'none', borderRadius: '5px', cursor: 'pointer', marginTop: '20px' }}>Go Back</button>
       </div>
     )
   }
 
+  if (showElevator) {
+    return <ElevatorScreen selectedDeptId={selectedDept} onComplete={handleElevatorComplete} />
+  }
+
+  if (showDeptSelect) {
+    return <DepartmentSelect onSelect={handleDepartmentSelect} />
+  }
+
   return (
     <>
-      {!showCinematic && (
+      {showWelcome && <WelcomeScreen onComplete={handleWelcomeComplete} />}
+
+      {!showCinematic && !showWelcome && (
         <LoadingSequence onComplete={handleLoadingComplete} />
       )}
+
       {showCinematic && (
         <CinematicContainer
           phase={phase}
@@ -83,6 +92,8 @@ export default function App() {
           onToggleAudio={toggleAudio}
         />
       )}
+
+      {transitioning && <div className="transition-overlay active" />}
     </>
   )
 }
