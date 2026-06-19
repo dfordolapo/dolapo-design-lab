@@ -92,10 +92,20 @@ export default function CaseStudyViewer({ project, onClose }) {
             }
 
             if (block.type === 'text-block') {
+              const renderText = (text) => {
+                if (!text) return null;
+                return text.split('\n\n').map((paragraph, i) => {
+                  const htmlString = paragraph
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>');
+                  return <p key={i} dangerouslySetInnerHTML={{ __html: htmlString }} />;
+                });
+              };
+              
               return (
                 <div key={index} className="case-study-block text-block">
                   <h2>{block.heading}</h2>
-                  <p>{block.body}</p>
+                  {renderText(block.body)}
                 </div>
               );
             }
@@ -117,11 +127,21 @@ export default function CaseStudyViewer({ project, onClose }) {
             }
 
             if (block.type === 'split-block') {
+              const renderText = (text) => {
+                if (!text) return null;
+                return text.split('\n\n').map((paragraph, i) => {
+                  const htmlString = paragraph
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>');
+                  return <p key={i} dangerouslySetInnerHTML={{ __html: htmlString }} />;
+                });
+              };
+              
               return (
                 <div key={index} className="case-study-block split-block">
                   <div className="split-text">
                     <h2>{block.heading}</h2>
-                    <p>{block.body}</p>
+                    {renderText(block.body)}
                   </div>
                   <div className="split-image image-placeholder-glass">
                     {block.image ? (

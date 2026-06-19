@@ -331,19 +331,19 @@
   }
 
   .case-study-hero-title h1 {
-    font-size: 1.3rem;
-  }
-
-  .case-study-goal {
-    font-size: 0.9rem;
-  }
-
-  .case-study-block h2 {
     font-size: 1.1rem;
   }
 
-  .case-study-block p, .presentation-caption {
+  .case-study-goal {
     font-size: 0.85rem;
+  }
+
+  .case-study-block h2 {
+    font-size: 1rem;
+  }
+
+  .case-study-block p, .presentation-caption {
+    font-size: 0.8rem;
   }
 
   .presentation-slide-block {
