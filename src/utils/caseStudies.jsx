@@ -86,13 +86,35 @@ export const CASE_STUDIES = [
     departmentId: 'designer',
     vaultImage: '/assets/mockup_laptop_vault.png',
     noGlow: true,
-    vaultLogo: <img src="/assets/awwja-logo.png" alt="Awwja" style={{ width: '400px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
+    vaultLogo: <img src="/assets/awwja-logo.png" alt="Awwja" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
     category: 'E-COMMERCE CONCEPT',
     title: 'Awwja',
     role: 'Product Design, Branding',
     duration: 'Ongoing',
     platform: 'Web App',
     goal: 'Design a vibrant, multi-vendor marketplace platform.',
+    content: [
+      { type: 'hero', image: '/assets/mockup_laptop_vault.png' },
+      { 
+        type: 'text-block',
+        heading: 'Project Overview',
+        body: 'Details for this case study will be added later.'
+      }
+    ]
+  },
+  
+  {
+    id: 'builder-1',
+    departmentId: 'builder',
+    vaultImage: '/assets/mockup_laptop_vault.png',
+    noGlow: true,
+    vaultLogo: <img src="/assets/vurdict-logo.png" alt="Vurdict" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
+    category: 'SOFTWARE PRODUCT',
+    title: 'Vurdict',
+    role: 'Full-Stack Development',
+    duration: 'Ongoing',
+    platform: 'Web Platform',
+    goal: 'Build a comprehensive review and analytics platform.',
     content: [
       { type: 'hero', image: '/assets/mockup_laptop_vault.png' },
       { 
@@ -110,6 +132,7 @@ export const CASE_STUDIES = [
     let startIndex = 1;
     if (role.id === 'writer') startIndex = 2;
     if (role.id === 'designer') startIndex = 3;
+    if (role.id === 'builder') startIndex = 2;
     
     for (let i = startIndex; i <= 3; i++) {
       const isMobile = i % 2 === 0;
