@@ -200,7 +200,7 @@ export const CASE_STUDIES = [
   {
     id: 'writer-2',
     departmentId: 'writer',
-    vaultImage: '/assets/mockup_mobile_vault.png',
+    vaultImage: '/assets/jolli-hero.png',
     noGlow: true,
     vaultLogo: <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'white', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.5))' }}>Jolli App <br/> Strategy</div>,
     category: 'CONTENT STRATEGY',
@@ -210,7 +210,7 @@ export const CASE_STUDIES = [
     platform: 'Mobile App',
     goal: 'Develop a tone, voice, and content strategy for a fictional events and travel app.',
     content: [
-      { type: 'hero', image: '/assets/mockup_mobile_vault.png' },
+      { type: 'hero', image: '/assets/jolli-hero.png' },
       { 
         type: 'text-block',
         heading: 'The Challenge',
