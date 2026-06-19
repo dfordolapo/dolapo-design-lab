@@ -1,7 +1,23 @@
+import useSoundEffects from '../hooks/useSoundEffects'
+
 export default function CTAButton({ onClick }) {
+  const { playHover, playClick } = useSoundEffects()
+
+  const handleClick = (e) => {
+    playClick()
+    if (onClick) onClick(e)
+  }
+
   return (
     <div className="cta-container" id="cta-container">
-      <button className="cta-button" id="enter-lab-btn" type="button" aria-label="Enter Dolapo's Design Lab" onClick={onClick}>
+      <button 
+        className="cta-button" 
+        id="enter-lab-btn" 
+        type="button" 
+        aria-label="Enter Dolapo's Design Lab" 
+        onClick={handleClick}
+        onMouseEnter={playHover}
+      >
         <div className="cta-button__glow"></div>
         <span className="cta-button__text">Enter The Lab</span>
         <span className="cta-button__arrow">

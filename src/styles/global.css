@@ -2033,7 +2033,7 @@ transform: scale(1) translateY(0);
   grid-template-columns: 350px 1fr 400px;
   grid-template-rows: 1fr;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background: #050505;
   color: #fff;
   overflow: hidden;
@@ -2081,6 +2081,7 @@ transform: scale(1) translateY(0);
 
 .elevator-floor-display {
   margin-top: auto;
+  margin-bottom: 40px;
   background: rgba(20, 20, 20, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 30px;
