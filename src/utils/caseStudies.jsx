@@ -52,9 +52,10 @@ export const CASE_STUDIES = [
     id: 'designer-1',
     departmentId: 'designer',
     vaultImage: '/assets/mockup_mobile_vault.png',
+    noGlow: true,
     vaultLogo: (
       <svg width="160" height="180" viewBox="0 0 24 30" fill="none" stroke="#fff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="var(--cyan-glow)" fill="rgba(0, 255, 255, 0.05)"></path>
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#fff" fill="none"></path>
         <path d="M14 10 L10 10 L9 13 L7 13 L7 15 L17 15 L17 13 L15 13 Z" stroke="#fff" strokeWidth="1" fill="none"></path>
         <circle cx="9.5" cy="15.5" r="1" stroke="#fff" fill="#fff"></circle>
         <circle cx="14.5" cy="15.5" r="1" stroke="#fff" fill="#fff"></circle>

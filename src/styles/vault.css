@@ -325,6 +325,10 @@
   position: relative;
 }
 
+.vault-logo-wrapper.no-glow {
+  filter: none;
+}
+
 @keyframes floatImage {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-12px); }

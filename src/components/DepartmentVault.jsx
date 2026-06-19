@@ -119,7 +119,7 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
 
                 <div className="cylinder-content">
                   <div className="cylinder-content__visual">
-                    <div className="cylinder-content__visual vault-logo-wrapper">
+                    <div className={`cylinder-content__visual vault-logo-wrapper ${proj.noGlow ? 'no-glow' : ''}`}>
                       {proj.vaultLogo}
                     </div>
                   </div>
