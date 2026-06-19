@@ -153,7 +153,7 @@ export const CASE_STUDIES = [
     vaultImage: '/assets/mockup_laptop_vault.png',
     noGlow: true,
     vaultLogo: <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'white', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.5))' }}>Gino Jollof <br/> Festival</div>,
-    category: 'UX WRITING',
+    category: 'GINO WORLD JOLLOF FESTIVAL',
     title: 'Gino Jollof Festival',
     role: 'UX Writer',
     duration: 'Audit & Redesign',
