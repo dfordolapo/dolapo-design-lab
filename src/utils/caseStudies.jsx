@@ -160,19 +160,19 @@ export const CASE_STUDIES = [
     platform: 'Email Communications',
     goal: 'Analyze and redesign confusing vendor confirmation emails for a Guinness World Record event.',
     content: [
-      { type: 'hero', image: '/assets/mockup_laptop_vault.png' },
+      { type: 'hero', image: '/assets/gino-before-after.webp' },
       { 
         type: 'text-block',
         heading: 'Clarity is the ingredient they forgot.',
         body: 'When someone gets a confirmation email, it should mean one thing: the matter is settled. No extra guesswork.\n\nThat’s why the vendor emails for the Gino World Jollof Festival stood out to me. They’re a masterclass in how a brand can unintentionally create confusion and doubt, all through a few poor UX writing decisions.\n\nLet’s break down the emails that were sent and see where the user experience went wrong.'
       },
-      { type: 'presentation-slide', image: '/assets/mockup_laptop_vault.png', caption: 'Email 1: False Alarm' },
+      { type: 'presentation-slide', image: '/assets/gino-1.webp', caption: 'Email 1: False Alarm' },
       { 
         type: 'text-block',
         heading: 'Email 1: False Alarm',
         body: 'The first email told vendors their registration was confirmed and provided a “vendor registration number” to gain access to the event. A clear green light. The copy makes it sound like a done deal.'
       },
-      { type: 'presentation-slide', image: '/assets/mockup_laptop_vault.png', caption: 'Email 2: The Belated Clarification' },
+      { type: 'presentation-slide', image: '/assets/gino-2.webp', caption: 'Email 2: The Belated Clarification' },
       { 
         type: 'text-block',
         heading: 'Email 2: The Belated Clarification',
@@ -183,7 +183,7 @@ export const CASE_STUDIES = [
         heading: 'The Flaws',
         body: '**The “Undefined” Problem:** Addressing the user as “Dear undefined” is a glaring technical and UX error. It is a jarring, impersonal greeting, and showed a lack of personalization and care. This was an immediate red flag to me.\n\n**The Timing Gap:** The delayed delivery of the clarifying information is a significant user experience flaw. It suggests a disorganized process and leaves the users in a state of uncertainty for an extended period.\n\n**The Unnecessary Two-Step:** While the second email is more accurate, the fact that it was needed to correct the mistakes of the first one is a major UX failure. The user journey is filled with friction and uncertainty due to the lack of a clear, single source of truth in the communication flow.'
       },
-      { type: 'presentation-slide', image: '/assets/mockup_laptop_vault.png', caption: 'The Solution: A Better Approach' },
+      { type: 'presentation-slide', image: '/assets/gino-3.webp', caption: 'The Solution: A Better Approach' },
       { 
         type: 'text-block',
         heading: 'Key Improvements',
