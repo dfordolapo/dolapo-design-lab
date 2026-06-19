@@ -86,7 +86,7 @@ export const CASE_STUDIES = [
     departmentId: 'designer',
     vaultImage: '/assets/mockup_laptop_vault.png',
     noGlow: true,
-    vaultLogo: <img src="/assets/awwja-logo.png" alt="Awwja" style={{ width: '220px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
+    vaultLogo: <img src="/assets/awwja-logo.png" alt="Awwja" style={{ width: '300px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
     category: 'E-COMMERCE CONCEPT',
     title: 'Awwja',
     role: 'Product Design, Branding',
