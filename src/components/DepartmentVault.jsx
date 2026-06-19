@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import BackButton from './BackButton'
+import TopBar from './TopBar'
 import useSoundEffects from '../hooks/useSoundEffects'
 import { CASE_STUDIES } from '../utils/caseStudies'
 
@@ -20,7 +20,6 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
   const activeProject = displayProjects[activeProjectIdx]
   const themeColor = THEME_COLORS[departmentId] || '#8b5cf6'
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'ArrowLeft') {
@@ -35,7 +34,6 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [displayProjects.length, playClick])
 
-  // Swipe handlers
   const minSwipeDistance = 50 
   const handleTouchStart = (e) => {
     setTouchEnd(null)
@@ -67,93 +65,94 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
   }
 
   return (
-    <div 
-      className="vault-dashboard" 
-      style={{ '--theme-color': themeColor }}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-    >
-      <BackButton onClick={onBack} style={{ zIndex: 100 }} />
+    <div className="page-with-topbar">
+      <TopBar onBack={onBack} />
+      <div 
+        className="vault-dashboard" 
+        style={{ '--theme-color': themeColor }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
 
-      {/* LEFT SIDEBAR NAVIGATION */}
-      <div className="vault-sidebar">
-        <div className="vault-sidebar__header">
-          <h2 className="vault-logo">DOLAPO'S<br/>DESIGN LAB</h2>
-          <p className="vault-welcome">Welcome to the</p>
-          <h1 className="vault-dept-title">
-            {departmentId.replace('-', ' ')}<br/>Lab
-          </h1>
-          <p className="vault-dept-desc">
-            A collection of selected products I've designed, written, and built.
-          </p>
+        {/* LEFT SIDEBAR NAVIGATION */}
+        <div className="vault-sidebar">
+          <div className="vault-sidebar__header">
+            <h2 className="vault-logo">DOLAPO'S<br/>DESIGN LAB</h2>
+            <p className="vault-welcome">Welcome to the</p>
+            <h1 className="vault-dept-title">
+              {departmentId.replace('-', ' ')}<br/>Lab
+            </h1>
+            <p className="vault-dept-desc">
+              A collection of selected products I've designed, written, and built.
+            </p>
+          </div>
+
+          <div className="vault-sidebar__index">
+            {displayProjects.map((proj, idx) => (
+              <button 
+                key={proj.id}
+                className={`vault-index-item ${idx === activeProjectIdx ? 'active' : ''}`}
+                onClick={() => handleSelectProject(idx)}
+                onMouseEnter={playHover}
+              >
+                <span className="index-number">0{idx + 1}</span>
+                <span className="index-category">{proj.category}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="vault-sidebar__index">
-          {displayProjects.map((proj, idx) => (
-            <button 
-              key={proj.id}
-              className={`vault-index-item ${idx === activeProjectIdx ? 'active' : ''}`}
-              onClick={() => handleSelectProject(idx)}
-              onMouseEnter={playHover}
-            >
-              <span className="index-number">0{idx + 1}</span>
-              <span className="index-category">{proj.category}</span>
-            </button>
-          ))}
-        </div>
-      </div>
+        {/* MAIN STAGE (3D GLASS CYLINDERS) */}
+        <div className="vault-stage">
+          {displayProjects.map((proj, idx) => {
+            let positionClass = 'hidden';
+            if (idx === activeProjectIdx) positionClass = 'center';
+            else if (idx === activeProjectIdx - 1 || (activeProjectIdx === 0 && idx === displayProjects.length - 1)) positionClass = 'left';
+            else if (idx === activeProjectIdx + 1 || (activeProjectIdx === displayProjects.length - 1 && idx === 0)) positionClass = 'right';
 
-      {/* MAIN STAGE (3D GLASS CYLINDERS) */}
-      <div className="vault-stage">
-        {displayProjects.map((proj, idx) => {
-          let positionClass = 'hidden';
-          if (idx === activeProjectIdx) positionClass = 'center';
-          else if (idx === activeProjectIdx - 1 || (activeProjectIdx === 0 && idx === displayProjects.length - 1)) positionClass = 'left';
-          else if (idx === activeProjectIdx + 1 || (activeProjectIdx === displayProjects.length - 1 && idx === 0)) positionClass = 'right';
+            return (
+              <div key={proj.id} className={`vault-cylinder ${positionClass}`}>
+                <div className="cylinder-glass"></div>
 
-          return (
-            <div key={proj.id} className={`vault-cylinder ${positionClass}`}>
-              <div className="cylinder-glow"></div>
-              <div className="cylinder-glass"></div>
-              <div className="cylinder-base"></div>
+                <div className="cylinder-content">
+                  <div className="cylinder-content__visual">
+                    <div className="product-preview">
+                      <img src={proj.vaultImage} alt={proj.title} className="project-hero-image" />
+                    </div>
+                  </div>
 
-              <div className="cylinder-content">
-
-                <div className="cylinder-content__visual">
-                  <img src={proj.vaultImage} alt={proj.title} className="project-hero-image" />
+                  <button 
+                    className="view-project-btn"
+                    onClick={handleViewProject}
+                    onMouseEnter={playHover}
+                  >
+                    VIEW PROJECT &rarr;
+                  </button>
                 </div>
-
-                <button 
-                  className="view-project-btn"
-                  onClick={handleViewProject}
-                  onMouseEnter={playHover}
-                >
-                  VIEW PROJECT &rarr;
-                </button>
               </div>
-            </div>
-          )
-        })}
-      </div>
+            )
+          })}
+        </div>
 
-      {/* BOTTOM CAROUSEL */}
-      <div className="vault-carousel">
-        <div className="carousel-label">VIEW ALL PROJECTS &rarr;</div>
-        <div className="carousel-track">
-          {displayProjects.map((proj, idx) => (
-            <div 
-              key={proj.id}
-              className={`carousel-item ${idx === activeProjectIdx ? 'active' : ''}`}
-              onClick={() => handleSelectProject(idx)}
-              onMouseEnter={playHover}
-            >
-              <img src={proj.vaultImage} alt={proj.title} />
-              <div className="carousel-item__overlay">
-                <span>{proj.title}</span>
+        {/* BOTTOM CAROUSEL */}
+        <div className="vault-carousel">
+          <div className="carousel-label">VIEW ALL PROJECTS &rarr;</div>
+          <div className="carousel-track">
+            {displayProjects.map((proj, idx) => (
+              <div 
+                key={proj.id}
+                className={`carousel-item ${idx === activeProjectIdx ? 'active' : ''}`}
+                onClick={() => handleSelectProject(idx)}
+                onMouseEnter={playHover}
+              >
+                <img src={proj.vaultImage} alt={proj.title} />
+                <div className="carousel-item__overlay">
+                  <span>{proj.title}</span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

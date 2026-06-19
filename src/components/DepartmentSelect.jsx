@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ROLES } from '../utils/roles.jsx'
-import BackButton from './BackButton'
+import TopBar from './TopBar'
 import useSoundEffects from '../hooks/useSoundEffects'
 
 export default function DepartmentSelect({ onSelect, onBack }) {
@@ -18,23 +18,23 @@ export default function DepartmentSelect({ onSelect, onBack }) {
     setSelected(roleId)
     if (onSelect) {
       setTimeout(() => {
-        setEntered(false) // animate out
-        setTimeout(() => onSelect(roleId), 300) // trigger callback
+        setEntered(false)
+        setTimeout(() => onSelect(roleId), 300)
       }, 100)
     }
   }
 
   return (
-    <div className={`dept-screen${entered ? ' dept-screen--entered' : ''}`}>
-      <div className="dept-screen__bg">
-        <div className="dept-screen__grid"></div>
-        <div className="dept-screen__glow dept-screen__glow--1"></div>
-        <div className="dept-screen__glow dept-screen__glow--2"></div>
-        <div className="dept-screen__glow dept-screen__glow--3"></div>
-        <div className="dept-screen__scanline"></div>
-      </div>
-
-      {onBack && <BackButton onClick={onBack} label="EXIT DIRECTORY" />}
+    <div className="page-with-topbar">
+      <TopBar onBack={onBack} />
+      <div className={`dept-screen${entered ? ' dept-screen--entered' : ''}`}>
+        <div className="dept-screen__bg">
+          <div className="dept-screen__grid"></div>
+          <div className="dept-screen__glow dept-screen__glow--1"></div>
+          <div className="dept-screen__glow dept-screen__glow--2"></div>
+          <div className="dept-screen__glow dept-screen__glow--3"></div>
+          <div className="dept-screen__scanline"></div>
+        </div>
 
       <div className="dept-screen__content">
         <h1 className="dept-screen__title">Choose a <span>Department</span></h1>
@@ -90,6 +90,7 @@ export default function DepartmentSelect({ onSelect, onBack }) {
           ))}
         </div>
       </div>
+    </div>
     </div>
   )
 }

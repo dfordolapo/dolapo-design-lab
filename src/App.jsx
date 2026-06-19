@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import LoadingSequence from './components/LoadingSequence'
 import CinematicContainer from './components/CinematicContainer'
 import WelcomeScreen from './components/WelcomeScreen'
@@ -8,22 +8,44 @@ import DepartmentVault from './components/DepartmentVault'
 import useCinematicEngine from './hooks/useCinematicEngine'
 import { CONFIG } from './utils/cinematicConfig'
 
-import BackButton from './components/BackButton'
+const SESSION_KEY = 'portfolio-session'
+
+function loadSession() {
+  try {
+    const raw = sessionStorage.getItem(SESSION_KEY)
+    return raw ? JSON.parse(raw) : null
+  } catch {
+    return null
+  }
+}
 
 export default function App() {
+  const saved = loadSession()
   const [showCinematic, setShowCinematic] = useState(false)
   const [transitioning, setTransitioning] = useState(false)
   const [showWelcome, setShowWelcome] = useState(false)
-  const [showDeptSelect, setShowDeptSelect] = useState(false)
-  const [showElevator, setShowElevator] = useState(false)
-  const [selectedDept, setSelectedDept] = useState(null)
+  const [showDeptSelect, setShowDeptSelect] = useState(saved?.showDeptSelect || false)
+  const [showElevator, setShowElevator] = useState(saved?.showElevator || false)
+  const [selectedDept, setSelectedDept] = useState(saved?.selectedDept || null)
+  const [showDepartmentView, setShowDepartmentView] = useState(saved?.showDepartmentView || false)
+
   const {
     phase,
     loadingComplete,
     setLoadingComplete,
     triggerTransition,
     resetTransition,
-  } = useCinematicEngine()
+  } = useCinematicEngine(!!saved)
+
+  useEffect(() => {
+    const state = {
+      showDeptSelect,
+      showElevator,
+      showDepartmentView,
+      selectedDept,
+    }
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify(state))
+  }, [showDeptSelect, showElevator, showDepartmentView, selectedDept])
 
   const handleLoadingComplete = useCallback(() => {
     setShowCinematic(true)
@@ -47,8 +69,6 @@ export default function App() {
     setShowDeptSelect(true)
   }, [])
 
-  const [showDepartmentView, setShowDepartmentView] = useState(false)
-
   const handleDepartmentSelect = useCallback((deptId) => {
     setSelectedDept(deptId)
     setShowDeptSelect(false)
@@ -60,7 +80,6 @@ export default function App() {
     setShowDepartmentView(true)
   }, [])
 
-  // Navigation Handlers
   const handleBackToLobby = useCallback(() => {
     setShowDeptSelect(false)
     resetTransition()
@@ -83,7 +102,6 @@ export default function App() {
 
   const handleViewProject = (project) => {
     console.log("Opening case study viewer for:", project)
-    // To be implemented: set state to show CaseStudyViewer
   }
 
   if (showDepartmentView) {
@@ -108,7 +126,7 @@ export default function App() {
     <>
       {showWelcome && <WelcomeScreen onComplete={handleWelcomeComplete} />}
 
-      {!showCinematic && !showWelcome && (
+      {!showCinematic && !showWelcome && !saved && (
         <LoadingSequence onComplete={handleLoadingComplete} />
       )}
 

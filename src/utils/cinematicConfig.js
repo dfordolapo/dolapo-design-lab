@@ -1,5 +1,5 @@
 export const CONFIG = {
-  loadingDuration: 3000,
+  loadingDuration: 2000,
   walkingDelay: 400,
   walkingDuration: 1000,
   doorOpenDuration: 800,

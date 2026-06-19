@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { CONFIG } from '../utils/cinematicConfig'
 
-export default function useCinematicEngine() {
+export default function useCinematicEngine(initialLoading = false) {
   const [phase, setPhase] = useState('idle')
   const [showCinematic, setShowCinematic] = useState(false)
-  const [loadingComplete, setLoadingComplete] = useState(false)
+  const [loadingComplete, setLoadingComplete] = useState(initialLoading)
   const hasTransitioned = useRef(false)
 
   useEffect(() => {

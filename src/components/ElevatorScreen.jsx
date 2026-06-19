@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { ROLES } from '../utils/roles.jsx'
-import BackButton from './BackButton'
+import TopBar from './TopBar'
 import useSoundEffects from '../hooks/useSoundEffects'
 
 export default function ElevatorScreen({ selectedDeptId, onComplete, onAbort }) {
@@ -40,13 +40,12 @@ export default function ElevatorScreen({ selectedDeptId, onComplete, onAbort }) 
   }, [targetRole, onComplete, startHum, stopHum, playDing]);
 
   return (
-    <div 
-      className={`elevator-screen ${arrived ? 'elevator-screen--arrived' : ''}`}
-      style={{ '--theme-color': targetRole.accent }}
-    >
-        {onAbort && !arrived && (
-          <BackButton onClick={onAbort} label="ABORT TRANSIT" style={{ zIndex: 1000 }} />
-        )}
+    <div className="page-with-topbar">
+      <TopBar onBack={onAbort} />
+      <div 
+        className={`elevator-screen ${arrived ? 'elevator-screen--arrived' : ''}`}
+        style={{ '--theme-color': targetRole.accent }}
+      >
         <div className="elevator-panel-left">
             <div className="elevator-direction-block" style={{ marginBottom: 'auto' }}>
                 <div className="elevator-direction" style={{ margin: '0 0 8px 0', gap: '16px' }}>
@@ -111,6 +110,7 @@ export default function ElevatorScreen({ selectedDeptId, onComplete, onAbort }) 
             </div>
         </div>
         
+    </div>
     </div>
   )
 }
