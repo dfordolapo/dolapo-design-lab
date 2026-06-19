@@ -114,7 +114,12 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
             else if (idx === activeProjectIdx + 1 || (activeProjectIdx === displayProjects.length - 1 && idx === 0)) positionClass = 'right';
 
             return (
-              <div key={proj.id} className={`vault-cylinder ${positionClass}`}>
+              <div 
+                key={proj.id} 
+                className={`vault-cylinder ${positionClass}`}
+                onClick={() => handleSelectProject(idx)}
+                style={{ cursor: positionClass !== 'center' ? 'pointer' : 'default' }}
+              >
                 <div className="cylinder-glass"></div>
 
                 <div className="cylinder-content">
