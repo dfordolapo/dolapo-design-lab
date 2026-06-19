@@ -315,7 +315,7 @@
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .case-study-content {
-    padding: var(--space-lg) var(--space-sm);
+    padding: var(--space-lg) 24px;
   }
   
   .features-grid {
