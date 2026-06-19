@@ -197,12 +197,85 @@ export const CASE_STUDIES = [
     ]
   },
   
+  {
+    id: 'writer-2',
+    departmentId: 'writer',
+    vaultImage: '/assets/mockup_mobile_vault.png',
+    noGlow: true,
+    vaultLogo: <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'white', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.5))' }}>Jolli App <br/> Strategy</div>,
+    category: 'CONTENT STRATEGY',
+    title: 'How I Made an Events & Travel App Speak Before Users Even Tap',
+    role: 'UX Writer & Content Designer',
+    duration: 'Strategy & MVP',
+    platform: 'Mobile App',
+    goal: 'Develop a tone, voice, and content strategy for a fictional events and travel app.',
+    content: [
+      { type: 'hero', image: '/assets/mockup_mobile_vault.png' },
+      { 
+        type: 'text-block',
+        heading: 'The Challenge',
+        body: 'If you’ve ever booked a trip, you know the exact moment the excitement stops: you’ve been crowned the Group Chat CFO. Suddenly, you’re tracking money for Airbnb security deposit, sending friendly reminders about overdue payments. That’s not memory-making, it’s accounting.\n\nEnter Jolli. When I first imagined it, I saw a space as lively and inviting as its name suggests. A place where finding the next experience doesn’t come with the usual friction of exorbitant costs. The MVP keeps it simple: installment payments, curated events discovery and a platform for hosts to advertise while paying only per conversion.'
+      },
+      { 
+        type: 'text-block',
+        heading: 'Problem',
+        body: 'A lot of people who are interested in fun experiences either scroll endlessly without knowing what fits their interests or get stuck with upfront payments they can’t manage. The app also has multiple functionalities but no framework to guide users through these features. So, I quickly realized that I needed a content strategy that feels alive and fosters trust and transparency without clutter. This is how I tackled the challenge to remove these barriers:'
+      },
+      { 
+        type: 'text-block',
+        heading: 'User Persona',
+        body: 'Meet Oluwadoyinsola, 28, works a 9–5 and loves to have fun within a budget. Her goals and frustrations guided every decision in this content strategy.'
+      },
+      { type: 'presentation-slide', image: '/assets/mockup_mobile_vault.png', caption: 'Oluwadoyinsola’s Persona: Goals and pain points informed every tone and structural decision in the app.' },
+      { 
+        type: 'text-block',
+        heading: 'Mapping the Journey',
+        body: 'Next, I created a full user flow map for the product. This was my favorite part of this project because the map helped me to see how users would move through it. This was how I was able to understand the user’s pain points at every turn and align the content to their intent for using the product.'
+      },
+      { type: 'presentation-slide', image: '/assets/mockup_mobile_vault.png', caption: 'The complete user flow for Jolli, from onboarding to post-booking (Part 1)' },
+      { type: 'presentation-slide', image: '/assets/mockup_mobile_vault.png', caption: 'The complete user flow for Jolli, from onboarding to post-booking (Part 2)' },
+      { type: 'presentation-slide', image: '/assets/mockup_mobile_vault.png', caption: 'The complete user flow for Jolli, from onboarding to post-booking (Part 3)' },
+      { type: 'presentation-slide', image: '/assets/mockup_mobile_vault.png', caption: 'A tone map for Jolli, showing how the voice shifts dynamically across the user’s journey' },
+      { 
+        type: 'text-block',
+        heading: 'Voice, Tone & Messaging Guidelines',
+        body: '**Core personality:** Jolli sounds friendly, playful, confident, honest, warm, alive and approachable. We speak like the friend who knows how to plan a great time without making it a chore; the one in the group chat saying, “Don’t worry, I already checked the price.”\n\n**We are:** Open, grounded, expressive, people-first.\n\n**We are not:** Corporate, vague, overly cheerful, transactional.\n\nOur goal is to make users feel like they’re part of something exciting and simple, not something they have to “figure out.”\n\n**Tone Dimensions:** The tone shifts depending on where the users are in their journey. Dimensions: Emotion, length, formality and energy.\n\nWe move between short phrases and layered explanations based on what the user needs. Formality is low, but precision is high. When the mood allows, we let a bit of fun in that will be enough to make people smile but never enough to distract them.'
+      },
+      { 
+        type: 'text-block',
+        heading: 'Tone by Context',
+        body: '**Onboarding:** sets the tone by being welcoming and encouraging. The goal here is to build trust and reduce hesitation without overselling. Lines like “Welcome to Jolli. You bring the vibes; we’ll handle the rest” “Set up your profile. The faster we know your vibe, the better we can match your kind of fun” would fit.\n\n**Event discovery:** is the fun zone where the energy rises. The tone should fuel curiosity and excitement e.g. “Tap into what’s happening near you.”\n\n**Payment flow:** Here, we slow down and make things simple. The goal is to keep the users confident about their options. e.g. “Pay in parts. No hidden fees. No surprises,” “You’re covered. Pay in parts, enjoy in full.”\n\n**Error messages:** stay kind, empathetic, grounded, solution oriented. The goal is to turn inactivity into opportunity e.g. “Hold up! That didn’t load. Let’s fix it together.” “No plans yet. Let’s find something worth dressing up for.”\n\n**Notifications:** These stay brief, warm, engaging, non-intrusive. Still in the fun zone but they should be personal without being pushy e.g. “Spyro found his wife in the club, but you keep finding excuses. Yours might be at any of these karaoke nights happening this week. Open Jolli.” “Your Jolli plan starts tomorrow. Have you packed your bags… and your energy?”\n\n*(Note: The samples above aren’t the final copy. They’re only meant to capture the feeling and rhythm Jolli’s voice aims for across different touchpoints.)*'
+      },
+      { 
+        type: 'text-block',
+        heading: 'Inclusive Language & Writing Principles',
+        body: '**Inclusive Language:** Jolli speaks to one person, not a crowd. We avoid insider jokes or anything that depends on gender, class or culture. The focus should be connection more than cleverness in most cases.\n\n**Writing Principles:** To ensure every sentence is scannable and accessible, especially on mobile, we follow these guidelines:\n\n* Use sentence case.\n* Keep sentences under 25 words when possible.\n* Skip filler words like “just” or “click here.”\n* Choose verbs that move people (e.g. Book, Explore, Split, Share)\n* Avoid unnecessary punctuation. For instance, exclamation marks belong only in joy, never in guidance.'
+      },
+      { 
+        type: 'text-block',
+        heading: 'Information Architecture (IA) Approach',
+        body: 'The content for Jolli is built on two pillars: Clarity (achieved through writing principles) and Direction (achieved through structure). I treated the Information Architecture (IA) like a dialogue structure; every screen either asked, answered, or reassured the user.\n\nThe core categories are Discover, Plan, Book & Pay, Host & Earn and Account & Support and the structure follows a simple logic: group related actions, minimize cognitive load, make the next steps obvious. This makes it feel like a good conversation that knows when to pause and when to move forward.'
+      },
+      { type: 'presentation-slide', image: '/assets/mockup_mobile_vault.png', caption: 'Jolli’s Information Architecture organized around five core categories that group related actions, minimize cognitive load, and make next steps obvious.' },
+      { 
+        type: 'text-block',
+        heading: 'Next Steps',
+        body: 'With the content foundation in place, the next phase will focus on translating strategy into the actual experience. I’ll be collaborating with a UI designer to bring the interface to life and ensuring every label, tooltip, notification reflects the same warmth and clarity outlined here.\n\nThe design process will involve testing microcopy, refining information hierarchy to make navigation feel effortless and aligning voice consistency across marketing and in-product touchpoints.\n\nThe goal is to make Jolli usable and also make it feel like a companion in planning, one that keeps the excitement alive from the moment you discover an event or trip to the second you arrive.'
+      },
+      { 
+        type: 'text-block',
+        heading: 'Key Insights',
+        body: 'Working on Jolli is teaching me that content strategy is more than simply filling screens. It has a lot to do with shaping user behavior. And behavior needs proof. While the interface hasn’t been designed yet, I’ve already identified what success would look like: faster onboarding, fewer confused support queries, and users who actually choose installment payments because the copy made them feel safe.\n\nStarting from scratch without visuals made me approach UX writing like architecture: the words had to hold shape before the walls existed. Next, they’ll need to perform.\n\nThe process reminded me that structure and empathy are design tools too; just written ones.'
+      }
+    ]
+  },
+  
   ...ROLES.flatMap(role => {
     const items = [];
     
     // Fill remaining slots
     let startIndex = 1;
-    if (role.id === 'writer') startIndex = 2;
+    if (role.id === 'writer') startIndex = 3;
     if (role.id === 'designer') startIndex = 4;
     if (role.id === 'builder') startIndex = 2;
     
