@@ -202,7 +202,7 @@ export const CASE_STUDIES = [
     departmentId: 'writer',
     vaultImage: '/assets/jolli-hero.png',
     noGlow: true,
-    vaultLogo: <img src="/assets/jolli-vault-mockup.png" alt="Jolli App Mockup" style={{ height: '160px', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />,
+    vaultLogo: <img src="/assets/jolli-vault-mockup.png" alt="Jolli App Mockup" style={{ height: '240px', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />,
     category: 'CONTENT STRATEGY',
     title: 'How I Made an Events & Travel App Speak Before Users Even Tap',
     role: 'UX Writer & Content Designer',
