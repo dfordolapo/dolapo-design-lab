@@ -538,12 +538,16 @@
 
   .cylinder-content__text {
     width: 90%;
-    top: calc(50% - 180px); /* Top of glass */
+    margin-top: 90px;
   }
 
   .project-title {
     font-size: 1.8rem;
     margin-bottom: 10px;
+    max-width: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.1;
   }
   
   .project-desc {
