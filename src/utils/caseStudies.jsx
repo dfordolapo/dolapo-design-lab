@@ -81,12 +81,35 @@ export const CASE_STUDIES = [
     ]
   },
   
-  // Dummy case studies to fill the rest of the vaults
+  {
+    id: 'designer-2',
+    departmentId: 'designer',
+    vaultImage: '/assets/mockup_laptop_vault.png',
+    noGlow: true,
+    vaultLogo: <img src="/assets/awwja-logo.png" alt="Awwja" style={{ width: '120px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
+    category: 'E-COMMERCE CONCEPT',
+    title: 'Awwja',
+    role: 'Product Design, Branding',
+    duration: 'Ongoing',
+    platform: 'Web App',
+    goal: 'Design a vibrant, multi-vendor marketplace platform.',
+    content: [
+      { type: 'hero', image: '/assets/mockup_laptop_vault.png' },
+      { 
+        type: 'text-block',
+        heading: 'Project Overview',
+        body: 'Details for this case study will be added later.'
+      }
+    ]
+  },
+  
   ...ROLES.flatMap(role => {
     const items = [];
     
-    // Fill remaining slots for writer, and all slots for other roles
-    const startIndex = role.id === 'writer' ? 2 : 1;
+    // Fill remaining slots
+    let startIndex = 1;
+    if (role.id === 'writer') startIndex = 2;
+    if (role.id === 'designer') startIndex = 3;
     
     for (let i = startIndex; i <= 3; i++) {
       const isMobile = i % 2 === 0;
