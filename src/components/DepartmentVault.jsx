@@ -80,10 +80,9 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
         {/* LEFT SIDEBAR NAVIGATION */}
         <div className="vault-sidebar">
           <div className="vault-sidebar__header">
-            <h2 className="vault-logo">DOLAPO'S<br/>DESIGN LAB</h2>
             <p className="vault-welcome">Welcome to the</p>
             <h1 className="vault-dept-title">
-              {departmentId.replace('-', ' ')}<br/>Lab
+              {activeRole.name} Lab
             </h1>
             <p className="vault-dept-desc">
               {activeRole.vaultDescription}
