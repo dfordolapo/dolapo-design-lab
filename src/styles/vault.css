@@ -315,6 +315,16 @@
   position: relative;
 }
 
+.vault-logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 40px var(--theme-color));
+  animation: floatImage 6s ease-in-out infinite;
+  z-index: 5;
+  position: relative;
+}
+
 @keyframes floatImage {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-12px); }
