@@ -186,6 +186,25 @@ export default function CaseStudyViewer({ project, onClose }) {
               );
             }
 
+            if (block.type === 'embed') {
+              return (
+                <div key={index} className="case-study-block embed-block">
+                  {block.heading && <h2>{block.heading}</h2>}
+                  <div className="embed-container">
+                    <iframe 
+                      src={block.url} 
+                      width="100%" 
+                      height="600" 
+                      frameBorder="0" 
+                      allowFullScreen 
+                      allow="clipboard-write"
+                      title={block.heading || "Embedded content"}
+                    ></iframe>
+                  </div>
+                </div>
+              );
+            }
+
             return null;
           })}
           

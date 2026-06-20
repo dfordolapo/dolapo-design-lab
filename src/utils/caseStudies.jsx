@@ -92,6 +92,11 @@ export const CASE_STUDIES = [
       { 
         type: 'text-block',
         body: 'Details for this case study will be added later.'
+      },
+      {
+        type: 'embed',
+        heading: 'Behance Project',
+        url: 'https://www.behance.net/embed/project/YOUR_PROJECT_ID?tracking_source=project_share'
       }
     ]
   },
@@ -112,6 +117,25 @@ export const CASE_STUDIES = [
       { 
         type: 'text-block',
         body: 'Details for this case study will be added later.'
+      }
+    ]
+  },
+  
+  {
+    id: 'designer-4',
+    departmentId: 'designer',
+    vaultImage: '/assets/mockup_laptop_vault.png',
+    noGlow: true,
+    vaultLogo: <img src="/assets/Shiftsyncd%20black%20logo.png" alt="ShiftSyncd" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
+    category: 'PRODUCT DESIGN',
+    title: 'ShiftSyncd',
+    role: 'Product Design',
+    duration: 'Ongoing',
+    platform: 'Web / Mobile',
+    content: [
+      {
+        type: 'embed',
+        url: 'https://www.behance.net/embed/project/247843033?ilo0=1'
       }
     ]
   },
@@ -263,7 +287,7 @@ export const CASE_STUDIES = [
     // Fill remaining slots
     let startIndex = 1;
     if (role.id === 'writer') startIndex = 3;
-    if (role.id === 'designer') startIndex = 4;
+    if (role.id === 'designer') startIndex = 5;
     if (role.id === 'builder') startIndex = 2;
     
     for (let i = startIndex; i <= 3; i++) {

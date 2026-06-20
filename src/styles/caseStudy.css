@@ -239,6 +239,25 @@
   margin-bottom: 0;
 }
 
+/* EMBED BLOCK */
+.embed-block {
+  margin-bottom: var(--space-3xl);
+}
+
+.embed-container {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.embed-container iframe {
+  display: block;
+  width: 100%;
+  border: none;
+}
+
 /* SPLIT BLOCK */
 .split-block {
   display: grid;
