@@ -17,25 +17,9 @@ Welcome to **Dolapo's Design Lab** — a highly immersive, futuristic, and premi
 - **Styling:** Vanilla CSS with custom CSS variables, complex keyframe animations, and 3D CSS transforms
 - **Icons & Graphics:** Inline SVGs and custom CSS shapes
 
-## 🚀 Getting Started
+## 🌐 Live Site
 
-To run this project locally:
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/dfordolapo/dolapo-design-lab.git
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-   *The app will be running at `http://localhost:5173`.*
+[View the Live Experience Here](https://your-vercel-link-here.vercel.app)
 
 ## 📂 Project Structure
 
