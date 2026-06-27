@@ -1,6 +1,6 @@
 import useSoundEffects from '../hooks/useSoundEffects'
 
-export default function TopBar({ onBack, title = "DOLAPO'S DESIGN LAB" }) {
+export default function TopBar({ onBack, title = "DOLAPO'S DESIGN LAB", rightElement }) {
   const { playHover, playClick } = useSoundEffects()
 
   return (
@@ -16,6 +16,11 @@ export default function TopBar({ onBack, title = "DOLAPO'S DESIGN LAB" }) {
         </svg>
       </button>
       <span className="top-bar__title">{title}</span>
+      {rightElement && (
+        <div className="top-bar__right">
+          {rightElement}
+        </div>
+      )}
     </div>
   )
 }

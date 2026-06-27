@@ -6,6 +6,7 @@ import DepartmentSelect from './components/DepartmentSelect'
 import ElevatorScreen from './components/ElevatorScreen'
 import DepartmentVault from './components/DepartmentVault'
 import CaseStudyViewer from './components/CaseStudyViewer'
+import AboutCreator from './components/AboutCreator'
 import useCinematicEngine from './hooks/useCinematicEngine'
 import { CONFIG } from './utils/cinematicConfig'
 import { CASE_STUDIES } from './utils/caseStudies'
@@ -31,6 +32,7 @@ export default function App() {
   const [selectedDept, setSelectedDept] = useState(saved?.selectedDept || null)
   const [showDepartmentView, setShowDepartmentView] = useState(saved?.showDepartmentView || false)
   const [activeProject, setActiveProject] = useState(null)
+  const [showAboutCreator, setShowAboutCreator] = useState(false)
 
   const {
     phase,
@@ -130,6 +132,10 @@ export default function App() {
     setActiveProject({ ...project, _mountId: Date.now() })
   }
 
+  if (showAboutCreator) {
+    return <AboutCreator onBack={() => setShowAboutCreator(false)} />
+  }
+
   if (showDepartmentView) {
     return (
       <>
@@ -154,7 +160,7 @@ export default function App() {
   }
 
   if (showDeptSelect) {
-    return <DepartmentSelect onSelect={handleDepartmentSelect} onBack={handleBackToLobby} />
+    return <DepartmentSelect onSelect={handleDepartmentSelect} onBack={handleBackToLobby} onOpenAbout={() => setShowAboutCreator(true)} />
   }
 
   return (

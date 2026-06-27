@@ -3,7 +3,7 @@ import { ROLES } from '../utils/roles.jsx'
 import TopBar from './TopBar'
 import useSoundEffects from '../hooks/useSoundEffects'
 
-export default function DepartmentSelect({ onSelect, onBack }) {
+export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
   const [entered, setEntered] = useState(false)
   const [selected, setSelected] = useState(null)
   const { playHover, playClick } = useSoundEffects()
@@ -37,7 +37,16 @@ export default function DepartmentSelect({ onSelect, onBack }) {
         </div>
 
       <div className="dept-screen__content">
-        <h1 className="dept-screen__title">Choose a <span>Department</span></h1>
+        <div className="dept-header-container">
+          <h1 className="dept-screen__title">Choose a <span>Department</span></h1>
+          <button 
+            className="about-creator-btn" 
+            onClick={onOpenAbout}
+            onMouseEnter={playHover}
+          >
+            About Me
+          </button>
+        </div>
         
         <div className="dept-screen__cards">
           {ROLES.map((role) => (
