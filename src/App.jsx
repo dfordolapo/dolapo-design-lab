@@ -92,6 +92,7 @@ export default function App() {
   }, [])
 
   const handleDepartmentSelect = useCallback((deptId) => {
+    setActiveProject(null)
     setSelectedDept(deptId)
     setShowDeptSelect(false)
     setShowElevator(true)
@@ -114,6 +115,7 @@ export default function App() {
   }, [])
 
   const handleLeaveDepartment = () => {
+    setActiveProject(null)
     setTransitioning(true)
     setTimeout(() => {
       setShowDepartmentView(false)
@@ -124,7 +126,8 @@ export default function App() {
 
   const handleViewProject = (project) => {
     console.log("Opening case study viewer for:", project)
-    setActiveProject(project)
+    // Create a fresh reference so React always remounts, preventing close-animation ghost bugs
+    setActiveProject({ ...project, _mountId: Date.now() })
   }
 
   if (showDepartmentView) {
@@ -137,6 +140,7 @@ export default function App() {
         />
         {activeProject && (
           <CaseStudyViewer 
+            key={activeProject._mountId}
             project={activeProject} 
             onClose={() => setActiveProject(null)} 
           />

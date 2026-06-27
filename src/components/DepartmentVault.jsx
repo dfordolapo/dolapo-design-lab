@@ -133,7 +133,10 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
 
                   <button 
                     className="view-project-btn"
-                    onClick={handleViewProject}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleViewProject();
+                    }}
                     onMouseEnter={playHover}
                   >
                     VIEW PROJECT &rarr;

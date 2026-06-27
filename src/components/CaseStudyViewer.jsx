@@ -5,18 +5,22 @@ import BackButton from './BackButton';
 export default function CaseStudyViewer({ project, onClose }) {
   const [isVisible, setIsVisible] = useState(false);
   const viewerRef = useRef(null);
+  const closeTimeoutRef = useRef(null);
   const { playHover, playSelect } = useSoundEffects();
 
   useEffect(() => {
     // Small delay to trigger entrance animation
     const timer = setTimeout(() => setIsVisible(true), 50);
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    };
   }, []);
 
   const handleClose = () => {
     setIsVisible(false);
     playSelect();
-    setTimeout(onClose, 500); // Wait for exit animation
+    closeTimeoutRef.current = setTimeout(onClose, 500); // Wait for exit animation
   };
 
   if (!project) return null;
