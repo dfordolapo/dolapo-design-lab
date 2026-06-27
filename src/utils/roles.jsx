@@ -5,7 +5,7 @@ export const ROLES = [
     id: 'designer', 
     number: '01',
     name: 'Product Design', 
-    description: 'I figure out what should be built.',
+    description: 'I decide what should be built.',
     vaultDescription: "Pixels pushed to perfection.",
     accent: 'var(--purple-mid)', 
     hue: '270',

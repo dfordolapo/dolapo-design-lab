@@ -56,9 +56,10 @@ export default function AboutCreator({ onBack }) {
                 <div className="bio-section">
                   <span className="bio-section__title">So... who built the lab?</span>
                   <p className="bio-section__text">
-                    Every product starts as a thought.<br/>
-                    A messy idea. A "what if?" A problem waiting for someone to notice it.<br/>
-                    I'm Dolapo, a product designer who bridges strategy, UX writing, design, and code to create digital products that feel like experiences.<br/>
+                    Every product starts as a thought.<br/><br/>
+                    A messy idea. A "what if?" A problem waiting for someone to notice it.<br/><br/>
+                    That's where I come in.<br/><br/>
+                    I'm Dolapo, a product designer who likes turning confusing ideas into clear experiences. I design products, write their conversations, and convince pixels to behave on the screen until an idea starts looking like something real.<br/><br/>
                     I wanted my portfolio to feel like the things I enjoy creating, so I built a place where ideas get tested, improved, and brought to life.
                   </p>
                 </div>
