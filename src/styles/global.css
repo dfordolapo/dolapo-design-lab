@@ -2498,6 +2498,7 @@ p {
     align-items: flex-end;
     gap: 16px;
     margin-bottom: 2rem;
+    margin-top: 24px;
   }
 
   .dept-screen__title {
@@ -2507,15 +2508,17 @@ p {
   }
 
   .about-creator-btn {
-    order: 1;
+    position: fixed;
+    top: 60px;
+    right: 32px;
+    z-index: 1000;
     padding: 6px 12px;
     font-size: 0.65rem;
     letter-spacing: 0.05em;
-    background: rgba(255,255,255,0.05);
-    box-shadow: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    margin-top: -20px;
-    margin-right: 16px;
+    background: rgba(20, 16, 32, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
   }
 }
