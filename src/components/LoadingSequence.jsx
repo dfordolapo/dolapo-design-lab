@@ -27,7 +27,9 @@ export default function LoadingSequence({ onComplete }) {
 
   return (
     <div className={`loading-sequence${hidden ? ' hidden' : ''}`}>
-      <div className="loading-logo">Dolapo's Design Lab</div>
+      <div className="loading-logo">
+        <img src="/assets/logo.png" alt="Dolapo's Design Lab" className="loading-logo-img" />
+      </div>
       <div className="loading-bar">
         <div className="loading-bar__fill"></div>
       </div>

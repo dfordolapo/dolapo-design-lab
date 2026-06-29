@@ -15,7 +15,13 @@ export default function TopBar({ onBack, title = "DOLAPO'S DESIGN LAB", rightEle
           <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
       </button>
-      <span className="top-bar__title">{title}</span>
+      <span className="top-bar__title">
+        {title === "DOLAPO'S DESIGN LAB" ? (
+          <img src="/assets/logo.png" alt="Dolapo's Design Lab" className="top-bar__logo" />
+        ) : (
+          title
+        )}
+      </span>
       {rightElement && (
         <div className="top-bar__right">
           {rightElement}

@@ -20,6 +20,15 @@
   pointer-events: auto;
 }
 
+.welcome-logo {
+  width: 90vw;
+  max-width: 800px;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+}
+
 .lab-loading-top {
   font-family: var(--font-mono);
   font-size: 0.8rem;
@@ -136,6 +145,10 @@
 }
 
 @media (max-width: 768px) {
+  .welcome-logo {
+    width: 95vw;
+    max-width: none;
+  }
   .lab-loading-subtitle {
     font-size: 1rem;
     padding: 0 1rem;

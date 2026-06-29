@@ -59,7 +59,7 @@ export default function WelcomeScreen({ onComplete }) {
   return (
     <div className={`lab-loading-screen ${visible ? 'is-visible' : ''}`}>
       <div className="lab-loading-top">
-        DOLAPO'S DESIGN LAB
+        <img src="/assets/logo.png" alt="Dolapo's Design Lab" className="welcome-logo" />
       </div>
 
       <div className="lab-loading-center">
