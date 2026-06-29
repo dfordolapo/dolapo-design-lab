@@ -24,7 +24,7 @@ function loadSession() {
 
 export default function App() {
   const saved = loadSession()
-  const [showCinematic, setShowCinematic] = useState(false)
+  const [showCinematic, setShowCinematic] = useState(!saved)
   const [transitioning, setTransitioning] = useState(false)
   const [showWelcome, setShowWelcome] = useState(false)
   const [showDeptSelect, setShowDeptSelect] = useState(saved?.showDeptSelect || false)
@@ -40,7 +40,7 @@ export default function App() {
     setLoadingComplete,
     triggerTransition,
     resetTransition,
-  } = useCinematicEngine(!!saved)
+  } = useCinematicEngine(true)
 
   useEffect(() => {
     const state = {
@@ -167,9 +167,7 @@ export default function App() {
     <>
       {showWelcome && <WelcomeScreen onComplete={handleWelcomeComplete} />}
 
-      {!showCinematic && !showWelcome && !saved && (
-        <LoadingSequence onComplete={handleLoadingComplete} />
-      )}
+
 
       {showCinematic && (
         <CinematicContainer

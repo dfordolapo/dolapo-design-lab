@@ -234,9 +234,9 @@
 
 /* Tech Stack Carousel */
 .tech-stack-container {
-  margin-top: 20px;
+  margin-top: 12px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 20px;
+  padding-top: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -260,7 +260,7 @@
   flex-wrap: nowrap;
   gap: 32px;
   width: max-content;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 .tech-stack-track {
@@ -310,7 +310,7 @@
 /* Footer / Hook */
 .about-footer {
   text-align: center;
-  margin-top: 32px;
+  margin-top: 16px;
   font-size: 0.85rem;
   color: var(--text-secondary);
 }
@@ -318,7 +318,6 @@
 .about-footer strong {
   color: var(--text-primary);
   display: block;
-  margin-top: 8px;
   font-family: var(--font-heading);
   font-size: 0.95rem;
   letter-spacing: 0.05em;

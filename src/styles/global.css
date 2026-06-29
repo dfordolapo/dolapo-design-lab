@@ -126,7 +126,7 @@ p {
 }
 
 .scene-bg__entrance {
-  background-image: url('/lab-entrance.jpg');
+  background-image: url('/assets/hero-image.png');
   opacity: 1;
   z-index: 1;
   transform: scale(1);
@@ -134,11 +134,11 @@ p {
 
 .scene-bg__interior {
   position: absolute;
-  inset: -5%;
-  background-image: url('/lab-interior.jpg');
+  inset: 0;
+  background-image: url('/assets/hero-image.png');
   opacity: 0;
   z-index: 0;
-  transform: scale(1.05);
+  transform: scale(1);
 }
 
 .cinematic-container.phase-walking .scene-bg__entrance {
@@ -163,7 +163,7 @@ p {
 .cinematic-container.phase-inside .scene-bg__interior {
   opacity: 1;
   z-index: 2;
-  transform: scale(1.03);
+  transform: scale(1);
 }
 
 .cinematic-container.phase-idle .scene-bg__entrance {
