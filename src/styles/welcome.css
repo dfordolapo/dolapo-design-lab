@@ -24,6 +24,7 @@
 .welcome-logo {
   width: 90vw;
   max-width: 800px;
+  max-height: 35vh;
   height: auto;
   object-fit: contain;
   opacity: 0.9;
