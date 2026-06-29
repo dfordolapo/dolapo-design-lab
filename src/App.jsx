@@ -24,7 +24,8 @@ function loadSession() {
 
 export default function App() {
   const saved = loadSession()
-  const [showCinematic, setShowCinematic] = useState(!saved)
+  const hasActiveScreen = saved?.showDeptSelect || saved?.showElevator || saved?.showDepartmentView
+  const [showCinematic, setShowCinematic] = useState(!hasActiveScreen)
   const [transitioning, setTransitioning] = useState(false)
   const [showWelcome, setShowWelcome] = useState(false)
   const [showDeptSelect, setShowDeptSelect] = useState(saved?.showDeptSelect || false)
