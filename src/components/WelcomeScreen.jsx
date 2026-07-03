@@ -58,25 +58,26 @@ export default function WelcomeScreen({ onComplete }) {
 
   return (
     <div className={`lab-loading-screen ${visible ? 'is-visible' : ''}`}>
-      <div className="lab-loading-top">
-        <img src="/assets/logo.png" alt="Dolapo's Design Lab" className="welcome-logo" />
-      </div>
+      <div className="lab-loading-main">
+        <div className="lab-loading-top">
+          <img src="/assets/logo.png" alt="Dolapo's Design Lab" className="welcome-logo" />
+        </div>
 
-      <div className="lab-loading-center">
-        <h2 className="lab-loading-subtitle">Setting up tools. Preparing ideas. Building experiences.</h2>
-        
-        <div className="lab-loading-reel-container">
-          <div className="lab-loading-reel">
-            {[...Array(4)].map((_, groupIdx) => (
-              <div key={groupIdx} className="lab-loading-reel-track" aria-hidden={groupIdx > 0}>
-                {displayTools.map((tool, idx) => (
-                  <div key={`${groupIdx}-${idx}`} className="lab-tool-card">
-                    <div className="lab-tool-icon">{tool.icon}</div>
-                    <span className="lab-tool-text">{tool.name}</span>
-                  </div>
-                ))}
-              </div>
-            ))}
+        <div className="lab-loading-center">
+          
+          <div className="lab-loading-reel-container">
+            <div className="lab-loading-reel">
+              {[...Array(4)].map((_, groupIdx) => (
+                <div key={groupIdx} className="lab-loading-reel-track" aria-hidden={groupIdx > 0}>
+                  {displayTools.map((tool, idx) => (
+                    <div key={`${groupIdx}-${idx}`} className="lab-tool-card">
+                      <div className="lab-tool-icon">{tool.icon}</div>
+                      <span className="lab-tool-text">{tool.name}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
