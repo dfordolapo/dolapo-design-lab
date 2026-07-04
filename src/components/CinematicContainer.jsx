@@ -44,6 +44,19 @@ export default function CinematicContainer({ phase, onEnterLab, transitioning })
     }
   }, [phase, playDoors])
 
+  useEffect(() => {
+    const handleDeviceOrientation = (e) => {
+      if (!e.beta || !e.gamma) return
+      // normalize beta and gamma to 0-1
+      const x = Math.min(Math.max((e.gamma + 45) / 90, 0), 1)
+      const y = Math.min(Math.max((e.beta - 45 + 45) / 90, 0), 1)
+      mouseX.set(x)
+      mouseY.set(y)
+    }
+    window.addEventListener('deviceorientation', handleDeviceOrientation)
+    return () => window.removeEventListener('deviceorientation', handleDeviceOrientation)
+  }, [mouseX, mouseY])
+
   return (
     <>
       <div 
@@ -53,6 +66,12 @@ export default function CinematicContainer({ phase, onEnterLab, transitioning })
         onMouseMove={(e) => {
           mouseX.set(e.clientX / window.innerWidth)
           mouseY.set(e.clientY / window.innerHeight)
+        }}
+        onTouchMove={(e) => {
+          if (e.touches.length > 0) {
+            mouseX.set(e.touches[0].clientX / window.innerWidth)
+            mouseY.set(e.touches[0].clientY / window.innerHeight)
+          }
         }}
       >
         <motion.div 
