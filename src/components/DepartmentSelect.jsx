@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { ROLES } from '../utils/roles.jsx'
 import TopBar from './TopBar'
@@ -32,16 +32,13 @@ export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
       mouseY.set(e.clientY / window.innerHeight)
     }
     
-    const handleDeviceOrientation = (e) => {
+    const applyOrientation = (e) => {
       if (!e.beta || !e.gamma) return
-      // beta is front-to-back tilt in [-180, 180], gamma is left-to-right in [-90, 90]
-      // normalize roughly to [0, 1] for motion values
       const x = Math.min(Math.max((e.gamma + 45) / 90, 0), 1)
       const y = Math.min(Math.max((e.beta - 45 + 45) / 90, 0), 1)
       mouseX.set(x)
       mouseY.set(y)
 
-      // Apply tilt to all cards globally for touch devices
       const rotateY = (x - 0.5) * TILT_MAX_DEG * 3
       const rotateX = (0.5 - y) * TILT_MAX_DEG * 3
       const container = document.querySelector('.dept-screen__cards')
@@ -55,11 +52,22 @@ export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
       }
     }
 
+    // iOS 13+ requires explicit permission
+    const orient = typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function'
+    if (orient) {
+      DeviceOrientationEvent.requestPermission().then(state => {
+        if (state === 'granted') {
+          window.addEventListener('deviceorientation', applyOrientation)
+        }
+      })
+    } else {
+      window.addEventListener('deviceorientation', applyOrientation)
+    }
+
     window.addEventListener('mousemove', handleGlobalMouseMove)
-    window.addEventListener('deviceorientation', handleDeviceOrientation)
     return () => {
       window.removeEventListener('mousemove', handleGlobalMouseMove)
-      window.removeEventListener('deviceorientation', handleDeviceOrientation)
+      window.removeEventListener('deviceorientation', applyOrientation)
     }
   }, [mouseX, mouseY])
 

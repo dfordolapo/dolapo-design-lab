@@ -47,13 +47,21 @@ export default function CinematicContainer({ phase, onEnterLab, transitioning })
   useEffect(() => {
     const handleDeviceOrientation = (e) => {
       if (!e.beta || !e.gamma) return
-      // normalize beta and gamma to 0-1
       const x = Math.min(Math.max((e.gamma + 45) / 90, 0), 1)
       const y = Math.min(Math.max((e.beta - 45 + 45) / 90, 0), 1)
       mouseX.set(x)
       mouseY.set(y)
     }
-    window.addEventListener('deviceorientation', handleDeviceOrientation)
+    const orient = typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function'
+    if (orient) {
+      DeviceOrientationEvent.requestPermission().then(state => {
+        if (state === 'granted') {
+          window.addEventListener('deviceorientation', handleDeviceOrientation)
+        }
+      })
+    } else {
+      window.addEventListener('deviceorientation', handleDeviceOrientation)
+    }
     return () => window.removeEventListener('deviceorientation', handleDeviceOrientation)
   }, [mouseX, mouseY])
 
