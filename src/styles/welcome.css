@@ -97,7 +97,7 @@
 }
 
 .lab-tool-card {
-  background: rgba(18, 14, 30, 0.4);
+  background: var(--bg-card);
   border: 1px solid rgba(139, 92, 246, 0.5); /* Glowing border instead of generic glass */
   padding: 1.2rem 2.4rem;
   border-radius: var(--radius-xl);
@@ -142,7 +142,7 @@
 .lab-loading-bar-bg {
   width: 100%;
   height: 2px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--glass-border);
   border-radius: 2px;
   overflow: hidden;
 }

@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react'
 import { ROLES } from '../utils/roles.jsx'
 import TopBar from './TopBar'
 import useSoundEffects from '../hooks/useSoundEffects'
+import useTheme from '../hooks/useTheme'
 
 export default function ElevatorScreen({ selectedDeptId, onComplete, onAbort }) {
   const [currentFloor, setCurrentFloor] = useState('00')
   const [arrived, setArrived] = useState(false)
   const { startHum, stopHum, playDing } = useSoundEffects()
+  const { theme } = useTheme()
   
   const targetRole = ROLES.find(r => r.id === selectedDeptId) || ROLES[0]
 
@@ -77,7 +79,7 @@ export default function ElevatorScreen({ selectedDeptId, onComplete, onAbort }) 
         <div className="elevator-shaft">
             <div className="elevator-glass">
                 <img 
-                    src="/assets/elevator_bg.png" 
+                    src={theme === 'light' ? "/assets/elevator_bg_light.png" : "/assets/elevator_bg.png"} 
                     className="elevator-bg" 
                     alt="Lab Atrium" 
                     style={{ transform: `translateY(${ -30 + parseInt(currentFloor, 10) * 10 }%)` }}

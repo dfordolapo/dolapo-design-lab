@@ -1,7 +1,10 @@
 import useSoundEffects from '../hooks/useSoundEffects'
+import ThemeToggle from './ThemeToggle'
+import useTheme from '../hooks/useTheme'
 
 export default function TopBar({ onBack, title = "DOLAPO'S DESIGN LAB", rightElement }) {
   const { playHover, playClick } = useSoundEffects()
+  const { theme } = useTheme()
 
   return (
     <div className="top-bar">
@@ -17,16 +20,15 @@ export default function TopBar({ onBack, title = "DOLAPO'S DESIGN LAB", rightEle
       </button>
       <span className="top-bar__title">
         {title === "DOLAPO'S DESIGN LAB" ? (
-          <img src="/assets/logo.png" alt="Dolapo's Design Lab" className="top-bar__logo" />
+          <img src={theme === 'light' ? "/assets/logo-light.png" : "/assets/logo-dark.png"} alt="Dolapo's Design Lab" className="top-bar__logo" />
         ) : (
           title
         )}
       </span>
-      {rightElement && (
-        <div className="top-bar__right">
-          {rightElement}
-        </div>
-      )}
+      <div className="top-bar__right" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+        {rightElement}
+        <ThemeToggle />
+      </div>
     </div>
   )
 }

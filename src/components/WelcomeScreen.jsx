@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import useTheme from '../hooks/useTheme'
 import '../styles/welcome.css'
 
 const TOOLS = [
@@ -16,6 +17,7 @@ const TOOLS = [
 export default function WelcomeScreen({ onComplete }) {
   const [visible, setVisible] = useState(false);
   const [progress, setProgress] = useState(0);
+  const { theme } = useTheme();
 
   const displayTools = window.innerWidth <= 768 
     ? [TOOLS[0], TOOLS[3], TOOLS[1], TOOLS[2], ...TOOLS.slice(4)] 
@@ -60,7 +62,7 @@ export default function WelcomeScreen({ onComplete }) {
     <div className={`lab-loading-screen ${visible ? 'is-visible' : ''}`}>
       <div className="lab-loading-main">
         <div className="lab-loading-top">
-          <img src="/assets/logo.png" alt="Dolapo's Design Lab" className="welcome-logo" />
+          <img src={theme === 'light' ? "/assets/logo-light.png" : "/assets/logo-dark.png"} alt="Dolapo's Design Lab" className="welcome-logo" />
         </div>
 
         <div className="lab-loading-center">

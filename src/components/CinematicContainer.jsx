@@ -14,6 +14,7 @@ import ParticleCanvas from './ParticleCanvas'
 import TransitionOverlay from './TransitionOverlay'
 import useParallax from '../hooks/useParallax'
 import useSoundEffects from '../hooks/useSoundEffects'
+import ThemeToggle from './ThemeToggle'
 
 export default function CinematicContainer({ phase, onEnterLab, transitioning }) {
   const containerRef = useRef(null)
@@ -49,6 +50,8 @@ export default function CinematicContainer({ phase, onEnterLab, transitioning })
 
         <DiscoveryCue />
         <PhaseIndicator phase={phase} />
+        
+        <ThemeToggle className="theme-toggle-fixed" />
       </div>
       <TransitionOverlay active={transitioning} />
     </>
