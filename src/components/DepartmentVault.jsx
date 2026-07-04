@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
 import TopBar from './TopBar'
 import useSoundEffects from '../hooks/useSoundEffects'
+import ScrambleText from './ScrambleText'
 import { CASE_STUDIES } from '../utils/caseStudies.jsx'
 import { ROLES } from '../utils/roles.jsx'
 
@@ -15,6 +17,7 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
   const [activeProjectIdx, setActiveProjectIdx] = useState(0)
   const [touchStart, setTouchStart] = useState(null)
   const [touchEnd, setTouchEnd] = useState(null)
+  const carouselRef = useRef(null)
 
   const projects = CASE_STUDIES.filter(cs => cs.departmentId === departmentId)
   const displayProjects = projects.length > 0 ? projects : CASE_STUDIES
@@ -76,17 +79,33 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
+        <svg style={{ display: 'none' }}>
+          <defs>
+            <filter id="glitch-shader">
+              <feTurbulence type="fractalNoise" baseFrequency="0.05 0.95" numOctaves="1" result="noise" />
+              <feColorMatrix type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" in="noise" result="coloredNoise" />
+              <feDisplacementMap in="SourceGraphic" in2="coloredNoise" scale="20" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+          </defs>
+        </svg>
 
         {/* LEFT SIDEBAR NAVIGATION */}
         <div className="vault-sidebar">
           <div className="vault-sidebar__header">
             <p className="vault-welcome">Welcome to the</p>
-            <h1 className="vault-dept-title">
-              {activeRole.name} Lab
-            </h1>
-            <p className="vault-dept-desc">
-              {activeRole.vaultDescription}
-            </p>
+            <ScrambleText 
+              as="h1" 
+              className="vault-dept-title" 
+              text={`${activeRole.name} Lab`} 
+              duration={0.8}
+            />
+            <ScrambleText 
+              as="p" 
+              className="vault-dept-desc" 
+              text={activeRole.vaultDescription} 
+              duration={1.2}
+              delay={0.2}
+            />
           </div>
 
           <div className="vault-sidebar__index">
@@ -148,7 +167,7 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
         </div>
 
         {/* BOTTOM CAROUSEL */}
-        <div className="vault-carousel">
+        <div className="vault-carousel" ref={carouselRef}>
           <div className="carousel-label">VIEW ALL PROJECTS &rarr;</div>
           <div className="carousel-track">
             {displayProjects.map((proj, idx) => (
@@ -158,7 +177,7 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
                 onClick={() => handleSelectProject(idx)}
                 onMouseEnter={playHover}
               >
-                <img src={proj.vaultImage} alt={proj.shortTitle || proj.title} />
+                <img src={proj.vaultImage} alt={proj.shortTitle || proj.title} draggable={false} />
                 <div className="carousel-item__overlay">
                   <span>{proj.shortTitle || proj.title}</span>
                 </div>

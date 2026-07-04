@@ -227,8 +227,10 @@
   width: min(50vh, 40vw);
   height: calc(min(65vh, 50vw) - 10px);
   border-radius: 50% / 10%;
-  box-shadow: 0 0 120px rgba(139, 92, 246, 0.15);
+  box-shadow: 0 0 120px var(--theme-color, #8b5cf6);
+  opacity: 0.15;
   z-index: 0;
+  transition: box-shadow 0.5s ease;
 }
 
 .cylinder-content {
@@ -474,7 +476,11 @@
   height: 100%;
   object-fit: cover;
   opacity: 0.5;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, filter 0.1s ease;
+}
+
+.carousel-item:not(.active):hover img {
+  filter: url(#glitch-shader);
 }
 
 .carousel-item__overlay {
@@ -526,6 +532,7 @@
 .carousel-item.active .carousel-item__overlay {
   opacity: 1;
 }
+
 
 /* =========================================
    MOBILE RESPONSIVENESS

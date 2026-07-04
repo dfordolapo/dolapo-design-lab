@@ -20,6 +20,24 @@ export default function useParticleSystem(canvasRef) {
     resize()
     window.addEventListener('resize', resize)
 
+    let mouseX = -1000
+    let mouseY = -1000
+
+    const handleMouseMove = (e) => {
+      mouseX = e.clientX
+      mouseY = e.clientY
+    }
+    const handleTouchMove = (e) => {
+      if (e.touches.length > 0) {
+        mouseX = e.touches[0].clientX
+        mouseY = e.touches[0].clientY
+      }
+    }
+    
+    window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('touchmove', handleTouchMove)
+    window.addEventListener('touchstart', handleTouchMove)
+
     const particles = []
     for (let i = 0; i < CONFIG.particleCount; i++) {
       particles.push({
@@ -41,14 +59,28 @@ export default function useParticleSystem(canvasRef) {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       particles.forEach(p => {
+        // Calculate distance to mouse
+        const dx = mouseX - p.x
+        const dy = mouseY - p.y
+        const distance = Math.sqrt(dx * dx + dy * dy)
+        
+        // Repulsive force
+        const maxDistance = 150
+        if (distance < maxDistance) {
+          const force = (maxDistance - distance) / maxDistance
+          p.x -= (dx / distance) * force * 3
+          p.y -= (dy / distance) * force * 3
+        }
+
         p.x += p.speedX
         p.y += p.speedY
         p.pulse += p.pulseSpeed
 
-        if (p.x < 0) p.x = canvas.width
-        if (p.x > canvas.width) p.x = 0
-        if (p.y < 0) p.y = canvas.height
-        if (p.y > canvas.height) p.y = 0
+        // Soft wrapping with boundary margin so they don't pop abruptly
+        if (p.x < -50) p.x = canvas.width + 50
+        if (p.x > canvas.width + 50) p.x = -50
+        if (p.y < -50) p.y = canvas.height + 50
+        if (p.y > canvas.height + 50) p.y = -50
 
         const currentOpacity = p.opacity * (0.5 + 0.5 * Math.sin(p.pulse))
 
@@ -76,6 +108,9 @@ export default function useParticleSystem(canvasRef) {
       active = false
       if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current)
       window.removeEventListener('resize', resize)
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('touchmove', handleTouchMove)
+      window.removeEventListener('touchstart', handleTouchMove)
     }
   }, [canvasRef])
 }

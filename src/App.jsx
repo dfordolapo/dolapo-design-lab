@@ -10,6 +10,8 @@ import AboutCreator from './components/AboutCreator'
 import useCinematicEngine from './hooks/useCinematicEngine'
 import { CONFIG } from './utils/cinematicConfig'
 import { CASE_STUDIES } from './utils/caseStudies'
+import { motion, AnimatePresence } from 'framer-motion'
+import SmoothScroll from './components/SmoothScroll'
 
 const SESSION_KEY = 'portfolio-session'
 
@@ -133,52 +135,74 @@ export default function App() {
     setActiveProject({ ...project, _mountId: Date.now() })
   }
 
-  if (showAboutCreator) {
-    return <AboutCreator onBack={() => setShowAboutCreator(false)} />
-  }
+  const renderScreen = () => {
+    if (showAboutCreator) {
+      return (
+        <motion.div key="about" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }} className="screen-wrapper">
+          <AboutCreator onBack={() => setShowAboutCreator(false)} />
+        </motion.div>
+      )
+    }
 
-  if (showDepartmentView) {
+    if (showDepartmentView) {
+      return (
+        <motion.div key="vault" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }} className="screen-wrapper">
+          <DepartmentVault 
+            departmentId={selectedDept} 
+            onBack={handleLeaveDepartment} 
+            onViewProject={handleViewProject} 
+          />
+          {activeProject && (
+            <CaseStudyViewer 
+              key={activeProject._mountId}
+              project={activeProject} 
+              onClose={() => setActiveProject(null)} 
+            />
+          )}
+        </motion.div>
+      )
+    }
+
+    if (showElevator) {
+      return (
+        <motion.div key="elevator" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 1.05 }} transition={{ duration: 0.5 }} className="screen-wrapper">
+          <ElevatorScreen selectedDeptId={selectedDept} onComplete={handleElevatorComplete} onAbort={handleAbortElevator} />
+        </motion.div>
+      )
+    }
+
+    if (showDeptSelect) {
+      return (
+        <motion.div key="deptSelect" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.5 }} className="screen-wrapper">
+          <DepartmentSelect onSelect={handleDepartmentSelect} onBack={handleBackToLobby} onOpenAbout={() => setShowAboutCreator(true)} />
+        </motion.div>
+      )
+    }
+
     return (
-      <>
-        <DepartmentVault 
-          departmentId={selectedDept} 
-          onBack={handleLeaveDepartment} 
-          onViewProject={handleViewProject} 
-        />
-        {activeProject && (
-          <CaseStudyViewer 
-            key={activeProject._mountId}
-            project={activeProject} 
-            onClose={() => setActiveProject(null)} 
+      <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="screen-wrapper">
+        {showWelcome && <WelcomeScreen onComplete={handleWelcomeComplete} />}
+        {showCinematic && (
+          <CinematicContainer
+            phase={phase}
+            onEnterLab={handleEnterLab}
+            transitioning={transitioning}
           />
         )}
-      </>
+      </motion.div>
     )
   }
 
-  if (showElevator) {
-    return <ElevatorScreen selectedDeptId={selectedDept} onComplete={handleElevatorComplete} onAbort={handleAbortElevator} />
-  }
-
-  if (showDeptSelect) {
-    return <DepartmentSelect onSelect={handleDepartmentSelect} onBack={handleBackToLobby} onOpenAbout={() => setShowAboutCreator(true)} />
-  }
-
   return (
-    <>
-      {showWelcome && <WelcomeScreen onComplete={handleWelcomeComplete} />}
+    <SmoothScroll>
+      {!loadingComplete && <LoadingSequence onComplete={handleLoadingComplete} />}
 
-
-
-      {showCinematic && (
-        <CinematicContainer
-          phase={phase}
-          onEnterLab={handleEnterLab}
-          transitioning={transitioning}
-        />
-      )}
+      <AnimatePresence mode="wait">
+        {renderScreen()}
+      </AnimatePresence>
 
       {transitioning && <div className="transition-overlay active" />}
-    </>
+    </SmoothScroll>
   )
 }
+

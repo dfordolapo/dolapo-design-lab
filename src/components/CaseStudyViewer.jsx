@@ -1,12 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion, useScroll } from 'framer-motion';
 import useSoundEffects from '../hooks/useSoundEffects';
 import BackButton from './BackButton';
+import ParallaxImage from './ParallaxImage';
+import VelocityMarquee from './VelocityMarquee';
 
 export default function CaseStudyViewer({ project, onClose }) {
   const [isVisible, setIsVisible] = useState(false);
   const viewerRef = useRef(null);
+  const contentRef = useRef(null);
   const closeTimeoutRef = useRef(null);
   const { playHover, playSelect } = useSoundEffects();
+  
+  const { scrollYProgress } = useScroll({
+    container: viewerRef
+  });
 
   useEffect(() => {
     // Small delay to trigger entrance animation
@@ -39,7 +47,28 @@ export default function CaseStudyViewer({ project, onClose }) {
         </header>
 
         {/* Scrollable Content */}
-        <div className="case-study-content">
+        <div className="case-study-content" ref={contentRef}>
+          
+          {/* SVG Scroll Tracer */}
+          <svg className="scroll-tracer" viewBox="0 0 50 1000" preserveAspectRatio="none">
+            <motion.path 
+              d="M25,0 L25,1000" 
+              stroke="var(--theme-color, #8b5cf6)" 
+              strokeWidth="2" 
+              fill="none" 
+              style={{ pathLength: scrollYProgress }} 
+            />
+            <motion.circle 
+              cx="25" 
+              cy="0" 
+              r="4" 
+              fill="var(--theme-color, #8b5cf6)" 
+              style={{
+                transformOrigin: "center",
+                translateY: "calc(1000% * var(--progress))"
+              }}
+            />
+          </svg>
           
           <div className="case-study-hero-title">
             <h1>{project.title}</h1>
@@ -49,20 +78,18 @@ export default function CaseStudyViewer({ project, onClose }) {
           {/* Map through dynamic content blocks */}
           {project.content.map((block, index) => {
             
+            let blockContent = null;
+
             if (block.type === 'hero') {
-              return (
-                <div key={index} className="case-study-block hero-image-block">
+              blockContent = (
+                <div className="case-study-block hero-image-block">
                   <div className="image-placeholder-glass">
                     {/* Placeholder div until user provides actual image */}
                     {block.image ? (
-                      <img 
+                      <ParallaxImage 
                         src={block.image} 
                         alt={project.title} 
                         className="hero-img" 
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                          e.target.nextSibling.style.display = 'block';
-                        }}
                       />
                     ) : null}
                     <div className="placeholder-text" style={{ display: block.image ? 'none' : 'block' }}>
@@ -71,11 +98,9 @@ export default function CaseStudyViewer({ project, onClose }) {
                   </div>
                 </div>
               );
-            }
-
-            if (block.type === 'overview') {
-              return (
-                <div key={index} className="case-study-block overview-block">
+            } else if (block.type === 'overview') {
+              blockContent = (
+                <div className="case-study-block overview-block">
                   <p className="overview-text">{block.text}</p>
                   <div className="overview-meta">
                     <div className="meta-item">
@@ -93,9 +118,7 @@ export default function CaseStudyViewer({ project, onClose }) {
                   </div>
                 </div>
               );
-            }
-
-            if (block.type === 'text-block') {
+            } else if (block.type === 'text-block') {
               const renderText = (text) => {
                 if (!text) return null;
                 return text.split('\n\n').map((paragraph, i) => {
@@ -106,17 +129,15 @@ export default function CaseStudyViewer({ project, onClose }) {
                 });
               };
               
-              return (
-                <div key={index} className="case-study-block text-block">
+              blockContent = (
+                <div className="case-study-block text-block">
                   <h2>{block.heading}</h2>
                   {renderText(block.body)}
                 </div>
               );
-            }
-
-            if (block.type === 'features-list') {
-              return (
-                <div key={index} className="case-study-block features-block">
+            } else if (block.type === 'features-list') {
+              blockContent = (
+                <div className="case-study-block features-block">
                   <h2>{block.heading}</h2>
                   <div className="features-grid">
                     {block.features.map((feat, i) => (
@@ -128,9 +149,7 @@ export default function CaseStudyViewer({ project, onClose }) {
                   </div>
                 </div>
               );
-            }
-
-            if (block.type === 'split-block') {
+            } else if (block.type === 'split-block') {
               const renderText = (text) => {
                 if (!text) return null;
                 return text.split('\n\n').map((paragraph, i) => {
@@ -141,21 +160,17 @@ export default function CaseStudyViewer({ project, onClose }) {
                 });
               };
               
-              return (
-                <div key={index} className="case-study-block split-block">
+              blockContent = (
+                <div className="case-study-block split-block">
                   <div className="split-text">
                     <h2>{block.heading}</h2>
                     {renderText(block.body)}
                   </div>
                   <div className="split-image image-placeholder-glass">
                     {block.image ? (
-                      <img 
+                      <ParallaxImage 
                         src={block.image} 
                         alt={block.heading} 
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                          e.target.nextSibling.style.display = 'block';
-                        }}
                       />
                     ) : null}
                     <div className="placeholder-text" style={{ display: block.image ? 'none' : 'block' }}>
@@ -164,21 +179,15 @@ export default function CaseStudyViewer({ project, onClose }) {
                   </div>
                 </div>
               );
-            }
-
-            if (block.type === 'presentation-slide') {
-              return (
-                <div key={index} className="case-study-block presentation-slide-block">
+            } else if (block.type === 'presentation-slide') {
+              blockContent = (
+                <div className="case-study-block presentation-slide-block">
                   <div className="presentation-image-wrapper">
                     {block.image ? (
-                      <img 
+                      <ParallaxImage 
                         src={block.image} 
                         alt="Presentation Slide" 
                         className="presentation-img"
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                          e.target.nextSibling.style.display = 'block';
-                        }}
                       />
                     ) : null}
                     <div className="placeholder-text" style={{ display: block.image ? 'none' : 'block' }}>
@@ -188,11 +197,9 @@ export default function CaseStudyViewer({ project, onClose }) {
                   {block.caption && <p className="presentation-caption">{block.caption}</p>}
                 </div>
               );
-            }
-
-            if (block.type === 'embed') {
-              return (
-                <div key={index} className="case-study-block embed-block">
+            } else if (block.type === 'embed') {
+              blockContent = (
+                <div className="case-study-block embed-block">
                   {block.heading && <h2>{block.heading}</h2>}
                   <div className="embed-container">
                     <iframe 
@@ -209,9 +216,27 @@ export default function CaseStudyViewer({ project, onClose }) {
               );
             }
 
-            return null;
+            if (!blockContent) return null;
+
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50, scale: 0.98 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {blockContent}
+              </motion.div>
+            );
           })}
           
+          <VelocityMarquee baseVelocity={1} className="case-study-marquee">
+            <span style={{ fontSize: '3rem', fontFamily: 'var(--font-heading)', color: 'var(--text-primary)', opacity: 0.1, textTransform: 'uppercase' }}>
+              {project.title} &bull; CASE STUDY &bull; {project.role} &bull;
+            </span>
+          </VelocityMarquee>
+
           <div className="case-study-footer">
             <div className="end-marker"></div>
             <p>END OF REPORT</p>

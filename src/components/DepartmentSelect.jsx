@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { ROLES } from '../utils/roles.jsx'
 import TopBar from './TopBar'
 import useSoundEffects from '../hooks/useSoundEffects'
@@ -14,6 +15,52 @@ export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
     const t = setTimeout(() => setEntered(true), 100)
     return () => clearTimeout(t)
   }, [])
+
+  const mouseX = useMotionValue(0.5)
+  const mouseY = useMotionValue(0.5)
+  const springX = useSpring(mouseX, { stiffness: 100, damping: 30 })
+  const springY = useSpring(mouseY, { stiffness: 100, damping: 30 })
+  const glowX = useTransform(springX, [0, 1], ['-10%', '10%'])
+  const glowY = useTransform(springY, [0, 1], ['-10%', '10%'])
+  const gridX = useTransform(springX, [0, 1], ['-1%', '1%'])
+  const gridY = useTransform(springY, [0, 1], ['-1%', '1%'])
+
+  useEffect(() => {
+    const handleGlobalMouseMove = (e) => {
+      mouseX.set(e.clientX / window.innerWidth)
+      mouseY.set(e.clientY / window.innerHeight)
+    }
+    
+    const handleDeviceOrientation = (e) => {
+      if (!e.beta || !e.gamma) return
+      // beta is front-to-back tilt in [-180, 180], gamma is left-to-right in [-90, 90]
+      // normalize roughly to [0, 1] for motion values
+      const x = Math.min(Math.max((e.gamma + 45) / 90, 0), 1)
+      const y = Math.min(Math.max((e.beta - 45 + 45) / 90, 0), 1)
+      mouseX.set(x)
+      mouseY.set(y)
+
+      // Apply tilt to all cards globally for touch devices
+      const rotateY = (x - 0.5) * TILT_MAX_DEG * 3
+      const rotateX = (0.5 - y) * TILT_MAX_DEG * 3
+      const container = document.querySelector('.dept-screen__cards')
+      if (container) {
+        Array.from(container.children).forEach(card => {
+          card.style.setProperty('--tilt-x', `${rotateX}deg`)
+          card.style.setProperty('--tilt-y', `${rotateY}deg`)
+          card.style.setProperty('--spot-x', `${x * 100}%`)
+          card.style.setProperty('--spot-y', `${y * 100}%`)
+        })
+      }
+    }
+
+    window.addEventListener('mousemove', handleGlobalMouseMove)
+    window.addEventListener('deviceorientation', handleDeviceOrientation)
+    return () => {
+      window.removeEventListener('mousemove', handleGlobalMouseMove)
+      window.removeEventListener('deviceorientation', handleDeviceOrientation)
+    }
+  }, [mouseX, mouseY])
 
   // Only enable pointer-tracking tilt for precise pointers (mouse/trackpad),
   // and skip it entirely if the person prefers reduced motion.
@@ -57,8 +104,8 @@ export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
       <TopBar onBack={onBack} />
       <div className={`dept-screen${entered ? ' dept-screen--entered' : ''}`}>
         <div className="dept-screen__bg">
-          <div className="dept-screen__grid"></div>
-          <div className="dept-screen__glow dept-screen__glow--1"></div>
+          <motion.div className="dept-screen__grid" style={{ x: gridX, y: gridY }}></motion.div>
+          <motion.div className="dept-screen__glow dept-screen__glow--1" style={{ x: glowX, y: glowY }}></motion.div>
           <div className="dept-screen__glow dept-screen__glow--2"></div>
           <div className="dept-screen__glow dept-screen__glow--3"></div>
           <div className="dept-screen__scanline"></div>
