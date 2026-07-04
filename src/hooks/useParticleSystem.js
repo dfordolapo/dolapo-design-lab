@@ -33,10 +33,15 @@ export default function useParticleSystem(canvasRef) {
         mouseY = e.touches[0].clientY
       }
     }
+    const handleTouchEnd = () => {
+      mouseX = -1000
+      mouseY = -1000
+    }
     
     window.addEventListener('mousemove', handleMouseMove)
-    window.addEventListener('touchmove', handleTouchMove)
-    window.addEventListener('touchstart', handleTouchMove)
+    window.addEventListener('touchmove', handleTouchMove, { passive: true })
+    window.addEventListener('touchstart', handleTouchMove, { passive: true })
+    window.addEventListener('touchend', handleTouchEnd)
 
     const particles = []
     for (let i = 0; i < CONFIG.particleCount; i++) {
@@ -111,6 +116,7 @@ export default function useParticleSystem(canvasRef) {
       window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('touchmove', handleTouchMove)
       window.removeEventListener('touchstart', handleTouchMove)
+      window.removeEventListener('touchend', handleTouchEnd)
     }
   }, [canvasRef])
 }

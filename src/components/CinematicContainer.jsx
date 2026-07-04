@@ -73,6 +73,10 @@ export default function CinematicContainer({ phase, onEnterLab, transitioning })
             mouseY.set(e.touches[0].clientY / window.innerHeight)
           }
         }}
+        onTouchEnd={() => {
+          mouseX.set(0.5)
+          mouseY.set(0.5)
+        }}
       >
         <motion.div 
           className="scene-bg"
