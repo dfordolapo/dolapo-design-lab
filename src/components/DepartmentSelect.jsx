@@ -3,6 +3,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { ROLES } from '../utils/roles.jsx'
 import TopBar from './TopBar'
 import useSoundEffects from '../hooks/useSoundEffects'
+import ScrollReveal from './ScrollReveal'
 
 const TILT_MAX_DEG = 8
 
@@ -113,17 +114,21 @@ export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
 
       <div className="dept-screen__content">
         <div className="dept-header-container">
-          <h1 className="dept-screen__title">Choose a <span>Department</span></h1>
-          <button 
-            className="about-creator-btn" 
-            onClick={onOpenAbout}
-            onMouseEnter={playHover}
-          >
-            About Me
-          </button>
+          <ScrollReveal variant="fadeUp">
+            <h1 className="dept-screen__title">Choose a <span>Department</span></h1>
+          </ScrollReveal>
+          <ScrollReveal variant="fadeIn" delay={0.2}>
+            <button 
+              className="about-creator-btn" 
+              onClick={onOpenAbout}
+              onMouseEnter={playHover}
+            >
+              About Me
+            </button>
+          </ScrollReveal>
         </div>
         
-        <div className="dept-screen__cards">
+        <ScrollReveal variant="fadeUp" delay={0.3} className="dept-screen__cards">
           {ROLES.map((role) => (
             <button
               key={role.id}
@@ -174,7 +179,7 @@ export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
               </div>
             </button>
           ))}
-        </div>
+        </ScrollReveal>
       </div>
     </div>
     </div>

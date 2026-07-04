@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import useSoundEffects from '../hooks/useSoundEffects';
 import BackButton from './BackButton';
-import ParallaxImage from './ParallaxImage';
 import VelocityMarquee from './VelocityMarquee';
 
 export default function CaseStudyViewer({ project, onClose }) {
@@ -86,10 +85,14 @@ export default function CaseStudyViewer({ project, onClose }) {
                   <div className="image-placeholder-glass">
                     {/* Placeholder div until user provides actual image */}
                     {block.image ? (
-                      <ParallaxImage 
+                      <img 
                         src={block.image} 
                         alt={project.title} 
                         className="hero-img" 
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'block';
+                        }}
                       />
                     ) : null}
                     <div className="placeholder-text" style={{ display: block.image ? 'none' : 'block' }}>
@@ -168,9 +171,13 @@ export default function CaseStudyViewer({ project, onClose }) {
                   </div>
                   <div className="split-image image-placeholder-glass">
                     {block.image ? (
-                      <ParallaxImage 
+                      <img 
                         src={block.image} 
                         alt={block.heading} 
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'block';
+                        }}
                       />
                     ) : null}
                     <div className="placeholder-text" style={{ display: block.image ? 'none' : 'block' }}>
@@ -184,10 +191,14 @@ export default function CaseStudyViewer({ project, onClose }) {
                 <div className="case-study-block presentation-slide-block">
                   <div className="presentation-image-wrapper">
                     {block.image ? (
-                      <ParallaxImage 
+                      <img 
                         src={block.image} 
                         alt="Presentation Slide" 
                         className="presentation-img"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'block';
+                        }}
                       />
                     ) : null}
                     <div className="placeholder-text" style={{ display: block.image ? 'none' : 'block' }}>
