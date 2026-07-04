@@ -114,18 +114,14 @@ export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
 
       <div className="dept-screen__content">
         <div className="dept-header-container">
-          <ScrollReveal variant="fadeUp">
-            <h1 className="dept-screen__title">Choose a <span>Department</span></h1>
-          </ScrollReveal>
-          <ScrollReveal variant="fadeIn" delay={0.2}>
-            <button 
-              className="about-creator-btn" 
-              onClick={onOpenAbout}
-              onMouseEnter={playHover}
-            >
-              About Me
-            </button>
-          </ScrollReveal>
+          <h1 className="dept-screen__title">Choose a <span>Department</span></h1>
+          <button 
+            className="about-creator-btn" 
+            onClick={onOpenAbout}
+            onMouseEnter={playHover}
+          >
+            About Me
+          </button>
         </div>
         
         <ScrollReveal variant="fadeUp" delay={0.3} className="dept-screen__cards">
