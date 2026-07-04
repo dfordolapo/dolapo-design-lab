@@ -1,22 +1,46 @@
 import useSoundEffects from '../hooks/useSoundEffects'
 
+const MAGNETIC_STRENGTH = 0.35
+const MAGNETIC_MAX = 14
+
 export default function CTAButton({ onClick }) {
   const { playHover, playClick } = useSoundEffects()
+
+  const magneticEnabled = typeof window !== 'undefined'
+    && window.matchMedia?.('(hover: hover) and (pointer: fine)').matches
+    && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
 
   const handleClick = (e) => {
     playClick()
     if (onClick) onClick(e)
   }
 
+  const handleMouseMove = (e) => {
+    if (!magneticEnabled) return
+    const btn = e.currentTarget
+    const rect = btn.getBoundingClientRect()
+    const offsetX = e.clientX - (rect.left + rect.width / 2)
+    const offsetY = e.clientY - (rect.top + rect.height / 2)
+    const x = Math.max(-MAGNETIC_MAX, Math.min(MAGNETIC_MAX, offsetX * MAGNETIC_STRENGTH))
+    const y = Math.max(-MAGNETIC_MAX, Math.min(MAGNETIC_MAX, offsetY * MAGNETIC_STRENGTH))
+    btn.style.transform = `translate(${x}px, ${y - 2}px)`
+  }
+
+  const handleMouseLeave = (e) => {
+    e.currentTarget.style.transform = ''
+  }
+
   return (
     <div className="cta-container" id="cta-container">
       <button 
-        className="cta-button" 
+        className="cta-button cta-button--magnetic" 
         id="enter-lab-btn" 
         type="button" 
         aria-label="Enter Dolapo's Design Lab" 
         onClick={handleClick}
         onMouseEnter={playHover}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
       >
         <div className="cta-button__glow"></div>
         <span className="cta-button__text">Enter The Lab</span>

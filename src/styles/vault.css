@@ -93,7 +93,7 @@
   cursor: pointer;
   padding: 10px 12px;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: transform 0.35s var(--ease-spring), color 0.3s ease, background 0.3s ease;
   position: relative;
 }
 
@@ -114,6 +114,15 @@
 .vault-index-item:hover {
   color: var(--text-primary);
   background: var(--bg-glass-hover);
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vault-index-item:hover,
+  .view-project-btn:hover,
+  .view-project-btn:active {
+    transform: none;
+  }
 }
 
 .vault-index-item.active {
@@ -354,6 +363,18 @@
   gap: 4px;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
   min-width: 80px;
+  transition: transform 0.4s var(--ease-spring), border-color 0.3s ease;
+}
+
+.metric-badge:hover {
+  transform: translateY(-4px) scale(1.04);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .metric-badge:hover {
+    transform: none;
+  }
 }
 
 .metric-label {
@@ -384,7 +405,7 @@
   letter-spacing: 0.15em;
   cursor: pointer;
   backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  transition: transform 0.4s var(--ease-spring), background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   z-index: 20;
 }
 
@@ -392,7 +413,11 @@
   background: rgba(255, 255, 255, 0.12);
   border-color: #fff;
   box-shadow: 0 0 20px rgba(255,255,255,0.15);
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.view-project-btn:active {
+  transform: translateY(-1px) scale(0.98);
 }
 
 /* CAROUSEL */
@@ -437,7 +462,11 @@
   position: relative;
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s ease;
+  transition: transform 0.4s var(--ease-spring), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-item:hover {
+  transform: translateY(-6px) scale(1.06);
 }
 
 .carousel-item img {
@@ -474,6 +503,23 @@
 .carousel-item.active {
   border-color: var(--theme-color, #8b5cf6);
   box-shadow: 0 0 15px rgba(139, 92, 246, 0.25);
+  animation: carouselActivePulse 1.8s ease-in-out infinite;
+}
+
+@keyframes carouselActivePulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(139, 92, 246, 0.25); }
+  50% { box-shadow: 0 0 25px rgba(139, 92, 246, 0.45); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-item,
+  .carousel-item.active {
+    animation: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .carousel-item:hover {
+    transform: none;
+  }
 }
 
 .carousel-item:hover .carousel-item__overlay,

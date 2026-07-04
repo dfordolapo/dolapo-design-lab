@@ -3,6 +3,8 @@ import { ROLES } from '../utils/roles.jsx'
 import TopBar from './TopBar'
 import useSoundEffects from '../hooks/useSoundEffects'
 
+const TILT_MAX_DEG = 8
+
 export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
   const [entered, setEntered] = useState(false)
   const [selected, setSelected] = useState(null)
@@ -12,6 +14,32 @@ export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
     const t = setTimeout(() => setEntered(true), 100)
     return () => clearTimeout(t)
   }, [])
+
+  // Only enable pointer-tracking tilt for precise pointers (mouse/trackpad),
+  // and skip it entirely if the person prefers reduced motion.
+  const tiltEnabled = typeof window !== 'undefined'
+    && window.matchMedia?.('(hover: hover) and (pointer: fine)').matches
+    && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+
+  const handleCardMouseMove = (e) => {
+    if (!tiltEnabled) return
+    const card = e.currentTarget
+    const rect = card.getBoundingClientRect()
+    const px = (e.clientX - rect.left) / rect.width
+    const py = (e.clientY - rect.top) / rect.height
+    const rotateY = (px - 0.5) * TILT_MAX_DEG * 2
+    const rotateX = (0.5 - py) * TILT_MAX_DEG * 2
+    card.style.setProperty('--tilt-x', `${rotateX}deg`)
+    card.style.setProperty('--tilt-y', `${rotateY}deg`)
+    card.style.setProperty('--spot-x', `${px * 100}%`)
+    card.style.setProperty('--spot-y', `${py * 100}%`)
+  }
+
+  const handleCardMouseLeave = (e) => {
+    const card = e.currentTarget
+    card.style.setProperty('--tilt-x', '0deg')
+    card.style.setProperty('--tilt-y', '0deg')
+  }
 
   const handleSelect = (roleId) => {
     playClick()
@@ -56,6 +84,8 @@ export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
               style={{ '--card-accent': role.accent, '--card-hue': role.hue }}
               onClick={() => handleSelect(role.id)}
               onMouseEnter={playHover}
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
             >
               <div className="dept-card__header">
                 <h2 className="dept-card__name">{role.name}</h2>

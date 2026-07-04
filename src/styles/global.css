@@ -87,8 +87,19 @@
   transition: transform 0.5s var(--ease-spring);
 }
 
+.theme-toggle:hover svg {
+  transform: rotate(25deg) scale(1.1);
+}
+
 .theme-toggle:active svg {
   transform: scale(0.9) rotate(15deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle:hover svg,
+  .theme-toggle:active svg {
+    transform: none;
+  }
 }
 
 .theme-toggle-fixed {
@@ -135,6 +146,27 @@
   [data-theme="light"] .ambient-overlay__gradient-left {
     background: linear-gradient(180deg, rgba(240, 240, 243, 0.9) 0%, rgba(240, 240, 243, 0.6) 40%, rgba(240, 240, 243, 0.2) 70%, transparent 100%);
   }
+}
+
+/* The vault and case-study viewer are deliberately dark, cinematic surfaces —
+   they don't follow the light/dark toggle. Previously their text colors DID
+   follow the toggle, which meant light mode flipped the text to dark navy and
+   made it unreadable against the still-dark background. Pinning these
+   variables back to the dark-mode values inside these containers fixes that,
+   and also stops the vault sidebar from turning stark white next to a still-
+   black stage. */
+[data-theme="light"] .vault-dashboard,
+[data-theme="light"] .case-study-viewer {
+  --bg-card: rgba(18, 14, 30, 0.65);
+  --bg-glass: rgba(255, 255, 255, 0.04);
+  --bg-glass-hover: rgba(255, 255, 255, 0.08);
+  --text-primary: #F8F7FF;
+  --text-secondary: rgba(248, 247, 255, 0.65);
+  --text-muted: rgba(248, 247, 255, 0.4);
+  --text-accent: #C4B5FD;
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(255, 255, 255, 0.15);
+  --vault-sidebar-bg: rgba(18, 14, 30, 0.65);
 }
 
 
@@ -617,7 +649,20 @@ p {
 .cta-button:hover {
   border-color: rgba(232, 121, 249, 0.6);
   box-shadow: 0 0 30px rgba(232, 121, 249, 0.3), 0 0 60px rgba(244, 114, 182, 0.15);
-  transform: translateY(-2px);
+}
+
+.cta-button--magnetic {
+  transition: transform 0.15s ease-out, border-color 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
+}
+
+.cta-button--magnetic:not(:hover) {
+  transition: transform 0.4s var(--ease-spring, ease-out), border-color 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
+}
+
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+  .cta-button:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .cta-button__text {
@@ -1469,22 +1514,55 @@ p {
   border-radius: var(--radius-xl);
   padding: 24px;
   cursor: pointer;
-  transition: all 0.5s var(--ease-out-expo);
+  transition: transform 0.5s var(--ease-out-expo), border-color 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo), opacity 0.5s var(--ease-out-expo);
   opacity: 0;
   transform: translateY(30px);
   position: relative;
   overflow: visible;
   text-align: left;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --spot-x: 50%;
+  --spot-y: 50%;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  isolation: isolate;
 }
 
 .dept-screen--entered .dept-card:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
 .dept-screen--entered .dept-card:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
 .dept-screen--entered .dept-card:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.5s; }
 
+.dept-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--spot-x) var(--spot-y), color-mix(in srgb, var(--card-accent) 22%, transparent) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.dept-card:hover::after {
+  opacity: 1;
+}
+
 .dept-card:hover {
   border-color: color-mix(in srgb, var(--card-accent) 40%, rgba(255,255,255,0.1));
   box-shadow: 0 10px 40px color-mix(in srgb, var(--card-accent) 15%, transparent);
-  transform: translateY(-8px);
+  transform: translateY(-8px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transition: transform 0.15s linear, border-color 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
+}
+
+@media (prefers-reduced-motion: reduce), (hover: none) {
+  .dept-card:hover {
+    transform: translateY(-8px);
+  }
+  .dept-card::after {
+    display: none;
+  }
 }
 
 .dept-card--selected {
@@ -1584,7 +1662,6 @@ p {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, 50%);
   width: 44px;
   height: 44px;
   background: rgba(20, 16, 32, 0.9);
@@ -1597,6 +1674,19 @@ p {
   font-size: 1.1rem;
   z-index: 3;
   box-shadow: 0 0 15px color-mix(in srgb, var(--card-accent) 30%, transparent);
+  animation: iconIdleFloat 3.2s ease-in-out infinite;
+}
+
+@keyframes iconIdleFloat {
+  0%, 100% { transform: translate(-50%, 50%); }
+  50% { transform: translate(-50%, calc(50% - 6px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dept-card__floating-icon {
+    animation: none;
+    transform: translate(-50%, 50%);
+  }
 }
 
 .badge {
@@ -2038,6 +2128,18 @@ p {
   color: var(--theme-color);
   text-shadow: 0 0 25px var(--theme-color);
   letter-spacing: -0.05em;
+  animation: floorNumberFlicker 2.4s ease-in-out infinite;
+}
+
+@keyframes floorNumberFlicker {
+  0%, 100% { text-shadow: 0 0 25px var(--theme-color); }
+  50% { text-shadow: 0 0 40px var(--theme-color), 0 0 10px var(--theme-color); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floor-number {
+    animation: none;
+  }
 }
 
 .elevator-led-text {
@@ -2158,8 +2260,9 @@ p {
 .destination-card--active {
   background: var(--bg-glass-hover);
   border-color: var(--text-accent);
-  transform: translateX(-10px);
+  transform: translateX(-10px) scale(1.02);
   box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
+  transition: all 0.5s var(--ease-spring);
 }
 
 .destination-card--active::before {
@@ -2348,11 +2451,30 @@ p {
   border-color: rgba(255, 255, 255, 0.8);
   color: #fff;
   box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), inset 0 2px 5px rgba(255,255,255,0.2);
+  animation: elevatorBtnPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes elevatorBtnPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), inset 0 2px 5px rgba(255,255,255,0.2); }
+  50% { box-shadow: 0 0 32px rgba(139, 92, 246, 0.55), inset 0 2px 5px rgba(255,255,255,0.2); }
 }
 
 .elevator-btn-row--active .elevator-dot {
   background: var(--purple-mid);
   box-shadow: 0 0 10px var(--purple-mid);
+  animation: elevatorDotPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes elevatorDotPulse {
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(1.6); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .elevator-btn-row--active .elevator-btn,
+  .elevator-btn-row--active .elevator-dot {
+    animation: none;
+  }
 }
 
 .elevator-btn-row--target .elevator-dot {
@@ -2457,16 +2579,22 @@ p {
 .nav-back-button svg {
   width: 20px;
   height: 20px;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s var(--ease-spring);
+}
+
+.nav-back-button--icon-only:hover svg {
+  transform: translateX(-4px) rotate(-12deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-back-button--icon-only:hover svg {
+    transform: none;
+  }
 }
 
 .nav-back-button--icon-only {
   padding: 14px;
   border-radius: 50%;
-}
-
-.nav-back-button:hover svg {
-  transform: translateX(-4px);
 }
 
 @media (max-width: 768px) {
