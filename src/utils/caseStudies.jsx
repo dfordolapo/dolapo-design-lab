@@ -156,12 +156,7 @@ export const CASE_STUDIES = [
     role: 'Product Design',
     duration: 'Ongoing',
     platform: 'Web / Mobile',
-    content: [
-      {
-        type: 'embed',
-        url: 'https://www.behance.net/embed/project/247843033?ilo0=1'
-      }
-    ]
+    content: []
   },
   
   {
