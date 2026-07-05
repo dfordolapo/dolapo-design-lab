@@ -161,7 +161,8 @@ export default function CaseStudyViewer({ project, onClose }) {
                 return text.split('\n\n').map((paragraph, i) => {
                   const htmlString = paragraph
                     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                    .replace(/\*(.*?)\*/g, '<em>$1</em>');
+                    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                    .replace(/\n/g, '<br />');
                   return <p key={i} dangerouslySetInnerHTML={{ __html: htmlString }} />;
                 });
               };

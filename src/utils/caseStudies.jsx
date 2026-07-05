@@ -63,49 +63,6 @@ export const CASE_STUDIES = [
   },
   
   {
-    id: 'designer-1',
-    departmentId: 'designer',
-    vaultImage: '/assets/mockup_mobile_vault.webp',
-    logoOnlyPreview: true,
-    themeColor: '#312bb5',
-    noGlow: true,
-    vaultLogo: (
-      <svg className="saferide-logo" width="240" height="270" viewBox="0 0 24 30" fill="none" stroke="#000" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#000" fill="none"></path>
-        <path d="M14 10 L10 10 L9 13 L7 13 L7 15 L17 15 L17 13 L15 13 Z" stroke="#000" strokeWidth="1" fill="none"></path>
-        <circle cx="9.5" cy="15.5" r="1" stroke="#000" fill="#000"></circle>
-        <circle cx="14.5" cy="15.5" r="1" stroke="#000" fill="#000"></circle>
-        <path d="M9 13 L15 13" stroke="#000" strokeWidth="0.5"></path>
-        <text x="12" y="28" textAnchor="middle" fontSize="2.5" fontWeight="bold" fill="#000" stroke="none" style={{ fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>SAFERIDE MODE</text>
-      </svg>
-    ),
-    thumbnailLogo: (
-      <svg className="saferide-logo" width="100%" height="auto" viewBox="0 2 24 22" fill="none" stroke="#FFF" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#FFF" fill="none"></path>
-        <path d="M14 10 L10 10 L9 13 L7 13 L7 15 L17 15 L17 13 L15 13 Z" stroke="#FFF" strokeWidth="1" fill="none"></path>
-        <circle cx="9.5" cy="15.5" r="1" stroke="#FFF" fill="#FFF"></circle>
-        <circle cx="14.5" cy="15.5" r="1" stroke="#FFF" fill="#FFF"></circle>
-        <path d="M9 13 L15 13" stroke="#FFF" strokeWidth="0.5"></path>
-      </svg>
-    ),
-    category: 'UX EXPLORATION',
-    title: 'SafeRide Mode™',
-    role: 'Product Design, UX Research',
-    duration: 'Exploration',
-    platform: 'Mobile App',
-    content: [
-      { type: 'presentation-slide', image: '/assets/image-1.webp' },
-      { type: 'presentation-slide', image: '/assets/image-2.webp' },
-      { type: 'presentation-slide', image: '/assets/image-3.webp' },
-      { type: 'presentation-slide', image: '/assets/image-4.webp' },
-      { type: 'presentation-slide', image: '/assets/image-5.webp' },
-      { type: 'presentation-slide', image: '/assets/image-6.webp' },
-      { type: 'presentation-slide', image: '/assets/image-7.webp' },
-      { type: 'presentation-slide', image: '/assets/image-8.webp' }
-    ]
-  },
-  
-  {
     id: 'designer-2',
     departmentId: 'designer',
     themeColor: '#52311E',
@@ -301,6 +258,49 @@ export const CASE_STUDIES = [
         body: 'Thank you for reading!',
         align: 'center'
       }
+    ]
+  },
+  
+  {
+    id: 'designer-1',
+    departmentId: 'designer',
+    vaultImage: '/assets/mockup_mobile_vault.webp',
+    logoOnlyPreview: true,
+    themeColor: '#312bb5',
+    noGlow: true,
+    vaultLogo: (
+      <svg className="saferide-logo" width="240" height="270" viewBox="0 0 24 30" fill="none" stroke="#000" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#000" fill="none"></path>
+        <path d="M14 10 L10 10 L9 13 L7 13 L7 15 L17 15 L17 13 L15 13 Z" stroke="#000" strokeWidth="1" fill="none"></path>
+        <circle cx="9.5" cy="15.5" r="1" stroke="#000" fill="#000"></circle>
+        <circle cx="14.5" cy="15.5" r="1" stroke="#000" fill="#000"></circle>
+        <path d="M9 13 L15 13" stroke="#000" strokeWidth="0.5"></path>
+        <text x="12" y="28" textAnchor="middle" fontSize="2.5" fontWeight="bold" fill="#000" stroke="none" style={{ fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>SAFERIDE MODE</text>
+      </svg>
+    ),
+    thumbnailLogo: (
+      <svg className="saferide-logo" width="100%" height="auto" viewBox="0 2 24 22" fill="none" stroke="#FFF" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#FFF" fill="none"></path>
+        <path d="M14 10 L10 10 L9 13 L7 13 L7 15 L17 15 L17 13 L15 13 Z" stroke="#FFF" strokeWidth="1" fill="none"></path>
+        <circle cx="9.5" cy="15.5" r="1" stroke="#FFF" fill="#FFF"></circle>
+        <circle cx="14.5" cy="15.5" r="1" stroke="#FFF" fill="#FFF"></circle>
+        <path d="M9 13 L15 13" stroke="#FFF" strokeWidth="0.5"></path>
+      </svg>
+    ),
+    category: 'UX EXPLORATION',
+    title: 'SafeRide Mode™',
+    role: 'Product Design, UX Research',
+    duration: 'Exploration',
+    platform: 'Mobile App',
+    content: [
+      { type: 'presentation-slide', image: '/assets/image-1.webp' },
+      { type: 'presentation-slide', image: '/assets/image-2.webp' },
+      { type: 'presentation-slide', image: '/assets/image-3.webp' },
+      { type: 'presentation-slide', image: '/assets/image-4.webp' },
+      { type: 'presentation-slide', image: '/assets/image-5.webp' },
+      { type: 'presentation-slide', image: '/assets/image-6.webp' },
+      { type: 'presentation-slide', image: '/assets/image-7.webp' },
+      { type: 'presentation-slide', image: '/assets/image-8.webp' }
     ]
   },
   
