@@ -3158,3 +3158,14 @@ p {
   flex-grow: 1;
   text-align: center;
 }
+
+@media (max-width: 768px) {
+  .cta-button, .book-secondary-cta {
+    width: 240px !important;
+    height: 46px !important;
+    padding: 0 1rem !important;
+  }
+  .cta-button__text, .book-secondary-cta__text {
+    font-size: 0.7rem !important;
+  }
+}
