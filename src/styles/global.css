@@ -2866,11 +2866,7 @@ p {
   }
 }
 
-.case-study-hero-title p {
-  color: var(--text-secondary);
-  font-size: 1.2rem;
-  max-width: 600px;
-}
+
 
 /* Scroll Tracer SVG */
 .scroll-tracer {

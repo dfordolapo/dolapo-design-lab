@@ -6,18 +6,27 @@ export const CASE_STUDIES = [
   {
     id: 'writer-1',
     departmentId: 'writer',
-    vaultImage: '/assets/mockup_mobile_vault.png',
-    vaultLogo: <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>,
+    vaultImage: '/assets/scan2supper-hero.png',
+    noMockupBg: true,
+    noGlow: true,
+    vaultLogo: <img src="/assets/scan2supper-vault-cover.png" alt="Scan2Supper Mockup" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))', maxWidth: '300px' }} />,
     category: 'CONCEPT MOBILE APP',
     title: 'Scan2Supper',
     role: 'UX/UI Design, Illustration',
     duration: '4 weeks',
     platform: 'iOS Concept',
     content: [
-      { type: 'hero', image: '/assets/mockup_mobile_vault.png' },
+      { type: 'hero', image: '/assets/scan2supper-hero.png' },
       { 
         type: 'overview',
         text: 'Scan2Supper is a concept mobile app that helps people decide what to cook using ingredients they already have, flipping the typical recipe experience.'
+      },
+      {
+        type: 'side-by-side-images',
+        images: [
+          { src: '/assets/scan2supper-before.jpg', caption: 'Before (Old Onboarding)' },
+          { src: '/assets/scan2supper-after.png', caption: 'After (Redesigned Onboarding)' }
+        ]
       },
       {
         type: 'text-block',
@@ -31,14 +40,24 @@ export const CASE_STUDIES = [
           { title: 'Step-by-Step Cooking Mode', desc: 'Hands-free navigation through recipe steps, perfect for messy hands.' }
         ]
       },
+      { type: 'presentation-slide', image: '/assets/s2s-scanning.png' },
+      { type: 'presentation-slide', image: '/assets/s2s-pantry.png' },
+      { type: 'presentation-slide', image: '/assets/s2s-recipe-generation.png' },
+      { type: 'presentation-slide', image: '/assets/s2s-cooking-mode.png' },
       {
         type: 'split-block',
         body: 'What started as a personal solution became a robust system. I had to design recovery paths for blurry scans, allow manual entries, and restructure the navigation from 3 tabs to 5 (adding dedicated Search and Scan actions) to reduce friction.',
-        image: '/assets/mockup_laptop_vault.png' // placeholder
+        image: '/assets/s2s-error-states.png'
+      },
+      {
+        type: 'split-block',
+        body: 'I learned to protect the MVP. While I initially wanted grocery integrations and expiry tracking, focusing solely on the "Scan-to-Supper" loop kept the value proposition clear. Additionally, introducing a friendly mascot turned system feedback into moments of delight.',
+        image: '/assets/s2s-mascot.png'
       },
       {
         type: 'text-block',
-        body: 'I learned to protect the MVP. While I initially wanted grocery integrations and expiry tracking, focusing solely on the "Scan-to-Supper" loop kept the value proposition clear. Additionally, introducing a friendly mascot turned system feedback into moments of delight.'
+        body: 'Thank you for reading!',
+        align: 'center'
       }
     ]
   },
@@ -80,6 +99,7 @@ export const CASE_STUDIES = [
     id: 'designer-2',
     departmentId: 'designer',
     themeColor: '#52311E',
+    backgroundColor: '#52311E',
     vaultImage: '/assets/awwja-hero.png',
     noGlow: true,
     vaultLogo: <img src="/assets/awwja-logo.png" alt="Awwja" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
@@ -155,7 +175,8 @@ export const CASE_STUDIES = [
   {
     id: 'writer-4',
     departmentId: 'writer',
-    vaultImage: '/assets/mockup_laptop_vault.png',
+    vaultImage: '',
+    textOnlyPreview: true,
     themeColor: '#881337',
     noGlow: true,
     vaultLogo: (
@@ -176,7 +197,7 @@ export const CASE_STUDIES = [
     role: 'UX Writer',
     duration: 'Audit & Redesign',
     platform: 'Email Communications',
-    goal: 'Redesigned confusing vendor emails for a Guinness World Record event.',
+    goal: <>Redesigned confusing vendor emails for a <br className="mobile-break" />Guinness World Record event.</>,
     content: [
       { type: 'hero', image: '/assets/gino-before-after.webp' },
       { 
@@ -271,38 +292,5 @@ export const CASE_STUDIES = [
         body: 'Working on Jolli taught me that content strategy was more than simply filling screens. It had a lot to do with shaping user behavior. And behavior needed proof. While the interface hadn’t been designed yet, I had already identified what success would look like: faster onboarding, fewer confused support queries, and users who actually chose installment payments because the copy made them feel safe.\n\nStarting from scratch without visuals made me approach UX writing like architecture: the words had to hold shape before the walls existed. Next, they needed to perform.\n\nThe process reminded me that structure and empathy were design tools too; just written ones.'
       }
     ]
-  },
-  
-  ...ROLES.flatMap(role => {
-    const items = [];
-    
-    // Fill remaining slots
-    let startIndex = 1;
-    if (role.id === 'writer') startIndex = 3;
-    if (role.id === 'designer') startIndex = 5;
-    if (role.id === 'builder') startIndex = 2;
-    
-    for (let i = startIndex; i <= 3; i++) {
-      const isMobile = i % 2 === 0;
-      items.push({
-        id: `${role.id}-${i}`,
-        departmentId: role.id,
-        vaultImage: isMobile ? "/assets/mockup_mobile_vault.png" : "/assets/mockup_laptop_vault.png",
-        vaultLogo: isMobile 
-          ? <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-          : <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>,
-        category: isMobile ? "MOBILE APP" : "WEB PLATFORM",
-        title: `${role.name} Project ${i}`,
-        role: role.name,
-        duration: '12 weeks',
-        platform: isMobile ? 'iOS / Android' : 'Web',
-        content: [
-          { type: "hero", image: isMobile ? "/assets/mockup_mobile_vault.png" : "/assets/mockup_laptop_vault.png" },
-          { type: "text-block", body: "Mock problem statement for " + role.name }
-        ]
-      });
-    }
-    
-    return items;
-  })
+  }
 ];

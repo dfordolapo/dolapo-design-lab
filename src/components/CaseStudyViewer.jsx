@@ -41,7 +41,7 @@ export default function CaseStudyViewer({ project, onClose }) {
       <div 
         className="case-study-viewer__container" 
         ref={viewerRef}
-        style={project.themeColor ? { backgroundColor: project.themeColor } : undefined}
+        style={project.backgroundColor ? { backgroundColor: project.backgroundColor } : undefined}
       >
         
         {/* Header Navigation */}
@@ -156,8 +156,8 @@ export default function CaseStudyViewer({ project, onClose }) {
               };
               
               blockContent = (
-                <div className="case-study-block text-block">
-                  <h2>{block.heading}</h2>
+                <div className="case-study-block text-block" style={{ textAlign: block.align || 'left' }}>
+                  {block.heading && <h2>{block.heading}</h2>}
                   {renderText(block.body)}
                 </div>
               );
@@ -192,11 +192,12 @@ export default function CaseStudyViewer({ project, onClose }) {
                     <h2>{block.heading}</h2>
                     {renderText(block.body)}
                   </div>
-                  <div className="split-image image-placeholder-glass">
+                  <div className={`split-image ${!block.image ? 'image-placeholder-glass' : ''}`}>
                     {block.image ? (
                       <img 
                         src={block.image} 
                         alt={block.heading} 
+                        style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 'var(--radius-lg)' }}
                         onError={(e) => {
                           e.target.style.display = 'none';
                           e.target.nextSibling.style.display = 'block';
@@ -204,7 +205,7 @@ export default function CaseStudyViewer({ project, onClose }) {
                       />
                     ) : null}
                     <div className="placeholder-text" style={{ display: block.image ? 'none' : 'block' }}>
-                      Add {block.image.split('/').pop()} to public/assets
+                      Add {block.image?.split('/').pop()} to public/assets
                     </div>
                   </div>
                 </div>
@@ -229,6 +230,23 @@ export default function CaseStudyViewer({ project, onClose }) {
                     </div>
                   </div>
                   {block.caption && <p className="presentation-caption">{block.caption}</p>}
+                </div>
+              );
+            } else if (block.type === 'side-by-side-images') {
+              blockContent = (
+                <div className="case-study-block side-by-side-images" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-lg)', marginBottom: 'var(--space-2xl)' }}>
+                  {block.images?.map((img, i) => (
+                    <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                      {img.src ? (
+                        <img src={img.src} alt={img.caption || 'Case study image'} style={{ width: '100%', height: 'auto', borderRadius: 'var(--radius-md)', border: '1px solid var(--glass-border)' }} />
+                      ) : (
+                        <div className="image-placeholder-glass" style={{ width: '100%', aspectRatio: '1/2' }}>
+                          <span className="placeholder-text">Missing image</span>
+                        </div>
+                      )}
+                      {img.caption && <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', textAlign: 'center', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>{img.caption}</span>}
+                    </div>
+                  ))}
                 </div>
               );
             } else if (block.type === 'embed') {

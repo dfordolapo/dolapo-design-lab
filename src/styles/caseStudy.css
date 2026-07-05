@@ -102,11 +102,16 @@
 }
 
 .case-study-goal {
-  font-size: 0.85rem;
+  font-size: 1rem;
+  font-weight: 500;
   color: var(--text-secondary);
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   line-height: 1.4;
+}
+
+.mobile-break {
+  display: none;
 }
 
 /* BLOCKS */
@@ -180,6 +185,7 @@
 .overview-text {
   font-size: 1rem !important;
   color: var(--text-primary) !important;
+  line-height: 1.8 !important;
 }
 
 .overview-meta {
@@ -348,11 +354,17 @@
   }
 
   .case-study-hero-title h1 {
-    font-size: 1.1rem;
+    font-size: 1.6rem;
+    margin-bottom: var(--space-md);
   }
 
   .case-study-goal {
     font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .mobile-break {
+    display: block;
   }
 
   .case-study-block h2 {
@@ -365,5 +377,10 @@
 
   .presentation-slide-block {
     margin-bottom: var(--space-lg);
+  }
+
+  .overview-block {
+    padding: var(--space-md);
+    gap: var(--space-lg);
   }
 }
