@@ -1,39 +1,17 @@
 import { useState, useEffect } from 'react';
 
 export default function useTheme() {
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return document.documentElement.getAttribute('data-theme') || 
-             localStorage.getItem('theme') || 
-             'dark';
-    }
-    return 'dark';
-  });
+  const [theme] = useState('dark');
 
   useEffect(() => {
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'data-theme') {
-          setTheme(document.documentElement.getAttribute('data-theme'));
-        }
-      });
-    });
-    
-    observer.observe(document.documentElement, { attributes: true });
-    
-    // Initial sync and apply
-    const currentTheme = theme;
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    localStorage.setItem('theme', currentTheme);
-
-    return () => observer.disconnect();
-  }, [theme]);
+    // Force dark mode on the document body and localstorage
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+    // Disabled
   };
 
-  return { theme, toggleTheme };
+  return { theme: 'dark', toggleTheme };
 }
