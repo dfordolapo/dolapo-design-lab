@@ -248,7 +248,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'Tech Stack',
-        body: '**Built with:** React, TypeScript, Tailwind CSS, Node.js, Express, Supabase, PostgreSQL, OpenAI, Vercel'
+        body: '**Built with:** Figma, React, TypeScript, Tailwind CSS, Node.js, Express, Supabase, PostgreSQL, OpenAI, Vercel'
       },
       {
         type: 'embed',
