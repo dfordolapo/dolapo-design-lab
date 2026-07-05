@@ -239,6 +239,72 @@ export const CASE_STUDIES = [
   },
   
   {
+    id: 'designer-6',
+    departmentId: 'designer',
+    vaultImage: '/assets/distinction-thumbnail.webp',
+    noGlow: true,
+    vaultLogo: <img src="/assets/distinction-logo.webp" alt="Distinction Creator Studio" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
+    category: 'COURSE BUILDER PLATFORM',
+    title: 'Distinction Creator Studio',
+    role: 'Product Design',
+    duration: 'Case Study',
+    platform: 'Web Platform',
+    content: [
+      { type: 'hero', image: '/assets/distinction-hero.webp' },
+      {
+        type: 'overview',
+        text: 'Distinction Creator Studio is a web-based course-builder designed for educators who know their subject but struggle to turn that knowledge into a structured, publishable course. The platform covers the full creation pipeline from setup to publishing in one unified workspace.'
+      },
+      {
+        type: 'text-block',
+        heading: 'My Role',
+        body: 'I acted as a solo designer. I handled research synthesis, persona development, task flow mapping, all low-fidelity and high-fidelity screens, the component library, prototype and case study. I also supplemented the research with secondary sources.'
+      },
+      {
+        type: 'text-block',
+        heading: 'The Challenge',
+        body: 'The problem I noticed was that the tools educators are forced to work with are designed for the wrong people. Most LMS platforms feel like they were built for IT administrators checking compliance boxes and not for creators who just want to record what they know and share with the world. The interfaces often get in the way before the first lesson is even written.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Discovery & Research',
+        body: 'What I found was consistent across every source. Five frustrations kept coming up:\n• Blank page anxiety\n• Scattered tools\n• Context switching\n• No visible content hierarchy\n• Interfaces that assume users already know how to use them\n\nOne quote from a professor describing Canvas stuck with me: *"I was overwhelmed trying to find where to begin."*'
+      },
+      {
+        type: 'text-block',
+        heading: 'Goals & Design Principles',
+        body: '**1. Start with structure:** Eliminate blank page anxiety by giving educators a starting point.\n**2. Reduce context switching:** Unify the workflow into one for building, previewing and publishing.\n**3. Keep hierarchy visible:** The course structure must stay visible while editing content.\n**4. Design for non-technical creators:** The interface should explain itself without requiring training.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Design Solutions',
+        body: '**Dashboard:** The first thing an educator sees when they log in shouldn\'t be a completely blank space. It should tell them where they left off and guide them to create a course if they haven\'t done that already. There should also be templates to use.\n\n**Course Builder:** Three columns: structure on the left, canvas in the centre, settings on the right. No leaving the screen to change visibility, no separate settings page to configure duration. Everything the educator needs is visible while they build.\n\n**Lesson Editor:** The student view updates in real time as the educator writes. Most tools make you publish before you can see what students see. I flipped that.\n\n**Publish Flow:** A checklist actively flags what\'s incomplete before anything goes live and shows a Final Assessment error state with a Fix Now button so that no educator accidentally publishes a broken course.\n\n**Creator Insight Card:** Data without direction is noise. Instead of showing raw numbers, the platform surfaces one actionable recommendation per screen. eg: "This draft is 65% complete. Adding a final quiz increases retention by 40%."\n\n**Templates:** The template library gives first time creators a starting point and a scaffold they can break, reshape, or discard once they know what they\'re building.'
+      },
+      { type: 'presentation-slide', image: '/assets/distinction-dashboard.webp', caption: 'Dashboard' },
+      { type: 'presentation-slide', image: '/assets/distinction-builder.webp', caption: 'Course Builder' },
+      { type: 'presentation-slide', image: '/assets/distinction-editor.webp', caption: 'Lesson Editor' },
+      { type: 'presentation-slide', image: '/assets/distinction-publish.webp', caption: 'Publish Flow' },
+      { type: 'presentation-slide', image: '/assets/distinction-insights.webp', caption: 'Creator Insight Card' },
+      { type: 'presentation-slide', image: '/assets/distinction-templates.webp', caption: 'Templates' },
+      {
+        type: 'text-block',
+        heading: 'The Result',
+        body: '**Design System:** Gold primary, Teal secondary, warm neutrals. The palette was a deliberate rejection of cold, LMS blue.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Key Takeaways',
+        body: 'Working on the Distinction Creator Studio reinforced how important it is to design for real workflows instead of system requirements. Educators don\'t typically think in terms of databases or configuration settings; they think in terms of lessons, ideas and teaching moments.\n\nBy prioritizing structure, reducing context switching and guiding creators with clear starting points and the microcopy, the platform transforms course creation from an administrative task into a creative process.'
+      },
+      {
+        type: 'text-block',
+        body: 'Thank you for reading!',
+        align: 'center'
+      }
+    ]
+  },
+  
+  {
     id: 'builder-1',
     departmentId: 'builder',
     vaultImage: '/assets/vurdict-thumbnail-logo.webp',
