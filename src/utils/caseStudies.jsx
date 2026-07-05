@@ -280,8 +280,6 @@ export const CASE_STUDIES = [
   {
     id: 'builder-2',
     departmentId: 'builder',
-    themeColor: '#52311E',
-    backgroundColor: '#52311E',
     vaultImage: '/assets/awwja-thumbnail-preview.webp',
     noGlow: true,
     hideTitle: true,
