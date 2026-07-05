@@ -3180,3 +3180,16 @@ p {
     font-size: 0.65rem !important;
   }
 }
+
+@media (max-width: 768px) {
+  .cta-button, .book-secondary-cta {
+    width: 100% !important;
+    max-width: 190px !important;
+    height: 42px !important;
+    padding: 0 0.5rem !important;
+  }
+  .cta-button__text, .book-secondary-cta__text {
+    font-size: 0.55rem !important;
+    white-space: nowrap;
+  }
+}
