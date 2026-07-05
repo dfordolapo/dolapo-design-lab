@@ -3216,3 +3216,10 @@ p {
     font-size: 0.8rem !important;
   }
 }
+
+/* Allow Booking Page header text to be on one line on web */
+@media (min-width: 769px) {
+  .booking-page__header {
+    max-width: 900px !important;
+  }
+}
