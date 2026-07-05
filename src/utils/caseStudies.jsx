@@ -198,9 +198,23 @@ export const CASE_STUDIES = [
   {
     id: 'designer-6',
     departmentId: 'designer',
-    vaultImage: '/assets/distinction-thumbnail.webp',
+    vaultImage: '',
+    textOnlyPreview: true,
+    themeColor: '#D4AF37',
     noGlow: true,
-    vaultLogo: <img src="/assets/distinction-logo.webp" alt="Distinction Creator Studio" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
+    vaultLogo: (
+      <div style={{
+        fontSize: '1.1rem',
+        fontWeight: 'bold',
+        color: 'black',
+        textTransform: 'uppercase',
+        letterSpacing: '0.1em',
+        textAlign: 'center',
+        lineHeight: '1.2'
+      }}>
+        Distinction <br/> Creator Studio
+      </div>
+    ),
     category: 'COURSE BUILDER PLATFORM',
     title: 'Distinction Creator Studio',
     role: 'Product Design',
@@ -238,6 +252,7 @@ export const CASE_STUDIES = [
         body: '**Dashboard:** The first thing an educator sees when they log in shouldn\'t be a completely blank space. It should tell them where they left off and guide them to create a course if they haven\'t done that already. There should also be templates to use.\n\n**Course Builder:** Three columns: structure on the left, canvas in the centre, settings on the right. No leaving the screen to change visibility, no separate settings page to configure duration. Everything the educator needs is visible while they build.\n\n**Lesson Editor:** The student view updates in real time as the educator writes. Most tools make you publish before you can see what students see. I flipped that.\n\n**Publish Flow:** A checklist actively flags what\'s incomplete before anything goes live and shows a Final Assessment error state with a Fix Now button so that no educator accidentally publishes a broken course.\n\n**Creator Insight Card:** Data without direction is noise. Instead of showing raw numbers, the platform surfaces one actionable recommendation per screen. eg: "This draft is 65% complete. Adding a final quiz increases retention by 40%."\n\n**Templates:** The template library gives first time creators a starting point and a scaffold they can break, reshape, or discard once they know what they\'re building.'
       },
       { type: 'presentation-slide', image: '/assets/distinction-dashboard.webp', caption: 'Dashboard' },
+      { type: 'presentation-slide', image: '/assets/distinction-analytics.webp', caption: 'Analytics Dashboard' },
       { type: 'presentation-slide', image: '/assets/distinction-builder.webp', caption: 'Course Builder' },
       { type: 'presentation-slide', image: '/assets/distinction-editor.webp', caption: 'Lesson Editor' },
       { type: 'presentation-slide', image: '/assets/distinction-publish.webp', caption: 'Publish Flow' },
