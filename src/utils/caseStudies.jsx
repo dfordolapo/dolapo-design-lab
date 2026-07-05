@@ -132,10 +132,29 @@ export const CASE_STUDIES = [
     vaultLogo: <img src="/assets/vurdict-logo.webp" alt="Vurdict" style={{ width: '450px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
     category: 'AI PORTFOLIO REVIEWER',
     title: 'Vurdict',
-    role: 'Product Design',
+    role: 'Product Strategy • UX/UI Design • Full-Stack Development',
     duration: 'Ongoing',
-    platform: 'Web Platform',
+    platform: 'Progressive Web App',
     content: [
+      {
+        type: 'overview',
+        text: 'Vurdict is an AI-powered portfolio reviewer that provides instant, actionable feedback to product designers.'
+      },
+      {
+        type: 'text-block',
+        heading: 'The Challenge',
+        body: 'Junior designers often struggle to land interviews because their case studies lack the structural storytelling and business framing that hiring managers look for. Furthermore, existing portfolio feedback is often too vague to be helpful and not easily accessible. Human mentorship is also expensive and hard to come by, leaving designers guessing what they are doing wrong.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Solution',
+        body: 'Vurdict is a goal-aware and experience-tailored AI portfolio reviewer. I engineered the platform to evaluate case studies calibrated against six core hiring dimensions. It generates comprehensive, actionable feedback in under 5 minutes, precisely highlighting strengths and identifying exact areas for improvement to help designers land their next role.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Tech Stack',
+        body: '**Built with:** Figma, React, TypeScript, Tailwind CSS, Node.js, Express, Supabase, PostgreSQL, OpenAI, Vercel'
+      },
       {
         type: 'embed',
         heading: 'Live Preview',
