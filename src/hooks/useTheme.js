@@ -5,7 +5,7 @@ export default function useTheme() {
     if (typeof window !== 'undefined') {
       return document.documentElement.getAttribute('data-theme') || 
              localStorage.getItem('theme') || 
-             (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+             'dark';
     }
     return 'dark';
   });
