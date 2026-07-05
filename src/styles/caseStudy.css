@@ -161,6 +161,12 @@
   min-height: 300px;
 }
 
+.full-image-block {
+  margin-left: calc(-1 * var(--space-2xl));
+  margin-right: calc(-1 * var(--space-2xl));
+  width: calc(100% + (2 * var(--space-2xl)));
+}
+
 .hero-img {
   width: 100%;
   height: auto;

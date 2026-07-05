@@ -107,11 +107,7 @@ export default function CaseStudyViewer({ project, onClose }) {
               );
             } else if (block.type === 'full-image') {
               blockContent = (
-                <div className="case-study-block full-image-block" style={{ 
-                  marginBottom: 0,
-                  marginLeft: 'calc(-1 * var(--space-2xl))',
-                  marginRight: 'calc(-1 * var(--space-2xl))'
-                }}>
+                <div className="case-study-block full-image-block" style={{ marginBottom: 0 }}>
                   {block.image ? (
                     <img 
                       src={block.image} 
