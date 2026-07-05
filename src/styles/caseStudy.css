@@ -230,9 +230,8 @@
 
 .role-list {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .role-item {
@@ -421,10 +420,5 @@
   .overview-block {
     padding: var(--space-md);
     gap: var(--space-lg);
-  }
-
-  .role-list {
-    flex-direction: column;
-    gap: 8px;
   }
 }
