@@ -243,7 +243,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'Solution',
-        body: 'I designed and engineered Vurdict to act as an automated design mentor. By analyzing a portfolio URL against industry rubrics, Vurdict generates a comprehensive feedback report in under 60 seconds, highlighting strengths and pinpointing exact areas for improvement.'
+        body: 'Vurdict is a goal-aware and experience-tailored AI mentor. I engineered the platform to evaluate portfolios calibrated against six core hiring dimensions. It generates comprehensive, actionable feedback in under 60 seconds, precisely highlighting strengths and identifying exact areas for improvement to help designers land their next role.'
       },
       {
         type: 'text-block',
