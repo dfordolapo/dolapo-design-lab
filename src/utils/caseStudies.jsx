@@ -238,7 +238,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'The Challenge',
-        body: 'Junior designers often struggle to land interviews because their case studies lack the structural storytelling and business framing that hiring managers look for.'
+        body: 'Junior designers often struggle to land interviews because their case studies lack the structural storytelling and business framing that hiring managers look for. Furthermore, existing portfolio feedback is often too vague to be helpful and not easily accessible. Human mentorship is also expensive and hard to come by, leaving many designers guessing what they are doing wrong.'
       },
       {
         type: 'text-block',
