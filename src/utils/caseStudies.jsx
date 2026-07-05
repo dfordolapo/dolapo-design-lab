@@ -288,21 +288,21 @@ export const CASE_STUDIES = [
     title: 'Awwja',
     role: 'Product Strategy • UX/UI Design • Full-Stack Development',
     duration: 'Ongoing',
-    platform: 'Progressive Web App',
+    platform: 'Web / Mobile Waitlist',
     content: [
       {
         type: 'overview',
-        text: 'Awwja is an automated negotiation machine that helps buyers and sellers reach a fair price without the friction of back-and-forth haggling.'
+        text: 'Awwja is an upcoming automated negotiation machine. The current platform serves as a web and mobile waitlist while the core app is actively being developed.'
       },
       {
         type: 'text-block',
         heading: 'The Challenge',
-        body: 'Buyers and sellers often struggle to agree on pricing, leading to abandoned transactions and frustration. Manual negotiation is time-consuming, emotionally taxing, and often feels adversarial.'
+        body: 'Modern African e-commerce forces users to choose between two extremes: the flexibility of social negotiation or the security of corporate platforms. Current solutions fail to bridge the trust boundary, which leaves users vulnerable to fraud or forces them to endure rigid, impersonal checkout experiences that clash with our culture.'
       },
       {
         type: 'text-block',
         heading: 'Solution',
-        body: 'I designed and engineered Awwja to automate the negotiation process. Using a smart pricing algorithm, it acts as an impartial mediator that finds a fair middle ground instantly, turning friction into closed deals.'
+        body: 'Awwja integrates the cultural necessity of haggling with an automated, escrow-backed infrastructure. As the lead product designer and engineer working with a dedicated team, I designed a safe negotiation engine that eliminates the friction between discovery and commitment, creating a digital space that feels as human as a physical market.'
       },
       {
         type: 'text-block',
