@@ -3235,3 +3235,12 @@ p {
     padding-top: 4rem !important;
   }
 }
+
+/* Guarantee iframe interactivity on mobile Chrome/Safari */
+.booking-page__widget iframe {
+  pointer-events: auto !important;
+}
+
+.booking-page__widget {
+  -webkit-overflow-scrolling: touch;
+}

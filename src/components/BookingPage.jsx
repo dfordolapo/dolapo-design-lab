@@ -45,10 +45,11 @@ export default function BookingPage({ onBack }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
+          style={{ pointerEvents: 'auto', touchAction: 'auto' }}
         >
           <Cal 
             calLink="dfordolapo/15min"
-            style={{ width: "100%", height: "100%", overflow: "scroll" }}
+            style={{ width: "100%", height: "100%" }}
             config={{ layout: 'month_view', theme: 'dark' }}
           />
         </motion.div>
