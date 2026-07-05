@@ -229,7 +229,7 @@ export const CASE_STUDIES = [
     title: 'Vurdict',
     role: 'Product Strategy • UX/UI Design • Full-Stack Development',
     duration: 'Ongoing',
-    platform: 'Web Platform',
+    platform: 'Progressive Web App',
     content: [
       {
         type: 'overview',
