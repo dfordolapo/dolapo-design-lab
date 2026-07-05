@@ -278,6 +278,48 @@ export const CASE_STUDIES = [
   },
   
   {
+    id: 'builder-2',
+    departmentId: 'builder',
+    themeColor: '#52311E',
+    backgroundColor: '#52311E',
+    vaultImage: '/assets/awwja-thumbnail-preview.webp',
+    noGlow: true,
+    hideTitle: true,
+    vaultLogo: <img src="/assets/awwja-vault-cover.webp" alt="Awwja" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />,
+    category: 'NEGOTIATION MACHINE',
+    title: 'Awwja',
+    role: 'Product Strategy • UX/UI Design • Full-Stack Development',
+    duration: 'Ongoing',
+    platform: 'Progressive Web App',
+    content: [
+      {
+        type: 'overview',
+        text: 'Awwja is an automated negotiation machine that helps buyers and sellers reach a fair price without the friction of back-and-forth haggling.'
+      },
+      {
+        type: 'text-block',
+        heading: 'The Challenge',
+        body: 'Buyers and sellers often struggle to agree on pricing, leading to abandoned transactions and frustration. Manual negotiation is time-consuming, emotionally taxing, and often feels adversarial.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Solution',
+        body: 'I designed and engineered Awwja to automate the negotiation process. Using a smart pricing algorithm, it acts as an impartial mediator that finds a fair middle ground instantly, turning friction into closed deals.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Tech Stack',
+        body: '**Built with:** Figma, React, TypeScript, Tailwind CSS, Supabase, Vercel'
+      },
+      {
+        type: 'embed',
+        heading: 'Live Preview',
+        url: 'https://awwja.vercel.app'
+      }
+    ]
+  },
+  
+  {
     id: 'writer-4',
     departmentId: 'writer',
     vaultImage: '',
