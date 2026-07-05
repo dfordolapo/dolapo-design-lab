@@ -3223,3 +3223,15 @@ p {
     max-width: 900px !important;
   }
 }
+
+/* Add vertical space between nav bar and text */
+.booking-page__header {
+  padding-top: 6rem !important;
+  margin-bottom: 2rem !important;
+}
+
+@media (max-width: 768px) {
+  .booking-page__header {
+    padding-top: 4rem !important;
+  }
+}
