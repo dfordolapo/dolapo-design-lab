@@ -110,7 +110,6 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
         {/* LEFT SIDEBAR NAVIGATION */}
         <div className="vault-sidebar">
           <div className="vault-sidebar__header">
-            <p className="vault-welcome">Welcome to the</p>
             <ScrambleText 
               as="h1" 
               className="vault-dept-title" 
