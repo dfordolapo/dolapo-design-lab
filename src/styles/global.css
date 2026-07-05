@@ -3193,3 +3193,15 @@ p {
     white-space: nowrap;
   }
 }
+
+@media (max-width: 768px) {
+  .cta-button, .book-secondary-cta {
+    width: 215px !important;
+    max-width: 215px !important;
+    height: 44px !important;
+    padding: 0 0.75rem !important;
+  }
+  .cta-button__text, .book-secondary-cta__text {
+    font-size: 0.6rem !important;
+  }
+}

@@ -3,7 +3,7 @@ import ThemeToggle from './ThemeToggle'
 import useTheme from '../hooks/useTheme'
 import BookSessionCTA from './BookSessionCTA'
 
-export default function TopBar({ onBack, title = "DOLAPO'S DESIGN LAB", rightElement }) {
+export default function TopBar({ onBack, title = "DOLAPO'S DESIGN LAB", rightElement, hideBookingCTA = false }) {
   const { playHover, playClick } = useSoundEffects()
   const { theme } = useTheme()
 
@@ -29,7 +29,7 @@ export default function TopBar({ onBack, title = "DOLAPO'S DESIGN LAB", rightEle
       </span>
       
       <div className="top-bar__right" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-        <BookSessionCTA variant="nav" />
+        {!hideBookingCTA && <BookSessionCTA variant="nav" />}
         {rightElement}
       </div>
     </div>

@@ -69,7 +69,8 @@ export default function App() {
   useEffect(() => {
     (async function preloadCal() {
       try {
-        await getCalApi()
+        const cal = await getCalApi()
+        cal("preload", { calLink: "dfordolapo/15min" })
       } catch (e) {
         console.error('Failed to preload Cal.com API', e)
       }
