@@ -3142,3 +3142,19 @@ p {
 .cta-button {
   border-width: 1.5px !important;
 }
+
+/* Force EXACT same dimensions */
+.cta-button, .book-secondary-cta {
+  width: 280px !important;
+  height: 52px !important;
+  padding: 0 1.5rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+.cta-button__text, .book-secondary-cta__text {
+  flex-grow: 1;
+  text-align: center;
+}
