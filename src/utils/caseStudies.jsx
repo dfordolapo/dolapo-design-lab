@@ -253,7 +253,6 @@ export const CASE_STUDIES = [
       },
       { type: 'presentation-slide', image: '/assets/distinction-dashboard.webp', caption: 'Dashboard' },
       { type: 'presentation-slide', image: '/assets/distinction-dashboard-analytics.webp', caption: 'Analytics Dashboard' },
-      { type: 'presentation-slide', image: '/assets/distinction-templates.webp', caption: 'Templates' },
       { type: 'presentation-slide', image: '/assets/distinction-builder.webp', caption: 'Course Builder' },
       { type: 'presentation-slide', image: '/assets/distinction-editor.webp', caption: 'Lesson Editor' },
       { type: 'presentation-slide', image: '/assets/distinction-publish.webp', caption: 'Publish Flow' },
