@@ -3205,3 +3205,14 @@ p {
     font-size: 0.6rem !important;
   }
 }
+
+/* Adjust Booking Page Header */
+.booking-page__header p {
+  font-size: 0.9rem !important;
+}
+
+@media (max-width: 768px) {
+  .booking-page__header p {
+    font-size: 0.8rem !important;
+  }
+}
