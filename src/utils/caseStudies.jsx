@@ -79,6 +79,15 @@ export const CASE_STUDIES = [
         <text x="12" y="28" textAnchor="middle" fontSize="2.5" fontWeight="bold" fill="#000" stroke="none" style={{ fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>SAFERIDE MODE</text>
       </svg>
     ),
+    thumbnailLogo: (
+      <svg className="saferide-logo" width="100%" height="auto" viewBox="0 2 24 22" fill="none" stroke="#FFF" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#FFF" fill="none"></path>
+        <path d="M14 10 L10 10 L9 13 L7 13 L7 15 L17 15 L17 13 L15 13 Z" stroke="#FFF" strokeWidth="1" fill="none"></path>
+        <circle cx="9.5" cy="15.5" r="1" stroke="#FFF" fill="#FFF"></circle>
+        <circle cx="14.5" cy="15.5" r="1" stroke="#FFF" fill="#FFF"></circle>
+        <path d="M9 13 L15 13" stroke="#FFF" strokeWidth="0.5"></path>
+      </svg>
+    ),
     category: 'UX EXPLORATION',
     title: 'SafeRide Mode™',
     role: 'Product Design, UX Research',
