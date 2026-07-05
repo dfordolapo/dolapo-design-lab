@@ -238,12 +238,12 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'The Challenge',
-        body: 'Junior designers often struggle to land interviews because their portfolios lack the structural storytelling and business framing that hiring managers look for. Furthermore, existing portfolio feedback is often too vague to be helpful and not easily accessible. Human mentorship is also expensive and hard to come by, leaving many designers guessing what they are doing wrong.'
+        body: 'Junior designers often struggle to land interviews because their case studies lack the structural storytelling and business framing that hiring managers look for.'
       },
       {
         type: 'text-block',
         heading: 'Solution',
-        body: 'Vurdict is a goal-aware and experience-tailored AI mentor. I engineered the platform to evaluate portfolios calibrated against six core hiring dimensions. It generates comprehensive, actionable feedback in under 5 minutes, precisely highlighting strengths and identifying exact areas for improvement to help designers land their next role.'
+        body: 'Vurdict is a goal-aware and experience-tailored AI portfolio reviewer. I engineered the platform to evaluate case studies calibrated against six core hiring dimensions. It generates comprehensive, actionable feedback in under 5 minutes, precisely highlighting strengths and identifying exact areas for improvement to help designers land their next role.'
       },
       {
         type: 'text-block',
