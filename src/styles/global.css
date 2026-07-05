@@ -3279,3 +3279,14 @@ p {
     margin-top: 2rem !important;
   }
 }
+
+/* Slightly increase spacing above widget */
+.booking-page__widget {
+  margin-top: 4.5rem !important;
+}
+
+@media (max-width: 768px) {
+  .booking-page__widget {
+    margin-top: 3rem !important;
+  }
+}
