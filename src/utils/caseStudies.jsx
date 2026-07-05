@@ -142,6 +142,7 @@ export const CASE_STUDIES = [
     logoOnlyPreview: true,
     noGlow: true,
     vaultLogo: <img src="/assets/Shiftsyncd%20black%20logo.png" alt="ShiftSyncd" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
+    thumbnailLogo: <img src="/assets/ShiftSync%20logo.png" alt="ShiftSyncd Preview" style={{ width: '100%', height: 'auto' }} />,
     category: 'NURSE HANDOVER TOOL',
     title: 'ShiftSyncd',
     role: 'Product Design',
