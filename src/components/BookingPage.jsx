@@ -35,8 +35,7 @@ export default function BookingPage({ onBack }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            Before every polished interface, there was a conversation that made it better.<br className="desktop-break"/>
-            This is where your ideas stop living in your head and start becoming products.
+            Before every polished interface, there was a conversation that made it better.<br className="desktop-break"/> This is where your ideas stop living in your head and start becoming products.
           </motion.p>
         </div>
         
