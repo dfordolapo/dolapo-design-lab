@@ -3244,3 +3244,21 @@ p {
 .booking-page__widget {
   -webkit-overflow-scrolling: touch;
 }
+
+/* Let the Cal iframe determine its own height to prevent cutoff */
+.booking-page__widget {
+  flex: none !important;
+  height: auto !important;
+  overflow: visible !important;
+  min-height: 800px !important;
+}
+
+.booking-page__widget iframe {
+  min-height: 800px !important;
+}
+
+@media (max-width: 768px) {
+  .booking-page__widget iframe {
+    min-height: 900px !important;
+  }
+}

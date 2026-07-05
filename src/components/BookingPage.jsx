@@ -49,7 +49,7 @@ export default function BookingPage({ onBack }) {
         >
           <Cal 
             calLink="dfordolapo/15min"
-            style={{ width: "100%", height: "100%" }}
+            style={{ width: "100%" }}
             config={{ layout: 'month_view', theme: 'dark' }}
           />
         </motion.div>
