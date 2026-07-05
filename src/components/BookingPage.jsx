@@ -29,9 +29,6 @@ export default function BookingPage({ onBack }) {
       <TopBar onBack={onBack} title="BOOK A LAB SESSION" hideBookingCTA />
       
       <div className="booking-page__content">
-        <div className="booking-page__header">
-        </div>
-        
         <motion.div 
           className="booking-page__widget"
           initial={{ opacity: 0, y: 20 }}
