@@ -267,12 +267,9 @@
 }
 
 /* PRESENTATION SLIDE */
-.presentation-slide-block {
-  margin-bottom: var(--space-3xl);
-}
-
-.presentation-slide-block {
-  margin-bottom: var(--space-xl);
+.presentation-slide-block,
+.hero-image-block {
+  margin-bottom: 0 !important;
 }
 
 .presentation-image-wrapper {

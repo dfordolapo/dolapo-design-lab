@@ -79,7 +79,8 @@ export const CASE_STUDIES = [
   {
     id: 'designer-2',
     departmentId: 'designer',
-    vaultImage: '/assets/mockup_laptop_vault.png',
+    themeColor: '#52311E',
+    vaultImage: '/assets/awwja-hero.png',
     noGlow: true,
     vaultLogo: <img src="/assets/awwja-logo.png" alt="Awwja" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
     category: 'E-COMMERCE APP',
@@ -88,16 +89,7 @@ export const CASE_STUDIES = [
     duration: 'Ongoing',
     platform: 'Web App',
     content: [
-      { type: 'hero', image: '/assets/mockup_laptop_vault.png' },
-      { 
-        type: 'text-block',
-        body: 'Details for this case study will be added later.'
-      },
-      {
-        type: 'embed',
-        heading: 'Behance Project',
-        url: 'https://www.behance.net/embed/project/YOUR_PROJECT_ID?tracking_source=project_share'
-      }
+      { type: 'full-image', image: '/assets/awwja-case-study.png' }
     ]
   },
   
@@ -113,10 +105,10 @@ export const CASE_STUDIES = [
     duration: 'Ongoing',
     platform: 'Web Platform',
     content: [
-      { type: 'hero', image: '/assets/mockup_laptop_vault.png' },
-      { 
-        type: 'text-block',
-        body: 'Details for this case study will be added later.'
+      {
+        type: 'embed',
+        heading: 'Live Preview',
+        url: 'https://www.vurdict.site'
       }
     ]
   },
@@ -127,7 +119,7 @@ export const CASE_STUDIES = [
     vaultImage: '/assets/mockup_laptop_vault.png',
     noGlow: true,
     vaultLogo: <img src="/assets/Shiftsyncd%20black%20logo.png" alt="ShiftSyncd" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
-    category: 'PRODUCT DESIGN',
+    category: 'NURSE HANDOVER TOOL',
     title: 'ShiftSyncd',
     role: 'Product Design',
     duration: 'Ongoing',
@@ -152,10 +144,10 @@ export const CASE_STUDIES = [
     duration: 'Ongoing',
     platform: 'Web Platform',
     content: [
-      { type: 'hero', image: '/assets/mockup_laptop_vault.png' },
-      { 
-        type: 'text-block',
-        body: 'Details for this case study will be added later.'
+      {
+        type: 'embed',
+        heading: 'Live Preview',
+        url: 'https://www.vurdict.site'
       }
     ]
   },

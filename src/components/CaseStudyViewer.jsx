@@ -38,7 +38,11 @@ export default function CaseStudyViewer({ project, onClose }) {
       <div className="case-study-viewer__bg" onClick={handleClose}></div>
       
       {/* Main Content Container */}
-      <div className="case-study-viewer__container" ref={viewerRef}>
+      <div 
+        className="case-study-viewer__container" 
+        ref={viewerRef}
+        style={project.themeColor ? { backgroundColor: project.themeColor } : undefined}
+      >
         
         {/* Header Navigation */}
         <header className="case-study-header">
@@ -98,6 +102,25 @@ export default function CaseStudyViewer({ project, onClose }) {
                     <div className="placeholder-text" style={{ display: block.image ? 'none' : 'block' }}>
                       Add {block.image.split('/').pop()} to public/assets
                     </div>
+                  </div>
+                </div>
+              );
+            } else if (block.type === 'full-image') {
+              blockContent = (
+                <div className="case-study-block full-image-block" style={{ marginBottom: 0 }}>
+                  {block.image ? (
+                    <img 
+                      src={block.image} 
+                      alt={project.title} 
+                      style={{ width: '100%', height: 'auto', display: 'block' }}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'block';
+                      }}
+                    />
+                  ) : null}
+                  <div className="placeholder-text" style={{ display: block.image ? 'none' : 'block' }}>
+                    Add {block.image?.split('/').pop()} to public/assets
                   </div>
                 </div>
               );
@@ -211,7 +234,29 @@ export default function CaseStudyViewer({ project, onClose }) {
             } else if (block.type === 'embed') {
               blockContent = (
                 <div className="case-study-block embed-block">
-                  {block.heading && <h2>{block.heading}</h2>}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-md)' }}>
+                    {block.heading && <h2 style={{ marginBottom: 0, borderBottom: 'none' }}>{block.heading}</h2>}
+                    {block.url && (
+                      <a 
+                        href={block.url} 
+                        target="_blank" 
+                        rel="noreferrer"
+                        style={{
+                          color: 'var(--text-primary)',
+                          textDecoration: 'none',
+                          border: '1px solid var(--glass-border)',
+                          padding: '0.5rem 1rem',
+                          borderRadius: 'var(--radius-md)',
+                          fontSize: '0.9rem',
+                          transition: 'all 0.3s ease'
+                        }}
+                        onMouseEnter={(e) => e.target.style.background = 'rgba(255,255,255,0.1)'}
+                        onMouseLeave={(e) => e.target.style.background = 'transparent'}
+                      >
+                        Visit Site
+                      </a>
+                    )}
+                  </div>
                   <div className="embed-container">
                     <iframe 
                       src={block.url} 
@@ -229,12 +274,14 @@ export default function CaseStudyViewer({ project, onClose }) {
 
             if (!blockContent) return null;
 
+            const isInstant = block.type === 'full-image' || block.type === 'embed';
+
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50, scale: 0.98 }}
+                initial={isInstant ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.98 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
                 {blockContent}
@@ -242,11 +289,7 @@ export default function CaseStudyViewer({ project, onClose }) {
             );
           })}
           
-          <VelocityMarquee baseVelocity={1} className="case-study-marquee">
-            <span style={{ fontSize: '3rem', fontFamily: 'var(--font-heading)', color: 'var(--text-primary)', opacity: 0.1, textTransform: 'uppercase' }}>
-              {project.title} &bull; CASE STUDY &bull; {project.role} &bull;
-            </span>
-          </VelocityMarquee>
+
 
           <div className="case-study-footer">
             <div className="end-marker"></div>
