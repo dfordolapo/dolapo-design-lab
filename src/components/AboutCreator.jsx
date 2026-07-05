@@ -75,7 +75,7 @@ export default function AboutCreator({ onBack }) {
                   <div className="bio-section">
                     <span className="bio-section__title">My three departments</span>
                     <StaggerContainer className="bio-card-container">
-                      {['Product Design', 'UX Writing', 'Design + Build'].map((title, i) => (
+                      {['Product Design', 'UX Writing', 'Product Design + Full-stack Dev'].map((title, i) => (
                         <StaggerItem key={i}>
                           <div className="bio-card" data-cursor-hover>
                             <span className="bio-card__title">{title}</span>

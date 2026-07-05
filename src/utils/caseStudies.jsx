@@ -6,17 +6,17 @@ export const CASE_STUDIES = [
   {
     id: 'writer-1',
     departmentId: 'writer',
-    vaultImage: '/assets/scan2supper-hero.png',
+    vaultImage: '/assets/scan2supper-hero.webp',
     noMockupBg: true,
     noGlow: true,
-    vaultLogo: <img src="/assets/scan2supper-vault-cover.png" alt="Scan2Supper Mockup" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))', maxWidth: '300px' }} />,
+    vaultLogo: <img src="/assets/scan2supper-vault-cover.webp" alt="Scan2Supper Mockup" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))', maxWidth: '300px' }} />,
     category: 'RECIPE GENERATOR APP',
     title: 'Scan2Supper',
     role: 'UX/UI Design, Illustration',
     duration: '4 weeks',
     platform: 'iOS Concept',
     content: [
-      { type: 'hero', image: '/assets/scan2supper-hero.png' },
+      { type: 'hero', image: '/assets/scan2supper-hero.webp' },
       { 
         type: 'overview',
         text: 'Scan2Supper is a concept mobile app that helps people decide what to cook using ingredients they already have, flipping the typical recipe experience.'
@@ -24,8 +24,8 @@ export const CASE_STUDIES = [
       {
         type: 'side-by-side-images',
         images: [
-          { src: '/assets/scan2supper-before.jpg', caption: 'Before (Old Onboarding)' },
-          { src: '/assets/scan2supper-after.png', caption: 'After (Redesigned Onboarding)' }
+          { src: '/assets/scan2supper-before.webp', caption: 'Before (Old Onboarding)' },
+          { src: '/assets/scan2supper-after.webp', caption: 'After (Redesigned Onboarding)' }
         ]
       },
       {
@@ -40,19 +40,19 @@ export const CASE_STUDIES = [
           { title: 'Step-by-Step Cooking Mode', desc: 'Hands-free navigation through recipe steps, perfect for messy hands.' }
         ]
       },
-      { type: 'presentation-slide', image: '/assets/s2s-scanning.png' },
-      { type: 'presentation-slide', image: '/assets/s2s-pantry.png' },
-      { type: 'presentation-slide', image: '/assets/s2s-recipe-generation.png' },
-      { type: 'presentation-slide', image: '/assets/s2s-cooking-mode.png' },
+      { type: 'presentation-slide', image: '/assets/s2s-scanning.webp' },
+      { type: 'presentation-slide', image: '/assets/s2s-pantry.webp' },
+      { type: 'presentation-slide', image: '/assets/s2s-recipe-generation.webp' },
+      { type: 'presentation-slide', image: '/assets/s2s-cooking-mode.webp' },
       {
         type: 'split-block',
         body: 'What started as a personal solution became a robust system. I had to design recovery paths for blurry scans, allow manual entries, and restructure the navigation from 3 tabs to 5 (adding dedicated Search and Scan actions) to reduce friction.',
-        image: '/assets/s2s-error-states.png'
+        image: '/assets/s2s-error-states.webp'
       },
       {
         type: 'split-block',
         body: 'I learned to protect the MVP. While I initially wanted grocery integrations and expiry tracking, focusing solely on the "Scan-to-Supper" loop kept the value proposition clear. Additionally, introducing a friendly mascot turned system feedback into moments of delight.',
-        image: '/assets/s2s-mascot.png'
+        image: '/assets/s2s-mascot.webp'
       },
       {
         type: 'text-block',
@@ -65,7 +65,7 @@ export const CASE_STUDIES = [
   {
     id: 'designer-1',
     departmentId: 'designer',
-    vaultImage: '/assets/mockup_mobile_vault.png',
+    vaultImage: '/assets/mockup_mobile_vault.webp',
     logoOnlyPreview: true,
     themeColor: '#312bb5',
     noGlow: true,
@@ -94,14 +94,14 @@ export const CASE_STUDIES = [
     duration: 'Exploration',
     platform: 'Mobile App',
     content: [
-      { type: 'presentation-slide', image: '/assets/image-1.png' },
-      { type: 'presentation-slide', image: '/assets/image-2.png' },
-      { type: 'presentation-slide', image: '/assets/image-3.png' },
-      { type: 'presentation-slide', image: '/assets/image-4.png' },
-      { type: 'presentation-slide', image: '/assets/image-5.png' },
-      { type: 'presentation-slide', image: '/assets/image-6.png' },
-      { type: 'presentation-slide', image: '/assets/image-7.png' },
-      { type: 'presentation-slide', image: '/assets/image-8.png' }
+      { type: 'presentation-slide', image: '/assets/image-1.webp' },
+      { type: 'presentation-slide', image: '/assets/image-2.webp' },
+      { type: 'presentation-slide', image: '/assets/image-3.webp' },
+      { type: 'presentation-slide', image: '/assets/image-4.webp' },
+      { type: 'presentation-slide', image: '/assets/image-5.webp' },
+      { type: 'presentation-slide', image: '/assets/image-6.webp' },
+      { type: 'presentation-slide', image: '/assets/image-7.webp' },
+      { type: 'presentation-slide', image: '/assets/image-8.webp' }
     ]
   },
   
@@ -110,10 +110,10 @@ export const CASE_STUDIES = [
     departmentId: 'designer',
     themeColor: '#52311E',
     backgroundColor: '#52311E',
-    vaultImage: '/assets/awwja-thumbnail-preview.png',
+    vaultImage: '/assets/awwja-thumbnail-preview.webp',
     noGlow: true,
     hideTitle: true,
-    vaultLogo: <img src="/assets/awwja-vault-cover.png" alt="Awwja" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />,
+    vaultLogo: <img src="/assets/awwja-vault-cover.webp" alt="Awwja" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />,
     category: 'NEGOTIATION MACHINE',
     title: 'Awwja',
     role: 'Product Design, Branding',
@@ -127,9 +127,9 @@ export const CASE_STUDIES = [
   {
     id: 'designer-3',
     departmentId: 'designer',
-    vaultImage: '/assets/vurdict-thumbnail-logo.png',
+    vaultImage: '/assets/vurdict-thumbnail-logo.webp',
     noGlow: true,
-    vaultLogo: <img src="/assets/vurdict-logo.png" alt="Vurdict" style={{ width: '450px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
+    vaultLogo: <img src="/assets/vurdict-logo.webp" alt="Vurdict" style={{ width: '450px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
     category: 'AI PORTFOLIO REVIEWER',
     title: 'Vurdict',
     role: 'Product Design',
@@ -147,11 +147,11 @@ export const CASE_STUDIES = [
   {
     id: 'designer-4',
     departmentId: 'designer',
-    vaultImage: '/assets/mockup_laptop_vault.png',
+    vaultImage: '/assets/mockup_laptop_vault.webp',
     logoOnlyPreview: true,
     noGlow: true,
-    vaultLogo: <img src="/assets/Shiftsyncd%20black%20logo.png" alt="ShiftSyncd" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
-    thumbnailLogo: <img src="/assets/ShiftSync%20logo.png" alt="ShiftSyncd Preview" style={{ width: '100%', height: 'auto' }} />,
+    vaultLogo: <img src="/assets/Shiftsyncd%20black%20logo.webp" alt="ShiftSyncd" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
+    thumbnailLogo: <img src="/assets/ShiftSync%20logo.webp" alt="ShiftSyncd Preview" style={{ width: '100%', height: 'auto' }} />,
     category: 'NURSE HANDOVER TOOL',
     title: 'ShiftSyncd',
     role: 'Product Design',
@@ -166,9 +166,9 @@ export const CASE_STUDIES = [
     id: 'designer-5',
     departmentId: 'designer',
     themeColor: '#0E172A',
-    vaultImage: '/assets/kitkeeper-hero.png',
+    vaultImage: '/assets/kitkeeper-hero.webp',
     noGlow: true,
-    vaultLogo: <img src="/assets/kitkeeper-cover.png" alt="KitKeeper" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />,
+    vaultLogo: <img src="/assets/kitkeeper-cover.webp" alt="KitKeeper" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />,
     category: 'EQUIPMENT MANAGEMENT SAAS',
     title: 'KitKeeper Authentication',
     role: 'Product Design',
@@ -176,7 +176,7 @@ export const CASE_STUDIES = [
     platform: 'Mobile / Web',
     goal: 'Designed a completely structured authentication flow, focusing on clarity and error tolerance.',
     content: [
-      { type: 'hero', image: '/assets/kitkeeper-hero.png' },
+      { type: 'hero', image: '/assets/kitkeeper-hero.webp' },
       {
         type: 'text-block',
         heading: 'The Problem',
@@ -187,25 +187,25 @@ export const CASE_STUDIES = [
         heading: 'Design Goals',
         body: '• Simple login and signup\n• Clear password recovery\n• Error-tolerant forms\n• Smooth flow between screens'
       },
-      { type: 'presentation-slide', image: '/assets/kitkeeper-login.png', caption: 'The Login Flow' },
+      { type: 'presentation-slide', image: '/assets/kitkeeper-login.webp', caption: 'The Login Flow' },
       {
         type: 'text-block',
         heading: 'Fast & Familiar Access',
         body: 'Returning users sign in quickly with minimal input fields—only email and password are required. A visible "Forgot password" option is placed directly under the password field so users do not have to search for it. Loading feedback confirms the system is processing the request, preventing users from tapping repeatedly.'
       },
-      { type: 'presentation-slide', image: '/assets/kitkeeper-signup.png', caption: 'The Sign Up Flow' },
+      { type: 'presentation-slide', image: '/assets/kitkeeper-signup.webp', caption: 'The Sign Up Flow' },
       {
         type: 'text-block',
         heading: 'Reducing Friction for New Users',
         body: 'The sign up form only asks for full name, work email, and password. This simple structure lowers friction for first-time users. After signing up, clear next steps guide them through email verification and workspace setup. Progress feedback avoids giving the impression that the system has stalled during preparation.'
       },
-      { type: 'presentation-slide', image: '/assets/kitkeeper-forgot-password.png', caption: 'Password Recovery Flow' },
+      { type: 'presentation-slide', image: '/assets/kitkeeper-forgot-password.webp', caption: 'Password Recovery Flow' },
       {
         type: 'text-block',
         heading: 'Regaining Access Safely',
         body: 'Users are told exactly what will happen (e.g., "we’ll send you a link to reset your password"), removing guesswork. System feedback on the loading screen confirms the request is being processed. Finally, strong completion feedback confirms the password was updated and provides a clear next action, preventing users from getting stuck.'
       },
-      { type: 'presentation-slide', image: '/assets/kitkeeper-error.png', caption: 'Error Handling' },
+      { type: 'presentation-slide', image: '/assets/kitkeeper-error.webp', caption: 'Error Handling' },
       {
         type: 'text-block',
         heading: 'Specific Error Messages',
@@ -222,9 +222,9 @@ export const CASE_STUDIES = [
   {
     id: 'builder-1',
     departmentId: 'builder',
-    vaultImage: '/assets/vurdict-thumbnail-logo.png',
+    vaultImage: '/assets/vurdict-thumbnail-logo.webp',
     noGlow: true,
-    vaultLogo: <img src="/assets/vurdict-logo.png" alt="Vurdict" style={{ width: '450px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
+    vaultLogo: <img src="/assets/vurdict-logo.webp" alt="Vurdict" style={{ width: '450px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
     category: 'AI PORTFOLIO REVIEWER',
     title: 'Vurdict',
     role: 'Full-Stack Development',
@@ -300,10 +300,10 @@ export const CASE_STUDIES = [
   {
     id: 'writer-2',
     departmentId: 'writer',
-    vaultImage: '/assets/jolli-hero.png',
+    vaultImage: '/assets/jolli-hero.webp',
     noMockupBg: true,
     noGlow: true,
-    vaultLogo: <img src="/assets/jolli-vault-mockup.png" alt="Jolli App Mockup" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />,
+    vaultLogo: <img src="/assets/jolli-vault-mockup.webp" alt="Jolli App Mockup" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />,
     category: 'EVENTS & TRAVEL APP',
     title: 'How I Made an Events & Travel App Speak Before Users Even Tap',
     shortTitle: 'Jolli',
@@ -311,7 +311,7 @@ export const CASE_STUDIES = [
     duration: 'Strategy & MVP',
     platform: 'Mobile App',
     content: [
-      { type: 'hero', image: '/assets/jolli-hero.png' },
+      { type: 'hero', image: '/assets/jolli-hero.webp' },
       { 
         type: 'text-block',
         body: 'If you’ve ever booked a trip, you know the exact moment the excitement stops: you’ve been crowned the Group Chat CFO. Suddenly, you’re tracking money for Airbnb security deposit, sending friendly reminders about overdue payments. That’s not memory-making, it’s accounting.\n\nEnter Jolli. When I first imagined it, I saw a space as lively and inviting as its name suggests. A place where finding the next experience doesn’t come with the usual friction of exorbitant costs. The MVP keeps it simple: installment payments, curated events discovery and a platform for hosts to advertise while paying only per conversion.'

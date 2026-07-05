@@ -213,7 +213,7 @@
   position: absolute;
   width: min(70vh, 50vw);
   height: min(80vh, 60vw);
-  background-image: url('/assets/vault-bg.png');
+  background-image: url('/assets/vault-bg.webp');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

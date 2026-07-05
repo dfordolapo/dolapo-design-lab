@@ -11,12 +11,12 @@
   <title>Dolapo's Design Lab — Enter the Experience</title>
   
   <!-- Preload critical assets -->
-  <link rel="preload" href="/assets/logo.png" as="image">
+  <link rel="preload" href="/assets/logo-dark.webp" as="image">
+  <link rel="preload" href="/assets/logo-light.webp" as="image">
+  <link rel="preload" href="/assets/elevator_bg.webp" as="image">
+  <link rel="preload" href="/assets/hero-image.webp" as="image">
 </head>
 <body>
-  <!-- Hidden images to force immediate load without preload warnings -->
-  <img src="/lab-entrance.jpg" style="position: absolute; width: 0; height: 0; opacity: 0; pointer-events: none;" alt="" />
-  <img src="/lab-interior.jpg" style="position: absolute; width: 0; height: 0; opacity: 0; pointer-events: none;" alt="" />
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>

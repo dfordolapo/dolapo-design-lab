@@ -153,7 +153,7 @@ export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
                 <div className="dept-card__arch"></div>
                 <div className="dept-card__mascot">
                   <img
-                    src={`/assets/${role.id}.png`}
+                    src={`/assets/${role.id}.webp`}
                     alt={role.name}
                     className="dept-card__img"
                     loading="lazy"

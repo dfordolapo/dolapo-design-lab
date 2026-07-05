@@ -79,7 +79,7 @@ export default function ElevatorScreen({ selectedDeptId, onComplete, onAbort }) 
         <div className="elevator-shaft">
             <div className="elevator-glass">
                 <img 
-                    src={theme === 'light' ? "/assets/elevator_bg_light.png" : "/assets/elevator_bg.png"} 
+                    src={theme === 'light' ? "/assets/elevator_bg_light.webp" : "/assets/elevator_bg.webp"} 
                     className="elevator-bg" 
                     alt="Lab Atrium" 
                     style={{ transform: `translateY(${ -30 + parseInt(currentFloor, 10) * 10 }%)` }}

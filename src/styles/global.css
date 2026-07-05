@@ -56,8 +56,8 @@
   --radius-xl: 24px;
   --radius-full: 9999px;
 
-  --hero-img-entrance: url('/assets/hero-image.png');
-  --hero-img-interior: url('/assets/hero-image.png');
+  --hero-img-entrance: url('/assets/hero-image.webp');
+  --hero-img-interior: url('/assets/hero-image.webp');
 }
 
 /* Theme Toggle Button */
@@ -130,8 +130,8 @@
   --glass-border-hover: rgba(0, 0, 0, 0.15);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
 
-  --hero-img-entrance: url('/assets/hero-image-light.png');
-  --hero-img-interior: url('/assets/hero-image-light.png');
+  --hero-img-entrance: url('/assets/hero-image-light.webp');
+  --hero-img-interior: url('/assets/hero-image-light.webp');
 }
 
 [data-theme="light"] .ambient-overlay__gradient-left {

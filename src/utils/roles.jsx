@@ -36,7 +36,7 @@ export const ROLES = [
   { 
     id: 'builder', 
     number: '03',
-    name: 'Design + Build', 
+    name: 'Product Design + Full-stack Dev', 
     description: 'I take products from idea to launch.',
     vaultDescription: "Ideas engineered to click.",
     accent: 'var(--blue-ambient)', 
