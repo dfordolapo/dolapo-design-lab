@@ -3268,3 +3268,14 @@ p {
     display: none !important;
   }
 }
+
+/* Add moderate spacing above widget */
+.booking-page__widget {
+  margin-top: 3rem !important;
+}
+
+@media (max-width: 768px) {
+  .booking-page__widget {
+    margin-top: 2rem !important;
+  }
+}
