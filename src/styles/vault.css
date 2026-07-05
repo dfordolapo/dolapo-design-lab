@@ -483,6 +483,31 @@
   filter: url(#glitch-shader);
 }
 
+.carousel-item-logo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.carousel-item-logo > * {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  filter: none !important;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-item:hover .carousel-item-logo > *,
+.carousel-item.active .carousel-item-logo > * {
+  opacity: 1;
+}
+
 .carousel-item__overlay {
   position: absolute;
   inset: 0;

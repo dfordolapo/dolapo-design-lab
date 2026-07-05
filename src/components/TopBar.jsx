@@ -29,7 +29,7 @@ export default function TopBar({ onBack, title = "DOLAPO'S DESIGN LAB", rightEle
       
       <div className="top-bar__right" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
         {rightElement}
-        <ThemeToggle />
+
       </div>
     </div>
   )

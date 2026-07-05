@@ -205,7 +205,11 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
                 onClick={() => handleSelectProject(idx)}
                 onMouseEnter={playHover}
               >
-                {!proj.textOnlyPreview && (
+                {proj.logoOnlyPreview ? (
+                  <div className="carousel-item-logo">
+                    {proj.vaultLogo}
+                  </div>
+                ) : !proj.textOnlyPreview && (
                   <img src={proj.vaultImage} alt={proj.shortTitle || proj.title} draggable={false} />
                 )}
                 <div className="carousel-item__overlay">

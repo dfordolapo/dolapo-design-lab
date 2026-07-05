@@ -116,7 +116,7 @@ export default function CinematicContainer({ phase, onEnterLab, transitioning })
         <DiscoveryCue />
         <PhaseIndicator phase={phase} />
         
-        <ThemeToggle className="theme-toggle-fixed" />
+
       </div>
       <TransitionOverlay active={transitioning} />
     </>
