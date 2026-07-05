@@ -137,10 +137,9 @@ export default function CaseStudyViewer({ project, onClose }) {
                     <div className="meta-item">
                       <span className="meta-label">ROLE</span>
                       <span className="meta-value role-list">
-                        {project.role.split(/ • |, /).map((r, i, arr) => (
+                        {project.role.split(/ • |, /).map((r, i) => (
                           <span key={i} className="role-item">
                             {r}
-                            {i < arr.length - 1 && <span className="role-separator"> • </span>}
                           </span>
                         ))}
                       </span>

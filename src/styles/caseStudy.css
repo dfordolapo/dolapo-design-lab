@@ -232,14 +232,11 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  gap: 12px;
 }
 
 .role-item {
   display: inline-block;
-}
-
-.role-separator {
-  margin: 0 4px;
 }
 
 /* FEATURES LIST */
@@ -428,10 +425,6 @@
 
   .role-list {
     flex-direction: column;
-    gap: 4px;
-  }
-  
-  .role-separator {
-    display: none;
+    gap: 8px;
   }
 }
