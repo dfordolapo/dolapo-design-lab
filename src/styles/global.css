@@ -3262,3 +3262,9 @@ p {
     min-height: 900px !important;
   }
 }
+
+@media (max-width: 768px) {
+  .desktop-break {
+    display: none !important;
+  }
+}
