@@ -167,6 +167,10 @@
   width: calc(100% + (2 * var(--space-2xl)));
 }
 
+.full-image-block.pull-up {
+  margin-top: calc(-1 * var(--space-3xl));
+}
+
 .hero-img {
   width: 100%;
   height: auto;
@@ -355,6 +359,10 @@
     margin-left: -12px;
     margin-right: -12px;
     width: calc(100% + 24px);
+  }
+
+  .full-image-block.pull-up {
+    margin-top: calc(-1 * var(--space-lg));
   }
 
   .full-image-block img {

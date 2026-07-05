@@ -73,10 +73,12 @@ export default function CaseStudyViewer({ project, onClose }) {
             />
           </svg>
           
-          <div className="case-study-hero-title">
-            <h1>{project.title}</h1>
-            {project.goal && <p className="case-study-goal">{project.goal}</p>}
-          </div>
+          {!project.hideTitle && (
+            <div className="case-study-hero-title">
+              <h1>{project.title}</h1>
+              {project.goal && <p className="case-study-goal">{project.goal}</p>}
+            </div>
+          )}
 
           {/* Map through dynamic content blocks */}
           {project.content.map((block, index) => {
@@ -107,7 +109,10 @@ export default function CaseStudyViewer({ project, onClose }) {
               );
             } else if (block.type === 'full-image') {
               blockContent = (
-                <div className="case-study-block full-image-block" style={{ marginBottom: 0 }}>
+                <div 
+                  className={`case-study-block full-image-block ${project.hideTitle && index === 0 ? 'pull-up' : ''}`} 
+                  style={{ marginBottom: 0 }}
+                >
                   {block.image ? (
                     <img 
                       src={block.image} 

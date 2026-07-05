@@ -112,6 +112,7 @@ export const CASE_STUDIES = [
     backgroundColor: '#52311E',
     vaultImage: '/assets/awwja-thumbnail-preview.png',
     noGlow: true,
+    hideTitle: true,
     vaultLogo: <img src="/assets/awwja-vault-cover.png" alt="Awwja" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />,
     category: 'NEGOTIATION MACHINE',
     title: 'Awwja',
