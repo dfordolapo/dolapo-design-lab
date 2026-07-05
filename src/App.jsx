@@ -14,6 +14,7 @@ import { CONFIG } from './utils/cinematicConfig'
 import { CASE_STUDIES } from './utils/caseStudies'
 import { motion, AnimatePresence } from 'framer-motion'
 import SmoothScroll from './components/SmoothScroll'
+import { getCalApi } from '@calcom/embed-react'
 
 const SESSION_KEY = 'portfolio-session'
 
@@ -63,6 +64,17 @@ export default function App() {
     }
     sessionStorage.setItem(SESSION_KEY, JSON.stringify(state))
   }, [showDeptSelect, showElevator, showDepartmentView, selectedDept])
+
+  // Preload Cal.com script instantly in the background so it's ready when needed
+  useEffect(() => {
+    (async function preloadCal() {
+      try {
+        await getCalApi()
+      } catch (e) {
+        console.error('Failed to preload Cal.com API', e)
+      }
+    })()
+  }, [])
 
   // Preload all case study images in the background
   useEffect(() => {

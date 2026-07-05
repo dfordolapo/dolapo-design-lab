@@ -3169,3 +3169,14 @@ p {
     font-size: 0.7rem !important;
   }
 }
+
+@media (max-width: 768px) {
+  .cta-button, .book-secondary-cta {
+    width: 220px !important;
+    height: 44px !important;
+    padding: 0 0.75rem !important;
+  }
+  .cta-button__text, .book-secondary-cta__text {
+    font-size: 0.65rem !important;
+  }
+}
