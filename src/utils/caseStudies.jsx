@@ -252,11 +252,10 @@ export const CASE_STUDIES = [
         body: '**Dashboard:** The first thing an educator sees when they log in shouldn\'t be a completely blank space. It should tell them where they left off and guide them to create a course if they haven\'t done that already. There should also be templates to use.\n\n**Course Builder:** Three columns: structure on the left, canvas in the centre, settings on the right. No leaving the screen to change visibility, no separate settings page to configure duration. Everything the educator needs is visible while they build.\n\n**Lesson Editor:** The student view updates in real time as the educator writes. Most tools make you publish before you can see what students see. I flipped that.\n\n**Publish Flow:** A checklist actively flags what\'s incomplete before anything goes live and shows a Final Assessment error state with a Fix Now button so that no educator accidentally publishes a broken course.\n\n**Creator Insight Card:** Data without direction is noise. Instead of showing raw numbers, the platform surfaces one actionable recommendation per screen. eg: "This draft is 65% complete. Adding a final quiz increases retention by 40%."\n\n**Templates:** The template library gives first time creators a starting point and a scaffold they can break, reshape, or discard once they know what they\'re building.'
       },
       { type: 'presentation-slide', image: '/assets/distinction-dashboard.png', caption: 'Dashboard' },
-      { type: 'presentation-slide', image: '/assets/distinction-dashboard-analytics.png', caption: 'Analytics Dashboard' },
       { type: 'presentation-slide', image: '/assets/distinction-builder.png', caption: 'Course Builder' },
       { type: 'presentation-slide', image: '/assets/distinction-editor.png', caption: 'Lesson Editor' },
       { type: 'presentation-slide', image: '/assets/distinction-publish.png', caption: 'Publish Flow' },
-      { type: 'presentation-slide', image: '/assets/distinction-insights.png', caption: 'Creator Insight Card' },
+      { type: 'presentation-slide', image: '/assets/distinction-dashboard-analytics.png', caption: 'Creator Insight Card' },
       { type: 'presentation-slide', image: '/assets/distinction-templates.png', caption: 'Templates' },
       {
         type: 'text-block',
