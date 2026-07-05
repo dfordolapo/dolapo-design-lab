@@ -2956,7 +2956,7 @@ p {
 /* Floating CTA */
 .floating-cta {
   position: fixed;
-  bottom: 2rem;
+  bottom: 100px;
   right: 2rem;
   z-index: 100;
   display: flex;
@@ -3020,7 +3020,7 @@ p {
 
 @media (max-width: 768px) {
   .floating-cta {
-    bottom: 1.5rem;
+    bottom: 100px;
     right: 1.5rem;
   }
 }
