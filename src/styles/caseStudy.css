@@ -228,6 +228,20 @@
   color: var(--purple-soft);
 }
 
+.role-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.role-item {
+  display: inline-block;
+}
+
+.role-separator {
+  margin: 0 4px;
+}
+
 /* FEATURES LIST */
 .features-grid {
   display: grid;
@@ -410,5 +424,14 @@
   .overview-block {
     padding: var(--space-md);
     gap: var(--space-lg);
+  }
+
+  .role-list {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .role-separator {
+    display: none;
   }
 }
