@@ -967,23 +967,23 @@
 }
 
 @media (max-width: 768px) {
-  .vault-cylinder.left {
+  .vault-cylinder.right {
     opacity: 0 !important;
     transform: translateX(0) scale(0.2) !important;
     pointer-events: none !important;
   }
-  .vault-cylinder.right {
-    transform: translateX(30%) scale(0.6) !important;
+  .vault-cylinder.left {
+    transform: translateX(-30%) scale(0.6) !important;
   }
 }
 
 @media (max-width: 480px) {
-  .vault-cylinder.left {
+  .vault-cylinder.right {
     opacity: 0 !important;
     transform: translateX(0) scale(0.2) !important;
     pointer-events: none !important;
   }
-  .vault-cylinder.right {
-    transform: translateX(35%) scale(0.5) !important;
+  .vault-cylinder.left {
+    transform: translateX(-35%) scale(0.5) !important;
   }
 }
