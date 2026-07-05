@@ -10,7 +10,7 @@ export const CASE_STUDIES = [
     noMockupBg: true,
     noGlow: true,
     vaultLogo: <img src="/assets/scan2supper-vault-cover.png" alt="Scan2Supper Mockup" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))', maxWidth: '300px' }} />,
-    category: 'CONCEPT MOBILE APP',
+    category: 'RECIPE GENERATOR APP',
     title: 'Scan2Supper',
     role: 'UX/UI Design, Illustration',
     duration: '4 weeks',
