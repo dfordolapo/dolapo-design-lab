@@ -306,7 +306,7 @@ export const CASE_STUDIES = [
     noMockupBg: true,
     noGlow: true,
     vaultLogo: <img src="/assets/jolli-vault-mockup.png" alt="Jolli App Mockup" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />,
-    category: 'CONTENT STRATEGY',
+    category: 'EVENTS & TRAVEL APP',
     title: 'How I Made an Events & Travel App Speak Before Users Even Tap',
     shortTitle: 'Jolli',
     role: 'UX Writer & Content Designer',
