@@ -3,7 +3,7 @@ import useSoundEffects from '../hooks/useSoundEffects'
 const MAGNETIC_STRENGTH = 0.35
 const MAGNETIC_MAX = 14
 
-export default function CTAButton({ onClick }) {
+export default function CTAButton({ onClick, secondaryCTA }) {
   const { playHover, playClick } = useSoundEffects()
 
   const magneticEnabled = typeof window !== 'undefined'
@@ -31,7 +31,7 @@ export default function CTAButton({ onClick }) {
   }
 
   return (
-    <div className="cta-container" id="cta-container">
+    <div className="cta-container" id="cta-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.2rem' }}>
       <button 
         className="cta-button cta-button--magnetic" 
         id="enter-lab-btn" 
@@ -51,6 +51,7 @@ export default function CTAButton({ onClick }) {
           </svg>
         </span>
       </button>
+      {secondaryCTA}
     </div>
   )
 }

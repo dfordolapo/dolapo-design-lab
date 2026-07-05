@@ -3101,3 +3101,44 @@ p {
     display: none !important;
   }
 }
+/* Overrides for alignment and matching size */
+.cta-container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 1.2rem !important;
+}
+
+@media (max-width: 768px) {
+  .cta-container {
+    align-items: center !important;
+  }
+}
+
+.cta-button, .book-secondary-cta {
+  width: 260px !important;
+  justify-content: center !important;
+  box-sizing: border-box;
+}
+
+.book-secondary-cta {
+  border-color: rgba(232, 121, 249, 0.4) !important;
+}
+
+.book-secondary-cta:hover {
+  border-color: rgba(232, 121, 249, 0.8) !important;
+}
+/* Booking CTA Polish */
+.book-secondary-cta {
+  border-color: rgba(232, 121, 249, 0.6) !important;
+  border-width: 1.5px !important;
+}
+
+.book-secondary-cta:hover {
+  border-color: rgba(232, 121, 249, 0.9) !important;
+  background: rgba(232, 121, 249, 0.1) !important;
+}
+
+.cta-button {
+  border-width: 1.5px !important;
+}

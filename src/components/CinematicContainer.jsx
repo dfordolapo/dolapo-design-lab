@@ -111,10 +111,7 @@ export default function CinematicContainer({ phase, onEnterLab, transitioning })
         <div className="content-layer">
           <HeroHeading />
           <HeroSub />
-          <CTAButton onClick={onEnterLab} />
-          <div style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'center' }}>
-            <BookSessionCTA variant="secondary" />
-          </div>
+          <CTAButton onClick={onEnterLab} secondaryCTA={<BookSessionCTA variant="secondary" />} />
         </div>
 
         <DiscoveryCue />
