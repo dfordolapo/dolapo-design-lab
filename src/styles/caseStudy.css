@@ -338,7 +338,17 @@
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .case-study-content {
-    padding: var(--space-lg) 24px;
+    padding: var(--space-lg) 12px;
+  }
+  
+  .full-image-block {
+    margin-left: -12px;
+    margin-right: -12px;
+    width: calc(100% + 24px);
+  }
+
+  .full-image-block img {
+    border-radius: 0 !important;
   }
   
   .features-grid {
