@@ -156,7 +156,9 @@ export const CASE_STUDIES = [
     role: 'Product Design',
     duration: 'Ongoing',
     platform: 'Web / Mobile',
-    content: []
+    content: [
+      { type: 'full-image', image: '/assets/shiftsyncd-case-study.png' }
+    ]
   },
   
   {
