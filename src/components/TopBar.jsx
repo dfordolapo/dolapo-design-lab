@@ -1,6 +1,7 @@
 import useSoundEffects from '../hooks/useSoundEffects'
 import ThemeToggle from './ThemeToggle'
 import useTheme from '../hooks/useTheme'
+import BookSessionCTA from './BookSessionCTA'
 
 export default function TopBar({ onBack, title = "DOLAPO'S DESIGN LAB", rightElement }) {
   const { playHover, playClick } = useSoundEffects()
@@ -28,8 +29,8 @@ export default function TopBar({ onBack, title = "DOLAPO'S DESIGN LAB", rightEle
       </span>
       
       <div className="top-bar__right" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+        <BookSessionCTA variant="nav" />
         {rightElement}
-
       </div>
     </div>
   )

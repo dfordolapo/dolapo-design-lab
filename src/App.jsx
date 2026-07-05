@@ -7,6 +7,8 @@ import ElevatorScreen from './components/ElevatorScreen'
 import DepartmentVault from './components/DepartmentVault'
 import CaseStudyViewer from './components/CaseStudyViewer'
 import AboutCreator from './components/AboutCreator'
+import BookingPage from './components/BookingPage'
+import FloatingCTA from './components/FloatingCTA'
 import useCinematicEngine from './hooks/useCinematicEngine'
 import { CONFIG } from './utils/cinematicConfig'
 import { CASE_STUDIES } from './utils/caseStudies'
@@ -36,6 +38,7 @@ export default function App() {
   const [showDepartmentView, setShowDepartmentView] = useState(saved?.showDepartmentView || false)
   const [activeProject, setActiveProject] = useState(null)
   const [showAboutCreator, setShowAboutCreator] = useState(false)
+  const [currentPath, setCurrentPath] = useState(window.location.pathname)
 
   const {
     phase,
@@ -44,6 +47,12 @@ export default function App() {
     triggerTransition,
     resetTransition,
   } = useCinematicEngine(true)
+
+  useEffect(() => {
+    const handlePopState = () => setCurrentPath(window.location.pathname)
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
 
   useEffect(() => {
     const state = {
@@ -136,6 +145,18 @@ export default function App() {
   }
 
   const renderScreen = () => {
+    if (currentPath === '/book') {
+      return (
+        <BookingPage 
+          key="booking" 
+          onBack={() => {
+            window.history.pushState({}, '', '/')
+            window.dispatchEvent(new Event('popstate'))
+          }} 
+        />
+      )
+    }
+
     if (showAboutCreator) {
       return (
         <motion.div key="about" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }} className="screen-wrapper">
@@ -200,6 +221,10 @@ export default function App() {
       <AnimatePresence mode="wait">
         {renderScreen()}
       </AnimatePresence>
+
+      {!showCinematic && currentPath !== '/book' && (
+        <FloatingCTA />
+      )}
 
       {transitioning && <div className="transition-overlay active" />}
     </SmoothScroll>

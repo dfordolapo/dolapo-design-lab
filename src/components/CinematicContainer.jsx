@@ -6,6 +6,7 @@ import HUDFrame from './HUDFrame'
 import HeroHeading from './HeroHeading'
 import HeroSub from './HeroSub'
 import CTAButton from './CTAButton'
+import BookSessionCTA from './BookSessionCTA'
 import HolographicElements from './HolographicElements'
 import DoorLight from './DoorLight'
 import SensorIndicators from './SensorIndicators'
@@ -111,6 +112,9 @@ export default function CinematicContainer({ phase, onEnterLab, transitioning })
           <HeroHeading />
           <HeroSub />
           <CTAButton onClick={onEnterLab} />
+          <div style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'center' }}>
+            <BookSessionCTA variant="secondary" />
+          </div>
         </div>
 
         <DiscoveryCue />
