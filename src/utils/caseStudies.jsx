@@ -212,7 +212,7 @@ export const CASE_STUDIES = [
         textAlign: 'center',
         lineHeight: '1.2'
       }}>
-        Distinction <br/> Creator Studio
+        Distinction <br/> Creator <br/> Studio
       </div>
     ),
     category: 'COURSE BUILDER PLATFORM',
