@@ -157,6 +157,75 @@ export const CASE_STUDIES = [
   },
   
   {
+    id: 'designer-5',
+    departmentId: 'designer',
+    themeColor: '#0E172A',
+    vaultImage: '',
+    textOnlyPreview: true,
+    noGlow: true,
+    vaultLogo: (
+      <div style={{
+        fontSize: '1.2rem',
+        fontWeight: 'bold',
+        color: '#F8F7FF',
+        letterSpacing: '0.05em',
+        textAlign: 'center',
+        lineHeight: '1.2'
+      }}>
+        KitKeeper
+      </div>
+    ),
+    category: 'EQUIPMENT MANAGEMENT SAAS',
+    title: 'KitKeeper Authentication',
+    role: 'Product Design',
+    duration: 'UX & Prototyping',
+    platform: 'Mobile / Web',
+    goal: 'Designed a completely structured authentication flow, focusing on clarity and error tolerance.',
+    content: [
+      { type: 'hero', image: '/assets/kitkeeper-hero.png' },
+      {
+        type: 'text-block',
+        heading: 'The Problem',
+        body: 'Teams that share equipment often struggle with losing track of items, poor access control, and scattered information. Authentication is the entry point to solving this. If it feels confusing or insecure, users lose trust immediately. This project explores a clear, structured experience.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Design Goals',
+        body: '• Simple login and signup\n• Clear password recovery\n• Error-tolerant forms\n• Smooth flow between screens'
+      },
+      { type: 'presentation-slide', image: '/assets/kitkeeper-login.png', caption: 'The Login Flow' },
+      {
+        type: 'text-block',
+        heading: 'Fast & Familiar Access',
+        body: 'Returning users sign in quickly with minimal input fields—only email and password are required. A visible "Forgot password" option is placed directly under the password field so users do not have to search for it. Loading feedback confirms the system is processing the request, preventing users from tapping repeatedly.'
+      },
+      { type: 'presentation-slide', image: '/assets/kitkeeper-signup.png', caption: 'The Sign Up Flow' },
+      {
+        type: 'text-block',
+        heading: 'Reducing Friction for New Users',
+        body: 'The sign up form only asks for full name, work email, and password. This simple structure lowers friction for first-time users. After signing up, clear next steps guide them through email verification and workspace setup. Progress feedback avoids giving the impression that the system has stalled during preparation.'
+      },
+      { type: 'presentation-slide', image: '/assets/kitkeeper-forgot-password.png', caption: 'Password Recovery Flow' },
+      {
+        type: 'text-block',
+        heading: 'Regaining Access Safely',
+        body: 'Users are told exactly what will happen (e.g., "we’ll send you a link to reset your password"), removing guesswork. System feedback on the loading screen confirms the request is being processed. Finally, strong completion feedback confirms the password was updated and provides a clear next action, preventing users from getting stuck.'
+      },
+      { type: 'presentation-slide', image: '/assets/kitkeeper-error.png', caption: 'Error Handling' },
+      {
+        type: 'text-block',
+        heading: 'Specific Error Messages',
+        body: 'Instead of generic errors, users see specific feedback like "We couldn’t find an account with that email address" or "Incorrect password. Please try again." This helps users correct mistakes immediately without frustration.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Key UX Decisions',
+        body: '• **Simplified navigation:** Back buttons were used instead of screen titles to reduce visual clutter.\n• **Consistent layout:** All authentication screens follow the same structure to make navigation predictable.\n• **Clear system feedback:** Loading and success states help users understand what is happening at every step.\n• **Readable hierarchy:** Large headings and simple spacing make screens easy to scan.'
+      }
+    ]
+  },
+  
+  {
     id: 'builder-1',
     departmentId: 'builder',
     vaultImage: '/assets/mockup_laptop_vault.png',
