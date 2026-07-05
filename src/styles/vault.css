@@ -965,3 +965,25 @@
     height: 46px;
   }
 }
+
+@media (max-width: 768px) {
+  .vault-cylinder.left {
+    opacity: 0 !important;
+    transform: translateX(0) scale(0.2) !important;
+    pointer-events: none !important;
+  }
+  .vault-cylinder.right {
+    transform: translateX(30%) scale(0.6) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .vault-cylinder.left {
+    opacity: 0 !important;
+    transform: translateX(0) scale(0.2) !important;
+    pointer-events: none !important;
+  }
+  .vault-cylinder.right {
+    transform: translateX(35%) scale(0.5) !important;
+  }
+}
