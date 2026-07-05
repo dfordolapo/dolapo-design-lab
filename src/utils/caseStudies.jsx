@@ -282,7 +282,6 @@ export const CASE_STUDIES = [
     departmentId: 'builder',
     vaultImage: '/assets/awwja-thumbnail-preview.webp',
     noGlow: true,
-    hideTitle: true,
     vaultLogo: <img src="/assets/awwja-vault-cover.webp" alt="Awwja" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />,
     category: 'NEGOTIATION MACHINE',
     title: 'Awwja',
