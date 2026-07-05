@@ -30,13 +30,6 @@ export default function BookingPage({ onBack }) {
       
       <div className="booking-page__content">
         <div className="booking-page__header">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            Before every polished interface, there was a conversation that made it better.<br className="desktop-break"/> This is where your ideas stop living in your head and start becoming products.
-          </motion.p>
         </div>
         
         <motion.div 
