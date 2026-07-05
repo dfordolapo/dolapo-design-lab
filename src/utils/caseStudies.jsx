@@ -160,21 +160,9 @@ export const CASE_STUDIES = [
     id: 'designer-5',
     departmentId: 'designer',
     themeColor: '#0E172A',
-    vaultImage: '',
-    textOnlyPreview: true,
+    vaultImage: '/assets/kitkeeper-hero.png',
     noGlow: true,
-    vaultLogo: (
-      <div style={{
-        fontSize: '1.2rem',
-        fontWeight: 'bold',
-        color: '#F8F7FF',
-        letterSpacing: '0.05em',
-        textAlign: 'center',
-        lineHeight: '1.2'
-      }}>
-        KitKeeper
-      </div>
-    ),
+    vaultLogo: <img src="/assets/kitkeeper-cover.png" alt="KitKeeper" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />,
     category: 'EQUIPMENT MANAGEMENT SAAS',
     title: 'KitKeeper Authentication',
     role: 'Product Design',
