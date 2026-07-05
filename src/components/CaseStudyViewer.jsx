@@ -96,8 +96,14 @@ export default function CaseStudyViewer({ project, onClose }) {
                         alt={project.title} 
                         className="hero-img" 
                         onError={(e) => {
-                          e.target.style.display = 'none';
-                          e.target.nextSibling.style.display = 'block';
+                          if (e.target.src.endsWith('.webp')) {
+                            e.target.src = e.target.src.replace('.webp', '.png');
+                          } else {
+                            e.target.style.display = 'none';
+                            if (e.target.nextElementSibling) {
+                              e.target.nextElementSibling.style.display = 'block';
+                            }
+                          }
                         }}
                       />
                     ) : null}
@@ -119,8 +125,14 @@ export default function CaseStudyViewer({ project, onClose }) {
                       alt={project.title} 
                       style={{ width: '100%', height: 'auto', display: 'block' }}
                       onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'block';
+                        if (e.target.src.endsWith('.webp')) {
+                          e.target.src = e.target.src.replace('.webp', '.png');
+                        } else {
+                          e.target.style.display = 'none';
+                          if (e.target.nextElementSibling) {
+                            e.target.nextElementSibling.style.display = 'block';
+                          }
+                        }
                       }}
                     />
                   ) : null}
@@ -211,8 +223,14 @@ export default function CaseStudyViewer({ project, onClose }) {
                         alt={block.heading} 
                         style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 'var(--radius-lg)' }}
                         onError={(e) => {
-                          e.target.style.display = 'none';
-                          e.target.nextSibling.style.display = 'block';
+                          if (e.target.src.endsWith('.webp')) {
+                            e.target.src = e.target.src.replace('.webp', '.png');
+                          } else {
+                            e.target.style.display = 'none';
+                            if (e.target.nextElementSibling) {
+                              e.target.nextElementSibling.style.display = 'block';
+                            }
+                          }
                         }}
                       />
                     ) : null}
@@ -232,8 +250,14 @@ export default function CaseStudyViewer({ project, onClose }) {
                         alt="Presentation Slide" 
                         className="presentation-img"
                         onError={(e) => {
-                          e.target.style.display = 'none';
-                          e.target.nextSibling.style.display = 'block';
+                          if (e.target.src.endsWith('.webp')) {
+                            e.target.src = e.target.src.replace('.webp', '.png');
+                          } else {
+                            e.target.style.display = 'none';
+                            if (e.target.nextElementSibling) {
+                              e.target.nextElementSibling.style.display = 'block';
+                            }
+                          }
                         }}
                       />
                     ) : null}
