@@ -229,6 +229,7 @@ export const CASE_STUDIES = [
     logoOnlyPreview: true,
     noGlow: true,
     vaultLogo: <img src="/assets/vurdict-logo.png" alt="Vurdict" style={{ width: '450px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
+    thumbnailLogo: <img src="/assets/vurdict-thumbnail-logo.png" alt="Vurdict Preview" style={{ width: '100%', height: 'auto' }} />,
     category: 'AI-POWERED APP',
     title: 'Vurdict',
     role: 'Full-Stack Development',
