@@ -169,6 +169,9 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
                 positionClass = 'right';
               }
 
+              // Only mount center + immediate neighbors — keeps iOS GPU layer count to 3
+              if (positionClass === 'hidden') return null;
+
               return (
                 <div 
                   key={proj.id} 
