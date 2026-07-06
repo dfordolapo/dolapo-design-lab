@@ -954,6 +954,9 @@
     max-height: 120px !important;
   }
 
+  .vault-logo-overlay img[alt="Vurdict"] {
+    max-height: 100px !important;
+  }
 
 
   .vault-logo-overlay svg {
