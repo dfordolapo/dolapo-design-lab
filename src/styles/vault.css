@@ -427,25 +427,35 @@
 .view-project-btn {
   position: absolute;
   bottom: 20%;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.4);
   padding: 12px 32px;
   border-radius: 30px;
   font-family: var(--font-heading);
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   cursor: pointer;
-  backdrop-filter: blur(10px);
-  transition: transform 0.4s var(--ease-spring), background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
+  transition: transform 0.4s var(--ease-spring), background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
   z-index: 20;
 }
 
 .view-project-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: #fff;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 1);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
   transform: translateY(-4px) scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .view-project-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    backdrop-filter: blur(10px);
+  }
 }
 
 .view-project-btn:active {
