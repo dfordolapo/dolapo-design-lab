@@ -257,7 +257,6 @@
   gap: 20px;
   padding: 40px;
   box-sizing: border-box;
-  transform-style: preserve-3d;
 }
 
 .cylinder-content__text {
@@ -606,7 +605,7 @@
   }
 
   .vault-stage {
-    perspective: 600px;
+    perspective: none;
   }
 
   .cylinder-glass, .cylinder-glow, .cylinder-content {
