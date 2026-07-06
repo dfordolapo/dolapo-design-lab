@@ -27,7 +27,14 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
 
   const projects = CASE_STUDIES.filter(cs => cs.departmentId === departmentId)
   const displayProjects = projects.length > 0 ? projects : CASE_STUDIES
-  const activeProject = displayProjects[activeProjectIdx]
+  
+  // Create a 4-item array if there are exactly 2 items to allow flawless infinite looping
+  const renderProjects = displayProjects.length === 2 
+    ? [...displayProjects, ...displayProjects.map(p => ({ ...p, id: p.id + '_clone' }))] 
+    : displayProjects;
+
+  // Ensure activeProject gets the original data properties even if it's currently on a clone
+  const activeProject = renderProjects[activeProjectIdx]
   const themeColor = activeProject?.themeColor || THEME_COLORS[departmentId] || '#8b5cf6'
   const activeRole = ROLES.find(r => r.id === departmentId) || ROLES[0]
 
@@ -35,15 +42,15 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
     const handleKeyDown = (e) => {
       if (e.key === 'ArrowLeft') {
         playClick()
-        setActiveProjectIdx(prev => (prev - 1 + displayProjects.length) % displayProjects.length)
+        setActiveProjectIdx(prev => (prev - 1 + renderProjects.length) % renderProjects.length)
       } else if (e.key === 'ArrowRight') {
         playClick()
-        setActiveProjectIdx(prev => (prev + 1) % displayProjects.length)
+        setActiveProjectIdx(prev => (prev + 1) % renderProjects.length)
       }
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [displayProjects.length, playClick])
+  }, [renderProjects.length, playClick])
 
   const minSwipeDistance = 50 
   const handleTouchStart = (e) => {
@@ -56,10 +63,10 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
     const distance = touchStart - touchEnd
     if (distance > minSwipeDistance) {
       playClick()
-      setActiveProjectIdx(prev => (prev + 1) % displayProjects.length)
+      setActiveProjectIdx(prev => (prev + 1) % renderProjects.length)
     } else if (distance < -minSwipeDistance) {
       playClick()
-      setActiveProjectIdx(prev => (prev - 1 + displayProjects.length) % displayProjects.length)
+      setActiveProjectIdx(prev => (prev - 1 + renderProjects.length) % renderProjects.length)
     }
   }
 
@@ -67,13 +74,13 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
     const offset = info.offset.x
     if (offset < -80) {
       playClick()
-      setActiveProjectIdx(prev => (prev + 1) % displayProjects.length)
+      setActiveProjectIdx(prev => (prev + 1) % renderProjects.length)
     } else if (offset > 80) {
       playClick()
-      setActiveProjectIdx(prev => (prev - 1 + displayProjects.length) % displayProjects.length)
+      setActiveProjectIdx(prev => (prev - 1 + renderProjects.length) % renderProjects.length)
     }
     dragX.set(0)
-  }, [displayProjects.length, playClick, dragX])
+  }, [renderProjects.length, playClick, dragX])
 
   const handleSelectProject = (idx) => {
     if (idx !== activeProjectIdx) {
@@ -152,15 +159,13 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
             style={{ x: dragSpring, opacity: dragOpacity }}
             whileTap={{ cursor: 'grabbing' }}
           >
-            {displayProjects.map((proj, idx) => {
+            {renderProjects.map((proj, idx) => {
               let positionClass = 'hidden';
               if (idx === activeProjectIdx) {
                 positionClass = 'center';
-              } else if (displayProjects.length === 2) {
-                positionClass = idx > activeProjectIdx ? 'right' : 'left';
-              } else if (idx === (activeProjectIdx - 1 + displayProjects.length) % displayProjects.length) {
+              } else if (idx === (activeProjectIdx - 1 + renderProjects.length) % renderProjects.length) {
                 positionClass = 'left';
-              } else if (idx === (activeProjectIdx + 1) % displayProjects.length) {
+              } else if (idx === (activeProjectIdx + 1) % renderProjects.length) {
                 positionClass = 'right';
               }
 
@@ -206,7 +211,7 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
             {displayProjects.map((proj, idx) => (
               <div 
                 key={proj.id}
-                className={`carousel-item ${idx === activeProjectIdx ? 'active' : ''}`}
+                className={`carousel-item ${idx === (activeProjectIdx % displayProjects.length) ? 'active' : ''}`}
                 onClick={() => handleSelectProject(idx)}
                 onMouseEnter={playHover}
               >

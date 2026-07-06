@@ -184,6 +184,7 @@
   justify-content: center;
   transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   pointer-events: none;
+  transform-style: preserve-3d;
 }
 
 .vault-cylinder.center {
@@ -953,9 +954,7 @@
     max-height: 120px !important;
   }
 
-  .vault-logo-overlay img[alt="Vurdict"] {
-    max-height: 90px !important;
-  }
+
 
   .vault-logo-overlay svg {
     max-height: 65px !important;
@@ -991,5 +990,10 @@
   }
   .vault-cylinder.left {
     transform: translateX(-32%) scale(0.5) !important;
+  }
+  .vault-stage-drag-area {
+    width: 100vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
   }
 }
