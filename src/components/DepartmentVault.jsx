@@ -100,6 +100,7 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
       <div 
         className="vault-dashboard" 
         style={{ '--theme-color': themeColor }}
+        data-department={departmentId}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}

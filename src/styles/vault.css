@@ -994,9 +994,18 @@
   .vault-cylinder.left {
     transform: translateX(-32%) scale(0.5) !important;
   }
-  .vault-stage-drag-area {
-    width: 100vw !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+
+  /* Designer dept has 6 projects - hidden cylinders can cause iOS GPU offset.
+     Force the stage itself to hard-center using margin auto. */
+  [data-department="designer"] .vault-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  [data-department="designer"] .vault-cylinder.center {
+    transform: translateX(0) scale(1) !important;
   }
 }
