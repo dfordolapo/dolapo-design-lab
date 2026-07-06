@@ -992,4 +992,9 @@
   .vault-cylinder.left {
     transform: translateX(-32%) scale(0.5) !important;
   }
+  .vault-stage-drag-area {
+    width: 100vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
 }
