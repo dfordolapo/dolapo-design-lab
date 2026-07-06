@@ -22,7 +22,9 @@ export default function TopBar({ onBack, title = "DOLAPO'S DESIGN LAB", rightEle
       
       <span className="top-bar__title">
         {title === "DOLAPO'S DESIGN LAB" ? (
-          <img src={theme === 'light' ? "/assets/logo-light.webp" : "/assets/logo-dark.webp"} alt="Dolapo's Design Lab" className="top-bar__logo" fetchpriority="high" decoding="async" />
+          <a href="/" onClick={() => playClick()} aria-label="Go to homepage" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src={theme === 'light' ? "/assets/logo-light.webp" : "/assets/logo-dark.webp"} alt="Dolapo's Design Lab" className="top-bar__logo" fetchpriority="high" decoding="async" />
+          </a>
         ) : (
           title
         )}
