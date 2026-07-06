@@ -15,7 +15,7 @@ const THEME_COLORS = {
 }
 
 export default function DepartmentVault({ departmentId, onBack, onViewProject }) {
-  const activeRole = ROLES[departmentId] || ROLES.designer
+  const activeRole = ROLES.find(r => r.id === departmentId) || ROLES[0]
 
   usePageSEO({
     title: `${activeRole.name} Vault`,
@@ -44,7 +44,6 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
   // Ensure activeProject gets the original data properties even if it's currently on a clone
   const activeProject = renderProjects[activeProjectIdx]
   const themeColor = activeProject?.themeColor || THEME_COLORS[departmentId] || '#8b5cf6'
-  const activeRole = ROLES.find(r => r.id === departmentId) || ROLES[0]
 
   useEffect(() => {
     const handleKeyDown = (e) => {
