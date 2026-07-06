@@ -130,6 +130,25 @@ export default function App() {
     });
   }, []);
 
+  // Global handler for the top bar logo
+  useEffect(() => {
+    const handleNavigateHome = () => {
+      sessionStorage.removeItem(SESSION_KEY)
+      pushRoute('/')
+      setShowWelcome(false)
+      setShowDeptSelect(false)
+      setShowElevator(false)
+      setShowDepartmentView(false)
+      setActiveProject(null)
+      setShowAboutCreator(false)
+      resetTransition()
+      setShowCinematic(true)
+    }
+
+    window.addEventListener('navigate-home', handleNavigateHome)
+    return () => window.removeEventListener('navigate-home', handleNavigateHome)
+  }, [pushRoute, resetTransition])
+
   const handleLoadingComplete = useCallback(() => {
     setShowCinematic(true)
     setLoadingComplete(true)
