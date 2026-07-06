@@ -29,17 +29,22 @@ function loadSession() {
 
 export default function App() {
   const saved = loadSession()
-  const hasActiveScreen = saved?.showDeptSelect || saved?.showElevator || saved?.showDepartmentView
+  const initialPath = window.location.pathname
+  const isAbout = initialPath === '/about'
+  const isDept = initialPath.startsWith('/department/')
+  const initialDept = isDept ? initialPath.split('/')[2] : null
+  const hasActiveScreen = isAbout || isDept || saved?.showDeptSelect || saved?.showElevator || saved?.showDepartmentView
+
   const [showCinematic, setShowCinematic] = useState(!hasActiveScreen)
   const [transitioning, setTransitioning] = useState(false)
   const [showWelcome, setShowWelcome] = useState(false)
-  const [showDeptSelect, setShowDeptSelect] = useState(saved?.showDeptSelect || false)
-  const [showElevator, setShowElevator] = useState(saved?.showElevator || false)
-  const [selectedDept, setSelectedDept] = useState(saved?.selectedDept || null)
-  const [showDepartmentView, setShowDepartmentView] = useState(saved?.showDepartmentView || false)
+  const [showDeptSelect, setShowDeptSelect] = useState((!isAbout && !isDept) ? (saved?.showDeptSelect || false) : false)
+  const [showElevator, setShowElevator] = useState((!isAbout && !isDept) ? (saved?.showElevator || false) : false)
+  const [selectedDept, setSelectedDept] = useState(initialDept || saved?.selectedDept || null)
+  const [showDepartmentView, setShowDepartmentView] = useState(isDept || ((!isAbout && !isDept) ? (saved?.showDepartmentView || false) : false))
   const [activeProject, setActiveProject] = useState(null)
-  const [showAboutCreator, setShowAboutCreator] = useState(false)
-  const [currentPath, setCurrentPath] = useState(window.location.pathname)
+  const [showAboutCreator, setShowAboutCreator] = useState(isAbout)
+  const [currentPath, setCurrentPath] = useState(initialPath)
 
   const {
     phase,
@@ -49,8 +54,37 @@ export default function App() {
     resetTransition,
   } = useCinematicEngine(true)
 
+  const pushRoute = useCallback((path) => {
+    window.history.pushState({}, '', path)
+    setCurrentPath(path)
+  }, [])
+
   useEffect(() => {
-    const handlePopState = () => setCurrentPath(window.location.pathname)
+    const handlePopState = () => {
+      const path = window.location.pathname
+      setCurrentPath(path)
+      
+      if (path === '/about') {
+        setShowAboutCreator(true)
+        setShowDepartmentView(false)
+        setShowDeptSelect(false)
+        setShowElevator(false)
+      } else if (path.startsWith('/department/')) {
+        const dept = path.split('/')[2]
+        if (dept) {
+          setSelectedDept(dept)
+          setShowDepartmentView(true)
+          setShowAboutCreator(false)
+          setShowDeptSelect(false)
+          setShowElevator(false)
+        }
+      } else if (path === '/') {
+        setShowAboutCreator(false)
+        setShowDepartmentView(false)
+        setShowElevator(false)
+        setShowDeptSelect(true)
+      }
+    }
     window.addEventListener('popstate', handlePopState)
     return () => window.removeEventListener('popstate', handlePopState)
   }, [])
@@ -116,7 +150,8 @@ export default function App() {
   const handleWelcomeComplete = useCallback(() => {
     setShowWelcome(false)
     setShowDeptSelect(true)
-  }, [])
+    pushRoute('/')
+  }, [pushRoute])
 
   const handleDepartmentSelect = useCallback((deptId) => {
     setActiveProject(null)
@@ -128,13 +163,15 @@ export default function App() {
   const handleElevatorComplete = useCallback(() => {
     setShowElevator(false)
     setShowDepartmentView(true)
-  }, [])
+    pushRoute(`/department/${selectedDept}`)
+  }, [selectedDept, pushRoute])
 
   const handleBackToLobby = useCallback(() => {
     setShowDeptSelect(false)
     resetTransition()
     setShowCinematic(true)
-  }, [resetTransition])
+    pushRoute('/')
+  }, [resetTransition, pushRoute])
 
   const handleAbortElevator = useCallback(() => {
     setShowElevator(false)
@@ -148,6 +185,7 @@ export default function App() {
       setShowDepartmentView(false)
       setShowDeptSelect(true)
       setTransitioning(false)
+      pushRoute('/')
     }, 1000)
   }
 
@@ -163,8 +201,7 @@ export default function App() {
         <BookingPage 
           key="booking" 
           onBack={() => {
-            window.history.pushState({}, '', '/')
-            window.dispatchEvent(new Event('popstate'))
+            pushRoute('/')
           }} 
         />
       )
@@ -173,7 +210,10 @@ export default function App() {
     if (showAboutCreator) {
       return (
         <motion.div key="about" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }} className="screen-wrapper">
-          <AboutCreator onBack={() => setShowAboutCreator(false)} />
+          <AboutCreator onBack={() => {
+            setShowAboutCreator(false)
+            pushRoute('/')
+          }} />
         </motion.div>
       )
     }
@@ -208,7 +248,14 @@ export default function App() {
     if (showDeptSelect) {
       return (
         <motion.div key="deptSelect" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.5 }} className="screen-wrapper">
-          <DepartmentSelect onSelect={handleDepartmentSelect} onBack={handleBackToLobby} onOpenAbout={() => setShowAboutCreator(true)} />
+          <DepartmentSelect 
+            onSelect={handleDepartmentSelect} 
+            onBack={handleBackToLobby} 
+            onOpenAbout={() => {
+              setShowAboutCreator(true)
+              pushRoute('/about')
+            }} 
+          />
         </motion.div>
       )
     }
