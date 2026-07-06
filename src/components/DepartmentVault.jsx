@@ -34,9 +34,11 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'ArrowLeft') {
+        if (displayProjects.length === 2 && activeProjectIdx === 0) return;
         playClick()
         setActiveProjectIdx(prev => (prev - 1 + displayProjects.length) % displayProjects.length)
       } else if (e.key === 'ArrowRight') {
+        if (displayProjects.length === 2 && activeProjectIdx === displayProjects.length - 1) return;
         playClick()
         setActiveProjectIdx(prev => (prev + 1) % displayProjects.length)
       }
@@ -55,9 +57,11 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
     if (!touchStart || !touchEnd) return
     const distance = touchStart - touchEnd
     if (distance > minSwipeDistance) {
+      if (displayProjects.length === 2 && activeProjectIdx === displayProjects.length - 1) return;
       playClick()
       setActiveProjectIdx(prev => (prev + 1) % displayProjects.length)
     } else if (distance < -minSwipeDistance) {
+      if (displayProjects.length === 2 && activeProjectIdx === 0) return;
       playClick()
       setActiveProjectIdx(prev => (prev - 1 + displayProjects.length) % displayProjects.length)
     }
@@ -66,14 +70,16 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
   const handleDragEnd = useCallback((_, info) => {
     const offset = info.offset.x
     if (offset < -80) {
+      if (displayProjects.length === 2 && activeProjectIdx === displayProjects.length - 1) return;
       playClick()
       setActiveProjectIdx(prev => (prev + 1) % displayProjects.length)
     } else if (offset > 80) {
+      if (displayProjects.length === 2 && activeProjectIdx === 0) return;
       playClick()
       setActiveProjectIdx(prev => (prev - 1 + displayProjects.length) % displayProjects.length)
     }
     dragX.set(0)
-  }, [displayProjects.length, playClick, dragX])
+  }, [displayProjects.length, playClick, dragX, activeProjectIdx])
 
   const handleSelectProject = (idx) => {
     if (idx !== activeProjectIdx) {
@@ -154,9 +160,15 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
           >
             {displayProjects.map((proj, idx) => {
               let positionClass = 'hidden';
-              if (idx === activeProjectIdx) positionClass = 'center';
-              else if (idx === activeProjectIdx - 1 || (activeProjectIdx === 0 && idx === displayProjects.length - 1)) positionClass = 'left';
-              else if (idx === activeProjectIdx + 1 || (activeProjectIdx === displayProjects.length - 1 && idx === 0)) positionClass = 'right';
+              if (idx === activeProjectIdx) {
+                positionClass = 'center';
+              } else if (displayProjects.length === 2) {
+                positionClass = idx > activeProjectIdx ? 'right' : 'left';
+              } else if (idx === activeProjectIdx - 1 || (activeProjectIdx === 0 && idx === displayProjects.length - 1)) {
+                positionClass = 'left';
+              } else if (idx === activeProjectIdx + 1 || (activeProjectIdx === displayProjects.length - 1 && idx === 0)) {
+                positionClass = 'right';
+              }
 
               return (
                 <div 

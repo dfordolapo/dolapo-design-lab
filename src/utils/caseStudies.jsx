@@ -86,7 +86,7 @@ export const CASE_STUDIES = [
     departmentId: 'designer',
     vaultImage: '/assets/vurdict-thumbnail-logo.webp',
     noGlow: true,
-    vaultLogo: <img src="/assets/vurdict-logo.webp" alt="Vurdict" style={{ width: '450px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
+    vaultLogo: <img src="/assets/vurdict-logo.webp" alt="Vurdict" style={{ width: '426px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))', transform: 'scale(0.9)' }} />,
     category: 'AI PORTFOLIO REVIEWER',
     title: 'Vurdict',
     role: 'Product Strategy • UX/UI Design • Full-Stack Development',
@@ -204,7 +204,7 @@ export const CASE_STUDIES = [
     noGlow: true,
     vaultLogo: (
       <div style={{
-        fontSize: '1.1rem',
+        fontSize: '0.9rem',
         fontWeight: 'bold',
         color: 'black',
         textTransform: 'uppercase',
@@ -322,7 +322,7 @@ export const CASE_STUDIES = [
     departmentId: 'builder',
     vaultImage: '/assets/vurdict-thumbnail-logo.webp',
     noGlow: true,
-    vaultLogo: <img src="/assets/vurdict-logo.webp" alt="Vurdict" decoding="async" style={{ width: '450px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
+    vaultLogo: <img src="/assets/vurdict-logo.webp" alt="Vurdict" decoding="async" style={{ width: '426px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))', transform: 'scale(0.9)' }} />,
     category: 'AI PORTFOLIO REVIEWER',
     title: 'Vurdict',
     role: 'Product Strategy • UX/UI Design • Full-Stack Development',
