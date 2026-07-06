@@ -114,7 +114,8 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
           </defs>
         </svg>
 
-        {/* LEFT SIDEBAR NAVIGATION */}
+        {/* LEFT SIDEBAR NAVIGATION - desktop only */}
+        {window.innerWidth > 768 && (
         <div className="vault-sidebar">
           <div className="vault-sidebar__header">
             <ScrambleText 
@@ -146,6 +147,7 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
             ))}
           </ScrollReveal>
         </div>
+        )}
 
         {/* MAIN STAGE (3D GLASS CYLINDERS) */}
         <div className="vault-stage">
