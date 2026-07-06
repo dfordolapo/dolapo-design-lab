@@ -22,6 +22,7 @@ export default function ParallaxImage({ src, alt, className = '' }) {
       <motion.img 
         src={src} 
         alt={alt}
+        decoding="async"
         style={{
           y,
           scale: 1.15,

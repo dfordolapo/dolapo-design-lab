@@ -91,10 +91,11 @@ export default function CaseStudyViewer({ project, onClose }) {
                   <div className="image-placeholder-glass">
                     {/* Placeholder div until user provides actual image */}
                     {block.image ? (
-                      <img loading="lazy" 
+                      <img loading="lazy" decoding="async"
                         src={block.image} 
                         alt={project.title} 
                         className="hero-img" 
+                        fetchpriority={index === 0 ? "high" : "auto"}
                         onError={(e) => {
                           if (e.target.src.endsWith('.webp')) {
                             e.target.src = e.target.src.replace('.webp', '.png');
@@ -120,7 +121,7 @@ export default function CaseStudyViewer({ project, onClose }) {
                   style={{ marginBottom: 0 }}
                 >
                   {block.image ? (
-                    <img loading="lazy" 
+                    <img loading="lazy" decoding="async"
                       src={block.image} 
                       alt={project.title} 
                       style={{ width: '100%', height: 'auto', display: 'block' }}
@@ -218,7 +219,7 @@ export default function CaseStudyViewer({ project, onClose }) {
                   </div>
                   <div className={`split-image ${!block.image ? 'image-placeholder-glass' : ''}`}>
                     {block.image ? (
-                      <img loading="lazy" 
+                      <img loading="lazy" decoding="async"
                         src={block.image} 
                         alt={block.heading} 
                         style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 'var(--radius-lg)' }}
@@ -245,7 +246,7 @@ export default function CaseStudyViewer({ project, onClose }) {
                 <div className="case-study-block presentation-slide-block">
                   <div className="presentation-image-wrapper">
                     {block.image ? (
-                      <img loading="lazy" 
+                      <img loading="lazy" decoding="async"
                         src={block.image} 
                         alt="Presentation Slide" 
                         className="presentation-img"
@@ -274,7 +275,7 @@ export default function CaseStudyViewer({ project, onClose }) {
                   {block.images?.map((img, i) => (
                     <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                       {img.src ? (
-                        <img loading="lazy" src={img.src} alt={img.caption || 'Case study image'} style={{ width: '100%', height: 'auto', borderRadius: 'var(--radius-md)', border: '1px solid var(--glass-border)' }} />
+                        <img loading="lazy" decoding="async" src={img.src} alt={img.caption || 'Case study image'} style={{ width: '100%', height: 'auto', borderRadius: 'var(--radius-md)', border: '1px solid var(--glass-border)' }} />
                       ) : (
                         <div className="image-placeholder-glass" style={{ width: '100%', aspectRatio: '1/2' }}>
                           <span className="placeholder-text">Missing image</span>
@@ -320,6 +321,7 @@ export default function CaseStudyViewer({ project, onClose }) {
                       allowFullScreen 
                       allow="clipboard-write"
                       title={block.heading || "Embedded content"}
+                      loading="lazy"
                     ></iframe>
                   </div>
                 </div>

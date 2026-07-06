@@ -82,6 +82,8 @@ export default function ElevatorScreen({ selectedDeptId, onComplete, onAbort }) 
                     src={theme === 'light' ? "/assets/elevator_bg_light.webp" : "/assets/elevator_bg.webp"} 
                     className="elevator-bg" 
                     alt="Lab Atrium" 
+                    fetchpriority="high"
+                    decoding="async"
                     style={{ transform: `translateY(${ -30 + parseInt(currentFloor, 10) * 10 }%)` }}
                 />
                 <div className="elevator-reflection"></div>

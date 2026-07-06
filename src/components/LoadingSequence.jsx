@@ -30,7 +30,7 @@ export default function LoadingSequence({ onComplete }) {
   return (
     <div className={`loading-sequence${hidden ? ' hidden' : ''}`}>
       <div className="loading-logo">
-        <img src={theme === 'light' ? "/assets/logo-light.webp" : "/assets/logo-dark.webp"} alt="Dolapo's Design Lab" className="loading-logo-img" />
+        <img src={theme === 'light' ? "/assets/logo-light.webp" : "/assets/logo-dark.webp"} alt="Dolapo's Design Lab" className="loading-logo-img" decoding="async" />
       </div>
       <div className="loading-bar">
         <div className="loading-bar__fill"></div>

@@ -30,7 +30,7 @@ export default function AboutCreator({ onBack }) {
       
       <div className="about-content-scroll">
         <div className="about-mascot-container">
-          <img src="/assets/designer.png" alt="Dolapo Mascot" className="about-mascot" />
+          <img src="/assets/designer.png" alt="Dolapo Mascot" className="about-mascot" decoding="async" />
         </div>
 
         <div className="about-tab-container">

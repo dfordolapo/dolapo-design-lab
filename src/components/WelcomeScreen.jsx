@@ -62,7 +62,7 @@ export default function WelcomeScreen({ onComplete }) {
     <div className={`lab-loading-screen ${visible ? 'is-visible' : ''}`}>
       <div className="lab-loading-main">
         <div className="lab-loading-top">
-          <img src={theme === 'light' ? "/assets/logo-light.webp" : "/assets/logo-dark.webp"} alt="Dolapo's Design Lab" className="welcome-logo" />
+          <img src={theme === 'light' ? "/assets/logo-light.webp" : "/assets/logo-dark.webp"} alt="Dolapo's Design Lab" className="welcome-logo" decoding="async" />
         </div>
 
         <div className="lab-loading-center">

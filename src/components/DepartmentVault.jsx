@@ -209,7 +209,7 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
                     {proj.thumbnailLogo || proj.vaultLogo}
                   </div>
                 ) : !proj.textOnlyPreview && (
-                  <img src={proj.vaultImage} alt={proj.shortTitle || proj.title} draggable={false} />
+                  <img src={proj.vaultImage} alt={proj.shortTitle || proj.title} loading="lazy" decoding="async" draggable={false} />
                 )}
                 <div className="carousel-item__overlay">
                   <span>{proj.shortTitle || proj.title}</span>
