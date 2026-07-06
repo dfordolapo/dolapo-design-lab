@@ -8,8 +8,10 @@
 
 .vault-dashboard {
   position: absolute;
-  inset: 0;
   top: var(--topbar-height);
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: grid;
   grid-template-columns: 280px 1fr;
   grid-template-rows: 1fr 120px;
