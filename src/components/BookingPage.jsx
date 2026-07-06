@@ -26,7 +26,7 @@ export default function BookingPage({ onBack }) {
       exit={{ opacity: 0, x: -20 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
     >
-      <TopBar onBack={onBack} title="BOOK A LAB SESSION" hideBookingCTA />
+      <TopBar onBack={onBack} title="BOOK A SESSION" hideBookingCTA />
       
       <div className="booking-page__content">
         <motion.div 

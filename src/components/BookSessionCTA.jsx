@@ -44,7 +44,7 @@ export default function BookSessionCTA({ variant = 'primary', onClick }) {
         onMouseEnter={playHover}
       >
         <div className="book-nav-cta__glow"></div>
-        <span className="book-nav-cta__text">Book a Lab Session</span>
+        <span className="book-nav-cta__text">Book a Session</span>
       </button>
     )
   }
@@ -58,7 +58,7 @@ export default function BookSessionCTA({ variant = 'primary', onClick }) {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
-        <span className="book-secondary-cta__text">Book a Lab Session</span>
+        <span className="book-secondary-cta__text">Book a Session</span>
       </button>
     )
   }

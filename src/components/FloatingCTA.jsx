@@ -83,7 +83,7 @@ export default function FloatingCTA() {
               exit={{ width: 0, opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              Book a Lab Session
+              Book a Session
             </motion.span>
           )}
         </AnimatePresence>
