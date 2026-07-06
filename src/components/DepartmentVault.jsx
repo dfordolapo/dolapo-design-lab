@@ -6,6 +6,7 @@ import ScrambleText from './ScrambleText'
 import { CASE_STUDIES } from '../utils/caseStudies.jsx'
 import { ROLES } from '../utils/roles.jsx'
 import ScrollReveal, { StaggerContainer, StaggerItem } from './ScrollReveal'
+import usePageSEO from '../hooks/usePageSEO'
 
 const THEME_COLORS = {
   designer: '#8b5cf6',
@@ -14,6 +15,13 @@ const THEME_COLORS = {
 }
 
 export default function DepartmentVault({ departmentId, onBack, onViewProject }) {
+  const activeRole = ROLES[departmentId] || ROLES.designer
+
+  usePageSEO({
+    title: `${activeRole.name} Vault`,
+    description: activeRole.vaultDescription || `Explore the ${activeRole.name} projects.`
+  })
+
   const { playHover, playClick } = useSoundEffects()
   const [activeProjectIdx, setActiveProjectIdx] = useState(0)
   const [touchStart, setTouchStart] = useState(null)

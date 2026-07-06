@@ -1,7 +1,8 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import TopBar from './TopBar'
 import ScrollReveal, { StaggerContainer, StaggerItem } from './ScrollReveal'
+import usePageSEO from '../hooks/usePageSEO'
 import '../styles/about-creator.css'
 
 const TOOLS = [
@@ -17,6 +18,11 @@ const TOOLS = [
 ]
 
 export default function AboutCreator({ onBack }) {
+  usePageSEO({
+    title: 'About the Creator',
+    description: 'Learn more about Dolapo, a digital product creator specializing in UX writing, product design, and full-stack development.'
+  })
+
   const [activeTab, setActiveTab] = useState('bio')
 
   const displayTools = window.innerWidth <= 768 

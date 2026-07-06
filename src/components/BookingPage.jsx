@@ -2,8 +2,14 @@ import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Cal, { getCalApi } from '@calcom/embed-react'
 import TopBar from './TopBar'
+import usePageSEO from '../hooks/usePageSEO'
 
 export default function BookingPage({ onBack }) {
+  usePageSEO({
+    title: 'Book a Session',
+    description: 'Schedule a 1-on-1 call with Dolapo to discuss design, prototyping, or product building.'
+  })
+
   useEffect(() => {
     (async function () {
       const cal = await getCalApi()
