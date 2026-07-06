@@ -336,6 +336,10 @@
   transition: all 0.3s ease;
 }
 
+.vault-logo-overlay img[alt="Vurdict"] {
+  max-height: 180px !important;
+}
+
 .vault-logo-overlay svg {
   max-width: 100% !important;
   max-height: 170px !important;
