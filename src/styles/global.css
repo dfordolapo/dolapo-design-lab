@@ -2614,6 +2614,11 @@ p {
     border-radius: 0;
     border: none;
     box-shadow: none;
+    background: #000;
+  }
+
+  .elevator-bg {
+    display: none;
   }
 
   .elevator-panel-right {
