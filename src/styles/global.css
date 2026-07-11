@@ -2577,6 +2577,7 @@ p {
     overflow-y: auto;
     height: 100%;
     position: relative;
+    background: #000000;
   }
 
   .elevator-panel-left {
