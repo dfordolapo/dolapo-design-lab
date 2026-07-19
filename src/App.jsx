@@ -45,6 +45,7 @@ export default function App() {
   const [activeProject, setActiveProject] = useState(null)
   const [showAboutCreator, setShowAboutCreator] = useState(isAbout)
   const [currentPath, setCurrentPath] = useState(initialPath)
+  const [elevatorDoorsState, setElevatorDoorsState] = useState('idle')
 
   const {
     phase,
@@ -175,8 +176,15 @@ export default function App() {
   const handleDepartmentSelect = useCallback((deptId) => {
     setActiveProject(null)
     setSelectedDept(deptId)
-    setShowDeptSelect(false)
-    setShowElevator(true)
+    setElevatorDoorsState('closing')
+    setTimeout(() => {
+      setShowDeptSelect(false)
+      setShowElevator(true)
+      setElevatorDoorsState('opening')
+      setTimeout(() => {
+        setElevatorDoorsState('idle')
+      }, 1500)
+    }, 1500)
   }, [])
 
   const handleElevatorComplete = useCallback(() => {
@@ -306,6 +314,13 @@ export default function App() {
       )}
 
       {transitioning && <div className="transition-overlay active" />}
+
+      {elevatorDoorsState !== 'idle' && (
+        <div className={`fullscreen-elevator-doors ${elevatorDoorsState}`}>
+          <div className="fullscreen-elevator-door left"></div>
+          <div className="fullscreen-elevator-door right"></div>
+        </div>
+      )}
     </SmoothScroll>
   )
 }

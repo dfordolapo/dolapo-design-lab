@@ -88,6 +88,11 @@ export default function ElevatorScreen({ selectedDeptId, onComplete, onAbort }) 
                 />
                 <div className="elevator-reflection"></div>
                 <div className="elevator-light-beam"></div>
+                
+                <div className={`elevator-doors ${arrived ? 'elevator-doors--open' : ''}`}>
+                    <div className="elevator-door elevator-door-left"></div>
+                    <div className="elevator-door elevator-door-right"></div>
+                </div>
             </div>
         </div>
         
