@@ -255,20 +255,11 @@
   text-transform: uppercase;
 }
 
-.tech-stack-carousel {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 32px;
-  width: max-content;
-  padding: 0.5rem 0;
-}
-
-.tech-stack-track {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-shrink: 0;
-  gap: 32px;
-  animation: scrollCarousel 20s linear infinite;
+.tech-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-md);
 }
 
 .tech-stack-item {
@@ -302,10 +293,7 @@
   letter-spacing: 0.05em;
 }
 
-@keyframes scrollCarousel {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-100% - 32px)); }
-}
+
 
 /* Footer / Hook */
 .about-footer {

@@ -17,6 +17,7 @@ export const LOADING_MESSAGES = [
   'Establishing neural link...',
   'Decrypting design files...',
   'Routing UI vectors...',
+  'Initializing Kiro workspace...',
   'Bypassing creative blocks...',
   'Access granted.',
 ]
