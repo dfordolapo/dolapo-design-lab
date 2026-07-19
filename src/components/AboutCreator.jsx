@@ -18,8 +18,9 @@ const TOOLS = [
   { name: "Tailwind CSS", icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16"><path d="M12 6c-2.5 0-4 1.5-4 4s1.5 3 3 4 2 1.5 2 3-1.5 3-3 3M15 6c-2.5 0-4 1.5-4 4s1.5 3 3 4 2 1.5 2 3-1.5 3-3 3"/></svg> },
   { name: "Node.js", icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16"><path d="M12 2l9 5v10l-9 5-9-5V7l9-5z"/><path d="M12 22V12M21 7l-9 5M3 7l9 5"/></svg> },
   { name: "HTML", icon: <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M3 2l1.5 17L12 22l7.5-3L21 2H3zm15 15.5l-6 1.5-6-1.5-.5-5h2.5l.3 2.5 3.7 1 3.7-1 .3-3.5H7.5l-.5-5h10l-1 10z"/></svg> },
-  { name: "CSS", icon: <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M3 2l1.5 17L12 22l7.5-3L21 2H3zm15 15.5l-6 1.5-6-1.5-.5-5h2.5l.3 2.5 3.7 1 3.7-1 .3-3.5H7.5l-.5-5h10l-1 10z"/></svg> },
-  { name: "JavaScript", icon: <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M3 3h18v18H3V3zm11 12.5c0-1.5-2.5-1.5-2.5-3s2.5-1.5 2.5-1.5 1 .5 1 2h2c0-2.5-1.5-3.5-3-3.5s-4.5 1.5-4.5 3.5 2.5 2 4.5 3c.5.5.5 1 .5 1.5s-.5 1-1.5 1-1.5-.5-1.5-1.5h-2c0 2 1.5 3.5 3.5 3.5s4.5-1.5 4.5-3.5zm-6 2c0 1.5-1 3-3 3s-3-1.5-3-3h2c0 .5.5 1 1 1s1-.5 1-1V9H8v7.5z"/></svg> }
+  { name: "CSS", icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16"><path d="M8 4c-2 0-3 1-3 3v4c0 2-1 3-2 3 1 0 2 1 2 3v4c0 2 1 3 3 3M16 4c2 0 3 1 3 3v4c0 2 1 3 2 3-1 0-2 1-2 3v4c0 2-1 3-3 3"/></svg> },
+  { name: "JavaScript", icon: <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M3 3h18v18H3V3zm11 12.5c0-1.5-2.5-1.5-2.5-3s2.5-1.5 2.5-1.5 1 .5 1 2h2c0-2.5-1.5-3.5-3-3.5s-4.5 1.5-4.5 3.5 2.5 2 4.5 3c.5.5.5 1 .5 1.5s-.5 1-1.5 1-1.5-.5-1.5-1.5h-2c0 2 1.5 3.5 3.5 3.5s4.5-1.5 4.5-3.5zm-6 2c0 1.5-1 3-3 3s-3-1.5-3-3h2c0 .5.5 1 1 1s1-.5 1-1V9H8v7.5z"/></svg> },
+  { name: "PostgreSQL", icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6"/></svg> }
 ]
 
 export default function AboutCreator({ onBack }) {
@@ -144,7 +145,7 @@ export default function AboutCreator({ onBack }) {
                             <span className="manifest-category__icon">{cat.icon}</span>
                             {cat.title}
                           </div>
-                          <div className="manifest-badges">
+                          <div className={`manifest-badges ${cat.tools ? 'tools-badges' : ''}`}>
                             {cat.badges ? cat.badges.map((badge, j) => (
                               <div key={j} className="manifest-badge">{badge}</div>
                             )) : cat.tools.map((tool, j) => (
