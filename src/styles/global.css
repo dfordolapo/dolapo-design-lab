@@ -3387,9 +3387,6 @@ p {
   position: fixed;
   inset: 0;
   background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 9999;
   transition: opacity 0.7s ease-in-out;
 }
@@ -3400,13 +3397,13 @@ p {
 }
 
 .glitch-wrapper {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 90vw;
   max-width: 600px;
   height: 30vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .glitch-logo {
