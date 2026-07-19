@@ -145,7 +145,7 @@ export default function AboutCreator({ onBack }) {
                             <span className="manifest-category__icon">{cat.icon}</span>
                             {cat.title}
                           </div>
-                          <div className={`manifest-badges ${cat.tools ? 'tools-badges' : ''}`}>
+                          <div className="manifest-badges">
                             {cat.badges ? cat.badges.map((badge, j) => (
                               <div key={j} className="manifest-badge">{badge}</div>
                             )) : cat.tools.map((tool, j) => (
