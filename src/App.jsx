@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from 'react'
 import LoadingSequence from './components/LoadingSequence'
+import SplashIntro from './components/SplashIntro'
 import CinematicContainer from './components/CinematicContainer'
 import WelcomeScreen from './components/WelcomeScreen'
 import DepartmentSelect from './components/DepartmentSelect'
@@ -35,6 +36,7 @@ export default function App() {
   const initialDept = isDept ? initialPath.split('/')[2] : null
   const hasActiveScreen = isAbout || isDept || saved?.showDeptSelect || saved?.showElevator || saved?.showDepartmentView
 
+  const [showSplash, setShowSplash] = useState(!hasActiveScreen)
   const [showCinematic, setShowCinematic] = useState(!hasActiveScreen)
   const [transitioning, setTransitioning] = useState(false)
   const [showWelcome, setShowWelcome] = useState(false)
@@ -303,7 +305,8 @@ export default function App() {
 
   return (
     <SmoothScroll>
-      {!loadingComplete && <LoadingSequence onComplete={handleLoadingComplete} />}
+      {showSplash && <SplashIntro onComplete={() => setShowSplash(false)} />}
+      {!showSplash && !loadingComplete && <LoadingSequence onComplete={handleLoadingComplete} />}
 
       <AnimatePresence mode="wait">
         {renderScreen()}
