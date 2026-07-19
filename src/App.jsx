@@ -36,6 +36,8 @@ export default function App() {
   const initialDept = isDept ? initialPath.split('/')[2] : null
   const hasActiveScreen = isAbout || isDept || saved?.showDeptSelect || saved?.showElevator || saved?.showDepartmentView
 
+  const isStandalone = typeof window !== 'undefined' && (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone)
+
   const [showSplash, setShowSplash] = useState(!hasActiveScreen)
   const [showCinematic, setShowCinematic] = useState(!hasActiveScreen)
   const [transitioning, setTransitioning] = useState(false)
