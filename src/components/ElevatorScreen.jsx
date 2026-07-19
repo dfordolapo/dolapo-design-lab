@@ -28,9 +28,9 @@ export default function ElevatorScreen({ selectedDeptId, onComplete, onAbort }) 
           setArrived(true)
           stopHum()
           playDing()
-        }, 500);
+        }, 200);
         if (onComplete) {
-            setTimeout(onComplete, 2500); // 2.5s after arrival, trigger onComplete
+            setTimeout(onComplete, 1200); // Trigger much sooner after arrival
         }
       }
     }, 600); // speed of elevator

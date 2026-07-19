@@ -190,9 +190,16 @@ export default function App() {
   }, [])
 
   const handleElevatorComplete = useCallback(() => {
-    setShowElevator(false)
-    setShowDepartmentView(true)
-    pushRoute(`/department/${selectedDept}`)
+    setElevatorDoorsState('closing')
+    setTimeout(() => {
+      setShowElevator(false)
+      setShowDepartmentView(true)
+      pushRoute(`/department/${selectedDept}`)
+      setElevatorDoorsState('opening')
+      setTimeout(() => {
+        setElevatorDoorsState('idle')
+      }, 1500)
+    }, 1500)
   }, [selectedDept, pushRoute])
 
   const handleBackToLobby = useCallback(() => {
