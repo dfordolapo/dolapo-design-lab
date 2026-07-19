@@ -2665,12 +2665,13 @@ p {
 
   .elevator-screen {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    overflow-y: auto;
-    height: 100%;
+    grid-template-rows: 1fr;
+    overflow: hidden;
+    height: 100dvh;
     position: relative;
     background: transparent;
     padding-top: calc(var(--topbar-height) + 10px);
+    box-sizing: border-box;
   }
 
   .elevator-panel-left {
