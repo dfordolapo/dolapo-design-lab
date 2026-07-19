@@ -255,44 +255,7 @@
   text-transform: uppercase;
 }
 
-.tech-stack-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm) var(--space-md);
-  margin-top: var(--space-md);
-}
 
-.tech-stack-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-secondary);
-  opacity: 0.8;
-  transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 8px 16px;
-  border-radius: 100px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.tech-stack-item:hover {
-  opacity: 1;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
-}
-
-.tech-stack-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tech-stack-name {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.05em;
-}
 
 
 
