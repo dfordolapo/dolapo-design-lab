@@ -146,25 +146,22 @@ export default function AboutCreator({ onBack }) {
                     ))}
                   </div>
                 </ScrollReveal>
+
+                <ScrollReveal variant="fadeUp" delay={0.2}>
+                  <div className="tech-stack-container" style={{ marginTop: 'var(--space-xl)', border: 'none', maskImage: 'none', WebkitMaskImage: 'none' }}>
+                    <div className="tech-stack-title" style={{ marginBottom: 'var(--space-md)' }}>Tools & Languages</div>
+                    <div className="tech-stack-grid">
+                      {TOOLS.map((tool, idx) => (
+                        <div key={idx} className="tech-stack-item">
+                          <div className="tech-stack-icon">{tool.icon}</div>
+                          <span className="tech-stack-name">{tool.name}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </ScrollReveal>
               </>
             )}
-          </div>
-          
-          {activeTab === 'manifest' && (
-            <ScrollReveal variant="fadeUp" delay={0.2}>
-              <div className="tech-stack-container" style={{ marginTop: 'var(--space-xl)', border: 'none', maskImage: 'none', WebkitMaskImage: 'none' }}>
-                <div className="tech-stack-title" style={{ marginBottom: 'var(--space-md)' }}>Tools & Languages</div>
-                <div className="tech-stack-grid">
-                  {TOOLS.map((tool, idx) => (
-                    <div key={idx} className="tech-stack-item">
-                      <div className="tech-stack-icon">{tool.icon}</div>
-                      <span className="tech-stack-name">{tool.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </ScrollReveal>
-          )}
         </div>
       </div>
     </div>
