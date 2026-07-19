@@ -162,6 +162,7 @@ export default function AboutCreator({ onBack }) {
                 </ScrollReveal>
               </>
             )}
+          </div>
         </div>
       </div>
     </div>
