@@ -3342,16 +3342,16 @@ p {
   flex: none !important;
   height: auto !important;
   overflow: visible !important;
-  min-height: 800px !important;
+  min-height: 1100px !important;
 }
 
 .booking-page__widget iframe {
-  min-height: 800px !important;
+  min-height: 1100px !important;
 }
 
 @media (max-width: 768px) {
   .booking-page__widget iframe {
-    min-height: 900px !important;
+    min-height: 1200px !important;
   }
 }
 
