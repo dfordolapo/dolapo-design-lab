@@ -77,7 +77,7 @@ export const CASE_STUDIES = [
     duration: 'Ongoing',
     platform: 'Web App',
     content: [
-      { type: 'full-image', image: '/assets/awwja-case-study.png' }
+      { type: 'full-image', image: '/assets/awwja-case-study.webp' }
     ]
   },
   
@@ -134,7 +134,7 @@ export const CASE_STUDIES = [
     duration: 'Ongoing',
     platform: 'Web / Mobile',
     content: [
-      { type: 'full-image', image: '/assets/shiftsyncd-case-study.png' }
+      { type: 'full-image', image: '/assets/shiftsyncd-case-study.webp' }
     ]
   },
   

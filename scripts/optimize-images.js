@@ -33,7 +33,21 @@ async function optimizeImages() {
 
       console.log(`Converting ${file} to WebP...`);
       try {
-        await sharp(inputPath)
+        const pipeline = sharp(inputPath);
+        const meta = await pipeline.metadata();
+        const MAX_DIM = 16383;
+
+        if (meta.width > MAX_DIM || meta.height > MAX_DIM) {
+          const scale = Math.min(MAX_DIM / meta.width, MAX_DIM / meta.height);
+          pipeline.resize({
+            width: Math.round(meta.width * scale),
+            height: Math.round(meta.height * scale),
+            withoutEnlargement: true,
+          });
+          console.log(`  Resized ${meta.width}x${meta.height} to fit WebP limit (${MAX_DIM}px)`);
+        }
+
+        await pipeline
           .webp({ quality: 80, effort: 6 })
           .toFile(outputPath);
         console.log(`Successfully converted ${file}`);
