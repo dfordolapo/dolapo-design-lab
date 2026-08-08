@@ -43,6 +43,11 @@
       inset: 0;
       background: #07060B;
       z-index: 9999;
+      transition: opacity 0.4s ease;
+    }
+    .pre-splash.fade-out {
+      opacity: 0;
+      pointer-events: none;
     }
     .pre-glitch-wrapper {
       position: absolute;
@@ -61,14 +66,48 @@
       height: 100%;
       object-fit: contain;
     }
+    .pre-splash-skip {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 10000;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.4rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(248, 247, 255, 0.65);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+    .pre-splash-skip:hover,
+    .pre-splash-skip:focus-visible {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.12);
+    }
   </style>
 </head>
 <body style="background-color: #07060B; color: #ffffff; margin: 0; padding: 0;">
   <div id="root">
-    <div class="pre-splash">
+    <div class="pre-splash" id="pre-splash">
       <div class="pre-glitch-wrapper">
         <img src="/assets/logo-dark.webp" alt="Loading..." class="pre-glitch-img" decoding="async" />
       </div>
+      <button
+        type="button"
+        class="pre-splash-skip"
+        aria-label="Skip intro and go straight to departments"
+        onclick="try{sessionStorage.setItem('portfolio-skip','1')}catch(e){};document.getElementById('pre-splash').classList.add('fade-out')"
+      >
+        Skip intro
+        <svg class="skip-intro-btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+      </button>
     </div>
   </div>
   <script type="module" src="/src/main.jsx"></script>

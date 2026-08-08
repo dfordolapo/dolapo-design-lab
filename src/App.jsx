@@ -40,7 +40,11 @@ export default function App() {
 
   // Respect motion sensitivity: reduced-motion users skip straight to departments
   const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
-  const skipIntroAutomatically = prefersReducedMotion && !hasActiveScreen
+
+  // Honor the skip button pressed on the static pre-splash in index.html (fires before React mounts)
+  const skipFromPreSplash = typeof window !== 'undefined' && sessionStorage.getItem('portfolio-skip') === '1'
+
+  const skipIntroAutomatically = (prefersReducedMotion || skipFromPreSplash) && !hasActiveScreen
 
   const [showSplash, setShowSplash] = useState(!hasActiveScreen && !skipIntroAutomatically)
   const [showCinematic, setShowCinematic] = useState(!hasActiveScreen && !skipIntroAutomatically)
@@ -66,6 +70,11 @@ export default function App() {
   const pushRoute = useCallback((path) => {
     window.history.pushState({}, '', path)
     setCurrentPath(path)
+  }, [])
+
+  useEffect(() => {
+    // Consume the pre-splash skip flag now that it's been honored
+    try { sessionStorage.removeItem('portfolio-skip') } catch (e) {}
   }, [])
 
   useEffect(() => {
