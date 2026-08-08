@@ -3,6 +3,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import TopBar from './TopBar'
 import ScrollReveal, { StaggerContainer, StaggerItem } from './ScrollReveal'
 import usePageSEO from '../hooks/usePageSEO'
+import { TESTIMONIALS } from '../utils/testimonials'
 import '../styles/about-creator.css'
 
 const TOOLS = [
@@ -78,6 +79,27 @@ export default function AboutCreator({ onBack }) {
               <>
                 <ScrollReveal variant="fadeUp">
                   <div className="bio-section">
+                    <span className="bio-section__title">What people say</span>
+                    <StaggerContainer className="testimonial-list">
+                      {TESTIMONIALS.map((t, i) => (
+                        <StaggerItem key={i}>
+                          <div className="testimonial-entry">
+                            <div className="testimonial-card">
+                              <span className="testimonial-card__quote">“{t.quote}”</span>
+                            </div>
+                            <div className="testimonial-card__meta">
+                              <span className="testimonial-card__name">{t.name}</span>
+                              <span className="testimonial-card__role">{t.role}</span>
+                            </div>
+                          </div>
+                        </StaggerItem>
+                      ))}
+                    </StaggerContainer>
+                  </div>
+                </ScrollReveal>
+
+                <ScrollReveal variant="fadeUp">
+                  <div className="bio-section">
                     <span className="bio-section__title">So... who built the lab?</span>
                     <p className="bio-section__text">
                       Every product starts as a thought. A messy idea. A "what if?" A problem waiting for someone to notice it.<br/><br/>
@@ -108,7 +130,7 @@ export default function AboutCreator({ onBack }) {
                   </div>
                 </ScrollReveal>
                 
-                <ScrollReveal variant="fadeUp" delay={0.3}>
+                <ScrollReveal variant="fadeUp" delay={0.4}>
                   <div className="bio-section" style={{ alignItems: 'center' }}>
                     <span className="bio-section__title">Find me on</span>
                     <div className="social-links">
