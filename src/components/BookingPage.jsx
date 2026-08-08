@@ -19,7 +19,7 @@ export default function BookingPage({ onBack }) {
           branding: { brandColor: "#e879f9" } // using the glow pink color 
         }, 
         hideEventTypeDetails: false, 
-        layout: "week_view" 
+        layout: "column_view" 
       })
     })()
   }, [])
@@ -45,7 +45,7 @@ export default function BookingPage({ onBack }) {
           <Cal 
             calLink="dfordolapo/15min"
             style={{ width: "100%" }}
-            config={{ layout: 'week_view', theme: 'dark' }}
+            config={{ layout: 'column_view', theme: 'dark' }}
           />
         </motion.div>
       </div>
