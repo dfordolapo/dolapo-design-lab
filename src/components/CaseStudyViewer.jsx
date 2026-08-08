@@ -109,7 +109,7 @@ export default function CaseStudyViewer({ project, onClose }) {
                       />
                     ) : null}
                     <div className="placeholder-text" style={{ display: block.image ? 'none' : 'block' }}>
-                      Add {block.image.split('/').pop()} to public/assets
+                      Add {block.image?.split('/').pop()} to public/assets
                     </div>
                   </div>
                 </div>

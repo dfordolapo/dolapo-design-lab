@@ -121,8 +121,7 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
           </defs>
         </svg>
 
-        {/* LEFT SIDEBAR NAVIGATION - desktop only */}
-        {window.innerWidth > 768 && (
+        {/* LEFT SIDEBAR NAVIGATION - hidden on mobile via CSS */}
         <div className="vault-sidebar">
           <div className="vault-sidebar__header">
             <ScrambleText 
@@ -144,7 +143,7 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
             {displayProjects.map((proj, idx) => (
               <button 
                 key={proj.id}
-                className={`vault-index-item ${idx === activeProjectIdx ? 'active' : ''}`}
+                className={`vault-index-item ${idx === (activeProjectIdx % displayProjects.length) ? 'active' : ''}`}
                 onClick={() => handleSelectProject(idx)}
                 onMouseEnter={playHover}
               >
@@ -154,7 +153,6 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
             ))}
           </ScrollReveal>
         </div>
-        )}
 
         {/* MAIN STAGE (3D GLASS CYLINDERS) */}
         <div className="vault-stage">

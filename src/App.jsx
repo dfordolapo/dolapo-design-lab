@@ -132,11 +132,14 @@ export default function App() {
   // Preload all case study images in the background
   useEffect(() => {
     const imagesToPreload = [];
-    Object.values(CASE_STUDIES).forEach(project => {
+    CASE_STUDIES.forEach(project => {
       if (project.vaultImage) imagesToPreload.push(project.vaultImage);
       if (project.content) {
         project.content.forEach(block => {
           if (block.image) imagesToPreload.push(block.image);
+          if (block.images) {
+            block.images.forEach(img => { if (img.src) imagesToPreload.push(img.src); });
+          }
         });
       }
     });
@@ -256,7 +259,6 @@ export default function App() {
   }
 
   const handleViewProject = (project) => {
-    console.log("Opening case study viewer for:", project)
     // Create a fresh reference so React always remounts, preventing close-animation ghost bugs
     setActiveProject({ ...project, _mountId: Date.now() })
   }
@@ -322,6 +324,24 @@ export default function App() {
               pushRoute('/about')
             }} 
           />
+        </motion.div>
+      )
+    }
+
+    if (!showWelcome && !showCinematic) {
+      return (
+        <motion.div key="not-found" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }} className="screen-wrapper">
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', gap: '1.5rem', textAlign: 'center', padding: '2rem' }}>
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', letterSpacing: '0.2em', color: 'var(--text-muted)', textTransform: 'uppercase' }}>404</p>
+            <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', background: 'var(--gradient-title)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Room Not Found</h1>
+            <p style={{ color: 'var(--text-secondary)', maxWidth: '360px' }}>This corridor doesn't exist. Head back to the lobby.</p>
+            <button
+              onClick={() => { pushRoute('/'); setShowDeptSelect(true); }}
+              style={{ marginTop: '0.5rem', padding: '0.75rem 2rem', background: 'var(--gradient-button)', border: '1px solid var(--glass-border)', borderRadius: 'var(--radius-full)', color: 'var(--text-primary)', fontFamily: 'var(--font-mono)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', cursor: 'pointer' }}
+            >
+              Back to Lobby
+            </button>
+          </div>
         </motion.div>
       )
     }
