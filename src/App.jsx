@@ -38,11 +38,15 @@ export default function App() {
 
   const isStandalone = typeof window !== 'undefined' && (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone)
 
-  const [showSplash, setShowSplash] = useState(!hasActiveScreen)
-  const [showCinematic, setShowCinematic] = useState(!hasActiveScreen)
+  // Respect motion sensitivity: reduced-motion users skip straight to departments
+  const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+  const skipIntroAutomatically = prefersReducedMotion && !hasActiveScreen
+
+  const [showSplash, setShowSplash] = useState(!hasActiveScreen && !skipIntroAutomatically)
+  const [showCinematic, setShowCinematic] = useState(!hasActiveScreen && !skipIntroAutomatically)
   const [transitioning, setTransitioning] = useState(false)
   const [showWelcome, setShowWelcome] = useState(false)
-  const [showDeptSelect, setShowDeptSelect] = useState((!isAbout && !isDept) ? (saved?.showDeptSelect || false) : false)
+  const [showDeptSelect, setShowDeptSelect] = useState(skipIntroAutomatically || ((!isAbout && !isDept) ? (saved?.showDeptSelect || false) : false))
   const [showElevator, setShowElevator] = useState((!isAbout && !isDept) ? (saved?.showElevator || false) : false)
   const [selectedDept, setSelectedDept] = useState(initialDept || saved?.selectedDept || null)
   const [showDepartmentView, setShowDepartmentView] = useState(isDept || ((!isAbout && !isDept) ? (saved?.showDepartmentView || false) : false))
@@ -158,6 +162,21 @@ export default function App() {
     setShowCinematic(true)
     setLoadingComplete(true)
   }, [setLoadingComplete])
+
+  // Skip the cinematic intro entirely and go straight to department selection
+  const handleSkipToWork = useCallback(() => {
+    setShowSplash(false)
+    setShowCinematic(false)
+    setShowWelcome(false)
+    setShowDeptSelect(true)
+    setShowElevator(false)
+    setShowDepartmentView(false)
+    setActiveProject(null)
+    setShowAboutCreator(false)
+    setLoadingComplete(true)
+    resetTransition()
+    pushRoute('/')
+  }, [pushRoute, resetTransition, setLoadingComplete])
 
   const handleEnterLab = useCallback(() => {
     const shouldTransition = triggerTransition()
@@ -300,7 +319,7 @@ export default function App() {
 
     return (
       <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="screen-wrapper">
-        {showWelcome && <WelcomeScreen onComplete={handleWelcomeComplete} />}
+        {showWelcome && <WelcomeScreen onComplete={handleWelcomeComplete} onSkip={handleWelcomeComplete} />}
         {showCinematic && (
           <CinematicContainer
             phase={phase}
@@ -314,8 +333,8 @@ export default function App() {
 
   return (
     <SmoothScroll>
-      {showSplash && <SplashIntro onComplete={() => setShowSplash(false)} />}
-      {!showSplash && !loadingComplete && <LoadingSequence onComplete={handleLoadingComplete} />}
+      {showSplash && <SplashIntro onComplete={() => setShowSplash(false)} onSkip={handleSkipToWork} />}
+      {!showSplash && !loadingComplete && <LoadingSequence onComplete={handleLoadingComplete} onSkip={handleSkipToWork} />}
 
       <AnimatePresence mode="wait">
         {renderScreen()}

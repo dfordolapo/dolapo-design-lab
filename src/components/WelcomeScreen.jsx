@@ -14,7 +14,7 @@ const TOOLS = [
   { name: "Gemini", icon: <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg> }
 ];
 
-export default function WelcomeScreen({ onComplete }) {
+export default function WelcomeScreen({ onComplete, onSkip }) {
   const [visible, setVisible] = useState(false);
   const [progress, setProgress] = useState(0);
   const { theme } = useTheme();
@@ -95,6 +95,13 @@ export default function WelcomeScreen({ onComplete }) {
           />
         </div>
       </div>
+
+      {onSkip && (
+        <button type="button" className="skip-intro-btn" onClick={onSkip}>
+          Skip intro
+          <svg className="skip-intro-btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+        </button>
+      )}
     </div>
   )
 }

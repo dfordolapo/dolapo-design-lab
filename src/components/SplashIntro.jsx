@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import useTheme from '../hooks/useTheme'
 
-export default function SplashIntro({ onComplete }) {
+export default function SplashIntro({ onComplete, onSkip }) {
   const { theme } = useTheme()
   const logoSrc = theme === 'light' ? "/assets/logo-light.webp" : "/assets/logo-dark.webp"
   const [isFadingOut, setIsFadingOut] = useState(false)
@@ -43,6 +43,12 @@ export default function SplashIntro({ onComplete }) {
           )}
         </div>
       </div>
+      {onSkip && (
+        <button type="button" className="skip-intro-btn skip-intro-btn--dark" onClick={onSkip}>
+          Skip intro
+          <svg className="skip-intro-btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+        </button>
+      )}
     </div>
   )
 }

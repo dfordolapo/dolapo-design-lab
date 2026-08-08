@@ -3,7 +3,7 @@ import { CONFIG, LOADING_MESSAGES } from '../utils/cinematicConfig'
 import useSoundEffects from '../hooks/useSoundEffects'
 import useTheme from '../hooks/useTheme'
 
-export default function LoadingSequence({ onComplete }) {
+export default function LoadingSequence({ onComplete, onSkip }) {
   const [messageIndex, setMessageIndex] = useState(0)
   const [hidden, setHidden] = useState(false)
   const { playPowerOn } = useSoundEffects()
@@ -38,6 +38,12 @@ export default function LoadingSequence({ onComplete }) {
       <div className="loading-status" id="loading-status">
         {LOADING_MESSAGES[messageIndex]}
       </div>
+      {onSkip && (
+        <button type="button" className="skip-intro-btn" onClick={onSkip}>
+          Skip intro
+          <svg className="skip-intro-btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+        </button>
+      )}
     </div>
   )
 }
