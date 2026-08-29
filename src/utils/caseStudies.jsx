@@ -2,66 +2,6 @@ import React from 'react';
 import { ROLES } from './roles.jsx';
 
 export const CASE_STUDIES = [
-  // Real Case Study: Scan2Supper
-  {
-    id: 'writer-1',
-    departmentId: 'writer',
-    vaultImage: '/assets/scan2supper-hero.webp',
-    noMockupBg: true,
-    noGlow: true,
-    vaultLogo: <img src="/assets/scan2supper-vault-cover.webp" alt="Scan2Supper Mockup" decoding="async" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))', maxWidth: '300px' }} />,
-    category: 'RECIPE GENERATOR APP',
-    title: 'Scan2Supper',
-    role: 'UX/UI Design, Illustration',
-    duration: '4 weeks',
-    platform: 'iOS Concept',
-    content: [
-      { type: 'hero', image: '/assets/scan2supper-hero.webp' },
-      { 
-        type: 'overview',
-        text: 'Scan2Supper is a concept mobile app that helps people decide what to cook using ingredients they already have, flipping the typical recipe experience.'
-      },
-      {
-        type: 'side-by-side-images',
-        images: [
-          { src: '/assets/scan2supper-before.webp', caption: 'Before (Old Onboarding)' },
-          { src: '/assets/scan2supper-after.webp', caption: 'After (Redesigned Onboarding)' }
-        ]
-      },
-      {
-        type: 'text-block',
-        body: 'We\'ve all stared at our fridge wondering what to make. Traditional recipe apps assume you know what you want. Scan2Supper flips the script: scan the ingredients you already have, and it instantly builds a digital pantry and generates matching recipes.'
-      },
-      {
-        type: 'features-list',
-        features: [
-          { title: 'Ingredient Scanning', desc: 'Auto-detects items via camera to build a digital pantry.' },
-          { title: 'Smart Recipes', desc: 'Instantly generates meals based on available ingredients, prioritizing what needs to be used.' },
-          { title: 'Step-by-Step Cooking Mode', desc: 'Hands-free navigation through recipe steps, perfect for messy hands.' }
-        ]
-      },
-      { type: 'presentation-slide', image: '/assets/s2s-scanning.webp' },
-      { type: 'presentation-slide', image: '/assets/s2s-pantry.webp' },
-      { type: 'presentation-slide', image: '/assets/s2s-recipe-generation.webp' },
-      { type: 'presentation-slide', image: '/assets/s2s-cooking-mode.webp' },
-      {
-        type: 'split-block',
-        body: 'What started as a personal solution became a robust system. I had to design recovery paths for blurry scans, allow manual entries, and restructure the navigation from 3 tabs to 5 (adding dedicated Search and Scan actions) to reduce friction.',
-        image: '/assets/s2s-error-states.webp'
-      },
-      {
-        type: 'split-block',
-        body: 'I learned to protect the MVP. While I initially wanted grocery integrations and expiry tracking, focusing solely on the "Scan-to-Supper" loop kept the value proposition clear. Additionally, introducing a friendly mascot turned system feedback into moments of delight.',
-        image: '/assets/s2s-mascot.webp'
-      },
-      {
-        type: 'text-block',
-        body: 'Thank you for reading!',
-        align: 'center'
-      }
-    ]
-  },
-  
   {
     id: 'designer-2',
     departmentId: 'designer',
@@ -117,24 +57,6 @@ export const CASE_STUDIES = [
         heading: 'Live Preview',
         url: 'https://www.vurdict.site'
       }
-    ]
-  },
-  
-  {
-    id: 'designer-4',
-    departmentId: 'designer',
-    vaultImage: '/assets/mockup_laptop_vault.webp',
-    logoOnlyPreview: true,
-    noGlow: true,
-    vaultLogo: <img src="/assets/Shiftsyncd%20black%20logo.webp" alt="ShiftSyncd" decoding="async" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />,
-    thumbnailLogo: <img src="/assets/ShiftSync%20logo.webp" alt="ShiftSyncd Preview" decoding="async" style={{ width: '100%', height: 'auto' }} />,
-    category: 'NURSE HANDOVER TOOL',
-    title: 'ShiftSyncd',
-    role: 'Product Design',
-    duration: 'Ongoing',
-    platform: 'Web / Mobile',
-    content: [
-      { type: 'full-image', image: '/assets/shiftsyncd-case-study.webp' }
     ]
   },
   
