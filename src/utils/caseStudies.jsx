@@ -275,7 +275,7 @@ export const CASE_STUDIES = [
     role: 'Product Design • UX Research • Design Systems',
     duration: '2 Months',
     platform: 'Web & Mobile Experience',
-    goal: 'Designed an interactive direct-to-consumer experience that makes discovering, sizing, and ordering luxury press-on nails effortless.',
+    goal: 'Designed an interactive direct-to-consumer experience that makes discovering, sizing, and ordering press-on nails effortless.',
     content: [
       {
         type: 'overview',
