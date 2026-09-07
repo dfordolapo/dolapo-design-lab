@@ -6,6 +6,7 @@ import VelocityMarquee from './VelocityMarquee';
 
 export default function CaseStudyViewer({ project, onClose }) {
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
   const viewerRef = useRef(null);
   const contentRef = useRef(null);
   const closeTimeoutRef = useRef(null);
@@ -289,30 +290,46 @@ export default function CaseStudyViewer({ project, onClose }) {
             } else if (block.type === 'embed') {
               blockContent = (
                 <div className="case-study-block embed-block">
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-md)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-md)', flexWrap: 'wrap', gap: '10px' }}>
                     {block.heading && <h2 style={{ marginBottom: 0, borderBottom: 'none' }}>{block.heading}</h2>}
                     {block.url && (
                       <a 
                         href={block.url} 
                         target="_blank" 
                         rel="noreferrer"
+                        className="embed-visit-btn"
                         style={{
                           color: 'var(--text-primary)',
                           textDecoration: 'none',
                           border: '1px solid var(--glass-border)',
-                          padding: '0.5rem 1rem',
+                          padding: '0.6rem 1.4rem',
                           borderRadius: 'var(--radius-md)',
-                          fontSize: '0.9rem',
-                          transition: 'all 0.3s ease'
+                          fontSize: '0.85rem',
+                          fontFamily: 'var(--font-mono)',
+                          letterSpacing: '0.08em',
+                          background: 'rgba(255,255,255,0.06)',
+                          transition: 'all 0.3s ease',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          cursor: 'pointer'
                         }}
-                        onMouseEnter={(e) => e.target.style.background = 'rgba(255,255,255,0.1)'}
-                        onMouseLeave={(e) => e.target.style.background = 'transparent'}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = 'rgba(255,255,255,0.18)'
+                          e.currentTarget.style.borderColor = 'var(--text-primary)'
+                          e.currentTarget.style.transform = 'translateY(-2px)'
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = 'rgba(255,255,255,0.06)'
+                          e.currentTarget.style.borderColor = 'var(--glass-border)'
+                          e.currentTarget.style.transform = 'none'
+                        }}
                       >
-                        Visit Site
+                        {block.buttonLabel || 'VISIT SITE'} &rarr;
                       </a>
                     )}
                   </div>
-                  <div className="embed-container">
+                  <div className="embed-container" style={{ position: 'relative' }}>
                     <iframe 
                       src={block.url} 
                       width="100%" 
@@ -323,6 +340,160 @@ export default function CaseStudyViewer({ project, onClose }) {
                       title={block.heading || "Embedded content"}
                       loading="lazy"
                     ></iframe>
+                  </div>
+                </div>
+              );
+            } else if (block.type === 'diagram') {
+              const renderCard = (card, sIdx) => (
+                <div key={sIdx} className={`canvas-card ${card.variant === 'warning' ? 'recovery-card' : ''} ${card.variant === 'admin' ? 'admin-card' : ''}`}>
+                  <div className="canvas-card-top">
+                    <div className={`step-tag-pill ${card.variant === 'warning' ? 'recovery-pill' : ''} ${card.variant === 'admin' ? 'admin-pill' : ''}`}>
+                      <span className="tag-step-index">{card.icon || `0${sIdx + 1}`}</span>
+                      <span className="tag-step-name">{card.badge || 'STAGE'}</span>
+                    </div>
+                    <span className={`step-state-badge ${card.variant === 'warning' ? 'recovery-state' : ''} ${card.variant === 'admin' ? 'admin-state' : ''}`}>
+                      {card.state || 'AUTOMATED'}
+                    </span>
+                  </div>
+
+                  <h4 className="canvas-card-title">{card.title}</h4>
+
+                  {card.trigger && (
+                    <div className={`canvas-trigger-box ${card.variant === 'warning' ? 'recovery-trigger-box' : ''} ${card.variant === 'admin' ? 'admin-trigger-box' : ''}`}>
+                      <span className="trigger-bullet">{card.triggerIcon || '⚡'}</span>
+                      <div className="trigger-info">
+                        <span className="trigger-head">WHEN</span>
+                        <span className="trigger-val">{card.trigger}</span>
+                      </div>
+                    </div>
+                  )}
+
+                  <p className="canvas-card-desc">{card.desc}</p>
+
+                  {/* Inline Visual Preview (Option B) */}
+                  {card.image && (
+                    <div className="canvas-card-media-slot">
+                      <div className="card-media-thumbnail-wrapper" onClick={() => setSelectedImage(card.image)}>
+                        <img 
+                          loading="lazy" 
+                          decoding="async" 
+                          src={card.image} 
+                          alt={card.title}
+                          className="card-media-img"
+                          onError={(e) => {
+                            const currentSrc = e.target.src;
+                            if (currentSrc.endsWith('.webp')) {
+                              e.target.src = currentSrc.replace('.webp', '.png');
+                            } else if (currentSrc.endsWith('.png')) {
+                              e.target.src = currentSrc.replace('.png', '.jpg');
+                            } else if (currentSrc.endsWith('.jpg')) {
+                              e.target.src = currentSrc.replace('.jpg', '.jpeg');
+                            } else {
+                              e.target.style.display = 'none';
+                              if (e.target.nextElementSibling) {
+                                e.target.nextElementSibling.style.display = 'flex';
+                              }
+                            }
+                          }}
+                        />
+                        <div className="card-media-placeholder" style={{ display: 'none' }}>
+                          <span className="placeholder-chip">PREVIEW COMING</span>
+                          <span className="placeholder-sub">{card.image.split('/').pop()}</span>
+                        </div>
+                        <div className="card-media-overlay">
+                          <span className="overlay-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            VIEW TEMPLATE
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {card.tone && (
+                    <div className="canvas-card-tone">
+                      <span className="tone-label">COPY TONE</span>
+                      <span className="tone-val">{card.tone}</span>
+                    </div>
+                  )}
+                </div>
+              );
+
+              blockContent = (
+                <div className="case-study-block diagram-block">
+                  {block.heading && <h2>{block.heading}</h2>}
+                  {block.intro && (
+                    <p className="diagram-intro">
+                      {block.intro}
+                    </p>
+                  )}
+                  
+                  <div className="lifecycle-canvas">
+                    {/* Visual Stage Banner */}
+                    <div className="canvas-header-bar">
+                      <div className="canvas-title-group">
+                        <span className="canvas-dot"></span>
+                        <span className="canvas-label">{block.canvasTitle || 'TRANSACTIONAL LIFECYCLE FLOW'}</span>
+                      </div>
+                      <span className="canvas-flow-type">{block.canvasSubtitle || 'PRIMARY SEQUENCE & RECOVERY'}</span>
+                    </div>
+
+                    {/* Main Sequence Grid with Connected Track */}
+                    <div className="lifecycle-canvas-body">
+                      {block.sections ? (
+                        block.sections.map((section, secIdx) => (
+                          <div key={secIdx} className="canvas-flow-section">
+                            {section.sectionTitle && (
+                              <div className="recovery-divider-rail">
+                                <div className="rail-line"></div>
+                                <div className={`rail-pill ${section.variant === 'warning' ? 'recovery-rail-pill' : ''} ${section.variant === 'admin' ? 'admin-rail-pill' : ''}`}>
+                                  <span className="rail-dot"></span>
+                                  <span>{section.sectionTitle}</span>
+                                </div>
+                                <div className="rail-line"></div>
+                              </div>
+                            )}
+                            <div className={`canvas-cards-row canvas-cards-grid-${section.steps.length}`}>
+                              {section.steps.map((step, sIdx) => renderCard(step, sIdx))}
+                            </div>
+                          </div>
+                        ))
+                      ) : (
+                        <>
+                          <div className="canvas-cards-row">
+                            {block.steps?.map((step, sIdx) => (
+                              <React.Fragment key={sIdx}>
+                                {renderCard(step, sIdx)}
+                                {sIdx < block.steps.length - 1 && (
+                                  <div className="canvas-step-arrow" aria-hidden="true">
+                                    <div className="arrow-disc">
+                                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                )}
+                              </React.Fragment>
+                            ))}
+                          </div>
+
+                          {/* Parallel Exit / Recovery Loop */}
+                          {block.branchStep && (
+                            <div className="canvas-recovery-section">
+                              <div className="recovery-divider-rail">
+                                <div className="rail-line"></div>
+                                <div className="rail-pill">
+                                  <span className="rail-dot"></span>
+                                  <span>{block.branchStep.tag || 'EXIT & RECOVERY LOOP'}</span>
+                                </div>
+                                <div className="rail-line"></div>
+                              </div>
+                              {renderCard({ ...block.branchStep, variant: 'warning' }, 0)}
+                            </div>
+                          )}
+                        </>
+                      )}
+                    </div>
                   </div>
                 </div>
               );
@@ -354,6 +525,30 @@ export default function CaseStudyViewer({ project, onClose }) {
           
         </div>
       </div>
+
+      {/* LIGHTBOX MODAL FOR TEMPLATE PREVIEWS */}
+      {selectedImage && (
+        <div className="card-media-lightbox" onClick={() => setSelectedImage(null)}>
+          <div className="card-media-lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <button className="lightbox-close-btn" onClick={() => setSelectedImage(null)} aria-label="Close Preview">
+              &times;
+            </button>
+            <img 
+              src={selectedImage} 
+              alt="Email Template Preview" 
+              className="lightbox-full-img" 
+              onError={(e) => {
+                const currentSrc = e.target.src;
+                if (currentSrc.endsWith('.webp')) {
+                  e.target.src = currentSrc.replace('.webp', '.png');
+                } else if (currentSrc.endsWith('.png')) {
+                  e.target.src = currentSrc.replace('.png', '.jpg');
+                }
+              }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

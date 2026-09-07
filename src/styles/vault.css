@@ -345,6 +345,12 @@
   max-height: 180px !important;
 }
 
+.vault-logo-overlay img[alt="NailExpress"] {
+  max-height: 310px !important;
+  width: 360px !important;
+  max-width: 95% !important;
+}
+
 .vault-logo-overlay svg {
   max-width: 100% !important;
   max-height: 170px !important;
@@ -704,6 +710,11 @@
 
   .vault-logo-overlay img {
     max-height: 200px !important;
+  }
+
+  .vault-logo-overlay img[alt="NailExpress"] {
+    max-height: 170px !important;
+    width: 200px !important;
   }
 
   .vault-logo-overlay svg {

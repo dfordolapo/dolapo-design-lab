@@ -240,6 +240,77 @@ export const CASE_STUDIES = [
   },
   
   {
+    id: 'designer-4',
+    departmentId: 'designer',
+    themeColor: '#7a403d',
+    backgroundColor: '#160d0e',
+    vaultImage: '',
+    logoOnlyPreview: true,
+    vaultLogo: (
+      <img
+        src="/assets/nailexpress-logo.png"
+        alt="NailExpress"
+        decoding="async"
+        style={{
+          width: '260px',
+          height: 'auto',
+          filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.6))'
+        }}
+      />
+    ),
+    thumbnailLogo: (
+      <img
+        src="/assets/nailexpress-logo.png"
+        alt="NailExpress"
+        decoding="async"
+        style={{
+          width: '100%',
+          height: 'auto',
+          objectFit: 'contain'
+        }}
+      />
+    ),
+    category: 'LUXURY PRESS-ON ATELIER',
+    title: 'NailExpress',
+    role: 'Product Designer • UX Writer • Design Engineer',
+    duration: '2 Months',
+    platform: 'Web / Progressive Web App',
+    goal: 'A bespoke ecommerce experience designed and engineered for a premium press-on nail brand.',
+    content: [
+      {
+        type: 'overview',
+        text: 'NailExpress is a bespoke ecommerce experience designed and engineered for a premium press-on nail brand. It pairs tactile inspection micro-interactions with guided sizing and an accountless 1-tap checkout, transforming press-ons from a cheap commodity into high-end wearable art.'
+      },
+      {
+        type: 'text-block',
+        heading: 'The Challenge',
+        body: 'Luxury press-on nails face a fundamental digital hurdle: **how do you convey tactile quality, eliminate sizing anxiety, and convert social media followers without the friction of traditional ecommerce?**\n\nIn emerging markets like Nigeria, customers are hesitant to buy press-ons online because they can\'t inspect the thickness or finish, are confused by nail sizing charts, and are often forced into unstructured WhatsApp conversations to complete a purchase.\n\nNailExpress needed a digital storefront that combined the storytelling of a luxury atelier with interactive sizing guidance and a frictionless checkout flow.'
+      },
+      {
+        type: 'text-block',
+        heading: 'What I Redesigned Specifically for NailExpress',
+        body: '**1. In-Feed 3D Size Selection & Waitlist Flip Cards**\nInstead of forcing shoppers into dedicated product pages just to pick a size or losing them when items sell out, catalog cards feature 3D physics: in-stock sets flip to reveal size chips (`S`, `M`, `L`) and quick-add actions, while sold-out items flip to capture instant inline restock waitlist alerts.\n\n**2. Automated Abandoned Checkout Recovery Engine**\nA 1-hour cron engine that monitors incomplete checkouts, sends context-aware recovery emails with direct WhatsApp concierge support, and provides 1-click deeplinks (`/checkout?abandonedId=...`) that fully restore cart configurations and delivery details across devices.\n\n**3. "Find Your Fit" Discovery Quiz**\nA 3-step visual quiz that translates abstract aesthetics (*"Cozy Minimalist"*, *"Glam & Dramatic"*) and lifestyle preferences (*"Short & Practical"*) into instant, in-stock catalog recommendations.\n\n**4. Interactive Detail & Packaging Loupes**\nHigh-definition, cursor-tracking magnifying loupes on both product photography and the signature gift box, letting customers inspect hand-painted details and confirming that every order includes a full prep kit.\n\n**5. 5-Step Bespoke Custom Nail Studio**\nReplaced unstructured WhatsApp direct messages with a structured 5-step custom order builder. Shoppers select their shape, length, and finish, upload inspiration photos, and receive an instant price estimate before opening WhatsApp.\n\n**6. Localized Delivery Matrix & 1-Tap Address Switcher**\nEngineered dynamic Nigerian shipping calculation (Lagos Mainland/Island, Nationwide Express) paired with device-persisted address presets (`Home`, `Work`, `Gift / Recipient`, `Custom`), eliminating password barriers.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Key Product & UX Decisions',
+        body: '• **Frictionless Sizing Without Context Loss:**\n*Problem:* Browsing a large catalog required opening individual tabs just to check sizes, causing drop-offs.\n*Decision:* Engineered a dual-sided 3D card where clicking "Select Size" flips the card with physics-based rotation to expose size chips (`S`, `M`, `L`) and a quick-add button.\n*Result:* Shoppers curate their cart directly from collection feeds without losing their scroll position.\n\n• **Zero-Loss Sold-Out Product Demand Capture:**\n*Problem:* Traditional ecommerce displays dead-end "Out of Stock" badges, causing immediate bounce and lost intent.\n*Decision:* Engineered a dedicated 3D flip card for sold-out catalog items with an inline email/phone restock alert capture, alongside a persistent restock module on product pages.\n*Result:* Captures 100% of high-intent interest on sold-out drops and automatically populates the merchant waitlist queue.\n\n• **Automated Abandoned Checkout Recovery & 1-Click Restoration:**\n*Problem:* Mobile shoppers frequently drop off during payment due to connection drops or gateway hesitation, losing all entered details.\n*Decision:* Engineered an automated 1-hour recovery engine with context-aware email messaging (*"Did something go wrong with your order?"*) offering direct WhatsApp support and a 1-click deep restoration link (`/checkout?abandonedId=...`).\n*Result:* Instantly restores the customer\'s exact cart items (custom sizes, lengths, quantities) and pre-fills delivery details across devices to maximize recovery rates.\n\n• **Localized Nigerian Delivery Matrix & Frictionless Address Book:**\n*Problem:* Flat-rate shipping models fail to address Nigerian logistics (Lagos Mainland vs Island discrepancies, Nationwide express timelines), while forced account creation adds immense checkout friction.\n*Decision:* Built a dynamic zonal delivery fee calculator with local delivery timelines and client-side saved address presets (`Home`, `Work`, `Gift / Recipient`, `Custom`).\n*Result:* Eliminates shipping cost surprises, removes registration barriers, and enables returning shoppers to complete checkout in under 30 seconds.\n\n• **Slide-Over Bottom Sheet Cart & Quick Sizing Micro-Adjustment:**\n*Problem:* Traditional full-page cart redirects disrupt browsing flow and prevent quick comparisons between nail sets.\n*Decision:* Designed a mobile-native slide-over bottom sheet / drawer with inline sizing adjustments, live quantity controls, and dynamic free shipping thresholds.\n*Result:* Keeps customers immersed in product discovery while offering immediate, uninterrupted access to their cart.\n\n• **Resolving "What’s In The Box" Completeness Anxiety:**\n*Problem:* First-time press-on shoppers worry they will receive loose nails without adhesive glue, files, alcohol wipes, or cuticle pushers.\n*Decision:* Implemented an interactive "What’s In Your Box" magnifying loupe and highlighted kit contents across all product sheets.\n*Result:* Increases purchase confidence by visually confirming that every order is a complete, ready-to-wear kit.\n\n• **Eliminating Decision Paralysis via Discovery Quiz:**\n*Problem:* First-time buyers unfamiliar with press-on terminology feel overwhelmed by shapes, lengths, and sizing charts.\n*Decision:* Designed a 3-step visual quiz (Vibe → Shape/Length → Color Mood) triggered after 60s or via banner that matches users to tailored in-stock recommendations.\n*Result:* Guides hesitant shoppers straight to styles that fit their lifestyle in under a minute.\n\n• **Visual Shape & Length Filter Chips:**\n*Problem:* Text-only dropdown filters (e.g. "Almond Medium", "Stiletto Long") are abstract and slow to navigate on mobile.\n*Decision:* Created a tactile visual filter bar with actual nail silhouette graphics and length badges.\n*Result:* Converts technical nail jargon into instant visual recognition.\n\n• **Structuring Bespoke Custom Order Inquiries:**\n*Problem:* Custom nail orders on WhatsApp frequently stalled due to missing nail measurements and reference photos.\n*Decision:* Built a 5-step custom design builder with cloud photo storage that packages custom parameters into a structured quote summary before launching WhatsApp.\n*Result:* Cuts back-and-forth consultation time down to an instant, pre-scoped quote handoff.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Visual & Sensory System',
+        body: '• **Editorial Color Palette:** Muted terra cotta (`#7a403d`), rose gold accents (`#eed8d6`), and rich obsidian dark mode backgrounds that elevate the brand above generic pink salon templates.\n• **Micro-copy & Tone:** Clear, reassuring, and precise guidance across sizing measurements, delivery countdowns, and unboxing expectations.'
+      },
+      {
+        type: 'embed',
+        heading: 'Live Storefront Preview',
+        url: 'https://nailexpress.ng',
+        buttonLabel: 'OPEN STOREFRONT'
+      }
+    ]
+  },
+  
+  {
     id: 'builder-1',
     departmentId: 'builder',
     vaultImage: '/assets/vurdict-thumbnail-logo.webp',
@@ -273,7 +344,8 @@ export const CASE_STUDIES = [
       {
         type: 'embed',
         heading: 'Live Preview',
-        url: 'https://www.vurdict.site'
+        url: 'https://www.vurdict.site',
+        buttonLabel: 'OPEN VURDICT'
       }
     ]
   },
@@ -313,6 +385,77 @@ export const CASE_STUDIES = [
         type: 'embed',
         heading: 'Live Preview',
         url: 'https://awwja.vercel.app'
+      }
+    ]
+  },
+
+  {
+    id: 'builder-3',
+    departmentId: 'builder',
+    themeColor: '#7a403d',
+    backgroundColor: '#160d0e',
+    vaultImage: '',
+    logoOnlyPreview: true,
+    vaultLogo: (
+      <img
+        src="/assets/nailexpress-logo.png"
+        alt="NailExpress"
+        decoding="async"
+        style={{
+          width: '260px',
+          height: 'auto',
+          filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.6))'
+        }}
+      />
+    ),
+    thumbnailLogo: (
+      <img
+        src="/assets/nailexpress-logo.png"
+        alt="NailExpress"
+        decoding="async"
+        style={{
+          width: '100%',
+          height: 'auto',
+          objectFit: 'contain'
+        }}
+      />
+    ),
+    category: 'LUXURY PRESS-ON ATELIER',
+    title: 'NailExpress',
+    role: 'Product Designer • UX Writer • Design Engineer',
+    duration: '2 Months',
+    platform: 'Next.js 16 • Supabase • Paystack • PWA',
+    goal: 'A bespoke ecommerce experience designed and engineered for a premium press-on nail brand.',
+    content: [
+      {
+        type: 'overview',
+        text: 'NailExpress is a full-stack ecommerce storefront and merchant management suite engineered for a premium press-on nail brand. It combines sensory luxury aesthetics, 3D product inspection physics, dynamic quizzes, and an accountless 1-tap checkout flow.'
+      },
+      {
+        type: 'text-block',
+        heading: 'The Challenge',
+        body: 'Luxury press-on nails face a fundamental digital hurdle: **how do you convey tactile quality, eliminate sizing anxiety, and convert social media followers without the friction of traditional ecommerce?**\n\nBeyond front-end presentation, the business struggled with fragmented operations: orders came via untracked DMs, reference photos were scattered, inventory tracking was manual, and writing luxury product copy for each new set was a constant bottleneck.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Key Product & Engineering Decisions',
+        body: '• **In-Feed 3D Size Selection & Sold-Out Waitlist Flip Cards:**\n*Problem:* Standard stores force customers to open individual product pages just to choose a size, while sold-out items display dead-end disabled buttons that instantly lose high-intent customer demand.\n*Decision:* Engineered dual-sided 3D cards using CSS transforms and Framer Motion tilt physics. In-stock items flip to expose size chips (`S`, `M`, `L`) and quick-add actions, while sold-out items flip to present an inline email restock waitlist form powered by an optimistic submission state (`/api/newsletter`).\n*Result:* Shoppers curate their bags directly from collection feeds without losing scroll position, and the brand captures 100% of drop demand into a dedicated merchant restock waitlist queue.\n\n• **5-Step Bespoke Custom Nail Studio & Cloud Handoff Pipeline:**\n*Problem:* Bespoke salon orders on social media suffered from missing measurements, scattered reference photos, and slow manual quoting.\n*Decision:* Engineered an interactive 5-step bespoke studio (`/custom-order`): shape & length selector, custom sizing matrix, finish options, and a direct Supabase Storage cloud photo upload pipeline. Automatically generates structured quote parameters, submits real-time merchant alerts via Resend, and creates a pre-populated WhatsApp consultation link.\n*Result:* Replaced messy unformatted DMs with structured, pre-scoped orders and instant customer confirmation emails.\n\n• **Automated Abandoned Checkout Recovery Engine:**\n*Problem:* Customers abandoning checkouts midway represent lost revenue, while standard recovery emails often arrive too late or force users to rebuild their carts.\n*Decision:* Engineered a precision 1-hour cron engine that respects Paystack\'s completion window, dispatches context-aware recovery emails with direct WhatsApp concierge support, and provides 1-click deep restoration links (`/checkout?abandonedId=...`) that automatically restore the exact cart (sizes, lengths, quantities) and pre-fill delivery forms across devices.\n*Result:* Recovers high-intent drop-offs with zero re-entry friction.\n\n• **Localized Nigerian Delivery Matrix & Multi-Preset Address Book:**\n*Problem:* Shipping across Nigeria involves distinct regional logistics (Mainland vs Island pricing, nationwide timelines) and password registration creates huge drop-offs.\n*Decision:* Built dynamic geographic delivery calculations with local transit timelines and client-side saved address presets (`Home`, `Work`, `Gift / Recipient`, `Custom`).\n*Result:* Transparent shipping costs and instant 30-second checkout for returning shoppers.\n\n• **Slide-Over Bottom Sheet Cart & Quick Sizing Adjustment:**\n*Problem:* Full-page cart redirects cause users to lose context when browsing multiple product variations.\n*Decision:* Implemented an animated slide-over bottom sheet / drawer with dynamic free-shipping progress meters and instant size recalculations.\n*Result:* Seamless cart inspection without interrupting navigation.\n\n• **Resolving "What’s In The Box" Completeness Anxiety:**\n*Problem:* First-time press-on shoppers worry they will receive loose nails without adhesive glue, files, alcohol wipes, or cuticle pushers.\n*Decision:* Implemented an interactive "What’s In Your Box" magnifying loupe on the frontend and highlighted kit contents across all product sheets.\n*Result:* Increases purchase confidence by visually confirming that every order is a complete, ready-to-wear kit.\n\n• **Eliminating Decision Paralysis via Discovery Quiz:**\n*Problem:* First-time buyers unfamiliar with press-on sizing and shape terminology feel overwhelmed.\n*Decision:* Built a 3-step visual quiz engine (Vibe → Shape/Length → Color Mood) that computes customer preferences and queries in-stock Supabase inventory for instant recommendation matching.\n*Result:* Guides hesitant shoppers straight to styles that fit their lifestyle in under a minute.\n\n• **Visual Shape & Length Filter Chips:**\n*Problem:* Text dropdowns for nail shapes and lengths create high cognitive load on mobile devices.\n*Decision:* Designed and engineered a tactile visual filter bar with SVG silhouette vectors and dynamic URL parameter filtering.\n*Result:* Converts technical nail jargon into immediate visual recognition and rapid catalog filtering.\n\n• **Merchant Command Center & Live Operations Hub:**\n*Problem:* Tracking handmade inventory, restock waitlists, bespoke requests, and revenue across fragmented channels created operational blind spots.\n*Decision:* Developed a centralized admin dashboard featuring real-time `₦` gross revenue calculations, custom order approval workflows, abandoned checkout metrics, restock subscriber lists with 1-click broadcast triggers, and Gemini AI-powered luxury copy generation.\n*Result:* Provides complete operational control and cuts product onboarding time from hours to minutes.'
+      },
+      {
+        type: 'text-block',
+        heading: 'The System Behind the Experience',
+        body: '• **Frontend Architecture:** Next.js 16 App Router using React Server Components (RSC) for fast initial page loads and crawlable links, combined with client boundaries for interactive components (Framer Motion tilt cards, drawers, custom studio wizard).\n• **Database & Storage:** Supabase PostgreSQL manages relational tables for products, categories, orders, reviews, custom requests, and restock waitlists. Cloud storage buckets handle product photography and customer inspiration uploads.\n• **Payment Processing:** Integrated Paystack live gateway handles card, bank transfer, and USSD transactions in NGN, supported by webhook verification and robust exception handling.\n• **Transactional Email & Recovery Engine:** Resend API integration with custom HTML email templates powering an 11-trigger lifecycle suite across buyer notifications, admin alerts, and automated recovery loops.\n• **PWA & Production Readiness:** 100% clean Next.js static/dynamic compilation, zero-error production build, and automated service worker caching for native app-like offline resilience.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Tech Stack',
+        body: '**Built with:** Next.js 16 (App Router), React 19, TypeScript, Vanilla CSS Modules, Framer Motion, Supabase (PostgreSQL & Storage), Paystack API, Resend API, Google Gemini API, Storybook 10, Vitest'
+      },
+      {
+        type: 'embed',
+        heading: 'Live Storefront Preview',
+        url: 'https://nailexpress.ng',
+        buttonLabel: 'OPEN STOREFRONT'
       }
     ]
   },
@@ -437,5 +580,187 @@ export const CASE_STUDIES = [
         body: 'Working on Jolli taught me that content strategy was more than simply filling screens. It had a lot to do with shaping user behavior. And behavior needed proof. While the interface hadn’t been designed yet, I had already identified what success would look like: faster onboarding, fewer confused support queries, and users who actually chose installment payments because the copy made them feel safe.\n\nStarting from scratch without visuals made me approach UX writing like architecture: the words had to hold shape before the walls existed. Next, they needed to perform.\n\nThe process reminded me that structure and empathy were design tools too; just written ones.'
       }
     ]
+  },
+
+  {
+    id: 'writer-nailexpress',
+    departmentId: 'writer',
+    themeColor: '#7a403d',
+    backgroundColor: '#160d0e',
+    vaultImage: '',
+    logoOnlyPreview: true,
+    vaultLogo: (
+      <img
+        src="/assets/nailexpress-logo.png"
+        alt="NailExpress"
+        decoding="async"
+        style={{
+          width: '260px',
+          height: 'auto',
+          filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.6))'
+        }}
+      />
+    ),
+    thumbnailLogo: (
+      <img
+        src="/assets/nailexpress-logo.png"
+        alt="NailExpress"
+        decoding="async"
+        style={{
+          width: '100%',
+          height: 'auto',
+          objectFit: 'contain'
+        }}
+      />
+    ),
+    category: 'ECOMMERCE EMAIL FLOW',
+    title: 'NailExpress Email Architecture',
+    role: 'UX Writer • Content Strategist',
+    duration: 'Product Flow',
+    platform: 'Transactional Email / Resend',
+    goal: 'Designing responsive, on-brand transactional copy and lifecycle triggers that manage expectations and guide customers from purchase to application.',
+    content: [
+      {
+        type: 'overview',
+        text: 'Email in ecommerce is a critical extension of the customer journey, trust boundary, and post-purchase retention loop. For NailExpress, transactional emails were written as high-touch communication touchpoints that proactively manage customer expectations, eliminate "Where Is My Order?" (WISMO) anxiety, and guide users from payment to unboxing and application.'
+      },
+      {
+        type: 'text-block',
+        heading: '1. The Role & Context',
+        body: 'Why does email matter in this product flow?\n\n• **Trust & Confirmation:** Press-ons are an intimate, personal purchase. Instant confirmation reassures buyers that their bespoke sizes, lengths, and payment were securely received.\n• **Proactive Anxiety Reduction:** Customers often worry about production and delivery timelines across regions. Structured updates eliminate guesswork before doubts turn into customer support queries.\n• **Post-Purchase Guidance:** First-time press-on wearers benefit from clear prep and care guidance to ensure lasting wear, turning the delivery email into a practical guide.\n• **Retention & Cart Recovery:** Abandoned checkout sequences re-engage customers by pairing empathetic messaging with seamless cart restoration.'
+      },
+      {
+        type: 'text-block',
+        heading: '2. Key Design & UX Writing Decisions',
+        body: '• **Information Hierarchy Over Fluff:** Kept critical order specs (custom sizing matrices, length, shapes, reference photo links, delivery address) immediately scannable above the fold.\n• **Empathetic Brand Voice vs System Noise:** Balanced luxury editorial polish with grounded, reassuring guidance. Every email reads like a direct note from the nail artist rather than an unfeeling server log.\n• **Single Focused Intent per Touchpoint:** Each trigger has a singular objective—confirming bespoke specs, providing carrier expectations, walking through unboxing & cuticle prep, restoring abandoned carts with concierge support, or transparently explaining refund timelines.\n• **Managing Post-Purchase Anxiety (WISMO Reduction):** Clearly distinguished between *atelier crafting time* (2–3 business days for hand-painted art) and *courier transit time*, eliminating post-checkout doubts before they become support tickets.'
+      },
+      {
+        type: 'diagram',
+        heading: '3. Complete 11-Trigger Lifecycle Architecture',
+        canvasTitle: 'TRANSACTIONAL & LIFECYCLE EMAIL SUITE',
+        canvasSubtitle: '11 AUTOMATED BUYER, RECOVERY & MERCHANT TRIGGERS',
+        intro: 'The communication engine is divided into three distinct operational tracks: Core Order Fulfillment, Bespoke & Demand Capture, and Merchant Operations.',
+        sections: [
+          {
+            sectionTitle: 'TRACK 01: Core Order & Fulfillment Flow (Buyer)',
+            steps: [
+              {
+                badge: 'TRIGGER 01',
+                title: 'Order Successful',
+                trigger: 'Paystack Payment Verified',
+                desc: 'Recaps chosen sizes (XS–L), nail shapes, and delivery estimates while confirming payment receipt and setting crafting timelines.',
+                tone: 'Reassuring, appreciative, clear',
+                image: '/assets/nailexpress-email-order-confirmation.webp'
+              },
+              {
+                badge: 'TRIGGER 02',
+                title: 'Order Dispatched',
+                trigger: 'Studio Hands Off to Carrier',
+                desc: 'Notifies customer that packaging is complete and sets expectations that local courier tracking SMS/calls will arrive directly from the driver.',
+                tone: 'Anticipatory, direct, helpful',
+                image: '/assets/nailexpress-email-shipped.webp'
+              },
+              {
+                badge: 'TRIGGER 03',
+                title: 'Package Delivered',
+                trigger: 'Marked Delivered in Admin',
+                desc: 'Celebrates package arrival and provides immediate, actionable prep kit instructions (alcohol wipe, cuticle push, adhesive tabs vs liquid glue).',
+                tone: 'Excited, helpful, practical',
+                image: '/assets/nailexpress-email-delivered.webp'
+              }
+            ]
+          },
+          {
+            sectionTitle: 'TRACK 02: Bespoke Studio, Restock & Recovery Loops (Buyer)',
+            steps: [
+              {
+                badge: 'CUSTOM STUDIO',
+                title: 'Bespoke Order Received',
+                trigger: 'Custom Form Submitted',
+                desc: 'Confirms bespoke design specs, length, shape, and cloud image uploads with a clear 24–48h quote consultation timeframe.',
+                tone: 'High-touch, bespoke, reassuring',
+                image: '/assets/nailexpress-email-custom-order.webp'
+              },
+              {
+                badge: 'WAITLIST CAPTURE',
+                title: 'Restock Alert Requested',
+                trigger: 'Inline Sold-Out "Notify Me" Flip',
+                desc: 'Confirms spot on early-access waitlist with zero account registration friction, assuring no spam, only drop notifications.',
+                tone: 'Exclusive, welcoming, transparent',
+                image: '/assets/nailexpress-email-restock-waitlist.webp'
+              },
+              {
+                badge: 'BACK IN STOCK',
+                title: 'Product Drop Alert',
+                trigger: 'Admin Restock Broadcast',
+                desc: 'Sends instant 1-tap product link to waitlist subscribers when sold-out inventory is replenished.',
+                tone: 'High-urgency, direct, celebratory',
+                image: '/assets/nailexpress-email-back-in-stock.webp'
+              },
+              {
+                badge: 'ORDER CANCELLED',
+                title: 'Cancellation & Refund',
+                trigger: 'Order Cancelled by Merchant',
+                desc: 'Provides transparent cancellation rationale and outlines the automated 3–5 business day banking refund timeline to protect trust.',
+                tone: 'Empathetic, accountable, clear',
+                variant: 'warning',
+                image: '/assets/nailexpress-email-order-cancelled.webp'
+              },
+              {
+                badge: 'RETENTION ENGINE',
+                title: 'Abandoned Cart Concierge',
+                trigger: 'Checkout Incomplete after 1 Hr',
+                desc: 'Re-engages hesitant buyers with direct WhatsApp support and a 1-click deeplink that pre-fills carts and delivery info.',
+                tone: 'Empathetic, low-pressure, supportive',
+                variant: 'warning',
+                image: '/assets/nailexpress-email-abandoned-recovery.webp'
+              }
+            ]
+          },
+          {
+            sectionTitle: 'TRACK 03: Real-Time Merchant Operations (Admin Alerts)',
+            variant: 'admin',
+            steps: [
+              {
+                badge: 'ADMIN OPS',
+                icon: '⚡',
+                title: 'New Order Received',
+                trigger: 'Verified Customer Purchase',
+                desc: 'Dispatches complete sizing breakdowns, shipping addresses, and customer phone contacts to the studio fulfillment queue.',
+                tone: 'Operational, concise, high-priority',
+                variant: 'admin',
+                image: '/assets/nailexpress-email-admin-new-order.webp'
+              },
+              {
+                badge: 'ADMIN OPS',
+                icon: '🎨',
+                title: 'Custom Order Inflow',
+                trigger: 'New Bespoke Request Logged',
+                desc: 'Alerts artisan with customer contact details, embedded design inspiration image previews, and a direct link to the custom orders queue.',
+                tone: 'Actionable, detailed, immediate',
+                variant: 'admin',
+                image: '/assets/nailexpress-email-admin-custom-alert.webp'
+              },
+              {
+                badge: 'ADMIN OPS',
+                icon: '🔔',
+                title: 'Restock Demand Lead',
+                trigger: 'New Waitlist Subscriber',
+                desc: 'Notifies merchant of unfulfilled item demand with a direct link to the Subscribers Management Hub to guide production batches.',
+                tone: 'Analytical, metric-focused, actionable',
+                variant: 'admin',
+                image: '/assets/nailexpress-email-admin-restock-lead.webp'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        type: 'text-block',
+        heading: '4. Outcomes & Strategic Impact',
+        body: '• **Minimizing WISMO Inquiries:** Setting upfront crafting vs transit timeline expectations at every milestone eliminates repetitive "where is my order" queries.\n• **Higher Bespoke & Drop Conversion:** Transforming dead-end sold-out states and unformatted custom DMs into structured, automated communication flows captured 100% of latent customer intent.\n• **Frictionless Recovery:** Context-aware recovery emails with 1-click cart restoration and WhatsApp concierge links turn checkout drop-offs into completed sales.\n• **Operational Agility:** Real-time admin alerts with embedded specs and images enable the solo artisan to triage, price, and pack orders without manual spreadsheet tracking.'
+      }
+    ]
   }
 ];
+
