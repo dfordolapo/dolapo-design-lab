@@ -282,6 +282,12 @@ export const CASE_STUDIES = [
         text: 'NailExpress is a bespoke ecommerce experience designed and engineered for a premium press-on nail brand. It pairs tactile inspection micro-interactions with guided sizing and an accountless 1-tap checkout, transforming press-ons from a cheap commodity into high-end wearable art.'
       },
       {
+        type: 'embed',
+        heading: 'Live Storefront Preview',
+        url: 'https://nailexpress.ng',
+        buttonLabel: 'OPEN STOREFRONT'
+      },
+      {
         type: 'text-block',
         heading: 'The Challenge',
         body: 'Luxury press-on nails face a fundamental digital hurdle: **how do you convey tactile quality, eliminate sizing anxiety, and convert social media followers without the friction of traditional ecommerce?**\n\nIn emerging markets like Nigeria, customers are hesitant to buy press-ons online because they can\'t inspect the thickness or finish, are confused by nail sizing charts, and are often forced into unstructured WhatsApp conversations to complete a purchase.\n\nNailExpress needed a digital storefront that combined the storytelling of a luxury atelier with interactive sizing guidance and a frictionless checkout flow.'
@@ -300,12 +306,6 @@ export const CASE_STUDIES = [
         type: 'text-block',
         heading: 'Visual & Sensory System',
         body: '• **Editorial Color Palette:** Muted terra cotta (`#7a403d`), rose gold accents (`#eed8d6`), and rich obsidian dark mode backgrounds that elevate the brand above generic pink salon templates.\n• **Micro-copy & Tone:** Clear, reassuring, and precise guidance across sizing measurements, delivery countdowns, and unboxing expectations.'
-      },
-      {
-        type: 'embed',
-        heading: 'Live Storefront Preview',
-        url: 'https://nailexpress.ng',
-        buttonLabel: 'OPEN STOREFRONT'
       }
     ]
   },
@@ -432,6 +432,12 @@ export const CASE_STUDIES = [
         text: 'NailExpress is a full-stack ecommerce storefront and merchant management suite engineered for a premium press-on nail brand. It combines sensory luxury aesthetics, 3D product inspection physics, dynamic quizzes, and an accountless 1-tap checkout flow.'
       },
       {
+        type: 'embed',
+        heading: 'Live Storefront Preview',
+        url: 'https://nailexpress.ng',
+        buttonLabel: 'OPEN STOREFRONT'
+      },
+      {
         type: 'text-block',
         heading: 'The Challenge',
         body: 'Luxury press-on nails face a fundamental digital hurdle: **how do you convey tactile quality, eliminate sizing anxiety, and convert social media followers without the friction of traditional ecommerce?**\n\nBeyond front-end presentation, the business struggled with fragmented operations: orders came via untracked DMs, reference photos were scattered, inventory tracking was manual, and writing luxury product copy for each new set was a constant bottleneck.'
@@ -450,12 +456,6 @@ export const CASE_STUDIES = [
         type: 'text-block',
         heading: 'Tech Stack',
         body: '**Built with:** Next.js 16 (App Router), React 19, TypeScript, Vanilla CSS Modules, Framer Motion, Supabase (PostgreSQL & Storage), Paystack API, Resend API, Google Gemini API, Storybook 10, Vitest'
-      },
-      {
-        type: 'embed',
-        heading: 'Live Storefront Preview',
-        url: 'https://nailexpress.ng',
-        buttonLabel: 'OPEN STOREFRONT'
       }
     ]
   },
