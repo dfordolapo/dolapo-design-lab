@@ -373,7 +373,7 @@ export default function CaseStudyViewer({ project, onClose }) {
                   {/* Inline Visual Preview (Option B) */}
                   {card.image && (
                     <div className="canvas-card-media-slot">
-                      <div className="card-media-thumbnail-wrapper" onClick={() => setSelectedImage(card.image)}>
+                      <div className="card-media-thumbnail-wrapper" onClick={() => setSelectedImage(card.image)} title="Click to view full email template">
                         <img 
                           loading="lazy" 
                           decoding="async" 
@@ -400,10 +400,17 @@ export default function CaseStudyViewer({ project, onClose }) {
                           <span className="placeholder-chip">PREVIEW COMING</span>
                           <span className="placeholder-sub">{card.image.split('/').pop()}</span>
                         </div>
+                        
+                        {/* Always visible micro badge */}
+                        <div className="thumbnail-zoom-tag">
+                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                          <span>EXPAND</span>
+                        </div>
+
                         <div className="card-media-overlay">
                           <span className="overlay-badge">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                            VIEW TEMPLATE
+                            VIEW FULL TEMPLATE
                           </span>
                         </div>
                       </div>
@@ -435,7 +442,10 @@ export default function CaseStudyViewer({ project, onClose }) {
                         <span className="canvas-dot"></span>
                         <span className="canvas-label">{block.canvasTitle || 'TRANSACTIONAL LIFECYCLE FLOW'}</span>
                       </div>
-                      <span className="canvas-flow-type">{block.canvasSubtitle || 'PRIMARY SEQUENCE & RECOVERY'}</span>
+                      <div className="canvas-header-right">
+                        <span className="canvas-hint-pill">🔍 TAP ANY TEMPLATE TO EXPAND</span>
+                        <span className="canvas-flow-type">{block.canvasSubtitle || 'PRIMARY SEQUENCE & RECOVERY'}</span>
+                      </div>
                     </div>
 
                     {/* Main Sequence Grid with Connected Track */}
