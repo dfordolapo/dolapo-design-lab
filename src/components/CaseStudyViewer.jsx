@@ -442,10 +442,7 @@ export default function CaseStudyViewer({ project, onClose }) {
                         <span className="canvas-dot"></span>
                         <span className="canvas-label">{block.canvasTitle || 'TRANSACTIONAL LIFECYCLE FLOW'}</span>
                       </div>
-                      <div className="canvas-header-right">
-                        <span className="canvas-hint-pill">🔍 TAP ANY TEMPLATE TO EXPAND</span>
-                        <span className="canvas-flow-type">{block.canvasSubtitle || 'PRIMARY SEQUENCE & RECOVERY'}</span>
-                      </div>
+                      <span className="canvas-flow-type">{block.canvasSubtitle || 'PRIMARY SEQUENCE & RECOVERY'}</span>
                     </div>
 
                     {/* Main Sequence Grid with Connected Track */}
