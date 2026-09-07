@@ -275,11 +275,11 @@ export const CASE_STUDIES = [
     role: 'Product Design • UX Research • Design Systems',
     duration: '2 Months',
     platform: 'Web & Mobile Experience',
-    goal: 'A sensory luxury ecommerce experience designed to eliminate sizing hesitation and elevate press-on nails into wearable art.',
+    goal: 'Designed an interactive direct-to-consumer experience that makes discovering, sizing, and ordering luxury press-on nails effortless.',
     content: [
       {
         type: 'overview',
-        text: 'NailExpress is a luxury digital atelier designed for a bespoke press-on nail brand. It pairs tactile inspection micro-interactions with guided visual sizing and an accountless 1-tap checkout, transforming press-ons from a commoditized purchase into a high-confidence, luxury buying experience.'
+        text: 'NailExpress is a direct-to-consumer press-on nail platform pairing interactive inspection loupes, in-feed sizing flip cards, and an accountless 1-tap checkout to make buying salon-quality nails online fast and trustworthy.'
       },
       {
         type: 'embed',
