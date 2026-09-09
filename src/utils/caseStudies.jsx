@@ -471,20 +471,16 @@ export const CASE_STUDIES = [
         gap: '8px',
         textAlign: 'center'
       }}>
-        <svg 
-          width="44" 
-          height="44" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="1.8" 
-          strokeLinecap="round" 
-          strokeLinejoin="round"
-          style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.4))' }}
-        >
-          <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z" />
-          <line x1="6" y1="17" x2="18" y2="17" />
-        </svg>
+        <img
+          src="/assets/gino-mascot.webp"
+          alt="Gino Mascot"
+          decoding="async"
+          style={{
+            width: '95px',
+            height: 'auto',
+            filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.5))'
+          }}
+        />
         <div style={{
           fontSize: '1.1rem',
           fontWeight: 'bold',
@@ -498,40 +494,17 @@ export const CASE_STUDIES = [
       </div>
     ),
     thumbnailLogo: (
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '4px',
-        width: '100%',
-        height: '100%',
-        color: '#fff'
-      }}>
-        <svg 
-          width="24" 
-          height="24" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          strokeLinecap="round" 
-          strokeLinejoin="round"
-        >
-          <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z" />
-          <line x1="6" y1="17" x2="18" y2="17" />
-        </svg>
-        <span style={{
-          fontSize: '0.6rem',
-          fontWeight: '700',
-          letterSpacing: '0.08em',
-          textTransform: 'uppercase',
-          textAlign: 'center',
-          lineHeight: 1.1
-        }}>
-          Gino Jollof
-        </span>
-      </div>
+      <img
+        src="/assets/gino-mascot.webp"
+        alt="Gino Mascot"
+        decoding="async"
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'contain',
+          filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.4))'
+        }}
+      />
     ),
     category: 'GINO WORLD JOLLOF FESTIVAL',
     title: 'Gino Jollof Festival',
