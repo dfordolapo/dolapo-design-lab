@@ -248,7 +248,7 @@ export const CASE_STUDIES = [
     logoOnlyPreview: true,
     vaultLogo: (
       <img
-        src="/assets/nailexpress-logo.png"
+        src="/assets/nailexpress-logo.webp"
         alt="NailExpress"
         decoding="async"
         style={{
@@ -260,7 +260,7 @@ export const CASE_STUDIES = [
     ),
     thumbnailLogo: (
       <img
-        src="/assets/nailexpress-logo.png"
+        src="/assets/nailexpress-logo.webp"
         alt="NailExpress"
         decoding="async"
         style={{
@@ -393,7 +393,7 @@ export const CASE_STUDIES = [
     logoOnlyPreview: true,
     vaultLogo: (
       <img
-        src="/assets/nailexpress-logo.png"
+        src="/assets/nailexpress-logo.webp"
         alt="NailExpress"
         decoding="async"
         style={{
@@ -405,7 +405,7 @@ export const CASE_STUDIES = [
     ),
     thumbnailLogo: (
       <img
-        src="/assets/nailexpress-logo.png"
+        src="/assets/nailexpress-logo.webp"
         alt="NailExpress"
         decoding="async"
         style={{
@@ -464,19 +464,78 @@ export const CASE_STUDIES = [
     noGlow: true,
     vaultLogo: (
       <div style={{
-        fontSize: '1.1rem',
-        fontWeight: 'bold',
-        color: 'black',
-        textTransform: 'uppercase',
-        letterSpacing: '0.1em',
-        textAlign: 'center',
-        lineHeight: '1.2'
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '8px',
+        textAlign: 'center'
       }}>
-        Gino Jollof <br/> Festival
+        <svg 
+          width="44" 
+          height="44" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="1.8" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+          style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.4))' }}
+        >
+          <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z" />
+          <line x1="6" y1="17" x2="18" y2="17" />
+        </svg>
+        <div style={{
+          fontSize: '1.1rem',
+          fontWeight: 'bold',
+          color: 'black',
+          textTransform: 'uppercase',
+          letterSpacing: '0.1em',
+          lineHeight: '1.2'
+        }}>
+          Gino Jollof <br/> Festival
+        </div>
+      </div>
+    ),
+    thumbnailLogo: (
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '4px',
+        width: '100%',
+        height: '100%',
+        color: '#fff'
+      }}>
+        <svg 
+          width="24" 
+          height="24" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+        >
+          <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z" />
+          <line x1="6" y1="17" x2="18" y2="17" />
+        </svg>
+        <span style={{
+          fontSize: '0.6rem',
+          fontWeight: '700',
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
+          textAlign: 'center',
+          lineHeight: 1.1
+        }}>
+          Gino Jollof
+        </span>
       </div>
     ),
     category: 'GINO WORLD JOLLOF FESTIVAL',
     title: 'Gino Jollof Festival',
+    shortTitle: 'Gino',
     role: 'UX Writer',
     duration: 'Audit & Redesign',
     platform: 'Email Communications',
@@ -586,7 +645,7 @@ export const CASE_STUDIES = [
     logoOnlyPreview: true,
     vaultLogo: (
       <img
-        src="/assets/nailexpress-logo.png"
+        src="/assets/nailexpress-logo.webp"
         alt="NailExpress"
         decoding="async"
         style={{
@@ -598,7 +657,7 @@ export const CASE_STUDIES = [
     ),
     thumbnailLogo: (
       <img
-        src="/assets/nailexpress-logo.png"
+        src="/assets/nailexpress-logo.webp"
         alt="NailExpress"
         decoding="async"
         style={{
