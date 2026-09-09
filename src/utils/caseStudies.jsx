@@ -463,35 +463,18 @@ export const CASE_STUDIES = [
     themeColor: '#881337',
     noGlow: true,
     vaultLogo: (
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '8px',
-        textAlign: 'center'
-      }}>
-        <img
-          src="/assets/gino-mascot.webp"
-          alt="Gino Mascot"
-          decoding="async"
-          style={{
-            width: '95px',
-            height: 'auto',
-            filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.5))'
-          }}
-        />
-        <div style={{
-          fontSize: '1.1rem',
-          fontWeight: 'bold',
-          color: 'black',
-          textTransform: 'uppercase',
-          letterSpacing: '0.1em',
-          lineHeight: '1.2'
-        }}>
-          Gino Jollof <br/> Festival
-        </div>
-      </div>
+      <img
+        src="/assets/gino-mascot.webp"
+        alt="Gino Mascot"
+        decoding="async"
+        style={{
+          width: '130px',
+          maxHeight: '140px',
+          height: 'auto',
+          objectFit: 'contain',
+          filter: 'drop-shadow(0 10px 24px rgba(0,0,0,0.55))'
+        }}
+      />
     ),
     thumbnailLogo: (
       <img
