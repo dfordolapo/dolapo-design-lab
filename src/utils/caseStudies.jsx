@@ -89,7 +89,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'Fast & Familiar Access',
-        body: 'Returning users sign in quickly with minimal input fields—only email and password are required. A visible "Forgot password" option is placed directly under the password field so users do not have to search for it. Loading feedback confirms the system is processing the request, preventing users from tapping repeatedly.'
+        body: 'Returning users sign in quickly with minimal input fields - only email and password are required. A visible "Forgot password" option is placed directly under the password field so users do not have to search for it. Loading feedback confirms the system is processing the request, preventing users from tapping repeatedly.'
       },
       { type: 'presentation-slide', image: '/assets/kitkeeper-signup.webp', caption: 'The Sign Up Flow' },
       {
@@ -538,7 +538,7 @@ export const CASE_STUDIES = [
       },
       { 
         type: 'text-block',
-        body: 'Meet Oluwadoyinsola, 28, works a 9–5 and loves to have fun within a budget. Her goals and frustrations guided every decision in this content strategy.'
+        body: 'Meet Oluwadoyinsola, 28, works a 9-5 and loves to have fun within a budget. Her goals and frustrations guided every decision in this content strategy.'
       },
       { type: 'presentation-slide', image: '/assets/jolli-persona.webp', caption: 'Oluwadoyinsola’s Persona: Goals and pain points informed every tone and structural decision in the app.' },
       { 
@@ -627,7 +627,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: '2. Key Design & UX Writing Decisions',
-        body: '• **Information Hierarchy Over Fluff:** Kept critical order specs (custom sizing matrices, length, shapes, reference photo links, delivery address) immediately scannable above the fold.\n• **Empathetic Brand Voice vs System Noise:** Balanced luxury editorial polish with grounded, reassuring guidance. Every email reads like a direct note from the nail artist rather than an unfeeling server log.\n• **Single Focused Intent per Touchpoint:** Each trigger has a singular objective—confirming bespoke specs, providing carrier expectations, walking through unboxing & cuticle prep, restoring abandoned carts with concierge support, or transparently explaining refund timelines.\n• **Managing Post-Purchase Anxiety (WISMO Reduction):** Clearly distinguished between *atelier crafting time* (2–3 business days for hand-painted art) and *courier transit time*, eliminating post-checkout doubts before they become support tickets.'
+        body: '• **Information Hierarchy Over Fluff:** Kept critical order specs (custom sizing matrices, length, shapes, reference photo links, delivery address) immediately scannable above the fold.\n• **Empathetic Brand Voice vs System Noise:** Balanced luxury editorial polish with grounded, reassuring guidance. Every email reads like a direct note from the nail artist rather than an unfeeling server log.\n• **Single Focused Intent per Touchpoint:** Each trigger has a singular objective - confirming bespoke specs, providing carrier expectations, walking through unboxing & cuticle prep, restoring abandoned carts with concierge support, or transparently explaining refund timelines.\n• **Managing Post-Purchase Anxiety (WISMO Reduction):** Clearly distinguished between *atelier crafting time* (2-3 business days for hand-painted art) and *courier transit time*, eliminating post-checkout doubts before they become support tickets.'
       },
       {
         type: 'diagram',
@@ -643,7 +643,7 @@ export const CASE_STUDIES = [
                 badge: 'TRIGGER 01',
                 title: 'Order Successful',
                 trigger: 'Paystack Payment Verified',
-                desc: 'Recaps chosen sizes (S–L), nail shapes, and delivery estimates while confirming payment receipt and setting crafting timelines.',
+                desc: 'Recaps chosen sizes (S-L), nail shapes, and delivery estimates while confirming payment receipt and setting crafting timelines.',
                 tone: 'Reassuring, appreciative, clear',
                 image: '/assets/nailexpress-email-order-confirmation.webp'
               },
@@ -672,7 +672,7 @@ export const CASE_STUDIES = [
                 badge: 'CUSTOM STUDIO',
                 title: 'Bespoke Order Received',
                 trigger: 'Custom Form Submitted',
-                desc: 'Confirms bespoke design specs, length, shape, and cloud image uploads with a clear 24–48h quote consultation timeframe.',
+                desc: 'Confirms bespoke design specs, length, shape, and cloud image uploads with a clear 24-48h quote consultation timeframe.',
                 tone: 'High-touch, bespoke, reassuring',
                 image: '/assets/nailexpress-email-custom-order.webp'
               },
@@ -696,7 +696,7 @@ export const CASE_STUDIES = [
                 badge: 'ORDER CANCELLED',
                 title: 'Cancellation & Refund',
                 trigger: 'Order Cancelled by Merchant',
-                desc: 'Provides transparent cancellation rationale and outlines the automated 3–5 business day banking refund timeline to protect trust.',
+                desc: 'Provides transparent cancellation rationale and outlines the automated 3-5 business day banking refund timeline to protect trust.',
                 tone: 'Empathetic, accountable, clear',
                 variant: 'warning',
                 image: '/assets/nailexpress-email-order-cancelled.webp'
