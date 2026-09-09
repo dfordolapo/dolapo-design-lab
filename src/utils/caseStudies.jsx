@@ -468,8 +468,6 @@ export const CASE_STUDIES = [
         alt="Gino Mascot"
         decoding="async"
         style={{
-          width: '110px',
-          maxHeight: '110px',
           height: 'auto',
           objectFit: 'contain',
           filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.55))'
