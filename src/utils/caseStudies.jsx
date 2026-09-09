@@ -643,7 +643,7 @@ export const CASE_STUDIES = [
                 badge: 'TRIGGER 01',
                 title: 'Order Successful',
                 trigger: 'Paystack Payment Verified',
-                desc: 'Recaps chosen sizes (XS–L), nail shapes, and delivery estimates while confirming payment receipt and setting crafting timelines.',
+                desc: 'Recaps chosen sizes (S–L), nail shapes, and delivery estimates while confirming payment receipt and setting crafting timelines.',
                 tone: 'Reassuring, appreciative, clear',
                 image: '/assets/nailexpress-email-order-confirmation.webp'
               },
