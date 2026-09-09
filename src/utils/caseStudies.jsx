@@ -610,6 +610,7 @@ export const CASE_STUDIES = [
     ),
     category: 'ECOMMERCE EMAIL FLOW',
     title: 'NailExpress Email Architecture',
+    shortTitle: 'NailExpress',
     role: 'UX Writer • Content Strategist',
     duration: 'Product Flow',
     platform: 'Transactional Email / Resend',
