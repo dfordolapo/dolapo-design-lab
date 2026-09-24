@@ -1092,3 +1092,370 @@
     padding: 4px 10px;
   }
 }
+
+/* ─── ONBOARDING COLLECTION BLOCK ─────────────────────────── */
+
+.onboarding-collection-block {
+  margin-bottom: var(--space-3xl);
+}
+
+.ob-counter-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--space-xl);
+}
+
+.ob-counter-chip {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--purple-soft, #8b5cf6);
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+
+/* RAIL LAYOUT: left rail + cards */
+.ob-rail-layout {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 0 var(--space-xl);
+  align-items: start;
+}
+
+/* ── VERTICAL LED RAIL ── */
+.ob-rail {
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
+  position: sticky;
+  top: 20px;
+  align-self: start;
+  z-index: 2;
+}
+
+.ob-rail-track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* LED Node (the round bulb) */
+.ob-led-node {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.ob-led-bulb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Active LED — bright purple glow */
+.ob-led-node--active .ob-led-bulb {
+  background: #8b5cf6;
+  border-color: #c4b5fd;
+  box-shadow:
+    0 0 8px #8b5cf6,
+    0 0 20px rgba(139, 92, 246, 0.6),
+    0 0 40px rgba(139, 92, 246, 0.25);
+}
+
+/* Past LED — softer glow, muted */
+.ob-led-node--done .ob-led-bulb {
+  background: rgba(139, 92, 246, 0.55);
+  border-color: rgba(139, 92, 246, 0.6);
+  box-shadow: 0 0 6px rgba(139, 92, 246, 0.4);
+}
+
+/* Pending LED — off state */
+.ob-led-node--pending .ob-led-bulb {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+/* Rail segment between nodes */
+.ob-rail-segment {
+  width: 3px;
+  height: 140px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* The animated fill */
+.ob-rail-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(180deg, #c4b5fd 0%, #8b5cf6 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+  transition: height 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ob-rail-segment--lit {
+  background: rgba(139, 92, 246, 0.15);
+}
+
+/* ── SCREEN CARDS ── */
+.ob-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.ob-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: border-color 0.5s ease, box-shadow 0.5s ease, transform 0.4s var(--ease-spring);
+  min-height: 140px;
+}
+
+.ob-card--active {
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(139, 92, 246, 0.15),
+    0 8px 32px rgba(139, 92, 246, 0.12);
+  transform: translateY(-2px);
+}
+
+.ob-card--pending {
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.01);
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.ob-card-pending-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: center;
+}
+
+.ob-pending-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+}
+
+.ob-pending-cursor {
+  font-family: var(--font-mono);
+  color: rgba(139, 92, 246, 0.4);
+  animation: obBlink 1s step-end infinite;
+}
+
+@keyframes obBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Card top row */
+.ob-card-top {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: var(--space-lg);
+}
+
+.ob-screen-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--purple-soft, #8b5cf6);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ob-screen-name {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Card body: phone + text side by side */
+.ob-card-body {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+/* Phone mockup */
+.ob-phone-mock {
+  width: 160px;
+  flex-shrink: 0;
+}
+
+.ob-phone-img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+}
+
+.ob-phone-placeholder {
+  width: 140px;
+  height: 220px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #1a1025, #0f0b18);
+  border: 1.5px solid rgba(139, 92, 246, 0.2);
+  padding: 16px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05) inset;
+  position: relative;
+  overflow: hidden;
+}
+
+.ob-phone-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 0 0 8px 8px;
+}
+
+.ob-phone-screen-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 4px;
+}
+
+.ob-phone-hero-bar {
+  width: 100%;
+  height: 70px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(139,92,246,0.4) 0%, rgba(96,165,250,0.3) 100%);
+}
+
+.ob-phone-hero-sub {
+  width: 75%;
+  height: 10px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.08);
+}
+
+.ob-phone-btn {
+  width: 90%;
+  height: 28px;
+  border-radius: 20px;
+  background: rgba(139, 92, 246, 0.35);
+  border: 1px solid rgba(139,92,246,0.5);
+  margin-top: 6px;
+}
+
+/* Text side */
+.ob-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.ob-principle-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--purple-soft, #8b5cf6);
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  padding: 4px 12px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.ob-principle-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--purple-soft, #8b5cf6);
+  box-shadow: 0 0 6px var(--purple-soft, #8b5cf6);
+  flex-shrink: 0;
+}
+
+.ob-insight {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.ob-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ob-tag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .ob-rail-layout {
+    grid-template-columns: 32px 1fr;
+    gap: 0 12px;
+  }
+
+  .ob-rail-segment {
+    height: 200px;
+  }
+
+  .ob-card-body {
+    grid-template-columns: 1fr;
+  }
+
+  .ob-phone-mock {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .ob-phone-placeholder {
+    width: 130px;
+    height: 200px;
+  }
+}

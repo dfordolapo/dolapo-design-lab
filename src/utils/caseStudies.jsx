@@ -3,6 +3,120 @@ import { ROLES } from './roles.jsx';
 
 export const CASE_STUDIES = [
   {
+    id: 'designer-onboarding',
+    departmentId: 'designer',
+    themeColor: '#8b5cf6',
+    logoOnlyPreview: true,
+    noGlow: true,
+    vaultLogo: (
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '10px',
+        textAlign: 'center',
+      }}>
+        <div style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: '0.6rem',
+          letterSpacing: '0.25em',
+          color: '#8b5cf6',
+          textTransform: 'uppercase',
+        }}>[SELF CHALLENGE — ONGOING]</div>
+        <div style={{
+          fontFamily: 'var(--font-heading)',
+          fontWeight: '700',
+          fontSize: '1.6rem',
+          lineHeight: '1.1',
+          color: '#fff',
+          letterSpacing: '-0.02em',
+        }}>
+          ONBOARDING<br />
+          <span style={{
+            WebkitTextStroke: '1.5px #8b5cf6',
+            WebkitTextFillColor: 'transparent',
+          }}>SCREENS</span>
+        </div>
+        <div style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: '0.7rem',
+          color: 'rgba(255,255,255,0.35)',
+          letterSpacing: '0.15em',
+        }}>02 / ∞</div>
+      </div>
+    ),
+    thumbnailLogo: (
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '6px',
+        textAlign: 'center',
+      }}>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.45rem', letterSpacing: '0.2em', color: '#8b5cf6' }}>[ONGOING]</div>
+        <div style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', fontSize: '0.9rem', color: '#fff', lineHeight: '1.1' }}>
+          ONBOARDING<br />
+          <span style={{ WebkitTextStroke: '1px #8b5cf6', WebkitTextFillColor: 'transparent' }}>SCREENS</span>
+        </div>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.5rem', color: 'rgba(255,255,255,0.3)' }}>02 / ∞</div>
+      </div>
+    ),
+    category: 'SELF CHALLENGE',
+    title: 'Onboarding Screens Collection',
+    shortTitle: 'Onboarding',
+    role: 'Product Design',
+    duration: 'Ongoing',
+    platform: 'Mobile',
+    goal: 'A growing collection of onboarding screen designs — each exploring a different principle for making first impressions matter.',
+    content: [
+      {
+        type: 'text-block',
+        body: 'Every product gets one shot at a first impression. Onboarding screens are that shot.\n\nThis is an ongoing self-challenge: design one onboarding screen at a time, each focused on a single design principle. No briefs, no clients — just the craft.'
+      },
+      {
+        type: 'onboarding-collection',
+        screens: [
+          {
+            id: 'screen-001',
+            label: 'Screen 001',
+            name: 'The Emotional Hook',
+            principle: 'Emotion-first hierarchy',
+            insight: 'The first screen must make the user *feel* before they think. Skip the features list. Lead with a feeling — belonging, excitement, possibility.',
+            tags: ['Warm gradient', 'No form fields', 'Illustration-led'],
+            status: 'complete',
+            image: '/assets/onboarding_screen_001.jpg',
+          },
+          {
+            id: 'screen-002',
+            label: 'Screen 002',
+            name: 'The Value Prop',
+            principle: 'Progressive disclosure',
+            insight: 'Don\'t dump everything at once. Show users one compelling benefit at a time. Let curiosity do the work of scrolling.',
+            tags: ['Feature icons', 'Single CTA', 'Scannable'],
+            status: 'complete',
+            image: '/assets/onboarding_screen_002.jpg',
+          },
+          {
+            id: 'screen-003',
+            label: 'Screen 003',
+            name: 'Coming Soon',
+            principle: 'TBD',
+            insight: '',
+            tags: [],
+            status: 'pending',
+            image: null,
+          },
+        ]
+      },
+      {
+        type: 'text-block',
+        heading: 'Design Principles Used',
+        body: '**Progressive Disclosure** — Show only what\'s needed, when it\'s needed.\n\n**Emotion-First** — Feeling precedes function. If users feel nothing, they engage with nothing.\n\n**Zero Cognitive Load** — One idea per screen. No competing calls to action.\n\n**Micro-Delight** — Small moments of joy (motion, color, illustration) make the experience memorable.'
+      }
+    ]
+  },
+
+  {
     id: 'designer-2',
     departmentId: 'designer',
     themeColor: '#52311E',

@@ -1,8 +1,156 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import useSoundEffects from '../hooks/useSoundEffects';
 import BackButton from './BackButton';
 import VelocityMarquee from './VelocityMarquee';
+
+/* ─── Onboarding Collection Block ─── */
+function OnboardingCollectionBlock({ block }) {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    const observers = [];
+    const rootEl = document.querySelector('.case-study-content'); // Get the actual scrolling container
+
+    cardRefs.current.forEach((el, idx) => {
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveIdx(idx);
+        },
+        { 
+          root: rootEl, // Use the correct scrolling parent
+          rootMargin: '-20% 0px -40% 0px', // Trigger when card is nicely in view
+          threshold: 0 
+        }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach(o => o.disconnect());
+  }, []);
+
+  const screens = block.screens || [];
+  const totalComplete = screens.filter(s => s.status === 'complete').length;
+
+  return (
+    <div className="onboarding-collection-block">
+      {/* Counter chip */}
+      <div className="ob-counter-row">
+        <span className="ob-counter-chip">
+          {String(totalComplete).padStart(2, '0')} / ∞ SCREENS COMPLETE
+        </span>
+      </div>
+
+      <div className="ob-rail-layout">
+        {/* LED Strip Rail */}
+        <div className="ob-rail" aria-hidden="true">
+          <div className="ob-rail-track">
+            {screens.map((screen, idx) => {
+              const isPast    = idx < activeIdx;
+              const isCurrent = idx === activeIdx;
+              const isPending = screen.status === 'pending';
+              return (
+                <React.Fragment key={screen.id}>
+                  {/* LED node */}
+                  <div
+                    className={`ob-led-node ${isCurrent ? 'ob-led-node--active' : ''} ${isPast ? 'ob-led-node--done' : ''} ${isPending ? 'ob-led-node--pending' : ''}`}
+                    title={screen.label}
+                  >
+                    <div className="ob-led-bulb" />
+                  </div>
+
+                  {/* Strip segment between nodes */}
+                  {idx < screens.length - 1 && (
+                    <div className={`ob-rail-segment ${isPast || isCurrent ? 'ob-rail-segment--lit' : ''}`}>
+                      <div
+                        className="ob-rail-fill"
+                        style={{
+                          height: isCurrent ? '50%' : isPast ? '100%' : '0%',
+                        }}
+                      />
+                    </div>
+                  )}
+                </React.Fragment>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Screen Cards */}
+        <div className="ob-cards">
+          {screens.map((screen, idx) => {
+            const isPending = screen.status === 'pending';
+            const isCurrent = idx === activeIdx;
+            return (
+              <div
+                key={screen.id}
+                className={`ob-card ${isCurrent ? 'ob-card--active' : ''} ${isPending ? 'ob-card--pending' : ''}`}
+                ref={el => (cardRefs.current[idx] = el)}
+              >
+                {isPending ? (
+                  <div className="ob-card-pending-inner">
+                    <span className="ob-pending-label">{screen.label} — IN PROGRESS</span>
+                    <span className="ob-pending-cursor">▌</span>
+                  </div>
+                ) : (
+                  <>
+                    <div className="ob-card-top">
+                      <span className="ob-screen-label">{screen.label}</span>
+                      <h3 className="ob-screen-name">{screen.name}</h3>
+                    </div>
+                    <div className="ob-card-body">
+                      {/* Phone mock */}
+                      <div className="ob-phone-mock">
+                        {screen.image ? (
+                          <img
+                            src={screen.image}
+                            alt={screen.name}
+                            className="ob-phone-img"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ) : (
+                          <div className="ob-phone-placeholder">
+                            <div className="ob-phone-screen-inner">
+                              <div className="ob-phone-hero-bar" />
+                              <div className="ob-phone-hero-sub" />
+                              <div className="ob-phone-btn" />
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      {/* Text */}
+                      <div className="ob-card-text">
+                        <div className="ob-principle-chip">
+                          <span className="ob-principle-dot" />
+                          {screen.principle}
+                        </div>
+                        {screen.insight && (
+                          <p className="ob-insight">
+                            {screen.insight.replace(/\*(.*?)\*/g, '$1')}
+                          </p>
+                        )}
+                        {screen.tags.length > 0 && (
+                          <div className="ob-tags">
+                            {screen.tags.map(tag => (
+                              <span key={tag} className="ob-tag">{tag}</span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function CaseStudyViewer({ project, onClose }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -504,6 +652,8 @@ export default function CaseStudyViewer({ project, onClose }) {
                   </div>
                 </div>
               );
+            } else if (block.type === 'onboarding-collection') {
+              blockContent = <OnboardingCollectionBlock block={block} />;
             }
 
             if (!blockContent) return null;
