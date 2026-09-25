@@ -100,10 +100,23 @@ function OnboardingCollectionBlock({ block }) {
                       <span className="ob-screen-label">{screen.label}</span>
                       <h3 className="ob-screen-name">{screen.name}</h3>
                     </div>
-                    <div className="ob-card-body">
+                    <div className={`ob-card-body ${screen.images && screen.images.length > 0 ? 'ob-card-body--gallery' : ''}`}>
                       {/* Phone mock */}
                       <div className="ob-phone-mock">
-                        {screen.image ? (
+                        {screen.images && screen.images.length > 0 ? (
+                          <div className="ob-phone-gallery">
+                            {screen.images.map((imgSrc, i) => (
+                              <img
+                                key={i}
+                                src={imgSrc}
+                                alt={`${screen.name} - Screen ${i + 1}`}
+                                className="ob-phone-img"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            ))}
+                          </div>
+                        ) : screen.image ? (
                           <img
                             src={screen.image}
                             alt={screen.name}

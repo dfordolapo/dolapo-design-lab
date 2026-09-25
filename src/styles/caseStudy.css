@@ -1306,10 +1306,49 @@
   align-items: start;
 }
 
+.ob-card-body--gallery {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Phone mockup */
 .ob-phone-mock {
   width: 160px;
   flex-shrink: 0;
+}
+
+/* When there's a gallery, let the mock container take up full width of the card body if we want, but actually we want it to stay within grid. Wait, if it's 160px, horizontal scroll of 160px is too small. We should change the layout when it's a gallery. Let's make ob-phone-mock wider if it has a gallery. */
+.ob-phone-mock:has(.ob-phone-gallery) {
+  width: 100%;
+}
+
+.ob-phone-gallery {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ob-phone-gallery::-webkit-scrollbar {
+  height: 6px;
+}
+
+.ob-phone-gallery::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.ob-phone-gallery::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 4px;
+}
+
+.ob-phone-gallery .ob-phone-img {
+  width: 160px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
 }
 
 .ob-phone-img {
