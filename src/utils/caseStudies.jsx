@@ -84,6 +84,7 @@ export const CASE_STUDIES = [
             insight: 'A complete 8-step onboarding flow designed to inspire users while smoothly capturing their goals and fitness levels. Uses strong brand presence and progressive disclosure.',
             tags: ['Full Flow', 'Goal Setting', 'Dark Mode'],
             status: 'complete',
+            fullCaseStudyUrl: '#',
             images: [
               '/assets/muve_intro_1.png',
               '/assets/muve_intro_2.png',

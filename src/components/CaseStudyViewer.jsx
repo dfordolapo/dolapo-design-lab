@@ -145,12 +145,17 @@ function OnboardingCollectionBlock({ block }) {
                             {screen.insight.replace(/\*(.*?)\*/g, '$1')}
                           </p>
                         )}
-                        {screen.tags.length > 0 && (
+                        {screen.tags && screen.tags.length > 0 && (
                           <div className="ob-tags">
                             {screen.tags.map(tag => (
                               <span key={tag} className="ob-tag">{tag}</span>
                             ))}
                           </div>
+                        )}
+                        {screen.fullCaseStudyUrl && (
+                          <a href={screen.fullCaseStudyUrl} className="ob-full-case-study-btn" target="_blank" rel="noopener noreferrer">
+                            View Full Case Study →
+                          </a>
                         )}
                       </div>
                     </div>

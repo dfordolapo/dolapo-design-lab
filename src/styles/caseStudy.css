@@ -1472,6 +1472,29 @@
   border-radius: 4px;
 }
 
+.ob-full-case-study-btn {
+  display: inline-block;
+  margin-top: var(--space-md);
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: var(--purple-soft, #8b5cf6);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  width: fit-content;
+}
+
+.ob-full-case-study-btn:hover {
+  background: rgba(139, 92, 246, 0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+}
+
 /* RESPONSIVE */
 @media (max-width: 600px) {
   .ob-rail-layout {
@@ -1491,6 +1514,21 @@
     width: 100%;
     display: flex;
     justify-content: center;
+  }
+
+  .ob-phone-mock:has(.ob-phone-gallery) {
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+
+  .ob-phone-gallery {
+    gap: 12px;
+    padding-bottom: 8px;
+    width: 100%;
+  }
+
+  .ob-phone-gallery .ob-phone-img {
+    width: 140px; /* slightly smaller on mobile */
   }
 
   .ob-phone-placeholder {
