@@ -22,7 +22,7 @@ export default function usePageSEO({ title, description }) {
 
     // Optional: cleanup function to reset on unmount, but often left as-is for SPA
     return () => {
-      document.title = "Dolapo's Design Lab — Pushing Pixels & Boundaries";
+      document.title = "Dolapo's Design Lab | Pushing Pixels & Boundaries";
       let metaDescription = document.querySelector('meta[name="description"]');
       if (metaDescription) {
         metaDescription.setAttribute('content', "Where wireframes become real. Explore my cinematic vault of design and code.");

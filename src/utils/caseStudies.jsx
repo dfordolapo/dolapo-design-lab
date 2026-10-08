@@ -22,7 +22,7 @@ export const CASE_STUDIES = [
           letterSpacing: '0.25em',
           color: '#8b5cf6',
           textTransform: 'uppercase',
-        }}>[SELF CHALLENGE — ONGOING]</div>
+        }}>[SELF CHALLENGE - ONGOING]</div>
         <div style={{
           fontFamily: 'var(--font-heading)',
           fontWeight: '700',
@@ -67,11 +67,11 @@ export const CASE_STUDIES = [
     role: 'Product Design',
     duration: 'Ongoing',
     platform: 'Mobile',
-    goal: 'A growing collection of onboarding screen designs — each exploring a different principle for making first impressions matter.',
+    goal: 'A growing collection of onboarding screen designs, each exploring a different principle for making first impressions matter.',
     content: [
       {
         type: 'text-block',
-        body: 'Every product gets one shot at a first impression. Onboarding screens are that shot.\n\nThis is an ongoing self-challenge: design one onboarding screen at a time, each focused on a single design principle. No briefs, no clients — just the craft.'
+        body: 'Every product gets one shot at a first impression. Onboarding screens are that shot.\n\nThis is an ongoing self-challenge: design one onboarding screen at a time, each focused on a single design principle. No briefs, no clients - just the craft.'
       },
       {
         type: 'onboarding-collection',
@@ -121,7 +121,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'Design Principles Used',
-        body: '**Progressive Disclosure** — Show only what\'s needed, when it\'s needed.\n\n**Emotion-First** — Feeling precedes function. If users feel nothing, they engage with nothing.\n\n**Zero Cognitive Load** — One idea per screen. No competing calls to action.\n\n**Micro-Delight** — Small moments of joy (motion, color, illustration) make the experience memorable.'
+        body: '**Progressive Disclosure** - Show only what\'s needed, when it\'s needed.\n\n**Emotion-First** - Feeling precedes function. If users feel nothing, they engage with nothing.\n\n**Zero Cognitive Load** - One idea per screen. No competing calls to action.\n\n**Micro-Delight** - Small moments of joy (motion, color, illustration) make the experience memorable.'
       }
     ]
   },
@@ -408,7 +408,7 @@ export const CASE_STUDIES = [
       {
         type: 'embed',
         heading: 'Live Storefront Preview',
-        url: 'https://nailexpress.ng',
+        url: 'https://www.nailexpress.ng',
         buttonLabel: 'OPEN STOREFRONT'
       },
       {
@@ -553,7 +553,7 @@ export const CASE_STUDIES = [
       {
         type: 'embed',
         heading: 'Live Storefront Preview',
-        url: 'https://nailexpress.ng',
+        url: 'https://www.nailexpress.ng',
         buttonLabel: 'OPEN STOREFRONT'
       },
       {
@@ -745,17 +745,17 @@ export const CASE_STUDIES = [
         }}
       />
     ),
-    category: 'ECOMMERCE EMAIL FLOW',
-    title: 'NailExpress Email Architecture',
+    category: 'OMNICHANNEL CONTENT & BRAND SYSTEM',
+    title: 'NailExpress Brand & Lifecycle Architecture',
     shortTitle: 'NailExpress',
-    role: 'UX Writer • Content Strategist',
-    duration: 'Product Flow',
-    platform: 'Transactional Email / Resend',
-    goal: 'Designing responsive, on-brand transactional copy and lifecycle triggers that manage expectations and guide customers from purchase to application.',
+    role: 'UX Writer • Content Strategist • Brand Designer',
+    duration: 'Brand System & Lifecycle',
+    platform: 'Transactional Email • Social Media • Resend / Canva',
+    goal: 'Architecting an end-to-end brand communication system, unifying 11 transactional lifecycle email triggers with a 60-page social media marketing kit.',
     content: [
       {
         type: 'overview',
-        text: 'Email in ecommerce is a critical extension of the customer journey, trust boundary, and post-purchase retention loop. For NailExpress, transactional emails were written as high-touch communication touchpoints that proactively manage customer expectations, eliminate "Where Is My Order?" (WISMO) anxiety, and guide users from payment to unboxing and application.'
+        text: 'Brand communication in modern ecommerce spans the entire customer journey, from pre-purchase social discovery to post-purchase delivery and retention. For NailExpress, I designed an omnichannel content architecture pairing an 11-trigger automated email lifecycle suite with a 60-page social media graphics system (20+ multi-palette templates) to build customer trust, eliminate ordering anxiety, and maintain a luxury editorial voice.'
       },
       {
         type: 'text-block',
@@ -890,8 +890,19 @@ export const CASE_STUDIES = [
       },
       {
         type: 'text-block',
-        heading: '4. Outcomes & Strategic Impact',
-        body: '• **Minimizing WISMO Inquiries:** Setting upfront crafting vs transit timeline expectations at every milestone eliminates repetitive "where is my order" queries.\n• **Higher Bespoke & Drop Conversion:** Transforming dead-end sold-out states and unformatted custom DMs into structured, automated communication flows captured 100% of latent customer intent.\n• **Frictionless Recovery:** Context-aware recovery emails with 1-click cart restoration and WhatsApp concierge links turn checkout drop-offs into completed sales.\n• **Operational Agility:** Real-time admin alerts with embedded specs and images enable the solo artisan to triage, price, and pack orders without manual spreadsheet tracking.'
+        heading: '4. Brand Voice Extension: Social Media Marketing Suite',
+        body: 'To ensure a unified brand voice and visual consistency across discovery channels, I developed a comprehensive **60-page social media graphics system** featuring **20+ distinct graphic templates** with explorations across multiple editorial color palettes.\n\nThe templates translate the core NailExpress luxury messaging (tactile craftsmanship, sizing confidence, unboxing joy, and frictionless 1-tap ordering) into engaging social content (educational carousels, drop announcements, sizing guides, and customer reviews).'
+      },
+      {
+        type: 'embed',
+        heading: 'Social Media Graphics & Content System (60 Pages)',
+        url: 'https://www.canva.com/design/DAHQUxxFQwI/MvUyqH2AR6o9W4IQYQxIaA/view?embed',
+        buttonLabel: 'OPEN IN CANVA'
+      },
+      {
+        type: 'text-block',
+        heading: '5. Outcomes & Strategic Impact',
+        body: '• **Minimizing WISMO Inquiries:** Setting upfront crafting vs transit timeline expectations at every milestone eliminates repetitive "where is my order" queries.\n• **Higher Bespoke & Drop Conversion:** Transforming dead-end sold-out states and unformatted custom DMs into structured, automated communication flows captured 100% of latent customer intent.\n• **Unified Omni-Channel Brand Voice:** Seamlessly connecting social media storytelling with transactional email copy and storefront UX created an instantly recognizable, trustworthy atelier identity.\n• **Frictionless Recovery:** Context-aware recovery emails with 1-click cart restoration and WhatsApp concierge links turn checkout drop-offs into completed sales.\n• **Operational Agility:** Real-time admin alerts with embedded specs and images enable the solo artisan to triage, price, and pack orders without manual spreadsheet tracking.'
       }
     ]
   }

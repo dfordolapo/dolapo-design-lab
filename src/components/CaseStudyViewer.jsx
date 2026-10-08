@@ -91,7 +91,7 @@ function OnboardingCollectionBlock({ block }) {
               >
                 {isPending ? (
                   <div className="ob-card-pending-inner">
-                    <span className="ob-pending-label">{screen.label} — IN PROGRESS</span>
+                    <span className="ob-pending-label">{screen.label} - IN PROGRESS</span>
                     <span className="ob-pending-cursor">▌</span>
                   </div>
                 ) : (
@@ -102,7 +102,7 @@ function OnboardingCollectionBlock({ block }) {
                     </div>
                     <div className={`ob-card-body ${screen.images && screen.images.length > 0 ? 'ob-card-body--gallery' : ''}`}>
                       {/* Phone mock */}
-                      <div className="ob-phone-mock">
+                      <div className={`ob-phone-mock ${screen.images && screen.images.length > 0 ? 'ob-phone-mock--gallery' : ''}`}>
                         {screen.images && screen.images.length > 0 ? (
                           <div className="ob-phone-gallery">
                             {screen.images.map((imgSrc, i) => (
@@ -151,11 +151,6 @@ function OnboardingCollectionBlock({ block }) {
                               <span key={tag} className="ob-tag">{tag}</span>
                             ))}
                           </div>
-                        )}
-                        {screen.fullCaseStudyUrl && (
-                          <a href={screen.fullCaseStudyUrl} className="ob-full-case-study-btn" target="_blank" rel="noopener noreferrer">
-                            View Full Case Study →
-                          </a>
                         )}
                       </div>
                     </div>
@@ -502,7 +497,7 @@ export default function CaseStudyViewer({ project, onClose }) {
                       height="600" 
                       frameBorder="0" 
                       allowFullScreen 
-                      allow="clipboard-write"
+                      allow="clipboard-write; fullscreen"
                       title={block.heading || "Embedded content"}
                       loading="lazy"
                     ></iframe>
