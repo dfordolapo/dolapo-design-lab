@@ -47,6 +47,9 @@ export default function DepartmentVault({ departmentId, onBack, onViewProject })
 
   useEffect(() => {
     const handleKeyDown = (e) => {
+      // Don't intercept arrow keys if a case study viewer or modal is active
+      if (document.querySelector('.case-study-viewer')) return;
+
       if (e.key === 'ArrowLeft') {
         playClick()
         setActiveProjectIdx(prev => (prev - 1 + renderProjects.length) % renderProjects.length)

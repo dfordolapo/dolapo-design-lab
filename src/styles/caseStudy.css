@@ -74,6 +74,9 @@
 .case-study-content {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
   padding: var(--space-3xl) var(--space-2xl);
   scrollbar-width: thin;
   scrollbar-color: var(--purple-soft) transparent;
@@ -1119,9 +1122,13 @@
 /* RAIL LAYOUT: left rail + cards */
 .ob-rail-layout {
   display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 0 var(--space-xl);
+  grid-template-columns: 36px 1fr;
+  gap: 0 var(--space-lg);
   align-items: start;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 /* ── VERTICAL LED RAIL ── */
@@ -1133,6 +1140,7 @@
   top: 20px;
   align-self: start;
   z-index: 2;
+  min-width: 0;
 }
 
 .ob-rail-track {
@@ -1163,24 +1171,25 @@
   transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Active LED — bright purple glow */
+/* Active LED - bright flow glow */
 .ob-led-node--active .ob-led-bulb {
-  background: #8b5cf6;
-  border-color: #c4b5fd;
+  background: var(--flow-color, #8b5cf6);
+  border-color: #ffffff;
   box-shadow:
-    0 0 8px #8b5cf6,
-    0 0 20px rgba(139, 92, 246, 0.6),
-    0 0 40px rgba(139, 92, 246, 0.25);
+    0 0 8px var(--flow-color, #8b5cf6),
+    0 0 20px var(--flow-color, #8b5cf6),
+    0 0 40px rgba(255, 255, 255, 0.2);
 }
 
-/* Past LED — softer glow, muted */
+/* Past LED - softer glow, muted */
 .ob-led-node--done .ob-led-bulb {
-  background: rgba(139, 92, 246, 0.55);
-  border-color: rgba(139, 92, 246, 0.6);
-  box-shadow: 0 0 6px rgba(139, 92, 246, 0.4);
+  background: var(--flow-color, #8b5cf6);
+  border-color: var(--flow-color, #8b5cf6);
+  opacity: 0.7;
+  box-shadow: 0 0 6px var(--flow-color, #8b5cf6);
 }
 
-/* Pending LED — off state */
+/* Pending LED - off state */
 .ob-led-node--pending .ob-led-bulb {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.1);
@@ -1204,14 +1213,12 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(180deg, #c4b5fd 0%, #8b5cf6 100%);
   border-radius: 2px;
-  box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
   transition: height 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ob-rail-segment--lit {
-  background: rgba(139, 92, 246, 0.15);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* ── SCREEN CARDS ── */
@@ -1219,6 +1226,10 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-2xl);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .ob-card {
@@ -1228,13 +1239,18 @@
   padding: var(--space-xl);
   transition: border-color 0.5s ease, box-shadow 0.5s ease, transform 0.4s var(--ease-spring);
   min-height: 140px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .ob-card--active {
-  border-color: rgba(139, 92, 246, 0.45);
+  border-color: var(--flow-color, rgba(139, 92, 246, 0.45));
   box-shadow:
-    0 0 0 1px rgba(139, 92, 246, 0.15),
-    0 8px 32px rgba(139, 92, 246, 0.12);
+    0 0 0 1px var(--flow-color, rgba(139, 92, 246, 0.15)),
+    0 8px 32px rgba(0, 0, 0, 0.35);
   transform: translateY(-2px);
 }
 
@@ -1279,6 +1295,7 @@
   align-items: baseline;
   gap: 14px;
   margin-bottom: var(--space-lg);
+  min-width: 0;
 }
 
 .ob-screen-label {
@@ -1298,37 +1315,114 @@
   margin: 0;
 }
 
-/* Card body: phone + text side by side */
+/* Card body: stacked top-to-bottom */
 .ob-card-body {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: var(--space-xl);
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .ob-card-body--gallery {
   display: flex;
   flex-direction: column;
+  gap: var(--space-lg);
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Phone mockup */
 .ob-phone-mock {
-  width: 160px;
+  width: 100%;
+  max-width: 100%;
   flex-shrink: 0;
+  min-width: 0;
 }
 
-/* When there's a gallery, let the mock container take up full width of the card body if we want, but actually we want it to stay within grid. Wait, if it's 160px, horizontal scroll of 160px is too small. We should change the layout when it's a gallery. Let's make ob-phone-mock wider if it has a gallery. */
-.ob-phone-mock:has(.ob-phone-gallery) {
+.ob-phone-mock--gallery {
   width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  min-width: 0;
+}
+
+.ob-gallery-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.ob-gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(14, 10, 24, 0.9);
+  border: 1px solid var(--flow-color, rgba(139, 92, 246, 0.5));
+  color: var(--flow-color, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+  padding: 0;
+}
+
+.ob-gallery-arrow:hover {
+  background: var(--flow-color, #8b5cf6);
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 16px var(--flow-color, rgba(139, 92, 246, 0.6));
+}
+
+.ob-gallery-arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.ob-gallery-arrow--left {
+  left: 6px;
+}
+
+.ob-gallery-arrow--right {
+  right: 6px;
 }
 
 .ob-phone-gallery {
   display: flex;
   gap: 16px;
   overflow-x: auto;
+  overflow-y: hidden;
   padding-bottom: 12px;
+  padding-top: 4px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: contain;
+  overscroll-behavior: contain;
+  touch-action: pan-x;
+  cursor: grab;
+  scrollbar-width: thin;
+  scrollbar-color: var(--flow-color, rgba(139, 92, 246, 0.4)) rgba(255, 255, 255, 0.05);
+  width: 100%;
+  max-width: 100%;
+}
+
+.ob-phone-gallery:active {
+  cursor: grabbing;
 }
 
 .ob-phone-gallery::-webkit-scrollbar {
@@ -1341,14 +1435,30 @@
 }
 
 .ob-phone-gallery::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.3);
+  background: var(--flow-color, rgba(139, 92, 246, 0.4));
   border-radius: 4px;
 }
 
+.ob-phone-gallery::-webkit-scrollbar-thumb:hover {
+  background: var(--flow-color, rgba(139, 92, 246, 0.7));
+}
+
 .ob-phone-gallery .ob-phone-img {
-  width: 160px;
+  width: 180px;
+  height: auto;
   flex-shrink: 0;
   scroll-snap-align: start;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.ob-phone-gallery .ob-phone-img:hover {
+  transform: translateY(-2px);
+  border-color: rgba(139, 92, 246, 0.4);
 }
 
 .ob-phone-img {
@@ -1417,11 +1527,20 @@
   margin-top: 6px;
 }
 
-/* Text side */
+/* Text side / Bottom Details */
 .ob-card-text {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
+  min-width: 0;
+  width: 100%;
+}
+
+.ob-card-text-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
 }
 
 .ob-principle-chip {
@@ -1449,10 +1568,86 @@
 }
 
 .ob-insight {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   line-height: 1.65;
   color: var(--text-secondary);
   margin: 0;
+}
+
+/* Expandable Principles Accordion */
+.ob-principles-accordion {
+  margin-top: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.ob-principles-accordion[open] {
+  border-color: var(--flow-color, rgba(139, 92, 246, 0.3));
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.ob-principles-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+
+.ob-principles-summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--flow-color, #8b5cf6);
+  text-transform: uppercase;
+}
+
+.summary-chevron {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.ob-principles-accordion[open] .summary-chevron {
+  transform: rotate(180deg);
+  color: var(--flow-color, #8b5cf6);
+}
+
+.ob-principles-list {
+  padding: 4px 14px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ob-principle-item {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.principle-name {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.principle-detail {
+  color: var(--text-secondary);
 }
 
 .ob-tags {
@@ -1474,8 +1669,8 @@
 
 .ob-full-case-study-btn {
   display: inline-block;
-  margin-top: var(--space-md);
-  padding: 8px 16px;
+  margin-top: var(--space-xs);
+  padding: 8px 18px;
   border-radius: 20px;
   background: rgba(139, 92, 246, 0.15);
   border: 1px solid rgba(139, 92, 246, 0.4);
@@ -1498,16 +1693,23 @@
 /* RESPONSIVE */
 @media (max-width: 600px) {
   .ob-rail-layout {
-    grid-template-columns: 32px 1fr;
-    gap: 0 12px;
+    grid-template-columns: 28px 1fr;
+    gap: 0 10px;
+    min-width: 0;
+  }
+
+  .ob-card {
+    padding: var(--space-md);
+    min-width: 0;
   }
 
   .ob-rail-segment {
-    height: 200px;
+    height: 180px;
   }
 
   .ob-card-body {
     grid-template-columns: 1fr;
+    gap: var(--space-md);
   }
 
   .ob-phone-mock {
@@ -1516,23 +1718,38 @@
     justify-content: center;
   }
 
-  .ob-phone-mock:has(.ob-phone-gallery) {
-    justify-content: flex-start;
+  .ob-phone-mock--gallery {
+    display: block;
     max-width: 100%;
-  }
-
-  .ob-phone-gallery {
-    gap: 12px;
-    padding-bottom: 8px;
     width: 100%;
   }
 
+  .ob-phone-gallery {
+    gap: 10px;
+    padding-bottom: 8px;
+    width: 100%;
+    max-width: 100%;
+  }
+
   .ob-phone-gallery .ob-phone-img {
-    width: 140px; /* slightly smaller on mobile */
+    width: 135px; /* compact on mobile for easy preview */
   }
 
   .ob-phone-placeholder {
     width: 130px;
     height: 200px;
+  }
+
+  .ob-gallery-arrow {
+    width: 32px;
+    height: 32px;
+  }
+
+  .ob-gallery-arrow--left {
+    left: -8px;
+  }
+
+  .ob-gallery-arrow--right {
+    right: -8px;
   }
 }

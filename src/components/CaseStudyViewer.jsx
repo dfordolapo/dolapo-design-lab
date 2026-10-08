@@ -4,6 +4,152 @@ import useSoundEffects from '../hooks/useSoundEffects';
 import BackButton from './BackButton';
 import VelocityMarquee from './VelocityMarquee';
 
+function OnboardingGallery({ images, name, flowColor = '#8b5cf6' }) {
+  const galleryRef = useRef(null);
+  const isDown = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScrollability = useCallback(() => {
+    if (!galleryRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = galleryRef.current;
+    setCanScrollLeft(scrollLeft > 10);
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+  }, []);
+
+  useEffect(() => {
+    const el = galleryRef.current;
+    if (!el) return;
+    checkScrollability();
+    el.addEventListener('scroll', checkScrollability, { passive: true });
+    window.addEventListener('resize', checkScrollability);
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        e.stopPropagation();
+        scrollByAmount('left');
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        e.stopPropagation();
+        scrollByAmount('right');
+      }
+    };
+
+    el.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      el.removeEventListener('scroll', checkScrollability);
+      el.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('resize', checkScrollability);
+    };
+  }, [checkScrollability, images]);
+
+  const scrollByAmount = (direction) => {
+    if (!galleryRef.current) return;
+    const scrollAmount = 200; // Approximately one screen width + gap
+    galleryRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth'
+    });
+  };
+
+  const handleMouseDown = (e) => {
+    isDown.current = true;
+    startX.current = e.pageX - galleryRef.current.offsetLeft;
+    scrollLeft.current = galleryRef.current.scrollLeft;
+  };
+
+  const handleMouseLeave = () => {
+    isDown.current = false;
+  };
+
+  const handleMouseUp = () => {
+    isDown.current = false;
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDown.current) return;
+    e.preventDefault();
+    const x = e.pageX - galleryRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5;
+    galleryRef.current.scrollLeft = scrollLeft.current - walk;
+  };
+
+  return (
+    <div className="ob-gallery-wrapper">
+      {/* Scroll Left Button */}
+      {canScrollLeft && (
+        <button
+          type="button"
+          className="ob-gallery-arrow ob-gallery-arrow--left"
+          onClick={(e) => {
+            e.stopPropagation();
+            scrollByAmount('left');
+          }}
+          aria-label="Scroll onboarding flow left"
+          style={{ '--flow-color': flowColor }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+      )}
+
+      {/* Scroll Right Button */}
+      {canScrollRight && (
+        <button
+          type="button"
+          className="ob-gallery-arrow ob-gallery-arrow--right"
+          onClick={(e) => {
+            e.stopPropagation();
+            scrollByAmount('right');
+          }}
+          aria-label="Scroll onboarding flow right"
+          style={{ '--flow-color': flowColor }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      )}
+
+      <div
+        className="ob-phone-gallery"
+        ref={galleryRef}
+        tabIndex={0}
+        data-lenis-prevent
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+        onTouchStart={(e) => e.stopPropagation()}
+        onTouchMove={(e) => e.stopPropagation()}
+        onTouchEnd={(e) => e.stopPropagation()}
+        onWheel={(e) => {
+          if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+            e.stopPropagation();
+          }
+        }}
+      >
+        {images.map((imgSrc, i) => (
+          <img
+            key={i}
+            src={imgSrc}
+            alt={`${name} - Screen ${i + 1}`}
+            className="ob-phone-img"
+            loading="lazy"
+            decoding="async"
+            draggable="false"
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /* ─── Onboarding Collection Block ─── */
 function OnboardingCollectionBlock({ block }) {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -51,23 +197,30 @@ function OnboardingCollectionBlock({ block }) {
               const isPast    = idx < activeIdx;
               const isCurrent = idx === activeIdx;
               const isPending = screen.status === 'pending';
+              const flowColor = screen.color || '#8b5cf6';
               return (
                 <React.Fragment key={screen.id}>
                   {/* LED node */}
                   <div
                     className={`ob-led-node ${isCurrent ? 'ob-led-node--active' : ''} ${isPast ? 'ob-led-node--done' : ''} ${isPending ? 'ob-led-node--pending' : ''}`}
                     title={screen.label}
+                    style={{ '--flow-color': flowColor }}
                   >
                     <div className="ob-led-bulb" />
                   </div>
 
                   {/* Strip segment between nodes */}
                   {idx < screens.length - 1 && (
-                    <div className={`ob-rail-segment ${isPast || isCurrent ? 'ob-rail-segment--lit' : ''}`}>
+                    <div 
+                      className={`ob-rail-segment ${isPast || isCurrent ? 'ob-rail-segment--lit' : ''}`}
+                      style={{ '--flow-color': flowColor }}
+                    >
                       <div
                         className="ob-rail-fill"
                         style={{
                           height: isCurrent ? '50%' : isPast ? '100%' : '0%',
+                          background: `linear-gradient(180deg, #fff 0%, ${flowColor} 100%)`,
+                          boxShadow: `0 0 8px ${flowColor}99`
                         }}
                       />
                     </div>
@@ -83,39 +236,30 @@ function OnboardingCollectionBlock({ block }) {
           {screens.map((screen, idx) => {
             const isPending = screen.status === 'pending';
             const isCurrent = idx === activeIdx;
+            const flowColor = screen.color || '#8b5cf6';
             return (
               <div
                 key={screen.id}
                 className={`ob-card ${isCurrent ? 'ob-card--active' : ''} ${isPending ? 'ob-card--pending' : ''}`}
                 ref={el => (cardRefs.current[idx] = el)}
+                style={{ '--flow-color': flowColor }}
               >
                 {isPending ? (
                   <div className="ob-card-pending-inner">
                     <span className="ob-pending-label">{screen.label} - IN PROGRESS</span>
-                    <span className="ob-pending-cursor">▌</span>
+                    <span className="ob-pending-cursor" style={{ color: flowColor }}>▌</span>
                   </div>
                 ) : (
                   <>
                     <div className="ob-card-top">
-                      <span className="ob-screen-label">{screen.label}</span>
+                      <span className="ob-screen-label" style={{ color: flowColor }}>{screen.label}</span>
                       <h3 className="ob-screen-name">{screen.name}</h3>
                     </div>
                     <div className={`ob-card-body ${screen.images && screen.images.length > 0 ? 'ob-card-body--gallery' : ''}`}>
-                      {/* Phone mock */}
+                      {/* Phone mock / Gallery at Top */}
                       <div className={`ob-phone-mock ${screen.images && screen.images.length > 0 ? 'ob-phone-mock--gallery' : ''}`}>
                         {screen.images && screen.images.length > 0 ? (
-                          <div className="ob-phone-gallery">
-                            {screen.images.map((imgSrc, i) => (
-                              <img
-                                key={i}
-                                src={imgSrc}
-                                alt={`${screen.name} - Screen ${i + 1}`}
-                                className="ob-phone-img"
-                                loading="lazy"
-                                decoding="async"
-                              />
-                            ))}
-                          </div>
+                          <OnboardingGallery images={screen.images} name={screen.name} flowColor={flowColor} />
                         ) : screen.image ? (
                           <img
                             src={screen.image}
@@ -125,32 +269,91 @@ function OnboardingCollectionBlock({ block }) {
                             decoding="async"
                           />
                         ) : (
-                          <div className="ob-phone-placeholder">
+                          <div className="ob-phone-placeholder" style={{ borderColor: `${flowColor}33` }}>
                             <div className="ob-phone-screen-inner">
-                              <div className="ob-phone-hero-bar" />
+                              <div className="ob-phone-hero-bar" style={{ background: `linear-gradient(135deg, ${flowColor}66 0%, rgba(255,255,255,0.1) 100%)` }} />
                               <div className="ob-phone-hero-sub" />
-                              <div className="ob-phone-btn" />
+                              <div className="ob-phone-btn" style={{ background: `${flowColor}55`, borderColor: `${flowColor}88` }} />
                             </div>
                           </div>
                         )}
                       </div>
-                      {/* Text */}
+
+                      {/* Text & Case Study Content Underneath */}
                       <div className="ob-card-text">
-                        <div className="ob-principle-chip">
-                          <span className="ob-principle-dot" />
-                          {screen.principle}
+                        <div className="ob-card-text-header">
+                          <div 
+                            className="ob-principle-chip"
+                            style={{
+                              color: flowColor,
+                              background: `${flowColor}14`,
+                              borderColor: `${flowColor}40`
+                            }}
+                          >
+                            <span 
+                              className="ob-principle-dot" 
+                              style={{
+                                background: flowColor,
+                                boxShadow: `0 0 6px ${flowColor}`
+                              }}
+                            />
+                            {screen.principle}
+                          </div>
+
+                          {screen.tags && screen.tags.length > 0 && (
+                            <div className="ob-tags">
+                              {screen.tags.map(tag => (
+                                <span key={tag} className="ob-tag">{tag}</span>
+                              ))}
+                            </div>
+                          )}
                         </div>
+
                         {screen.insight && (
                           <p className="ob-insight">
                             {screen.insight.replace(/\*(.*?)\*/g, '$1')}
                           </p>
                         )}
-                        {screen.tags && screen.tags.length > 0 && (
-                          <div className="ob-tags">
-                            {screen.tags.map(tag => (
-                              <span key={tag} className="ob-tag">{tag}</span>
-                            ))}
-                          </div>
+
+                        {/* Expandable Design Principles Accordion */}
+                        {screen.principles && screen.principles.length > 0 && (
+                          <details className="ob-principles-accordion" style={{ '--flow-color': flowColor }}>
+                            <summary className="ob-principles-summary">
+                              <span className="summary-title">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                                DESIGN PRINCIPLES ({screen.principles.length})
+                              </span>
+                              <span className="summary-chevron">&darr;</span>
+                            </summary>
+                            <div className="ob-principles-list">
+                              {screen.principles.map((p, pIdx) => (
+                                <div key={pIdx} className="ob-principle-item">
+                                  <span className="principle-name" style={{ color: flowColor }}>
+                                    {p.name}:
+                                  </span>{' '}
+                                  <span className="principle-detail">{p.detail}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </details>
+                        )}
+
+                        {screen.fullCaseStudyUrl && screen.fullCaseStudyUrl !== '#' && (
+                          <a 
+                            href={screen.fullCaseStudyUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="ob-full-case-study-btn"
+                            style={{
+                              color: flowColor,
+                              borderColor: `${flowColor}66`,
+                              background: `${flowColor}26`
+                            }}
+                          >
+                            View Full Case Study &rarr;
+                          </a>
                         )}
                       </div>
                     </div>
@@ -212,7 +415,11 @@ export default function CaseStudyViewer({ project, onClose }) {
         </header>
 
         {/* Scrollable Content */}
-        <div className="case-study-content" ref={contentRef}>
+        <div 
+          className="case-study-content" 
+          ref={contentRef}
+          data-lenis-prevent
+        >
           
           {/* SVG Scroll Tracer */}
           <svg className="scroll-tracer" viewBox="0 0 50 1000" preserveAspectRatio="none">

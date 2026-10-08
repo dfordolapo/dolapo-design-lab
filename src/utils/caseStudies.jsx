@@ -6,60 +6,35 @@ export const CASE_STUDIES = [
     id: 'designer-onboarding',
     departmentId: 'designer',
     themeColor: '#8b5cf6',
+    vaultImage: '',
     logoOnlyPreview: true,
     noGlow: true,
     vaultLogo: (
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '10px',
-        textAlign: 'center',
-      }}>
-        <div style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '0.6rem',
-          letterSpacing: '0.25em',
-          color: '#8b5cf6',
-          textTransform: 'uppercase',
-        }}>[SELF CHALLENGE - ONGOING]</div>
-        <div style={{
-          fontFamily: 'var(--font-heading)',
-          fontWeight: '700',
-          fontSize: '1.6rem',
-          lineHeight: '1.1',
-          color: '#fff',
-          letterSpacing: '-0.02em',
-        }}>
-          ONBOARDING<br />
-          <span style={{
-            WebkitTextStroke: '1.5px #8b5cf6',
-            WebkitTextFillColor: 'transparent',
-          }}>SCREENS</span>
-        </div>
-        <div style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '0.7rem',
-          color: 'rgba(255,255,255,0.35)',
-          letterSpacing: '0.15em',
-        }}>02 / ∞</div>
-      </div>
+      <img
+        src="/assets/onboarding-emblem.webp"
+        alt="Onboarding Collection"
+        decoding="async"
+        style={{
+          width: '120px',
+          height: 'auto',
+          maxHeight: '95px',
+          objectFit: 'contain',
+          filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.5))'
+        }}
+      />
     ),
     thumbnailLogo: (
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '6px',
-        textAlign: 'center',
-      }}>
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.45rem', letterSpacing: '0.2em', color: '#8b5cf6' }}>[ONGOING]</div>
-        <div style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', fontSize: '0.9rem', color: '#fff', lineHeight: '1.1' }}>
-          ONBOARDING<br />
-          <span style={{ WebkitTextStroke: '1px #8b5cf6', WebkitTextFillColor: 'transparent' }}>SCREENS</span>
-        </div>
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.5rem', color: 'rgba(255,255,255,0.3)' }}>02 / ∞</div>
-      </div>
+      <img
+        src="/assets/onboarding-emblem.webp"
+        alt="Onboarding Collection"
+        decoding="async"
+        style={{
+          width: '65%',
+          height: 'auto',
+          maxHeight: '36px',
+          objectFit: 'contain'
+        }}
+      />
     ),
     category: 'SELF CHALLENGE',
     title: 'Onboarding Screens Collection',
@@ -67,7 +42,7 @@ export const CASE_STUDIES = [
     role: 'Product Design',
     duration: 'Ongoing',
     platform: 'Mobile',
-    goal: 'A growing collection of onboarding screen designs, each exploring a different principle for making first impressions matter.',
+    goal: 'A growing collection of onboarding screen designs, each exploring a different principle.',
     content: [
       {
         type: 'text-block',
@@ -80,48 +55,66 @@ export const CASE_STUDIES = [
             id: 'screen-001',
             label: 'Product 001',
             name: 'MUVE Fitness',
+            color: '#8b5cf6', // Electric Purple
             principle: 'Motivation meets action',
+            principles: [
+              { name: 'Progressive Disclosure', detail: 'Step-by-step goal capture that prevents cognitive overload.' },
+              { name: 'Emotion-First Onboarding', detail: 'High-energy typography and dark-mode aesthetics that build immediate workout momentum.' },
+              { name: 'Zero Friction Entry', detail: 'Clear, tactile interactive choice cards with immediate feedback.' }
+            ],
             insight: 'A complete 8-step onboarding flow designed to inspire users while smoothly capturing their goals and fitness levels. Uses strong brand presence and progressive disclosure.',
             tags: ['Full Flow', 'Goal Setting', 'Dark Mode'],
             status: 'complete',
             fullCaseStudyUrl: '#',
             images: [
               '/assets/muve_intro_1.png',
-              '/assets/muve_intro_2.png',
               '/assets/muve_intro_3.png',
-              '/assets/muve_onboarding_1.png',
+              '/assets/muve_intro_2.png',
+              '/assets/muve_onboarding_5.png',
+              '/assets/muve_onboarding_4.png',
               '/assets/muve_onboarding_2.png',
               '/assets/muve_onboarding_3.png',
-              '/assets/muve_onboarding_4.png',
-              '/assets/muve_onboarding_5.png',
+              '/assets/muve_onboarding_1.png',
             ],
           },
           {
             id: 'screen-002',
             label: 'Product 002',
-            name: 'Coming Soon',
-            principle: 'TBD',
-            insight: '',
-            tags: [],
-            status: 'pending',
-            image: null,
+            name: 'Children’s Audiobook App',
+            color: '#f59e0b', // Warm Amber / Tangerine
+            principle: 'Story-first warmth & playful exploration',
+            principles: [
+              { name: 'Playful Simplicity', detail: 'Oversized tactile controls with intuitive visual cues for young listeners.' },
+              { name: 'Parental Reassurance', detail: 'Transparent screen-time settings and seamless bedtime auto-pause.' },
+              { name: 'Audio-First Warmth', detail: 'Vibrant character illustration that frames listening as an imaginative adventure.' }
+            ],
+            insight: 'An immersive storytelling onboarding flow designed for children and parents, prioritizing voice warmth, vibrant visual cues, and effortless bedtime listening setup.',
+            tags: ['Audiobook', 'Children UX', 'Interactive'],
+            status: 'complete',
+            fullCaseStudyUrl: '#',
+            images: [
+              '/assets/Audio-Onboarding 1 (1).png',
+              '/assets/Audio-Onboarding 2.png',
+              '/assets/Audio-Onboarding 3.png',
+              '/assets/Audio-Onboarding 4.png',
+              '/assets/Audio-Onboarding 5.png',
+              '/assets/Audio-Onboarding 6.png',
+              '/assets/Audio-Onboarding 7.png',
+            ],
           },
           {
             id: 'screen-003',
             label: 'Product 003',
             name: 'In Progress',
+            color: '#06b6d4', // Cyan
             principle: 'TBD',
+            principles: [],
             insight: '',
             tags: [],
             status: 'pending',
             image: null,
           },
         ]
-      },
-      {
-        type: 'text-block',
-        heading: 'Design Principles Used',
-        body: '**Progressive Disclosure** - Show only what\'s needed, when it\'s needed.\n\n**Emotion-First** - Feeling precedes function. If users feel nothing, they engage with nothing.\n\n**Zero Cognitive Load** - One idea per screen. No competing calls to action.\n\n**Micro-Delight** - Small moments of joy (motion, color, illustration) make the experience memorable.'
       }
     ]
   },
