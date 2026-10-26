@@ -383,19 +383,23 @@ export const INITIAL_MESSAGES = [
     isCreator: true,
     isDraft: true,
     folder: 'drafts',
-    subject: 'Re: Working together?',
-    preview: "Hi Dolapo, I'd love to chat about working together on [brief product description]. Loved the depth in your portfolio. Let's set up a meeting to talk through next steps.",
+    subject: 'A little note before you go',
+    preview: "If you've made your way here, something must have caught your attention. Maybe it was a project. Maybe it was the way I approached a problem...",
     timestamp: 'Draft',
-    date: 'Draft · Collaboration Inquiry',
+    date: 'Draft · Note Before You Go',
     unread: false,
     starred: false,
-    category: 'Collaboration',
+    category: 'Note',
     body: {
-      salutation: 'Hi Dolapo,',
+      salutation: 'Hi there,',
       paragraphs: [
-        "I'd love to chat about working together on [brief product description]. Loved the depth in your portfolio. Let's set up a meeting to talk through next steps."
+        "If you've made your way here, something must have caught your attention.",
+        "Maybe it was a project. Maybe it was the way I approached a problem. Maybe you're already imagining what we could build together.",
+        "Whatever brought you here, I'd love to hear from you.",
+        "Until our next conversation,"
       ],
-      signoff: 'Future Collaborator',
+      signoff: 'Dolapo',
+      role: 'Product Designer · UX Writer · Design Engineer',
       cta: {
         text: 'Book a 15-Minute Lab Session',
         action: 'navigate-book'

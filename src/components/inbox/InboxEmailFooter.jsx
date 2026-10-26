@@ -44,7 +44,7 @@ export default function InboxEmailFooter({ onNavigateRoute, onShowToast }) {
           <div className="inbox-thread-letter">
             <p className="inbox-thread-letter__salutation">Hi there,</p>
             <p className="inbox-thread-letter__p">
-              If you've made it all the way down here, something must have caught your attention.
+              If you've made your way here, something must have caught your attention.
             </p>
             <p className="inbox-thread-letter__p">
               Maybe it was a project. Maybe it was the way I approached a problem. Maybe you're already imagining what we could build together.
