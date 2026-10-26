@@ -1,0 +1,1063 @@
+/* ==========================================================================
+   ABOUT PAGE: DOLAPO'S DESIGN LAB
+   Editorial, tactile, and cinematic redesign
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&family=Caveat:wght@400..700&display=swap');
+
+:root {
+  --font-editorial: 'Newsreader', 'Cormorant Garamond', Georgia, serif;
+  --font-handwriting: 'Caveat', 'Segoe Script', cursive;
+  
+  --about-dark-bg: #08060D;
+  --about-dark-surface: #0E0C18;
+  --about-parchment-bg: #F5EFEB;
+  --about-parchment-card: #FFFFFF;
+  --about-parchment-text: #211B18;
+  --about-parchment-muted: #5C524B;
+  --about-copper: #C26143;
+  --about-copper-glow: rgba(194, 97, 67, 0.25);
+  --about-gold: #D4AF37;
+}
+
+/* Base Page Container */
+.about-page-container {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  background: var(--about-dark-bg);
+  color: var(--text-primary);
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--topbar-height, 56px);
+}
+
+/* ==========================================================================
+   SECTION 1: THE PERSON BEHIND THE PIXELS
+   ========================================================================== */
+
+.about-hero-section {
+  position: relative;
+  min-height: calc(100vh - var(--topbar-height, 56px));
+  display: flex;
+  align-items: center;
+  padding: clamp(2rem, 4.5vw, 4rem) clamp(1rem, 4vw, 3.5rem);
+  background: radial-gradient(circle at 75% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
+              radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+              var(--about-dark-bg);
+  overflow: visible;
+}
+
+.about-hero-grid {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.08fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+/* Intro Entrance Animations */
+@keyframes heroImageReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heroTextReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero Left Column: Editorial Copy */
+.about-hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  z-index: 2;
+  animation: heroTextReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.about-hero-headline {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.15rem, 2.2vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: #F8F7FF;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.about-hero-intro-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.about-hero-intro {
+  font-family: var(--font-body);
+  font-size: clamp(0.75rem, 0.88vw, 0.84rem);
+  line-height: 1.62;
+  color: rgba(248, 247, 255, 0.72);
+  max-width: 530px;
+  margin: 0;
+}
+
+/* Tactile Paper Slip Note for Signature Clause */
+.about-hero-paper-slip {
+  position: relative;
+  align-self: flex-start;
+  margin: 0.35rem 0;
+  padding: 0.9rem 1.35rem 0.9rem 1.25rem;
+  background: linear-gradient(145deg, #FAF7F2 0%, #F5ECE0 55%, #EFE5D4 100%);
+  border: 1px solid rgba(190, 165, 135, 0.45);
+  border-radius: 4px;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.18),
+    0 8px 24px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transform: rotate(-0.5deg);
+  transform-origin: left center;
+  max-width: 530px;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+}
+
+/* Washi Tape Accent */
+.about-hero-paper-tape {
+  position: absolute;
+  top: -8px;
+  left: 28px;
+  width: 48px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.55);
+  border-left: 1px dashed rgba(160, 140, 120, 0.4);
+  border-right: 1px dashed rgba(160, 140, 120, 0.4);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  transform: rotate(1deg);
+  pointer-events: none;
+}
+
+/* Paper Quote Typography: Deep Fountain-Pen Ink */
+.about-hero-paper-quote {
+  font-family: var(--font-editorial);
+  font-size: clamp(0.94rem, 1.3vw, 1.18rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.42;
+  color: #1F1915;
+  margin: 0;
+  padding: 0;
+  border: none;
+  letter-spacing: -0.01em;
+  display: inline;
+}
+
+/* Blinking Typewriter Cursor */
+.about-hero-typewriter-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  background-color: var(--about-copper, #C26143);
+  margin-left: 2px;
+  vertical-align: -0.15em;
+  animation: typewriterCaretBlink 0.75s infinite;
+}
+
+.about-hero-typewriter-caret--done {
+  animation: typewriterCaretBlink 1s ease-in-out 3 forwards;
+  opacity: 0;
+}
+
+@keyframes typewriterCaretBlink {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.about-hero-support-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.about-hero-support {
+  font-family: var(--font-body);
+  font-size: clamp(0.72rem, 0.82vw, 0.79rem);
+  line-height: 1.62;
+  color: rgba(248, 247, 255, 0.58);
+  max-width: 530px;
+  margin: 0;
+}
+
+.about-hero-cta-row {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.about-hero-scroll-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.about-hero-scroll-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(212, 175, 55, 0.5);
+  color: var(--about-gold);
+  transform: translateY(2px);
+}
+
+.about-hero-scroll-btn svg {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-hero-scroll-btn:hover svg {
+  transform: translateY(3px);
+}
+
+/* Hero Right Column: Tactile Layered Moodboard (Vertically Centered on Desktop) */
+.about-hero-right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  z-index: 15;
+  margin-bottom: 0;
+  animation: heroImageReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.about-hero-moodboard-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-hero-photo-frame {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  background: #FFFFFF;
+  padding: 8px 8px 18px 8px;
+  box-shadow: 
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 8px 20px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.12);
+  transform: rotate(0.8deg);
+  transition: transform 0.4s ease;
+}
+
+.about-hero-photo-frame:hover {
+  transform: translateY(-4px) rotate(0.4deg);
+}
+
+.about-hero-photo-tape {
+  position: absolute;
+  top: -10px;
+  left: 40px;
+  width: 58px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.7);
+  border-left: 1px dashed rgba(160, 140, 120, 0.45);
+  border-right: 1px dashed rgba(160, 140, 120, 0.45);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  transform: rotate(-1.5deg);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.about-hero-portrait-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   SECTION 2: THE JOURNEY MAP
+   ========================================================================== */
+
+.about-journey-section {
+  position: relative;
+  width: 100%;
+  background: var(--about-parchment-bg);
+  color: var(--about-parchment-text);
+  padding: clamp(5.5rem, 9vw, 8.5rem) clamp(1rem, 4vw, 3.5rem) clamp(4rem, 7vw, 6.5rem);
+  overflow: visible;
+}
+
+/* Tactile Square-ish Deckle Perforated Paper Edge Transitions */
+.about-paper-edge-top {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 24px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 4;
+  filter: drop-shadow(0 -4px 10px rgba(0, 0, 0, 0.35));
+}
+
+.about-paper-edge-top svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.about-paper-edge-bottom {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 24px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 4;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+}
+
+.about-paper-edge-bottom svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Subtle organic paper grain overlay */
+.about-journey-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.about-journey-inner {
+  position: relative;
+  max-width: 1360px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+/* Journey Section Header */
+.about-journey-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  max-width: 640px;
+}
+
+.about-journey-headline {
+  font-family: var(--font-editorial);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #261D1A;
+  margin: 0 0 1rem;
+}
+
+.about-journey-intro {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+  line-height: 1.6;
+  color: var(--about-parchment-muted);
+  margin: 0;
+}
+
+/* Desktop Winding Timeline */
+.about-journey-timeline-desktop {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 1.5rem 0 2rem;
+}
+
+/* SVG Winding Connecting Line & Flowing Connector Animation */
+.about-journey-svg-connector {
+  position: absolute;
+  top: 48%;
+  left: 2%;
+  right: 2%;
+  width: 96%;
+  height: 60px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes flowJourneyConnector {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -96;
+  }
+}
+
+@keyframes flowJourneyConnectorMobile {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -80;
+  }
+}
+
+.about-journey-desktop-path {
+  animation: flowJourneyConnector 10s linear infinite;
+}
+
+.about-journey-mobile-path {
+  animation: flowJourneyConnectorMobile 8s linear infinite;
+}
+
+.about-journey-node-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.about-journey-node-item:hover {
+  transform: translateY(-4px);
+}
+
+/* Stagger positions: 1, 3, 5 top-aligned; 2, 4 bottom-aligned */
+.about-journey-node-item:nth-child(even) {
+  margin-top: 3.5rem;
+}
+
+.about-journey-node-item:nth-child(odd) {
+  margin-bottom: 3.5rem;
+}
+
+/* Organic Floating / Sway for Milestones */
+@keyframes milestoneSwayOdd {
+  0%, 100% {
+    transform: rotate(0.6deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-0.8deg) translateY(-4px);
+  }
+}
+
+@keyframes milestoneSwayEven {
+  0%, 100% {
+    transform: rotate(-0.6deg) translateY(0);
+  }
+  50% {
+    transform: rotate(0.8deg) translateY(4px);
+  }
+}
+
+/* Milestone Image with Polaroid Frame */
+.about-milestone-polaroid {
+  position: relative;
+  background: #FFFFFF;
+  padding: 7px 7px 18px 7px;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(33, 27, 24, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  max-width: 190px;
+  transition: all 0.3s ease;
+}
+
+.about-journey-node-item:nth-child(odd) .about-milestone-polaroid {
+  animation: milestoneSwayOdd 6.5s ease-in-out infinite;
+}
+
+.about-journey-node-item:nth-child(even) .about-milestone-polaroid {
+  animation: milestoneSwayEven 7.5s ease-in-out infinite;
+}
+
+.about-journey-node-item:hover .about-milestone-polaroid {
+  animation-play-state: paused;
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(33, 27, 24, 0.2);
+}
+
+.about-milestone-polaroid img {
+  width: 100%;
+  height: 125px;
+  object-fit: cover;
+  display: block;
+  border-radius: 2px;
+}
+
+/* Decorative Washi Tape on Polaroid Top */
+.about-milestone-tape {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 14px;
+  background: rgba(220, 205, 185, 0.75);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  border-left: 2px dashed rgba(180, 160, 140, 0.8);
+  border-right: 2px dashed rgba(180, 160, 140, 0.8);
+  z-index: 4;
+}
+
+/* Milestone Dot Node with Pulse Animation */
+@keyframes journeyDotPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 3px var(--about-copper-glow);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(194, 97, 67, 0.45);
+    transform: scale(1.08);
+  }
+}
+
+.about-milestone-dot-anchor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--about-copper);
+  box-shadow: 0 0 0 4px var(--about-copper-glow);
+  margin: 1rem 0;
+  z-index: 3;
+  animation: journeyDotPulse 2.8s ease-in-out infinite;
+}
+
+.about-milestone-dot-inner {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FFFFFF;
+}
+
+/* Milestone Text Content */
+.about-milestone-content {
+  text-align: center;
+  max-width: 210px;
+}
+
+.about-milestone-number-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1A1412;
+  margin-bottom: 0.35rem;
+}
+
+.about-milestone-num {
+  color: var(--about-copper);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.about-milestone-desc {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--about-parchment-muted);
+  margin: 0;
+}
+
+/* Handwritten Supporting Annotation */
+.about-milestone-annotation {
+  font-family: var(--font-handwriting);
+  font-size: 1.15rem;
+  line-height: 1.25;
+  color: #8C3E26;
+  margin-top: 0.5rem;
+  display: inline-block;
+  transform: rotate(-2deg);
+}
+
+/* Mobile Timeline (Hidden on desktop, shown on mobile) */
+.about-journey-timeline-mobile {
+  display: none;
+}
+
+/* ==========================================================================
+   SECTION 3: BEYOND DESIGN
+   ========================================================================== */
+
+.about-beyond-section {
+  position: relative;
+  width: 100%;
+  background: #090710;
+  color: #F8F7FF;
+  padding: clamp(3.5rem, 7vw, 6.5rem) clamp(1rem, 4vw, 3.5rem);
+  overflow: hidden;
+}
+
+.about-beyond-inner {
+  position: relative;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.about-beyond-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+/* Beyond Left Column: Headline & Intro */
+.about-beyond-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-beyond-headline {
+  font-family: var(--font-editorial);
+  font-size: clamp(2.4rem, 4.6vw, 4rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #F8F7FF;
+  margin: 0;
+}
+
+.about-beyond-support {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.65;
+  color: rgba(248, 247, 255, 0.7);
+  max-width: 480px;
+  margin: 0;
+}
+
+.about-beyond-note-pill {
+  font-family: var(--font-handwriting);
+  font-size: 1.35rem;
+  color: var(--about-gold);
+  transform: rotate(-3deg);
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+/* Beyond Right Column: Tactile Layered Collage */
+.about-beyond-right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.about-beyond-collage-card {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition: transform 0.4s ease;
+}
+
+.about-beyond-collage-card:hover {
+  transform: translateY(-4px);
+}
+
+.about-beyond-collage-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   CLOSING TREATMENT
+   ========================================================================== */
+
+.about-closing-card {
+  position: relative;
+  text-align: center;
+  max-width: 680px;
+  margin: clamp(2rem, 5vw, 4.5rem) auto 0;
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about-closing-title {
+  font-family: var(--font-editorial);
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.about-closing-title span {
+  display: block;
+}
+
+.about-closing-text {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  line-height: 1.6;
+  color: rgba(248, 247, 255, 0.7);
+  max-width: 480px;
+  margin: 0;
+}
+
+.about-closing-cta-btn {
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 2rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #D4AF37 0%, #8B5CF6 100%);
+  border: none;
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.about-closing-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(212, 175, 55, 0.35);
+  opacity: 0.95;
+}
+
+/* Handwritten Signature Flourish SVG */
+.about-closing-signature {
+  margin-top: 0.75rem;
+  color: rgba(212, 175, 55, 0.65);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (TABLETS & MOBILE SCREENS)
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* On mobile: The editorial text block is on top */
+  .about-hero-left {
+    order: 1;
+    width: 100%;
+  }
+
+  /* The image is placed lower down, extending down into Section 2 */
+  .about-hero-right {
+    order: 2;
+    width: 100%;
+    max-width: 380px;
+    margin: 1.5rem auto clamp(-50px, -8vw, -80px) auto;
+    z-index: 15;
+    animation: heroImageReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  }
+
+  .about-beyond-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* Switch Journey Timeline from horizontal grid to winding mobile path */
+  .about-journey-timeline-desktop {
+    display: none;
+  }
+
+  .about-journey-timeline-mobile {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 1.5rem 0.5rem 2.5rem;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+  }
+
+  /* Winding Meandering SVG Path (Not a Straight Line) */
+  .about-journey-mobile-wavy-path {
+    position: absolute;
+    top: 20px;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: calc(100% - 60px);
+    pointer-events: none;
+    z-index: 1;
+    overflow: visible;
+  }
+
+  .about-mobile-step-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    width: 100%;
+    max-width: 290px;
+    background: #FFFFFF;
+    padding: 14px 14px 20px;
+    border-radius: 6px;
+    box-shadow: 0 10px 24px rgba(33, 27, 24, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
+    z-index: 2;
+    transition: transform 0.3s ease;
+  }
+
+  /* Alternating left and right zig-zag */
+  .about-mobile-step-card--left {
+    align-self: flex-start;
+    margin-left: clamp(0.25rem, 3vw, 1.25rem);
+    transform: rotate(-1.5deg);
+  }
+
+  .about-mobile-step-card--right {
+    align-self: flex-end;
+    margin-right: clamp(0.25rem, 3vw, 1.25rem);
+    transform: rotate(1.8deg);
+  }
+
+  .about-mobile-step-card:last-child {
+    align-self: center;
+    transform: rotate(-0.5deg);
+  }
+
+  .about-mobile-step-tape {
+    position: absolute;
+    top: -7px;
+    left: 24px;
+    width: 44px;
+    height: 14px;
+    background: rgba(255, 255, 255, 0.75);
+    border-left: 1px dashed rgba(160, 140, 120, 0.4);
+    border-right: 1px dashed rgba(160, 140, 120, 0.4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    pointer-events: none;
+    z-index: 3;
+    transform: rotate(-1deg);
+  }
+
+  .about-mobile-step-card--right .about-mobile-step-tape {
+    left: auto;
+    right: 24px;
+    transform: rotate(1deg);
+  }
+
+  .about-mobile-step-dot {
+    position: absolute;
+    top: 14px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--about-copper);
+    box-shadow: 0 0 0 3px var(--about-copper-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    animation: journeyDotPulse 2.8s ease-in-out infinite;
+  }
+
+  .about-mobile-step-card--left .about-mobile-step-dot {
+    right: -24px;
+  }
+
+  .about-mobile-step-card--right .about-mobile-step-dot {
+    left: -24px;
+  }
+
+  .about-mobile-step-card:last-child .about-mobile-step-dot {
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .about-mobile-step-dot-inner {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #FFFFFF;
+  }
+
+  .about-mobile-step-img-box {
+    position: relative;
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .about-mobile-step-img-box img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    display: block;
+    border-radius: 3px;
+  }
+
+  .about-mobile-step-title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1A1412;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .about-mobile-step-desc {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--about-parchment-muted);
+    margin: 0;
+  }
+
+  .about-mobile-step-annotation {
+    font-family: var(--font-handwriting);
+    font-size: 1.15rem;
+    color: #8C3E26;
+    transform: rotate(-1.5deg);
+    display: inline-block;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-hero-section {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .about-hero-headline {
+    font-size: clamp(0.72rem, 3.6vw, 1.05rem);
+    white-space: nowrap;
+    letter-spacing: -0.015em;
+  }
+
+  .about-hero-intro {
+    font-size: 0.78rem;
+    line-height: 1.55;
+  }
+
+  .about-hero-support {
+    font-size: 0.74rem;
+    line-height: 1.55;
+  }
+
+  .about-hero-paper-slip {
+    padding: 0.8rem 1.15rem;
+    transform: none;
+    min-height: 50px;
+  }
+
+  .about-hero-paper-tape {
+    left: 18px;
+    width: 42px;
+    height: 14px;
+    top: -7px;
+  }
+
+  .about-hero-paper-quote {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .about-mobile-step-card {
+    max-width: 245px;
+    padding: 10px 10px 14px;
+  }
+
+  .about-mobile-step-img-box img {
+    height: 110px;
+  }
+
+  .about-mobile-step-card--left {
+    margin-left: 0.25rem;
+  }
+
+  .about-mobile-step-card--right {
+    margin-right: 0.25rem;
+  }
+
+  .about-journey-section {
+    padding: 2.5rem 1rem 3.5rem;
+  }
+
+  .about-journey-headline {
+    font-size: 2.15rem;
+  }
+
+  .about-beyond-section {
+    padding: 2.5rem 1rem 3.5rem;
+  }
+
+  .about-beyond-headline {
+    font-size: 2.15rem;
+  }
+
+  .about-closing-card {
+    padding: 2rem 0.75rem;
+  }
+
+  .about-closing-title {
+    font-size: 1.95rem;
+  }
+}

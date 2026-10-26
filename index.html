@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Where wireframes become real. Explore my cinematic vault of design and code.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#07060B">
+  <meta property="og:title" content="Dolapo's Design Lab | Pushing Pixels & Boundaries">
+  <meta property="og:description" content="Where wireframes become real. Explore my cinematic vault of design and code.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://designwithdolapo.pro/assets/hero-image.png?v=2">
+  <meta property="og:url" content="https://designwithdolapo.pro/">
+  
+  <!-- Twitter Card Data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@dsignwithdolapo">
+  <meta name="twitter:creator" content="@dsignwithdolapo">
+  <meta name="twitter:domain" content="designwithdolapo.pro">
+  <meta name="twitter:url" content="https://designwithdolapo.pro/">
+  <meta name="twitter:title" content="Dolapo's Design Lab | Pushing Pixels & Boundaries">
+  <meta name="twitter:description" content="Where wireframes become real. Explore my cinematic vault of design and code.">
+  <meta name="twitter:image" content="https://designwithdolapo.pro/assets/hero-image.png?v=2">
+  
+  <title>Dolapo's Design Lab | Pushing Pixels & Boundaries</title>
+  <link rel="icon" type="image/png" href="/assets/logo-light.png">
+  <link rel="apple-touch-icon" href="/assets/logo-light.png">
+  
+  <!-- Preconnect to external origins for embeds (Cal.com, case study sites) -->
+  <link rel="preconnect" href="https://cal.com">
+  <link rel="preconnect" href="https://www.vurdict.site">
+  <link rel="preconnect" href="https://awwja.vercel.app">
+  <link rel="dns-prefetch" href="https://cal.com">
+  <link rel="dns-prefetch" href="https://www.vurdict.site">
+  <link rel="dns-prefetch" href="https://awwja.vercel.app">
+  
+  <!-- Preload critical assets -->
+  <link rel="preload" href="/assets/logo-dark.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="/assets/logo-light.webp" as="image" fetchpriority="high">
+<style>
+    /* Essential pre-load styles */
+    .pre-splash {
+      position: fixed;
+      inset: 0;
+      background: #07060B;
+      z-index: 9999;
+      transition: opacity 0.4s ease;
+    }
+    .pre-splash.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .pre-glitch-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90vw;
+      max-width: 600px;
+      height: 30vh;
+    }
+    .pre-glitch-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .pre-splash-skip {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 10000;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.4rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(248, 247, 255, 0.65);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+    .pre-splash-skip:hover,
+    .pre-splash-skip:focus-visible {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.12);
+    }
+  </style>
+</head>
+<body style="background-color: #07060B; color: #ffffff; margin: 0; padding: 0;">
+  <div id="root">
+    <div class="pre-splash" id="pre-splash">
+      <div class="pre-glitch-wrapper">
+        <img src="/assets/logo-dark.webp" alt="Loading..." class="pre-glitch-img" decoding="async" />
+      </div>
+      <button
+        type="button"
+        class="pre-splash-skip"
+        aria-label="Skip intro and go straight to departments"
+        onclick="try{sessionStorage.setItem('portfolio-skip','1')}catch(e){};document.getElementById('pre-splash').classList.add('fade-out')"
+      >
+        Skip intro
+        <svg class="skip-intro-btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+      </button>
+    </div>
+  </div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

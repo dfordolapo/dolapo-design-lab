@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 30" fill="none" stroke="#f8f7ff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#6366f1" stroke-width="1.2" fill="rgba(99, 102, 241, 0.18)"></path>
+  <path d="M14 10 L10 10 L9 13 L7 13 L7 15 L17 15 L17 13 L15 13 Z" stroke="#f8f7ff" stroke-width="1" fill="none"></path>
+  <circle cx="9.5" cy="15.5" r="1" stroke="#f8f7ff" fill="#f8f7ff"></circle>
+  <circle cx="14.5" cy="15.5" r="1" stroke="#f8f7ff" fill="#f8f7ff"></circle>
+  <path d="M9 13 L15 13" stroke="#f8f7ff" stroke-width="0.5"></path>
+  <text x="12" y="28" text-anchor="middle" font-size="2.4" font-weight="bold" fill="#f8f7ff" stroke="none" style="font-family: monospace; letter-spacing: 0.05em">SAFERIDE MODE</text>
+</svg>
