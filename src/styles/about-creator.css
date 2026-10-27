@@ -652,76 +652,37 @@
   width: 100%;
   background: #090710;
   color: #F8F7FF;
-  padding: 5.25rem clamp(1rem, 4vw, 3.5rem) clamp(3.5rem, 7vw, 6.5rem);
+  padding: clamp(4.5rem, 7vw, 7rem) clamp(1rem, 3.5vw, 3rem) clamp(3.5rem, 6vw, 6rem);
   overflow: hidden;
 }
 
 .about-beyond-inner {
   position: relative;
-  max-width: 1360px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
-.about-beyond-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.35fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: center;
-  margin-bottom: clamp(7.5rem, 13vw, 12rem);
-}
-
-/* Beyond Left Column: Headline & Intro */
-.about-beyond-left {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+/* Beyond Header: Centered, Editorial, Clean */
+.about-beyond-header {
+  text-align: center;
+  margin-bottom: clamp(2rem, 4vw, 3.75rem);
+  position: relative;
+  z-index: 2;
 }
 
 .about-beyond-headline {
   font-family: var(--font-editorial);
-  font-size: clamp(1.65rem, 2.7vw, 2.35rem);
-  font-weight: 500;
-  line-height: 1.18;
-  letter-spacing: -0.015em;
+  font-size: clamp(2.2rem, 4.4vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   color: #F8F7FF;
   margin: 0;
 }
 
-.about-beyond-support {
-  font-family: var(--font-body);
-  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
-  line-height: 1.65;
-  color: rgba(248, 247, 255, 0.7);
-  max-width: 480px;
-  margin: 0;
-}
-
-/* Beyond Right Column: Tactile Layered Collage */
-.about-beyond-right {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.about-beyond-collage-card {
+.about-beyond-content {
   position: relative;
   width: 100%;
-  max-width: 620px;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08);
-  transition: transform 0.4s ease;
-}
-
-.about-beyond-collage-card:hover {
-  transform: translateY(-4px);
-}
-
-.about-beyond-collage-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
 }
 
 /* ==========================================================================
@@ -828,11 +789,6 @@
 
 
 
-  .about-beyond-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    margin-bottom: 2.5rem;
-  }
 
   .about-closing-card {
     margin-top: 2rem;
@@ -1109,88 +1065,57 @@
 }
 
 /* ==========================================================================
-   INTERACTIVE DRAGGABLE SCRAPBOOK (SEAMLESS ON PAGE BACKGROUND)
+   INTERACTIVE DRAGGABLE SCRAPBOOK (BEYOND THE WORKSPACE)
    ========================================================================== */
 .scrapbook-wrapper {
   position: relative;
   width: 100%;
-  max-width: 740px;
+  max-width: 1360px;
   margin: 0 auto;
-}
-
-.scrapbook-stage-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-  padding: 0 0.5rem;
-}
-
-.scrapbook-hint {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  color: rgba(248, 247, 255, 0.5);
-  letter-spacing: 0.02em;
-}
-
-.scrapbook-hint-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--about-gold);
-  box-shadow: 0 0 6px rgba(224, 169, 56, 0.6);
-  animation: journeyDotPulse 2.4s ease-in-out infinite;
-}
-
-.scrapbook-reset-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.42rem 0.85rem;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 999px;
-  color: #F8F7FF;
-  font-family: var(--font-body);
-  font-size: 0.76rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.scrapbook-reset-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(224, 169, 56, 0.45);
-  color: #FFF;
-  transform: translateY(-1px);
-}
-
-/* Sits directly on the website background seamlessly without any box or background container */
-.scrapbook-stage {
-  position: relative;
-  width: 100%;
-  min-height: 520px;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  touch-action: pan-y;
-  overflow: visible;
   user-select: none;
+  -webkit-user-select: none;
 }
 
+/* Responsive Haphazard Scatter Grid */
+.scrapbook-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.5rem, 2.8vw, 3.2rem);
+  padding: 1.5rem 0.5rem 3rem;
+  position: relative;
+}
+
+@media (max-width: 1200px) {
+  .scrapbook-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .scrapbook-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.35rem;
+    padding: 1rem 0.25rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .scrapbook-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+    padding: 0.75rem 0 1.5rem;
+  }
+}
+
+/* Scrapbook Item: Naturally Draggable, tactile hover */
 .scrapbook-item {
-  position: absolute;
+  position: relative;
   cursor: grab;
   touch-action: none;
   user-select: none;
   -webkit-user-select: none;
-  transition: box-shadow 0.2s ease;
+  transition: filter 0.2s ease;
 }
 
 .scrapbook-item:active,
@@ -1198,18 +1123,22 @@
   cursor: grabbing;
 }
 
-/* Photo Cards */
+/* Photo Cards - Tactile Studio Print Finish */
 .scrapbook-photo-card {
   position: relative;
-  background: #FDFCFA;
-  padding: 8px 8px 12px;
-  border-radius: 3px;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.2s ease;
+  background: #FFFFFF;
+  padding: clamp(6px, 0.9vw, 9px) clamp(6px, 0.9vw, 9px) clamp(10px, 1.3vw, 15px);
+  border-radius: 4px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.scrapbook-item:hover .scrapbook-photo-card {
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.6), 0 6px 14px rgba(0, 0, 0, 0.32);
 }
 
 .scrapbook-item.is-dragging .scrapbook-photo-card {
-  box-shadow: 0 26px 50px rgba(0, 0, 0, 0.65), 0 8px 18px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.75), 0 12px 26px rgba(0, 0, 0, 0.45);
 }
 
 .scrapbook-photo-media {
@@ -1231,18 +1160,15 @@
 .scrapbook-photo-sheen {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, transparent 60%);
   pointer-events: none;
 }
 
-/* Small washi tape with very short 3-4 word description */
+/* Washi Tape Strips with Torn Edge Appearance */
 .scrapbook-tape-strip {
   position: absolute;
-  padding: 3px 10px;
-  background: rgba(255, 250, 240, 0.92);
-  border-left: 1.5px dashed rgba(160, 135, 110, 0.5);
-  border-right: 1.5px dashed rgba(160, 135, 110, 0.5);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  padding: 3.5px clamp(8px, 1.2vw, 14px);
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.32);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   z-index: 10;
@@ -1253,39 +1179,65 @@
   white-space: nowrap;
 }
 
+/* Subtle Washi Tape Tints */
+.scrapbook-tape-strip--parchment {
+  background: rgba(254, 250, 240, 0.93);
+  border-left: 2px dashed rgba(160, 135, 110, 0.5);
+  border-right: 2px dashed rgba(160, 135, 110, 0.5);
+}
+
+.scrapbook-tape-strip--kraft {
+  background: rgba(228, 204, 172, 0.93);
+  border-left: 2px dashed rgba(140, 110, 80, 0.5);
+  border-right: 2px dashed rgba(140, 110, 80, 0.5);
+}
+
+.scrapbook-tape-strip--ivory {
+  background: rgba(255, 255, 255, 0.94);
+  border-left: 2px dashed rgba(180, 180, 180, 0.5);
+  border-right: 2px dashed rgba(180, 180, 180, 0.5);
+}
+
+.scrapbook-tape-strip--terracotta {
+  background: rgba(246, 222, 212, 0.93);
+  border-left: 2px dashed rgba(194, 97, 67, 0.5);
+  border-right: 2px dashed rgba(194, 97, 67, 0.5);
+}
+
 .scrapbook-tape-caption {
   font-family: var(--font-handwriting);
-  font-size: 0.88rem;
+  font-size: clamp(0.75rem, 1vw, 0.92rem);
   color: #2D221D;
   letter-spacing: -0.01em;
   font-weight: 500;
 }
 
+/* Tape Placements */
 .scrapbook-tape-strip--top-center {
-  top: -9px;
+  top: -10px;
   left: 50%;
   transform: translateX(-50%) rotate(-1deg);
 }
 
 .scrapbook-tape-strip--top-left {
-  top: -9px;
+  top: -10px;
   left: 12px;
   transform: rotate(-2.5deg);
 }
 
 .scrapbook-tape-strip--top-right {
-  top: -9px;
+  top: -10px;
   right: 12px;
   transform: rotate(2deg);
 }
 
 .scrapbook-tape-strip--bottom-center {
-  bottom: -8px;
+  bottom: -9px;
   left: 50%;
   transform: translateX(-50%) rotate(1deg);
 }
 
-/* Highlighted spans in headings */
+/* Headings Highlights */
 .about-highlight-journey {
   color: var(--about-copper);
   font-style: italic;
@@ -1306,11 +1258,5 @@
 
 .about-highlight-role {
   color: #FDF4E3;
-}
-
-@media (max-width: 768px) {
-  .scrapbook-stage {
-    min-height: 660px;
-  }
 }
 

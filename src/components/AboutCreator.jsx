@@ -501,25 +501,18 @@ export default function AboutCreator({ onBack }) {
         </section>
 
         {/* ==================================================================
-            SECTION 3: THE THINGS THAT KEEP ME INSPIRED
+            SECTION 3: BEYOND THE WORKSPACE
             ================================================================== */}
-        <section className="about-beyond-section" aria-label="The Things That Keep Me Inspired">
+        <section className="about-beyond-section" aria-label="Beyond the workspace">
           <div className="about-beyond-inner">
-            <div className="about-beyond-grid">
-              {/* Left Column: Headline & Reflections */}
-              <div className="about-beyond-left">
-                <h2 className="about-beyond-headline">
-                  The things that <span className="about-highlight-gold">keep me inspired</span>.
-                </h2>
-                <p className="about-beyond-support">
-                  Movies, poetry, good food, travel dreams, late-night ideas, and a life that's still unfolding.
-                </p>
-              </div>
+            <header className="about-beyond-header">
+              <h2 className="about-beyond-headline">
+                Beyond the <span className="about-highlight-gold">workspace</span>.
+              </h2>
+            </header>
 
-              {/* Right Column: Interactive Draggable Scrapbook */}
-              <div className="about-beyond-right">
-                <Scrapbook />
-              </div>
+            <div className="about-beyond-content">
+              <Scrapbook />
             </div>
 
             {/* Closing Statement & Lab Session CTA */}
