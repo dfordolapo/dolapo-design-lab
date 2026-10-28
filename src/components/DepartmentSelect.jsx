@@ -108,9 +108,20 @@ export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
     }
   }
 
+  const handleOpenAbout = (e) => {
+    e?.preventDefault?.()
+    playClick()
+    if (onOpenAbout) {
+      onOpenAbout()
+    } else {
+      window.history.pushState({}, '', '/')
+      window.dispatchEvent(new Event('popstate'))
+    }
+  }
+
   return (
     <div className="page-with-topbar">
-      <TopBar onBack={onBack} />
+      <TopBar onBack={onBack} isMainPage={false} variant="white" />
       <div className={`dept-screen${entered ? ' dept-screen--entered' : ''}`}>
         <div className="dept-screen__bg">
           <motion.div className="dept-screen__grid" style={{ x: gridX, y: gridY }}></motion.div>
@@ -124,9 +135,11 @@ export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
         <div className="dept-header-container">
           <h1 className="dept-screen__title">Choose a <span>Department</span></h1>
           <button 
+            type="button"
             className="about-creator-btn" 
-            onClick={onOpenAbout}
+            onClick={handleOpenAbout}
             onMouseEnter={playHover}
+            aria-label="Go to About Me"
           >
             About Me
           </button>

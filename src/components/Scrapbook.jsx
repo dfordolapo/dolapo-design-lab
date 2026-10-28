@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import useSoundEffects from '../hooks/useSoundEffects'
 
@@ -197,7 +197,7 @@ export const SCRAPBOOK_PHOTOS = [
     alt: 'Desk acrylic stand displaying uplifting notes to self beside miniature wooden armchair',
     aspect: '16/10',
     initialRotate: 3.4,
-    tapePos: 'bottom-center',
+    tapePos: 'top-right',
     tapeVariant: 'parchment',
     flyOffset: { x: 80, y: -70, r: 12 }
   },
@@ -236,18 +236,6 @@ export const SCRAPBOOK_PHOTOS = [
     tapePos: 'top-center',
     tapeVariant: 'parchment',
     flyOffset: { x: -80, y: -70, r: -12 }
-  },
-  {
-    id: 'scrapbook-20',
-    image: '/assets/Scrapbook/311C84F4-4D36-4E8A-A30D-63BB914CB2E4.webp',
-    fallback: '/assets/Scrapbook/311C84F4-4D36-4E8A-A30D-63BB914CB2E4.JPG',
-    tapeText: 'Crisp stack of Naira',
-    alt: 'Hand holding a clean bundled stack of Nigerian 500 and 1000 Naira notes',
-    aspect: '3/4',
-    initialRotate: 6.1,
-    tapePos: 'top-left',
-    tapeVariant: 'ivory',
-    flyOffset: { x: 90, y: 50, r: 17 }
   },
   {
     id: 'scrapbook-21',
@@ -455,6 +443,16 @@ export const SCRAPBOOK_PHOTOS = [
   }
 ]
 
+// Fisher-Yates array shuffle for organic photo variety on each load
+function shufflePhotos(array) {
+  const shuffled = [...array]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
+
 export default function Scrapbook() {
   const containerRef = useRef(null)
   const { playClick } = useSoundEffects()
@@ -463,6 +461,12 @@ export default function Scrapbook() {
   const [topZ, setTopZ] = useState(10)
   const [zOrder, setZOrder] = useState({})
   const [activeDragId, setActiveDragId] = useState(null)
+  const [photos, setPhotos] = useState(() => shufflePhotos(SCRAPBOOK_PHOTOS))
+
+  // Shuffle photos on initial load and mount
+  useEffect(() => {
+    setPhotos(shufflePhotos(SCRAPBOOK_PHOTOS))
+  }, [])
 
   // Elevate active touched/dragged photo to the top stacking layer
   const bringToFront = useCallback((id) => {
@@ -479,7 +483,7 @@ export default function Scrapbook() {
   return (
     <div className="scrapbook-wrapper" ref={containerRef} aria-label="Beyond the workspace scrapbook">
       <div className="scrapbook-grid">
-        {SCRAPBOOK_PHOTOS.map((item, idx) => {
+        {photos.map((item, idx) => {
           const itemZ = zOrder[item.id] || (idx % 5) + 2
           const isDragging = activeDragId === item.id
 

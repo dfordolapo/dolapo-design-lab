@@ -1,285 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+
 /* ==========================================================================
-   SELECTED WORK SECTION: "SOME OF THE THINGS I'VE BUILT"
-   Viewport-Fitted Folder-Shaped Cards with Black/White Modak Heading
+   SELECTED WORK SECTION — Interactive Desk Shelf Artwork & Preview Drawer
+   Pure black #000000 background, full artwork with zero cutoff, smooth gradient.
    ========================================================================== */
 
 .selected-work-section {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  background-color: #000000;
+  margin: 0;
+  padding: 0 0 clamp(4rem, 7vh, 6.5rem);
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background: #000000;
-  padding: clamp(3.6rem, 5.8vh, 4.8rem) clamp(1rem, 3vw, 2rem) clamp(2.5rem, 4vh, 4rem);
-  box-sizing: border-box;
   overflow: visible;
 }
 
 .selected-work-container {
+  position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 100%;
   margin: 0 auto;
+  padding: clamp(5.2rem, 8.5vh, 7rem) 0 0;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* ==========================================================================
-   HEADLINE: STRICTLY BLACK AND WHITE ONLY IN MODAK FONT
-   ========================================================================== */
+/* ─────────────────────────────────────────────────────────────────────────
+   MODAK HEADING: Tilted Paper Strips with Non-Yellow Accent from Skills Keys
+   Top strip: White (#FFFFFF)
+   Bottom strip: Azure Blue (#25C6FD from Charm 06 Email Systems key)
+───────────────────────────────────────────────────────────────────────── */
 .selected-work-header {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  max-width: 860px;
-  margin-bottom: clamp(1.25rem, 2.4vh, 2rem);
+  align-items: center;
   position: relative;
-  z-index: 5;
+  z-index: 20;
+  margin-bottom: 0;
+  padding: 0 1rem;
+  user-select: none;
 }
 
-.selected-work-strip-top {
+.selected-work-strip {
   display: inline-block;
-  background: #FFFFFF;
-  padding: 0.2rem clamp(1.2rem, 2.5vw, 2.2rem) 0.25rem;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.25);
-  transform: rotate(-1.5deg);
-  border-radius: 2px;
-  margin-bottom: -0.55rem;
-  z-index: 2;
-  transition: transform 0.25s ease;
+  border-radius: 14px;
 }
 
-.selected-work-strip-bottom {
-  display: inline-block;
+.selected-work-strip--top {
   background: #FFFFFF;
-  padding: 0.2rem clamp(1.2rem, 2.8vw, 2.4rem) 0.25rem;
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
-  transform: rotate(0.8deg);
-  border-radius: 2px;
-  z-index: 3;
-  transition: transform 0.25s ease;
+  padding: 0.2rem clamp(1.4rem, 3.2vw, 2.8rem) 0.3rem;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.6),
+    0 2px 6px rgba(0, 0, 0, 0.3);
+  transform: rotate(-2.5deg);
+  z-index: 22;
+  position: relative;
+}
+
+.selected-work-strip--bottom {
+  background: #25C6FD;
+  padding: 0.2rem clamp(1.4rem, 3.2vw, 2.8rem) 0.3rem;
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.7),
+    0 3px 8px rgba(0, 0, 0, 0.35);
+  transform: rotate(2deg) translateY(-8px);
+  z-index: 24;
+  position: relative;
 }
 
 .selected-work-title-text {
-  font-family: var(--font-modak, 'Modak', cursive);
-  font-size: clamp(1.8rem, 3.8vw, 2.9rem);
+  font-family: 'Modak', cursive, system-ui;
+  font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 400;
-  line-height: 1.12;
-  letter-spacing: 0.01em;
-  color: #08060D;
+  line-height: 1.08;
+  color: #050408;
   display: block;
   user-select: none;
+  letter-spacing: -0.01em;
+  margin: 0;
 }
 
-/* ==========================================================================
-   STACKED PROJECT FOLDER CARDS (COMPACT TO FIT IN ONE VIEWPORT)
-   ========================================================================== */
-.selected-work-folders-stack {
+/* ─────────────────────────────────────────────────────────────────────────
+   EXPLORE PROMPT: Tactile Paper Note Midway Between Heading and Shelf
+───────────────────────────────────────────────────────────────────────── */
+.shelf-explore-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  margin: clamp(1.1rem, 2.2vw, 1.8rem) auto clamp(1.4rem, 2.8vw, 2.4rem);
+  background: #FFF3C4;
+  color: #1A1408;
+  padding: 0.35rem 0.95rem 0.4rem;
+  border-radius: 6px;
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.45),
+    0 1px 3px rgba(0, 0, 0, 0.25);
+  transform: rotate(-1.5deg);
+  z-index: 25;
+  user-select: none;
+}
+
+.shelf-prompt-tape {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(0.8deg);
+  width: 38px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(1px);
+  pointer-events: none;
+}
+
+.shelf-prompt-text {
+  font-family: var(--font-body, system-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.shelf-prompt-arrow {
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: inline-block;
+  animation: shelfArrowBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes shelfArrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   DESK SHELF ARTWORK STAGE — Full Width Edge-to-Edge on Mobile & Web
+───────────────────────────────────────────────────────────────────────── */
+.desk-shelf-stage {
+  position: relative;
   width: 100%;
-  max-width: 860px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.desk-shelf-art-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #000000;
+  user-select: none;
+  overflow: visible;
+}
+
+.desk-shelf-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+  background-color: #000000;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   INTERACTIVE BOOK HOTSPOTS
+───────────────────────────────────────────────────────────────────────── */
+.desk-shelf-hotspot {
+  position: absolute;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+  border-radius: 6px;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+  z-index: 5;
+}
+
+/* Subtle hover highlight */
+.desk-shelf-hotspot:hover {
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    inset 0 0 20px rgba(255, 255, 255, 0.12),
+    0 0 16px rgba(255, 255, 255, 0.08);
+}
+
+/* Selected state: glowing halo indicating active book */
+.desk-shelf-hotspot--selected {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 0 24px rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(255, 255, 255, 0.15);
+  outline: 1.5px solid rgba(255, 255, 255, 0.5);
+}
+
+.desk-shelf-hotspot:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: -2px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   LOWER PROJECT DETAILS DRAWER
+───────────────────────────────────────────────────────────────────────── */
+.shelf-preview-drawer {
+  width: 100%;
+  max-width: 960px;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding: 0 clamp(1rem, 3vw, 2rem);
+  box-sizing: border-box;
+  z-index: 15;
+  animation: drawerSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes drawerSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.drawer-inner-card {
+  background: #110F18;
+  border: none;
+  border-radius: 16px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85);
   display: flex;
   flex-direction: column;
-  gap: clamp(0.75rem, 1.5vh, 1.25rem);
-  position: relative;
-  z-index: 4;
+  gap: 1.25rem;
 }
 
-/* Individual Project Folder Card */
-.project-folder-card {
-  position: relative;
-  width: 100%;
-  border-radius: 12px;
-  padding: clamp(0.85rem, 1.6vh, 1.35rem) clamp(1.2rem, 2.5vw, 2.2rem) clamp(0.95rem, 1.8vh, 1.45rem);
-  box-sizing: border-box;
-  transform: rotate(var(--folder-rot, 0deg));
-  transform-origin: center center;
-  box-shadow: 
-    0 8px 24px rgba(0, 0, 0, 0.4),
-    0 2px 6px rgba(0, 0, 0, 0.2),
-    inset 0 1px 1px rgba(255, 255, 255, 0.45);
-  cursor: pointer;
-  user-select: none;
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
-}
-
-.project-folder-card:hover {
-  box-shadow: 
-    0 18px 38px rgba(0, 0, 0, 0.55),
-    0 4px 12px rgba(0, 0, 0, 0.3),
-    inset 0 1px 2px rgba(255, 255, 255, 0.65);
-}
-
-/* Folder Silhouette Tab */
-.project-folder-tab {
-  position: absolute;
-  top: -12px;
-  left: 20px;
-  width: 100px;
-  height: 14px;
-  background: inherit;
-  border-radius: 8px 8px 0 0;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Folder Card Body */
-.project-folder-body {
-  position: relative;
-  z-index: 2;
+.drawer-top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
 }
 
-.project-folder-info {
-  display: flex;
-  flex-direction: column;
-  max-width: 620px;
-}
-
-.project-folder-num-wrap {
+.drawer-category-badge {
   display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 0.25rem;
-}
-
-.project-folder-num {
-  font-family: var(--font-body, system-ui, sans-serif);
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: #08060D;
-  line-height: 1;
-}
-
-.project-folder-num-line {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: #08060D;
-  margin-top: 2px;
-  border-radius: 1px;
-}
-
-.project-folder-title {
-  font-family: var(--font-heading, system-ui, sans-serif);
-  font-size: clamp(1.25rem, 2.2vw, 1.85rem);
-  font-weight: 900;
-  color: #08060D;
-  margin: 0 0 0.25rem;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.project-folder-desc {
-  font-family: var(--font-body, system-ui, sans-serif);
-  font-size: clamp(0.76rem, 0.95vw, 0.88rem);
-  font-weight: 500;
-  color: rgba(8, 6, 13, 0.88);
-  margin: 0;
-  line-height: 1.35;
-  max-width: 580px;
-}
-
-/* Playful Arrow & Circular Button */
-.project-folder-action {
-  display: flex;
   align-items: center;
-  gap: 0.95rem;
-  flex-shrink: 0;
+  border: 1px solid transparent;
+  padding: 4px 11px;
+  border-radius: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
 
-.project-folder-arrow {
-  width: 55px;
-  height: 28px;
-  overflow: visible;
-  transition: transform 0.22s ease;
-}
-
-.project-folder-card:hover .project-folder-arrow {
-  transform: translateX(4px) scale(1.05);
-}
-
-.project-folder-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #08060D;
-  color: #FFFFFF;
+.drawer-close-btn {
+  background: none;
   border: none;
+  color: rgba(248, 247, 255, 0.5);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.drawer-close-btn:hover {
+  color: #FFFFFF;
+}
+
+.drawer-body {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(1.2rem, 3vw, 2.5rem);
+  align-items: center;
+}
+
+.drawer-info-left {
   display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.drawer-project-title {
+  font-family: var(--font-editorial, 'Newsreader', serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: #F8F7FF;
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.drawer-project-desc {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 0.96vw, 0.94rem);
+  color: rgba(248, 247, 255, 0.74);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.drawer-meta-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  border-left: 1px solid rgba(248, 247, 255, 0.08);
+  padding-left: clamp(1rem, 2vw, 1.8rem);
+}
+
+.drawer-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.drawer-meta-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(248, 247, 255, 0.45);
+}
+
+.drawer-meta-val {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: #F8F7FF;
+  font-weight: 500;
+}
+
+/* Primary View Case Study CTA Button: About page pill style */
+.drawer-cta-btn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+  background: #FFFFFF;
+  color: #090710;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.8rem 1.6rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+  margin-top: 0.4rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.project-folder-card:hover .project-folder-btn {
-  transform: scale(1.08);
-  background: #000000;
+.drawer-cta-btn:hover {
+  background: #F8F7FF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.18);
 }
 
-/* ==========================================================================
-   FOLDER COLOUR PALETTES
-   ========================================================================== */
-.folder--yellow {
-  background: #FFE500;
+.drawer-cta-arrow {
+  font-size: 1.05rem;
+  transition: transform 0.2s ease;
 }
 
-.folder--purple {
-  background: #D8B4FE;
+.drawer-cta-btn:hover .drawer-cta-arrow {
+  transform: translateX(4px);
 }
 
-.folder--green {
-  background: #00E676;
-}
-
-.folder--coral {
-  background: #FF7AA2;
-}
-
-/* ==========================================================================
-   RESPONSIVE DESIGN (TABLET & MOBILE)
-   ========================================================================== */
-@media (max-width: 768px) {
-  .selected-work-section {
-    min-height: 100vh;
-    min-height: 100dvh;
-    padding: 3.8rem 0.85rem 3.5rem;
+@media (max-width: 720px) {
+  .drawer-body {
+    grid-template-columns: 1fr;
   }
-
-  .selected-work-folders-stack {
-    gap: 0.85rem;
+  .drawer-meta-right {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-left: 0;
+    padding-top: 0.75rem;
   }
+}
 
-  .project-folder-card {
-    padding: 0.85rem 1rem 0.95rem;
+@media (max-width: 520px) {
+  .selected-work-strip {
+    padding: 0.15rem 1.1rem 0.22rem;
+  }
+  .selected-work-title-text {
+    font-size: 2.1rem;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   BOTTOM TRANSITION GRADIENT
+   Smooth gradient under shelf transitioning into the next section.
+───────────────────────────────────────────────────────────────────────── */
+.selected-work-bottom-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 50%, rgba(245, 239, 235, 0.08) 100%);
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .shelf-preview-drawer {
+    animation: none !important;
+  }
+  .drawer-cta-btn:hover {
     transform: none !important;
-  }
-
-  .project-folder-body {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.65rem;
-  }
-
-  .project-folder-action {
-    align-self: flex-end;
-    gap: 0.65rem;
-  }
-
-  .project-folder-arrow {
-    width: 44px;
-    height: 22px;
-  }
-
-  .project-folder-btn {
-    width: 36px;
-    height: 36px;
   }
 }

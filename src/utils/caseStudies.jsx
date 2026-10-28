@@ -105,6 +105,66 @@ export const CASE_STUDIES = [
           {
             id: 'screen-003',
             label: 'Product 003',
+            name: 'Awwja',
+            color: '#E06D28', // Warm Terracotta / Burnt Orange
+            principle: 'Automated negotiation & early access momentum',
+            principles: [
+              { name: 'Value Proposition Priming', detail: 'Explaining automated price discovery before asking for contact info.' },
+              { name: 'Zero-Friction Demand Capture', detail: 'Single-field waitlist entry with instant viral queue confirmation.' },
+              { name: 'Dual-Platform Fluidity', detail: 'Seamless visual continuity between mobile feed and desktop web.' }
+            ],
+            insight: 'A high-converting onboarding and early-access waitlist flow that communicates the value of an automated negotiation machine while capturing qualified demand with zero drop-off.',
+            tags: ['Waitlist', 'Conversion Engine', 'Mobile Flow'],
+            status: 'complete',
+            fullCaseStudyUrl: '#',
+            images: [
+              '/assets/awwja - 1.png',
+              '/assets/awwja - 2.png',
+              '/assets/awwja - 3.png',
+              '/assets/awwja - 4.png',
+              '/assets/awwja - 5.png',
+              '/assets/awwja - 6.png',
+              '/assets/awwja - 7.png',
+              '/assets/awwja - 8.png',
+            ],
+          },
+          {
+            id: 'screen-004',
+            label: 'Product 004',
+            name: 'Skinfolio',
+            color: '#F472B6', // Warm Rose Skincare
+            principle: 'Personalized ritual & ingredient transparency',
+            principles: [
+              { name: 'Diagnostic Assessment', detail: 'Dynamic multi-step skin profile quiz that personalizes AM/PM routines.' },
+              { name: 'Active Ingredient Breakdown', detail: 'High-clarity formulation callouts highlighting safe vs contraindicated actives.' },
+              { name: 'Progress Calibration', detail: 'Daily habit streaks and photo logging cadence that drive day-1 retention.' }
+            ],
+            insight: 'A personalized skincare diagnostic onboarding experience that analyzes skin concerns, decodes complex formulations, and crafts an individualized daily ritual with zero fluff.',
+            tags: ['Skincare Diagnostic', 'Personalization', 'Mobile App'],
+            status: 'complete',
+            fullCaseStudyUrl: '#',
+            images: [],
+          },
+          {
+            id: 'screen-005',
+            label: 'Product 005',
+            name: 'Scan2Supper',
+            color: '#10B981', // Fresh Culinary Emerald
+            principle: 'From pantry chaos to delicious dinner',
+            principles: [
+              { name: 'Zero-Waste Camera Scan', detail: 'Instant camera recognition of pantry staples and fridge leftovers.' },
+              { name: 'Dietary & Craving Profiling', detail: 'Tailoring instant recipes around prep time, appliances, and dietary goals.' },
+              { name: 'Frictionless First Cook', detail: 'Immediate 1-tap recipe generation on step one without account gates.' }
+            ],
+            insight: 'An intelligent culinary onboarding flow that scans ingredients you already own to eliminate dinner decision fatigue, match dietary goals, and reduce kitchen waste.',
+            tags: ['AI Recipe Engine', 'Pantry Scanner', 'Zero Waste'],
+            status: 'complete',
+            fullCaseStudyUrl: '#',
+            images: [],
+          },
+          {
+            id: 'screen-006',
+            label: 'Product 006',
             name: 'In Progress',
             color: '#06b6d4', // Cyan
             principle: 'TBD',
@@ -387,7 +447,7 @@ export const CASE_STUDIES = [
         }}
       />
     ),
-    category: 'LUXURY PRESS-ON ATELIER',
+    category: 'PREMIUM PRESS-ON STUDIO',
     title: 'NailExpress',
     role: 'Product Design • UX Research • Design Systems',
     duration: '2 Months',
@@ -407,7 +467,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'The Challenge',
-        body: 'Luxury press-on nails face a fundamental digital hurdle: **how do you convey tactile handcrafted quality, eliminate sizing anxiety, and convert social media followers without the friction of traditional ecommerce?**\n\nIn emerging markets like Nigeria, customers are hesitant to buy press-ons online because they cannot physically feel the thickness or finish, feel overwhelmed by abstract sizing charts, and are forced into unstructured WhatsApp conversations to complete a purchase.\n\nNailExpress needed a digital experience that blended high-fashion atelier storytelling with intuitive visual guidance and effortless checkout flow.'
+        body: 'Luxury press-on nails face a fundamental digital hurdle: **how do you convey tactile handcrafted quality, eliminate sizing anxiety, and convert social media followers without the friction of traditional ecommerce?**\n\nIn emerging markets like Nigeria, customers are hesitant to buy press-ons online because they cannot physically feel the thickness or finish, feel overwhelmed by abstract sizing charts, and are forced into unstructured WhatsApp conversations to complete a purchase.\n\nNailExpress needed a digital experience that blended high-fashion studio storytelling with intuitive visual guidance and effortless checkout flow.'
       },
       {
         type: 'text-block',
@@ -532,7 +592,7 @@ export const CASE_STUDIES = [
         }}
       />
     ),
-    category: 'LUXURY PRESS-ON ATELIER',
+    category: 'PREMIUM PRESS-ON STUDIO',
     title: 'NailExpress',
     role: 'Product Designer • UX Writer • Design Engineer',
     duration: '2 Months',
@@ -758,7 +818,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: '2. Key Design & UX Writing Decisions',
-        body: '• **Information Hierarchy Over Fluff:** Kept critical order specs (custom sizing matrices, length, shapes, reference photo links, delivery address) immediately scannable above the fold.\n• **Empathetic Brand Voice vs System Noise:** Balanced luxury editorial polish with grounded, reassuring guidance. Every email reads like a direct note from the nail artist rather than an unfeeling server log.\n• **Single Focused Intent per Touchpoint:** Each trigger has a singular objective - confirming bespoke specs, providing carrier expectations, walking through unboxing & cuticle prep, restoring abandoned carts with concierge support, or transparently explaining refund timelines.\n• **Managing Post-Purchase Anxiety (WISMO Reduction):** Clearly distinguished between *atelier crafting time* (2-3 business days for hand-painted art) and *courier transit time*, eliminating post-checkout doubts before they become support tickets.'
+        body: '• **Information Hierarchy Over Fluff:** Kept critical order specs (custom sizing matrices, length, shapes, reference photo links, delivery address) immediately scannable above the fold.\n• **Empathetic Brand Voice vs System Noise:** Balanced luxury editorial polish with grounded, reassuring guidance. Every email reads like a direct note from the nail artist rather than an unfeeling server log.\n• **Single Focused Intent per Touchpoint:** Each trigger has a singular objective - confirming bespoke specs, providing carrier expectations, walking through unboxing & cuticle prep, restoring abandoned carts with concierge support, or transparently explaining refund timelines.\n• **Managing Post-Purchase Anxiety (WISMO Reduction):** Clearly distinguished between *studio crafting time* (2-3 business days for hand-painted art) and *courier transit time*, eliminating post-checkout doubts before they become support tickets.'
       },
       {
         type: 'diagram',
@@ -895,7 +955,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: '5. Outcomes & Strategic Impact',
-        body: '• **Minimizing WISMO Inquiries:** Setting upfront crafting vs transit timeline expectations at every milestone eliminates repetitive "where is my order" queries.\n• **Higher Bespoke & Drop Conversion:** Transforming dead-end sold-out states and unformatted custom DMs into structured, automated communication flows captured 100% of latent customer intent.\n• **Unified Omni-Channel Brand Voice:** Seamlessly connecting social media storytelling with transactional email copy and storefront UX created an instantly recognizable, trustworthy atelier identity.\n• **Frictionless Recovery:** Context-aware recovery emails with 1-click cart restoration and WhatsApp concierge links turn checkout drop-offs into completed sales.\n• **Operational Agility:** Real-time admin alerts with embedded specs and images enable the solo artisan to triage, price, and pack orders without manual spreadsheet tracking.'
+        body: '• **Minimizing WISMO Inquiries:** Setting upfront crafting vs transit timeline expectations at every milestone eliminates repetitive "where is my order" queries.\n• **Higher Bespoke & Drop Conversion:** Transforming dead-end sold-out states and unformatted custom DMs into structured, automated communication flows captured 100% of latent customer intent.\n• **Unified Omni-Channel Brand Voice:** Seamlessly connecting social media storytelling with transactional email copy and storefront UX created an instantly recognizable, trustworthy brand identity.\n• **Frictionless Recovery:** Context-aware recovery emails with 1-click cart restoration and WhatsApp concierge links turn checkout drop-offs into completed sales.\n• **Operational Agility:** Real-time admin alerts with embedded specs and images enable the solo artisan to triage, price, and pack orders without manual spreadsheet tracking.'
       }
     ]
   }

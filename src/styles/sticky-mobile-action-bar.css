@@ -1,0 +1,104 @@
+/* ==========================================================================
+   STICKY MOBILE ACTION BAR
+   Sticky fixed buttons at the bottom of the page on mobile viewports.
+   ========================================================================== */
+
+.sticky-mobile-action-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sticky-mobile-action-bar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    padding: 10px 16px max(12px, env(safe-area-inset-bottom)) 16px;
+    background: rgba(12, 10, 18, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.6);
+  }
+
+  .sticky-mobile-action-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .sticky-action-btn {
+    flex: 1;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 9999px;
+    font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, opacity 0.2s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .sticky-action-btn:active {
+    transform: scale(0.97);
+  }
+
+  /* Hire Me Button: Clean, tactile cream parchment / metal pill */
+  .sticky-action-btn--hire {
+    background: #F7F5EE;
+    color: #1A1816;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+  }
+
+  .sticky-action-btn--hire:hover {
+    background: #FFFFFF;
+    color: #000000;
+  }
+
+  /* Book a Call Button: Glowing vibrant copper / purple gradient */
+  .sticky-action-btn--book {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #8B5CF6 0%, #D946EF 50%, #F59E0B 100%);
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(217, 70, 239, 0.45), 0 2px 6px rgba(0, 0, 0, 0.4);
+  }
+
+  .sticky-action-btn--book:hover {
+    box-shadow: 0 6px 22px rgba(217, 70, 239, 0.6);
+  }
+
+  .sticky-action-btn__glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transform: translateX(-100%);
+    animation: stickyBtnShimmer 3.2s infinite;
+    pointer-events: none;
+  }
+
+  @keyframes stickyBtnShimmer {
+    0% { transform: translateX(-100%); }
+    25%, 100% { transform: translateX(100%); }
+  }
+
+  /* Add bottom padding to body/main container on mobile so content is not obscured */
+  .about-page-container {
+    padding-bottom: 76px !important;
+  }
+}

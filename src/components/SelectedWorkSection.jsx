@@ -1,164 +1,246 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { CASE_STUDIES } from '../utils/caseStudies'
-import DeckleDivider from './DeckleDivider'
-import '../styles/selected-work-section.css'
+import React, { useState, useCallback } from 'react';
+import { CASE_STUDIES } from '../utils/caseStudies';
+import DeckleDivider from './DeckleDivider';
+import '../styles/selected-work-section.css';
 
-// Top 3 Flagship Projects from caseStudies.jsx sized to fit in one viewport
-const SELECTED_PROJECT_IDS = [
+/**
+ * SELECTED WORK SECTION — Interactive Desk Shelf
+ * Reverts to original heading: "Some of the things I've built."
+ * Pure black #000000 background (alternating from parchment).
+ * Top DeckleDivider transitions from parchment into black.
+ * Complete Desk Shelf image with zero cropping/cut-off on any screen width.
+ * Clicking a book opens the lower preview drawer with description, platform & CTA.
+ * Bottom gradient softly transitions toward the next section.
+ */
+
+const SHELF_PROJECTS = [
   {
-    id: 'designer-2',
-    num: '01',
+    id: 'awwja',
+    caseStudyId: 'designer-2',
     name: 'Awwja',
-    tag: 'NEGOTIATION MACHINE',
-    desc: 'An interactive negotiation machine and structured workflow designed to make buyer-seller transactions clear, effortless, and error-tolerant.',
-    colorClass: 'folder--yellow',
-    rotation: '-1deg',
-    arrowType: 'curve-up'
+    category: 'NEGOTIATION PLATFORM',
+    color: '#FE9784',
+    bgTint: 'rgba(254, 151, 132, 0.14)',
+    borderTint: 'rgba(254, 151, 132, 0.28)',
+    platform: 'Web App',
+    role: 'Product Design • Branding',
+    desc: 'An interactive negotiation engine and structured workflow designed to make buyer-seller transactions clear, effortless, and error-tolerant.',
+    accessibleLabel: 'Select Awwja project',
+    left: '19.1%',
+    top: '11.0%',
+    width: '14.0%',
+    height: '66.1%'
   },
   {
-    id: 'designer-3',
-    num: '02',
+    id: 'onboarding',
+    caseStudyId: 'designer-onboarding',
+    name: 'Onboarding Screens Collection',
+    shortName: 'Onboarding',
+    category: 'SELF CHALLENGE • MOBILE UX',
+    color: '#ECC8B2',
+    bgTint: 'rgba(236, 200, 178, 0.14)',
+    borderTint: 'rgba(236, 200, 178, 0.28)',
+    platform: 'Mobile Experiences',
+    role: 'Product Design',
+    desc: 'A growing collection of focused onboarding screen designs, each exploring a single cognitive and behavioral design principle for first impressions.',
+    accessibleLabel: 'Select Onboarding Screens Collection',
+    left: '33.1%',
+    top: '11.0%',
+    width: '11.4%',
+    height: '66.1%'
+  },
+  {
+    id: 'gino',
+    caseStudyId: 'writer-4',
+    name: 'Gino World Jollof Festival',
+    shortName: 'Gino',
+    category: 'GINO WORLD JOLLOF FESTIVAL',
+    color: '#D47A78',
+    bgTint: 'rgba(212, 122, 120, 0.14)',
+    borderTint: 'rgba(212, 122, 120, 0.28)',
+    platform: 'Email Communications',
+    role: 'UX Writer',
+    desc: 'An in-depth UX writing audit and communication redesign that eliminated vendor ambiguity and restored participant trust for a Guinness World Record event.',
+    accessibleLabel: 'Select Gino World Jollof Festival project',
+    left: '44.5%',
+    top: '11.0%',
+    width: '11.6%',
+    height: '66.1%'
+  },
+  {
+    id: 'saferide',
+    caseStudyId: 'designer-1',
+    name: 'SafeRide Mode™',
+    shortName: 'SafeRide',
+    category: 'UX EXPLORATION • RIDE SAFETY',
+    color: '#A4B69B',
+    bgTint: 'rgba(164, 182, 155, 0.16)',
+    borderTint: 'rgba(164, 182, 155, 0.32)',
+    platform: 'Mobile App',
+    role: 'Product Design • UX Research',
+    desc: 'A proactive safety and emergency assistance framework designed into rideshare journeys, giving passengers instant panic triggers and automated status tracking.',
+    accessibleLabel: 'Select SafeRide Mode project',
+    left: '56.1%',
+    top: '11.0%',
+    width: '11.8%',
+    height: '66.1%'
+  },
+  {
+    id: 'vurdict',
+    caseStudyId: 'designer-3',
     name: 'Vurdict',
-    tag: 'AI PORTFOLIO REVIEWER',
-    desc: 'An intelligent portfolio critique and heuristic review platform engineered to give designers and builders instant, actionable feedback.',
-    colorClass: 'folder--purple',
-    rotation: '1deg',
-    arrowType: 'curve-down'
-  },
-  {
-    id: 'designer-4',
-    num: '03',
-    name: 'NailExpress',
-    tag: 'LUXURY PRESS-ON ATELIER',
-    desc: 'A bespoke e-commerce experience designed and engineered for a modern luxury nail atelier, making sizing, discovery, and ordering seamless.',
-    colorClass: 'folder--green',
-    rotation: '-0.7deg',
-    arrowType: 'curve-up'
+    category: 'AI PORTFOLIO REVIEWER',
+    color: '#A0A3CE',
+    bgTint: 'rgba(160, 163, 206, 0.16)',
+    borderTint: 'rgba(160, 163, 206, 0.32)',
+    platform: 'Progressive Web App',
+    role: 'Product Strategy • UX/UI • Full-Stack',
+    desc: 'An intelligent portfolio critique and heuristic review platform engineered to give designers and builders instant, actionable feedback in under 5 minutes.',
+    accessibleLabel: 'Select Vurdict project',
+    left: '68.0%',
+    top: '10.5%',
+    width: '12.2%',
+    height: '66.5%',
+    transform: 'rotate(-10.8deg)',
+    transformOrigin: 'top left'
   }
-]
+];
 
 export default function SelectedWorkSection({ onSelectProject }) {
-  const handleOpenCaseStudy = (projectId, e) => {
-    e.preventDefault()
-    const found = CASE_STUDIES.find(cs => cs.id === projectId)
-    if (found && onSelectProject) {
-      onSelectProject(found)
-    } else {
-      window.location.hash = `#${projectId}`
+  const [selectedBookId, setSelectedBookId] = useState(null);
+
+  const handleBookClick = useCallback((bookId) => {
+    setSelectedBookId((prev) => (prev === bookId ? null : bookId));
+  }, []);
+
+  const activeProject = SHELF_PROJECTS.find((p) => p.id === selectedBookId);
+  const activeCaseStudy = activeProject ? CASE_STUDIES.find((cs) => cs.id === activeProject.caseStudyId) : null;
+
+  const handleViewCaseStudy = useCallback(() => {
+    if (activeCaseStudy && onSelectProject) {
+      onSelectProject(activeCaseStudy);
     }
-  }
+  }, [activeCaseStudy, onSelectProject]);
 
   return (
-    <section className="selected-work-section" aria-label="Some of the things I've built">
-      {/* Canonical Deckle Paper Edge Transition: Parchment Section 2 into Dark Section 3 */}
-      <DeckleDivider type="top" fill="#000000" />
-
+    <section
+      id="selected-work"
+      className="selected-work-section"
+      aria-label="Some of the things I've built"
+    >
       <div className="selected-work-container">
-
-        {/* Heading in Modak font: Strictly Black and White Only */}
+        {/* Heading in Modak font: Tilted Paper Strips with Non-Yellow Accent */}
         <header className="selected-work-header">
-          <div className="selected-work-strip-top">
-            <span className="selected-work-title-text">Some of the</span>
+          <div className="selected-work-strip selected-work-strip--top">
+            <h2 className="selected-work-title-text">Some of the</h2>
           </div>
-          <div className="selected-work-strip-bottom">
+          <div className="selected-work-strip selected-work-strip--bottom">
             <span className="selected-work-title-text">things I've built.</span>
           </div>
         </header>
 
-        {/* Stacked Project Folder Cards (Fits in One Viewport) */}
-        <div className="selected-work-folders-stack" role="list">
-          {SELECTED_PROJECT_IDS.map((item, idx) => {
-            const caseStudy = CASE_STUDIES.find(cs => cs.id === item.id)
-            const title = caseStudy?.title || item.name
-            const desc = caseStudy?.goal || item.desc
-
-            return (
-              <motion.article
-                key={item.id}
-                className={`project-folder-card ${item.colorClass}`}
-                style={{ '--folder-rot': item.rotation }}
-                role="listitem"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 0.5,
-                  delay: idx * 0.08,
-                  ease: [0.16, 1, 0.3, 1]
-                }}
-                whileHover={{
-                  y: -5,
-                  scale: 1.015,
-                  zIndex: 15,
-                  transition: { duration: 0.2 }
-                }}
-                onClick={(e) => handleOpenCaseStudy(item.id, e)}
-              >
-                {/* Folder Silhouette Tab */}
-                <div className="project-folder-tab" aria-hidden="true" />
-
-                <div className="project-folder-body">
-                  {/* Left Column: Number, Title, Description */}
-                  <div className="project-folder-info">
-                    <div className="project-folder-num-wrap">
-                      <span className="project-folder-num">{item.num}</span>
-                      <span className="project-folder-num-line" aria-hidden="true" />
-                    </div>
-
-                    <h3 className="project-folder-title">{title}</h3>
-                    <p className="project-folder-desc">{desc}</p>
-                  </div>
-
-                  {/* Right Column: Playful Hand-drawn Arrow + Circular Action Button */}
-                  <div className="project-folder-action">
-                    <svg
-                      className={`project-folder-arrow project-folder-arrow--${item.arrowType}`}
-                      viewBox="0 0 100 45"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      {item.arrowType === 'curve-up' ? (
-                        <path
-                          d="M 5,35 Q 45,5 82,24 M 72,14 L 84,24 L 75,34"
-                          stroke="#08060D"
-                          strokeWidth="2.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      ) : (
-                        <path
-                          d="M 5,10 Q 40,40 82,20 M 73,12 L 84,21 L 74,32"
-                          stroke="#08060D"
-                          strokeWidth="2.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      )}
-                    </svg>
-
-                    <button
-                      type="button"
-                      className="project-folder-btn"
-                      aria-label={`View ${title} case study`}
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        handleOpenCaseStudy(item.id, e)
-                      }}
-                    >
-                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                        <line x1="5" y1="12" x2="19" y2="12" />
-                        <polyline points="12 5 19 12 12 19" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </motion.article>
-            )
-          })}
+        {/* Tactile prompt midway between heading and shelf */}
+        <div className="shelf-explore-prompt" aria-hidden="true">
+          <span className="shelf-prompt-tape" />
+          <span className="shelf-prompt-text">click on a book to explore</span>
+          <span className="shelf-prompt-arrow">&darr;</span>
         </div>
 
+        {/* Desk Shelf Artwork Stage with 5 Interactive Book Hotspots */}
+        <div className="desk-shelf-stage">
+          <div className="desk-shelf-art-wrapper">
+            <img
+              src="/assets/shelf-img.jpg"
+              alt="Selected Work desk shelf with books: Awwja, Onboarding, Gino World Jollof Festival, SafeRide Mode, and Vurdict"
+              className="desk-shelf-image"
+              width="2752"
+              height="1536"
+              loading="eager"
+              decoding="async"
+            />
+
+            {/* 5 Transparent Clickable Hotspots strictly within book boundaries */}
+            {SHELF_PROJECTS.map((book) => {
+              const isSelected = selectedBookId === book.id;
+              return (
+                <button
+                  key={book.id}
+                  type="button"
+                  className={"desk-shelf-hotspot " + (isSelected ? "desk-shelf-hotspot--selected" : "")}
+                  aria-label={book.accessibleLabel}
+                  title={"Click to explore " + book.name}
+                  style={{
+                    left: book.left,
+                    top: book.top,
+                    width: book.width,
+                    height: book.height,
+                    ...(book.transform ? { transform: book.transform, transformOrigin: book.transformOrigin } : {})
+                  }}
+                  onClick={() => handleBookClick(book.id)}
+                />
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Lower Project Details Drawer with Short Description, Platform & CTA */}
+        {activeProject && (
+          <div className="shelf-preview-drawer" role="region" aria-live="polite">
+            <div className="drawer-inner-card">
+              {/* Header: Category Badge & Close Button */}
+              <div className="drawer-top-bar">
+                <div
+                  className="drawer-category-badge"
+                  style={{
+                    color: activeProject.color,
+                    backgroundColor: activeProject.bgTint,
+                    borderColor: activeProject.borderTint
+                  }}
+                >
+                  <span>{activeProject.category}</span>
+                </div>
+                <button
+                  type="button"
+                  className="drawer-close-btn"
+                  aria-label="Close project preview"
+                  onClick={() => setSelectedBookId(null)}
+                >
+                  &times;
+                </button>
+              </div>
+
+              {/* Main Content */}
+              <div className="drawer-body">
+                <div className="drawer-info-left">
+                  <h3 className="drawer-project-title">{activeProject.name}</h3>
+                  <p className="drawer-project-desc">{activeProject.desc}</p>
+                </div>
+
+                <div className="drawer-meta-right">
+                  <div className="drawer-meta-item">
+                    <span className="drawer-meta-label">PLATFORM</span>
+                    <span className="drawer-meta-val">{activeProject.platform}</span>
+                  </div>
+                  <div className="drawer-meta-item">
+                    <span className="drawer-meta-label">ROLE</span>
+                    <span className="drawer-meta-val">{activeProject.role}</span>
+                  </div>
+
+                  {/* Primary CTA: Launches the complete Case Study Viewer Modal */}
+                  <button
+                    type="button"
+                    className="drawer-cta-btn"
+                    onClick={handleViewCaseStudy}
+                  >
+                    <span>View Case Study</span>
+                    <span className="drawer-cta-arrow">&rarr;</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
-  )
+  );
 }

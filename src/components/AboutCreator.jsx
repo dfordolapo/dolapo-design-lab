@@ -3,10 +3,12 @@ import { motion } from 'framer-motion'
 import TopBar from './TopBar'
 import Scrapbook from './Scrapbook'
 import DotPortrait from './DotPortrait'
-import EnvelopeSection from './EnvelopeSection'
+import SkillCharmsSection from './SkillCharmsSection'
 import SelectedWorkSection from './SelectedWorkSection'
+import WorkbenchSection from './WorkbenchSection'
 import DeckleDivider from './DeckleDivider'
-import CaseStudyViewer from './CaseStudyViewer'
+import AboutCaseStudyModal from './AboutCaseStudyModal'
+import StickyMobileActionBar from './StickyMobileActionBar'
 import usePageSEO from '../hooks/usePageSEO'
 import useSoundEffects from '../hooks/useSoundEffects'
 import '../styles/about-creator.css'
@@ -42,7 +44,7 @@ const MILESTONES = [
     desc: 'Learning to code and ship products.',
     annotation: 'Curiosity turned into capability.',
     image: '/assets/journey-04-build.jpg',
-    alt: 'Atmospheric late-night coding setup overlooking the illuminated Lekki bridge in Lagos'
+    alt: 'Simple laptop screen with an IDE coding on a wooden desk in bright daylight'
   },
   {
     num: '05',
@@ -69,6 +71,14 @@ export default function AboutCreator({ onBack }) {
   const journeyRef = useRef(null)
   const quoteRef = useRef(null)
   const [activeCaseStudy, setActiveCaseStudy] = useState(null)
+
+  const handleNavigate = (path) => {
+    playClick()
+    if (typeof window !== 'undefined') {
+      window.history.pushState({}, '', path)
+      window.dispatchEvent(new Event('popstate'))
+    }
+  }
 
   // Animated headline typing state (fast load, finishes in ~900ms)
   const [headlineTypedCount, setHeadlineTypedCount] = useState(0)
@@ -262,10 +272,61 @@ export default function AboutCreator({ onBack }) {
     }
   }, [])
 
+  const scrollContainerRef = useRef(null)
+  const [isOverLightBg, setIsOverLightBg] = useState(false)
+
+  useEffect(() => {
+    const container = scrollContainerRef.current
+
+    let rafId = null
+    const checkBackground = () => {
+      const navY = 44 // Vertical sampling height for floating top bar pill
+
+      // Only Skill Charms and Journey Map have light parchment backgrounds (#F5EFEB).
+      // Hero, Selected Work, Workbench, Scrapbook, and Footer are all on dark/black backgrounds.
+      const lightSections = document.querySelectorAll('.skill-charms-section, .about-journey-section')
+      let overLight = false
+
+      for (const sec of lightSections) {
+        const rect = sec.getBoundingClientRect()
+        if (rect.top <= navY && rect.bottom >= navY) {
+          overLight = true
+          break
+        }
+      }
+
+      setIsOverLightBg(overLight)
+    }
+
+    const onScroll = () => {
+      if (rafId) cancelAnimationFrame(rafId)
+      rafId = requestAnimationFrame(checkBackground)
+    }
+
+    if (container) {
+      container.addEventListener('scroll', onScroll, { passive: true })
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    document.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll, { passive: true })
+
+    checkBackground()
+    const interval = setInterval(checkBackground, 200)
+
+    return () => {
+      if (container) container.removeEventListener('scroll', onScroll)
+      window.removeEventListener('scroll', onScroll)
+      document.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+      clearInterval(interval)
+      if (rafId) cancelAnimationFrame(rafId)
+    }
+  }, [])
+
   return (
-    <div className="about-page-container">
-      {/* Sitewide TopBar matching the rest of the application */}
-      <TopBar onBack={onBack} title="" forceDark={true} />
+    <div className="about-page-container" ref={scrollContainerRef}>
+      {/* Sitewide TopBar: white on black background, dark on parchment background */}
+      <TopBar isMainPage={true} variant={isOverLightBg ? 'dark' : 'white'} />
 
       <main role="main">
         {/* ==================================================================
@@ -382,14 +443,19 @@ export default function AboutCreator({ onBack }) {
         </section>
 
         {/* ==================================================================
-            SECTION 2: “I DON’T STOP AT THE DESIGNS” (KRAFT ENVELOPE + 8 NOTES)
+            SECTION 2: “I DON’T STOP AT THE DESIGNS” (SKILL CHARMS)
             ================================================================== */}
-        <EnvelopeSection />
+        <SkillCharmsSection />
 
         {/* ==================================================================
             SECTION 3: “SOME OF THE THINGS I’VE BUILT” / SELECTED WORK
             ================================================================== */}
         <SelectedWorkSection onSelectProject={setActiveCaseStudy} />
+
+        {/* ==================================================================
+            SECTION: “TOOLS ON MY WORKBENCH”
+            ================================================================== */}
+        <WorkbenchSection />
 
         {/* ==================================================================
             SECTION 4: THE JOURNEY MAP
@@ -409,9 +475,6 @@ export default function AboutCreator({ onBack }) {
                 <span>Not a <span className="about-highlight-journey">straight line</span>,</span>{' '}
                 <span className="about-journey-headline-break">but a <span className="about-highlight-warm">good one</span>.</span>
               </h2>
-              <p className="about-journey-intro">
-                From poetry to product design, UX writing, and building: here's how it all connects.
-              </p>
             </header>
 
             {/* Desktop Timeline (Horizontal Winding Path passing through the images) */}
@@ -523,15 +586,15 @@ export default function AboutCreator({ onBack }) {
               ))}
             </div>
           </div>
+
+          {/* Canonical Deckle Paper Edge Transition: Parchment Journey Map into Dark Beyond Section */}
+          <DeckleDivider type="bottom" fill="var(--about-parchment-bg)" />
         </section>
 
         {/* ==================================================================
-            SECTION 3: BEYOND THE WORKSPACE
+            SECTION 5: BEYOND THE WORKSPACE
             ================================================================== */}
         <section className="about-beyond-section" aria-label="Beyond the workspace">
-          {/* Canonical Deckle Paper Edge Transition: Parchment to Dark */}
-          <DeckleDivider type="top" fill="#090710" />
-
           <div className="about-beyond-inner">
             <header className="about-beyond-header">
               <h2 className="about-beyond-headline">
@@ -543,25 +606,42 @@ export default function AboutCreator({ onBack }) {
               <Scrapbook />
             </div>
 
-            {/* Closing Statement & Lab Session CTA */}
+            {/* Closing Statement & CTAs */}
             <footer className="about-closing-card">
               <h3 className="about-closing-title">
-                <span>Always curious.</span>
-                <span>Always creating.</span>
+                <span>got something brewing?</span>
               </h3>
               <p className="about-closing-text">
-                Whether it's a new product, a good story, or a place I've never been, I like exploring what's possible.
+                is it a product you need to shape, an idea you want to test or a problem to untangle? there's room on my workbench.
               </p>
 
-              <button
-                type="button"
-                className="about-closing-cta-btn"
-                onClick={() => handleNavigate('/book')}
-                onMouseEnter={playHover}
-              >
-                <span>Book a Lab Session</span>
-                <span aria-hidden="true">&rarr;</span>
-              </button>
+              <div className="about-closing-actions">
+                <a
+                  href="/assets/resume.pdf"
+                  download="resume.pdf"
+                  className="about-closing-hire-btn"
+                  onClick={() => playClick()}
+                  onMouseEnter={playHover}
+                  aria-label="Hire Me: Download CV"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                  <span>Hire Me</span>
+                </a>
+
+                <button
+                  type="button"
+                  className="about-closing-cta-btn"
+                  onClick={() => handleNavigate('/book')}
+                  onMouseEnter={playHover}
+                  aria-label="Book a Call"
+                >
+                  <span>Book a Call</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </button>
+              </div>
 
               <svg className="about-closing-signature" width="120" height="34" viewBox="0 0 120 34" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M 10 24 C 30 10, 45 30, 65 15 C 80 5, 95 25, 115 18 M 55 26 Q 75 32 105 28" />
@@ -570,15 +650,18 @@ export default function AboutCreator({ onBack }) {
           </div>
         </section>
 
-        {/* Case Study Viewer Modal for Selected Work */}
+        {/* Editorial Light Case Study Modal for Selected Work */}
         {activeCaseStudy && (
-          <CaseStudyViewer
+          <AboutCaseStudyModal
             key={activeCaseStudy._mountId || activeCaseStudy.id}
             project={activeCaseStudy}
             onClose={() => setActiveCaseStudy(null)}
           />
         )}
       </main>
+
+      {/* Sticky Mobile Action Bar: Fixed to bottom of screen on mobile */}
+      <StickyMobileActionBar onNavigate={handleNavigate} />
     </div>
   )
 }

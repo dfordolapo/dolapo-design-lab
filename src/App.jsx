@@ -51,13 +51,14 @@ export default function App() {
   const initialPath = typeof window !== 'undefined' ? window.location.pathname : '/'
   const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
   const hash = typeof window !== 'undefined' ? window.location.hash : ''
-  const isAbout = initialPath === '/about' || searchParams?.get('view') === 'about' || hash === '#about'
+  const isInbox = initialPath === '/inbox'
   const isDept = initialPath.startsWith('/department/')
-  const isDeptSelect = initialPath === '/departments'
+  const isDeptSelect = initialPath === '/departments' || initialPath === '/vault'
   const isBook = initialPath === '/book'
   const isLab = initialPath === '/lab'
+  const isAbout = initialPath === '/about' || initialPath === '/' || initialPath === '' || searchParams?.get('view') === 'about' || hash === '#about'
   const initialDept = isDept ? initialPath.split('/')[2] : null
-  const hasActiveScreen = isAbout || isDept || isDeptSelect || isBook || isLab || saved?.showDepartmentView || saved?.showDeptSelect
+  const hasActiveScreen = isAbout || isDept || isDeptSelect || isBook || isLab || isInbox || saved?.showDepartmentView || saved?.showDeptSelect
 
   // Respect motion sensitivity
   const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
@@ -70,7 +71,8 @@ export default function App() {
   const [selectedDept, setSelectedDept] = useState(initialDept || saved?.selectedDept || null)
   const [showDepartmentView, setShowDepartmentView] = useState(isDept || (saved?.showDepartmentView || false))
   const [activeProject, setActiveProject] = useState(null)
-  const [showAboutCreator, setShowAboutCreator] = useState(isAbout)
+  const [showAboutCreator, setShowAboutCreator] = useState(isAbout || (!isInbox && !isDeptSelect && !isDept && !isBook && !isLab))
+  const [showInbox, setShowInbox] = useState(isInbox)
   const [showOldLab, setShowOldLab] = useState(isLab)
   const [labStep, setLabStep] = useState('loading')
   const [currentPath, setCurrentPath] = useState(initialPath)
@@ -90,15 +92,17 @@ export default function App() {
       const path = window.location.pathname
       setCurrentPath(path)
       
-      if (path === '/about') {
-        setShowAboutCreator(true)
+      if (path === '/inbox') {
+        setShowInbox(true)
+        setShowAboutCreator(false)
         setShowDepartmentView(false)
         setShowDeptSelect(false)
         setShowElevator(false)
         setShowOldLab(false)
         setActiveProject(null)
-      } else if (path === '/departments') {
+      } else if (path === '/departments' || path === '/vault') {
         setShowDeptSelect(true)
+        setShowInbox(false)
         setShowDepartmentView(false)
         setShowAboutCreator(false)
         setShowElevator(false)
@@ -107,6 +111,7 @@ export default function App() {
       } else if (path === '/projects') {
         setSelectedDept('selected-works')
         setShowDepartmentView(true)
+        setShowInbox(false)
         setShowDeptSelect(false)
         setShowAboutCreator(false)
         setShowElevator(false)
@@ -114,6 +119,7 @@ export default function App() {
         setActiveProject(null)
       } else if (path === '/lab') {
         setShowOldLab(true)
+        setShowInbox(false)
         setShowAboutCreator(false)
         setShowDepartmentView(false)
         setShowDeptSelect(false)
@@ -124,6 +130,7 @@ export default function App() {
         if (dept) {
           setSelectedDept(dept)
           setShowDepartmentView(true)
+          setShowInbox(false)
           setShowDeptSelect(false)
           setShowAboutCreator(false)
           setShowElevator(false)
@@ -131,14 +138,16 @@ export default function App() {
           setActiveProject(null)
         }
       } else if (path === '/book') {
+        setShowInbox(false)
         setShowAboutCreator(false)
         setShowDepartmentView(false)
         setShowDeptSelect(false)
         setShowElevator(false)
         setShowOldLab(false)
         setActiveProject(null)
-      } else if (path === '/' || path === '') {
-        setShowAboutCreator(false)
+      } else if (path === '/' || path === '' || path === '/about') {
+        setShowAboutCreator(true)
+        setShowInbox(false)
         setShowDepartmentView(false)
         setShowDeptSelect(false)
         setShowElevator(false)
@@ -209,7 +218,8 @@ export default function App() {
       setShowDeptSelect(false)
       setShowElevator(false)
       setActiveProject(null)
-      setShowAboutCreator(false)
+      setShowInbox(false)
+      setShowAboutCreator(true)
     }
 
     window.addEventListener('navigate-home', handleNavigateHome)
@@ -222,7 +232,8 @@ export default function App() {
     setShowDeptSelect(false)
     setShowElevator(false)
     setActiveProject(null)
-    setShowAboutCreator(false)
+    setShowInbox(false)
+    setShowAboutCreator(true)
     pushRoute('/')
   }, [pushRoute])
 
@@ -292,26 +303,6 @@ export default function App() {
       )
     }
 
-    if (showAboutCreator) {
-      return (
-        <motion.div
-          key="about"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -15 }}
-          transition={{ duration: 0.35 }}
-          className="screen-wrapper"
-        >
-          <Suspense fallback={<ComponentFallback />}>
-            <AboutCreator onBack={() => {
-              setShowAboutCreator(false)
-              pushRoute('/')
-            }} />
-          </Suspense>
-        </motion.div>
-      )
-    }
-
     if (showDepartmentView) {
       return (
         <motion.div
@@ -376,11 +367,21 @@ export default function App() {
               onSelect={handleDepartmentSelect} 
               onBack={() => {
                 setShowDeptSelect(false)
+                setShowDepartmentView(false)
+                setShowElevator(false)
+                setShowInbox(false)
+                setShowOldLab(false)
+                setShowAboutCreator(true)
                 pushRoute('/')
               }} 
               onOpenAbout={() => {
+                setShowDeptSelect(false)
+                setShowDepartmentView(false)
+                setShowElevator(false)
+                setShowInbox(false)
+                setShowOldLab(false)
                 setShowAboutCreator(true)
-                pushRoute('/about')
+                pushRoute('/')
               }} 
             />
           </Suspense>
@@ -434,63 +435,86 @@ export default function App() {
       )
     }
 
-    // Default view: Gmail-Inspired Inbox Workspace Homepage!
-    return (
-      <motion.div
-        key="inbox-home"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.4 }}
-        className="screen-wrapper"
-      >
-        <InboxLayout
-          onViewProject={handleViewProject}
-          onNavigateRoute={(path) => {
-            if (path === '/about') {
-              setShowAboutCreator(true)
-              pushRoute('/about')
-            } else if (path === '/book') {
-              pushRoute('/book')
-            } else if (path === '/lab') {
+    // Render Inbox Workspace when explicitly navigating to /inbox
+    if (showInbox || currentPath === '/inbox') {
+      return (
+        <motion.div
+          key="inbox-home"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
+          className="screen-wrapper"
+        >
+          <InboxLayout
+            onViewProject={handleViewProject}
+            onNavigateRoute={(path) => {
+              if (path === '/about' || path === '/') {
+                setShowInbox(false)
+                setShowAboutCreator(true)
+                pushRoute('/')
+              } else if (path === '/book') {
+                pushRoute('/book')
+              } else if (path === '/lab') {
+                setLabStep('loading')
+                setShowOldLab(true)
+                pushRoute('/lab')
+              } else if (path.startsWith('/department/')) {
+                const dept = path.split('/')[2]
+                setSelectedDept(dept)
+                setShowDepartmentView(true)
+                pushRoute(path)
+              } else {
+                pushRoute(path)
+              }
+            }}
+            onOpenDepartments={() => {
+              setShowDeptSelect(true)
+              pushRoute('/departments')
+            }}
+            onOpenProjects={() => {
+              setSelectedDept('selected-works')
+              setShowDepartmentView(true)
+              pushRoute('/department/selected-works')
+            }}
+            onOpenLab={() => {
               setLabStep('loading')
               setShowOldLab(true)
               pushRoute('/lab')
-            } else if (path.startsWith('/department/')) {
-              const dept = path.split('/')[2]
-              setSelectedDept(dept)
-              setShowDepartmentView(true)
-              pushRoute(path)
-            } else {
-              pushRoute(path)
-            }
-          }}
-          onOpenDepartments={() => {
-            setShowDeptSelect(true)
-            pushRoute('/departments')
-          }}
-          onOpenProjects={() => {
-            setSelectedDept('selected-works')
-            setShowDepartmentView(true)
-            pushRoute('/department/selected-works')
-          }}
-          onOpenLab={() => {
-            setLabStep('loading')
-            setShowOldLab(true)
-            pushRoute('/lab')
-          }}
-        />
+            }}
+          />
 
-        {/* Full-featured Case Study Viewer on click of any case study in Inbox */}
-        {activeProject && (
-          <Suspense fallback={<ComponentFallback />}>
-            <CaseStudyViewer 
-              key={activeProject._mountId}
-              project={activeProject} 
-              onClose={() => setActiveProject(null)} 
-            />
-          </Suspense>
-        )}
+          {/* Full-featured Case Study Viewer on click of any case study in Inbox */}
+          {activeProject && (
+            <Suspense fallback={<ComponentFallback />}>
+              <CaseStudyViewer 
+                key={activeProject._mountId}
+                project={activeProject} 
+                onClose={() => setActiveProject(null)} 
+              />
+            </Suspense>
+          )}
+        </motion.div>
+      )
+    }
+
+    // Default Main Screen: Dolapo's About Creator Portfolio Homepage!
+    return (
+      <motion.div
+        key="about-main"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.35 }}
+        className="screen-wrapper"
+      >
+        <Suspense fallback={<ComponentFallback />}>
+          <AboutCreator
+            onBack={() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+            }}
+          />
+        </Suspense>
       </motion.div>
     )
   }

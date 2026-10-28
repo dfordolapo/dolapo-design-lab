@@ -377,7 +377,7 @@
   width: 100%;
   background: var(--about-parchment-bg);
   color: var(--about-parchment-text);
-  padding: 5.25rem clamp(1rem, 4vw, 3.5rem);
+  padding: clamp(4.5rem, 7.5vh, 6rem) clamp(1rem, 4vw, 3.5rem) clamp(4.5rem, 7.5vh, 6rem);
   overflow: visible;
 }
 
@@ -702,7 +702,7 @@
   width: 100%;
   background: #090710;
   color: #F8F7FF;
-  padding: clamp(4.5rem, 7vw, 7rem) clamp(1rem, 3.5vw, 3rem) clamp(3.5rem, 6vw, 6rem);
+  padding: clamp(5.2rem, 8.5vh, 7rem) clamp(1rem, 3.5vw, 3rem) clamp(3.5rem, 6vw, 6rem);
   overflow: visible;
 }
 
@@ -792,6 +792,40 @@
   box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
   transition: all 0.25s ease;
   text-decoration: none;
+}
+
+.about-closing-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.about-closing-hire-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: 9999px;
+  background: #F4F1EA;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #1A1816;
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.about-closing-hire-btn:hover {
+  background: #FFFFFF;
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
 }
 
 .about-closing-cta-btn:hover {
@@ -1291,39 +1325,39 @@
 
 /* Tape Placements */
 .scrapbook-tape-strip--top-center {
-  top: -10px;
+  top: 4px;
   left: 50%;
   transform: translateX(-50%) rotate(-1deg);
 }
 
 .scrapbook-tape-strip--top-left {
-  top: -10px;
-  left: 12px;
+  top: 4px;
+  left: 10px;
   transform: rotate(-2.5deg);
 }
 
 .scrapbook-tape-strip--top-right {
-  top: -10px;
-  right: 12px;
+  top: 4px;
+  right: 10px;
   transform: rotate(2deg);
 }
 
 .scrapbook-tape-strip--bottom-center {
-  bottom: -9px;
+  bottom: 8px;
   left: 50%;
   transform: translateX(-50%) rotate(1deg);
 }
 
 /* Headings Highlights */
 .about-highlight-journey {
-  color: var(--about-copper);
+  color: #6D28D9;
   font-style: italic;
 }
 
 .about-highlight-warm {
-  color: #8C442A;
+  color: #4338CA;
   text-decoration: underline;
-  text-decoration-color: rgba(194, 97, 67, 0.4);
+  text-decoration-color: rgba(109, 40, 217, 0.35);
   text-underline-offset: 4px;
 }
 

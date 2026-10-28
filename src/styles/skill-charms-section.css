@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+
+/* ==========================================================================
+   SKILL CHARMS SECTION — "I don't stop at the designs."
+   Parchment background, alternating from dark intro.
+   ========================================================================== */
+
+.skill-charms-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--about-parchment-bg, #F5EFEB);
+  padding: 0 0 clamp(4.5rem, 7.5vh, 6rem);
+  box-sizing: border-box;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skill-charms-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: clamp(4.5rem, 7.5vh, 6rem);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   HEADER BANNER: Tilted Paper Strips with Modak font
+   Bottom strip slightly overlaps the top of the chrome rod.
+───────────────────────────────────────────────────────────────────────── */
+.charms-header-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 20;
+  margin-bottom: clamp(-20px, -2.5vw, -12px);
+  padding: 0 1rem;
+  user-select: none;
+}
+
+.charms-strip {
+  display: inline-block;
+  padding: 0.2rem clamp(1.4rem, 3.2vw, 2.8rem) 0.3rem;
+  border-radius: 14px;
+}
+
+.charms-strip--top {
+  background: #FFFFFF;
+  transform: rotate(-3deg);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.16),
+    0 2px 6px rgba(0, 0, 0, 0.08);
+  z-index: 22;
+}
+
+.charms-strip--bottom {
+  background: #FFD200;
+  transform: rotate(2deg) translateY(-8px);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.18),
+    0 3px 8px rgba(0, 0, 0, 0.1);
+  z-index: 24;
+}
+
+.charms-banner-text {
+  font-family: 'Modak', cursive, system-ui;
+  font-size: clamp(2.4rem, 5.6vw, 4.4rem);
+  font-weight: 400;
+  line-height: 1.08;
+  color: #050408;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   ARTWORK STAGE: Stretches Horizontally Edge-to-Edge on Web & Mobile
+───────────────────────────────────────────────────────────────────────── */
+.charms-artwork-stage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 clamp(0.25rem, 1.5vw, 1.5rem);
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.charms-picture {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+.charms-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.15));
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .charms-header-banner {
+    margin-bottom: -14px;
+  }
+}
+
+@media (max-width: 520px) {
+  .skill-charms-section {
+    padding: 0 0 clamp(3rem, 6vh, 4.5rem);
+  }
+  .charms-artwork-stage {
+    padding: 0 0.25rem;
+  }
+  .charms-strip {
+    padding: 0.15rem 1.1rem 0.22rem;
+  }
+  .charms-banner-text {
+    font-size: 2.1rem;
+  }
+}

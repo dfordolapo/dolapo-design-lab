@@ -415,9 +415,8 @@ export const INITIAL_MESSAGES = [
 export const SIDEBAR_ITEMS = [
   { id: 'inbox', label: 'Inbox', icon: 'inbox', type: 'folder', countKey: 'inbox' },
   { id: 'drafts', label: 'Drafts', icon: 'file', type: 'folder', countKey: 'drafts' },
-  { id: 'departments', label: 'Departments', icon: 'layers', type: 'departments' },
+  { id: 'vault', label: 'Vault', icon: 'layers', type: 'departments' },
   { id: 'projects', label: 'Projects', icon: 'folder', type: 'projects' },
-  { id: 'lab', label: 'Explore Lab', icon: 'compass', type: 'lab' },
   { id: 'about', label: 'About Me', icon: 'user', type: 'about' },
   { id: 'book', label: 'Book a Session', icon: 'calendar', type: 'book' }
 ];

@@ -60,6 +60,22 @@
   --hero-img-interior: url('/assets/hero-image.webp');
 }
 
+/* Prevent iOS Safari and Mobile Browsers from auto-zooming when focusing inputs */
+@media screen and (max-width: 768px) {
+  input,
+  textarea,
+  select,
+  input[type="text"],
+  input[type="email"],
+  input[type="search"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"] {
+    font-size: 16px !important;
+  }
+}
+
 /* Theme Toggle Button */
 .theme-toggle {
   background: var(--bg-glass);
