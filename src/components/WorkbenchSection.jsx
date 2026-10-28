@@ -33,6 +33,19 @@ export default function WorkbenchSection() {
         }
         return null;
       });
+
+      // On mobile viewports, smoothly adjust to keep the opened drawer fully in view
+      if (typeof window !== 'undefined' && window.innerWidth <= 860) {
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            const el = document.getElementById(`drawer-item-${drawerId}`);
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+          }, 80);
+        });
+      }
+
       return drawerId;
     });
   }, []);
@@ -85,6 +98,7 @@ export default function WorkbenchSection() {
                 return (
                   <div
                     key={drawer.id}
+                    id={`drawer-item-${drawer.id}`}
                     className={`workbench-drawer-item ${isOpen ? 'workbench-drawer-item--open' : ''}`}
                   >
                     {/* The Metal Drawer Face Button */}

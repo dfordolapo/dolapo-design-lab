@@ -63,50 +63,23 @@ export default function TopBar({
           </button>
         )}
 
-        {/* Navigation Links */}
-        <nav className="top-bar__nav-links" aria-label="Main Navigation">
-          {!isMainPage && (
-            <button
-              type="button"
-              className="top-bar__nav-link"
-              onClick={handleNavigateHome}
-              onMouseEnter={playHover}
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                <polyline points="9 22 9 12 15 12 15 22"/>
-              </svg>
-              <span>Home</span>
-            </button>
-          )}
-
-          <button
-            type="button"
-            className="top-bar__nav-link"
-            onClick={() => handleNavigate('/departments')}
-            onMouseEnter={playHover}
-          >
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <polygon points="12 2 2 7 12 12 22 7 12 2" />
-              <polyline points="2 17 12 22 22 17" />
-              <polyline points="2 12 12 17 22 12" />
-            </svg>
-            <span>Vault</span>
-          </button>
-
-          <button
-            type="button"
-            className="top-bar__nav-link"
-            onClick={() => handleNavigate('/inbox')}
-            onMouseEnter={playHover}
-          >
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" />
-              <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
-            </svg>
-            <span>Inbox</span>
-          </button>
-        </nav>
+        {/* Brand Logo inside Top Nav Bar */}
+        <div
+          className="top-bar__logo-wrap"
+          onClick={handleNavigateHome}
+          onMouseEnter={playHover}
+          role="button"
+          tabIndex={0}
+          aria-label="Dolapo's Design Lab - Return to top"
+        >
+          <img
+            src={variant === 'white' ? '/assets/logo-dark.webp' : '/assets/logo-light.webp'}
+            alt="Dolapo's Design Lab"
+            className="top-bar__logo"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
       </div>
 
       {title && title !== "DOLAPO'S DESIGN LAB" && (
@@ -122,7 +95,12 @@ export default function TopBar({
             className="top-bar__btn top-bar__btn--hire"
             onClick={handleHireClick}
             onMouseEnter={playHover}
+            aria-label="Hire Me: Download CV"
           >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
             <span>Hire Me</span>
           </a>
 
@@ -135,6 +113,10 @@ export default function TopBar({
               aria-label="Say Hello"
             >
               <div className="top-bar__btn-shimmer" aria-hidden="true" />
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="16" rx="3" />
+                <path d="M3 7l9 6 9-6" />
+              </svg>
               <span>Say Hello</span>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12" />

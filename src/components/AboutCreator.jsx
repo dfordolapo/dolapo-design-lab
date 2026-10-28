@@ -20,7 +20,7 @@ const MILESTONES = [
     num: '01',
     title: 'Words first',
     desc: 'Poetry, language, and storytelling shaped how I see the world.',
-    annotation: 'The beginning. Words made me see the world differently.',
+    annotation: 'The beginning.',
     image: '/assets/journey-01-words.jpg',
     alt: 'Vintage handwritten poetry notebook with fountain pen and tropical sunlight in Lagos'
   },
@@ -613,42 +613,14 @@ export default function AboutCreator({ onBack }) {
               <Scrapbook />
             </div>
 
-            {/* Closing Statement & CTAs */}
+            {/* Closing Statement */}
             <footer className="about-closing-card">
               <h3 className="about-closing-title">
-                <span>got something brewing?</span>
+                <span>Your turn. What's on your mind?</span>
               </h3>
               <p className="about-closing-text">
-                if you made your way all the way down here, something must have kept your attention. maybe you're already imagining what we could do together. is it a product you need to shape, an idea you want to test or a problem to untangle? there's room on my workbench.
+                Bring the rough idea, the ambitious brief, or the problem you can't quite crack. We can figure out what it needs and build from there.
               </p>
-
-              <div className="about-closing-actions">
-                <a
-                  href="/assets/resume.pdf"
-                  download="resume.pdf"
-                  className="about-closing-hire-btn"
-                  onClick={() => playClick()}
-                  onMouseEnter={playHover}
-                  aria-label="Hire Me: Download CV"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                  </svg>
-                  <span>Hire Me</span>
-                </a>
-
-                <a
-                  href="mailto:dfordolapo@gmail.com?subject=Say%20Hello"
-                  className="about-closing-cta-btn"
-                  onClick={() => playClick()}
-                  onMouseEnter={playHover}
-                  aria-label="Say Hello"
-                >
-                  <span>Say Hello</span>
-                  <span aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
 
               <svg className="about-closing-signature" width="120" height="34" viewBox="0 0 120 34" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M 10 24 C 30 10, 45 30, 65 15 C 80 5, 95 25, 115 18 M 55 26 Q 75 32 105 28" />
