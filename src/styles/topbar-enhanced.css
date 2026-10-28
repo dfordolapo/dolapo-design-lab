@@ -377,12 +377,31 @@
   }
 
   .top-bar__nav-link svg {
-    width: 13px;
-    height: 13px;
+    width: 14px;
+    height: 14px;
   }
 
+  .top-bar__logo {
+    height: 22px !important;
+  }
+
+  /* Show navigation actions on mobile as well */
   .top-bar__desktop-actions {
-    display: none;
+    display: flex !important;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .top-bar__btn {
+    height: 32px !important;
+    padding: 0 10px !important;
+    font-size: 0.74rem !important;
+    gap: 4px !important;
+  }
+
+  .top-bar__btn svg {
+    width: 12px !important;
+    height: 12px !important;
   }
 
   .top-bar__mobile-vault-btn {

@@ -8,29 +8,28 @@
   position: relative;
   background: #000000;
   color: #FFFFFF;
-  padding: clamp(3.5rem, 6vw, 6rem) clamp(1rem, 3.5vw, 2.5rem);
+  padding: clamp(3rem, 5vw, 5rem) clamp(1rem, 3.5vw, 2.5rem);
   width: 100%;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .about-reviews-inbox-container {
-  max-width: 1160px;
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: clamp(1.75rem, 3vw, 2.75rem);
+  gap: clamp(1.5rem, 2.8vw, 2.4rem);
 }
 
 /* --------------------------------------------------------------------------
-   SECTION HEADER (Headline + Subhead 'client feedback')
+   SECTION HEADER (Headline only; no sub copy)
    -------------------------------------------------------------------------- */
 .about-reviews-inbox-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0.6rem;
 }
 
 .about-reviews-inbox-headline {
@@ -46,15 +45,6 @@
 
 .about-reviews-headline-gold {
   color: #F5B731;
-}
-
-.about-reviews-inbox-subhead {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.82rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(248, 247, 255, 0.55);
-  margin: 0;
 }
 
 /* --------------------------------------------------------------------------
@@ -75,82 +65,23 @@
   transition: all 0.3s ease;
 }
 
-/* Chrome Window Frame Top Bar */
+/* Header of the email: ONLY has client feedback eyebrow */
 .about-reviews-chrome {
   background: #F5F4F0;
   border-bottom: 1px solid #E7E5E4;
-  padding: 11px 18px;
+  padding: 10px 18px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: flex-start;
 }
 
-.about-reviews-chrome__left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.about-reviews-chrome__traffic-lights {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.about-reviews-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: inline-block;
-}
-.about-reviews-dot--close { background: #FF5F56; }
-.about-reviews-dot--min   { background: #FFBD2E; }
-.about-reviews-dot--max   { background: #27C93F; }
-
-.about-reviews-chrome__app-label {
+.about-reviews-eyebrow {
   font-family: var(--font-mono, monospace);
   font-size: 0.72rem;
-  color: #78716C;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-}
-
-.about-reviews-chrome__folder-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #EAE7E1;
-  border: 1px solid #D6D3CD;
-  color: #44403C;
-  font-family: var(--font-body, system-ui);
-  font-size: 0.74rem;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 12px;
-}
-
-.about-reviews-status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(225, 29, 72, 0.08);
-  border: 1px solid rgba(225, 29, 72, 0.2);
-  color: #BE123C;
-  font-family: var(--font-mono, monospace);
-  font-size: 0.68rem;
   font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 3px 9px;
-  border-radius: 12px;
-}
-
-.about-reviews-status-indicator {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #E11D48;
+  color: #78716C;
 }
 
 /* --------------------------------------------------------------------------
@@ -158,43 +89,21 @@
    -------------------------------------------------------------------------- */
 .about-reviews-body {
   display: grid;
-  grid-template-columns: 330px 1fr;
-  min-height: 520px;
+  grid-template-columns: 310px 1fr;
+  min-height: 480px;
   background: #FAF9F6;
 }
 
 /* --------------------------------------------------------------------------
    LEFT COLUMN: MESSAGE LIST (LIGHT MODE)
+   No outer stroke, no All Testimonials header, no stars
    -------------------------------------------------------------------------- */
 .about-reviews-list-col {
   background: #FDFCFA;
   border-right: 1px solid #E7E5E4;
   display: flex;
   flex-direction: column;
-}
-
-.about-reviews-list-header {
-  padding: 14px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #EAE7E2;
-  background: #F7F5F0;
-}
-
-.about-reviews-list-title {
-  font-family: var(--font-body, system-ui);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #78716C;
-}
-
-.about-reviews-list-badge {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.7rem;
-  color: #A8A29E;
+  overflow: hidden;
 }
 
 .about-reviews-list-scroll {
@@ -203,52 +112,37 @@
   overflow-y: auto;
 }
 
-/* Message List Row */
+/* Message List Row: NO outer stroke for active inbox */
 .about-reviews-row {
   position: relative;
   width: 100%;
   background: transparent;
   border: none;
   border-bottom: 1px solid #F0EEE9;
-  padding: 16px 16px 16px 18px;
+  padding: 14px 16px;
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 11px;
   text-align: left;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition: background 0.15s ease;
   user-select: none;
   outline: none;
 }
 
 .about-reviews-row:hover {
-  background: #F5F2EB;
+  background: #F7F4EE;
 }
 
-/* Selected row highlighted with restrained subtle blush tint */
+/* Active State: Soft blush fill, distinct avatar & bold text - NO outer stroke */
 .about-reviews-row--active {
   background: #FFF1F2 !important;
 }
 
-.about-reviews-row__accent-line {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3.5px;
-  background: #F43F5E;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.about-reviews-row--active .about-reviews-row__accent-line {
-  opacity: 1;
-}
-
 .about-reviews-row__avatar {
   flex-shrink: 0;
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: #FEE2E2;
   border: 1px solid #FECDD3;
@@ -256,16 +150,17 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono, monospace);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: #BE123C;
+  transition: all 0.15s ease;
 }
 
 .about-reviews-row--active .about-reviews-row__avatar {
   background: #E11D48;
   color: #FFFFFF;
   border-color: #BE123C;
-  box-shadow: 0 3px 8px rgba(225, 29, 72, 0.28);
+  box-shadow: 0 2px 6px rgba(225, 29, 72, 0.28);
 }
 
 .about-reviews-row__content {
@@ -273,7 +168,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
 }
 
 .about-reviews-row__meta-row {
@@ -285,7 +180,7 @@
 
 .about-reviews-row__sender {
   font-family: var(--font-body, system-ui);
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 700;
   color: #1C1917;
   white-space: nowrap;
@@ -293,27 +188,37 @@
   text-overflow: ellipsis;
 }
 
+.about-reviews-row--active .about-reviews-row__sender {
+  color: #000000;
+  font-weight: 800;
+}
+
 .about-reviews-row__timestamp {
   font-family: var(--font-mono, monospace);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   color: #A8A29E;
   flex-shrink: 0;
 }
 
 .about-reviews-row__subject {
   font-family: var(--font-body, system-ui);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  color: #292524;
+  color: #44403C;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+.about-reviews-row--active .about-reviews-row__subject {
+  color: #1C1917;
+  font-weight: 700;
+}
+
 .about-reviews-row__snippet {
   font-family: var(--font-body, system-ui);
-  font-size: 0.74rem;
-  line-height: 1.4;
+  font-size: 0.72rem;
+  line-height: 1.35;
   color: #78716C;
   margin: 0;
   display: -webkit-box;
@@ -322,17 +227,9 @@
   overflow: hidden;
 }
 
-.about-reviews-row__star {
-  flex-shrink: 0;
-  padding: 4px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* --------------------------------------------------------------------------
    RIGHT COLUMN: EXPANDED EMAIL PANEL (LIGHT MODE)
+   Reduced font sizes significantly for high scannability without scrolling far
    -------------------------------------------------------------------------- */
 .about-reviews-email-col {
   background: #FFFFFF;
@@ -342,141 +239,61 @@
 }
 
 .about-email-paper {
-  padding: clamp(1.75rem, 3.5vw, 2.75rem);
+  padding: clamp(1rem, 2vw, 1.4rem);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  max-width: 740px;
+  gap: 0.85rem;
+  max-width: 680px;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* 1. Compact Email Toolbar */
+/* Next line: Back icon and reply on opposite ends, nothing more */
 .about-email-toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 1rem;
+  padding-bottom: 0.65rem;
   border-bottom: 1px solid #EAE7E2;
-  gap: 1rem;
+  width: 100%;
 }
 
-.about-email-toolbar__left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* Mobile Back Control (hidden on desktop) */
-.about-email-back-btn {
-  display: none;
-  align-items: center;
-  gap: 6px;
-  background: #F4F1EA;
-  border: 1px solid #D6D3CD;
-  color: #1C1917;
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-family: var(--font-body, system-ui);
-  font-size: 0.84rem;
-  font-weight: 600;
-  cursor: pointer;
-  min-height: 44px;
-  min-width: 44px;
-  transition: all 0.2s ease;
-}
-
-.about-email-back-btn:hover {
-  background: #EAE6DC;
-  border-color: #A8A29E;
-}
-
-.about-email-quick-nav {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: #F7F5F0;
-  border: 1px solid #E7E5E4;
-  border-radius: 8px;
-  padding: 3px 6px;
-}
-
-.about-email-nav-arrow {
-  background: transparent;
-  border: none;
-  color: #57534E;
-  font-size: 0.95rem;
-  font-weight: bold;
-  padding: 3px 8px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.15s ease;
-}
-
-.about-email-nav-arrow:hover {
-  background: #EAE6DC;
-  color: #1C1917;
-}
-
-.about-email-nav-counter {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.72rem;
-  color: #78716C;
-  padding: 0 4px;
-}
-
-.about-email-toolbar__actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.about-email-tool-btn {
+.about-email-nav-icon-btn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   background: #F7F5F0;
   border: 1px solid #E7E5E4;
   color: #57534E;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-family: var(--font-body, system-ui);
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-decoration: none;
   cursor: pointer;
-  min-height: 34px;
   transition: all 0.2s ease;
+  text-decoration: none;
+  padding: 0;
 }
 
-.about-email-tool-btn:hover {
+.about-email-nav-icon-btn:hover {
   background: #EAE6DC;
   border-color: #D6D3CD;
   color: #1C1917;
+  transform: translateY(-1px);
 }
 
-.about-email-tool-btn--starred svg {
-  fill: #F59E0B;
-  stroke: #F59E0B;
-}
-
-.about-email-tool-label {
-  font-family: var(--font-body, system-ui);
-}
-
-/* 2. Sender Avatar, Sender Name, Recipient & Timestamp */
+/* Sender Meta Section */
 .about-email-sender-card {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
-  padding-bottom: 0.5rem;
+  gap: 11px;
+  padding-bottom: 0.2rem;
 }
 
 .about-email-avatar {
   flex-shrink: 0;
-  width: 46px;
-  height: 46px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: linear-gradient(135deg, #FFE4E6 0%, #FECDD3 100%);
   border: 1.5px solid #F43F5E;
@@ -485,9 +302,9 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono, monospace);
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   font-weight: 800;
-  box-shadow: 0 2px 8px rgba(244, 63, 94, 0.2);
+  box-shadow: 0 2px 6px rgba(244, 63, 94, 0.18);
 }
 
 .about-email-sender-meta {
@@ -495,7 +312,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
 }
 
 .about-email-sender-top {
@@ -503,92 +320,68 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  flex-wrap: wrap;
-}
-
-.about-email-sender-name-wrap {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
 }
 
 .about-email-sender-name {
   font-family: var(--font-body, system-ui);
-  font-size: 1.05rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: #1C1917;
   margin: 0;
 }
 
-.about-email-verified-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  background: #FEE2E2;
-  color: #BE123C;
-  border: 1px solid #FECDD3;
-  padding: 2px 7px;
-  border-radius: 10px;
-  font-family: var(--font-mono, monospace);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 .about-email-timestamp {
   font-family: var(--font-mono, monospace);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: #78716C;
 }
 
 .about-email-sender-role {
   font-family: var(--font-body, system-ui);
-  font-size: 0.82rem;
-  color: #57534E;
+  font-size: 0.74rem;
+  color: #78716C;
 }
 
 .about-email-to-line {
   font-family: var(--font-mono, monospace);
-  font-size: 0.72rem;
-  color: #78716C;
+  font-size: 0.7rem;
+  color: #A8A29E;
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
 .about-email-to-label {
-  color: #A8A29E;
+  color: #D6D3CD;
 }
 
 /* Subject Line Banner */
 .about-email-subject-banner {
-  padding: 0.5rem 0 0.25rem;
+  padding: 0.15rem 0;
 }
 
 .about-email-subject-title {
   font-family: var(--font-heading, Georgia, serif);
-  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+  font-size: clamp(1.02rem, 1.4vw, 1.18rem);
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.35;
   color: #1C1917;
   margin: 0;
   letter-spacing: -0.01em;
 }
 
-/* 3. Complete Testimonial Message Body */
+/* Testimonial Message Body (Reduced font significantly for scannability) */
 .about-email-body-prose {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
-  padding: 0.5rem 0;
+  gap: 0.65rem;
+  padding: 0.15rem 0;
 }
 
 .about-email-paragraph {
   font-family: var(--font-body, system-ui);
-  font-size: clamp(0.96rem, 1.15vw, 1.05rem);
-  line-height: 1.75;
+  font-size: 0.85rem;
+  line-height: 1.55;
   color: #292524;
   margin: 0;
 }
@@ -597,48 +390,48 @@
 .about-email-signoff {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding-top: 0.5rem;
+  gap: 6px;
+  padding-top: 0.15rem;
 }
 
 .about-email-signoff-dash {
   color: #A8A29E;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .about-email-signoff-name {
   font-family: var(--font-body, system-ui);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: #1C1917;
 }
 
 /* --------------------------------------------------------------------------
-   4. PROJECT PREVIEW CARD (SIDE BY SIDE ON DESKTOP)
+   PROJECT PREVIEW CARD (Compact side-by-side)
    -------------------------------------------------------------------------- */
 .about-email-project-card {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   background: #FAF9F6;
   border: 1px solid #E7E5E4;
-  border-radius: 14px;
-  padding: 16px;
+  border-radius: 12px;
+  padding: 10px 14px;
   display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 18px;
+  grid-template-columns: 110px 1fr;
+  gap: 14px;
   align-items: center;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .about-email-project-card:hover {
   border-color: #D6D3CD;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
 }
 
 .about-email-project-thumb-frame {
   width: 100%;
-  height: 120px;
-  border-radius: 10px;
+  height: 80px;
+  border-radius: 8px;
   overflow: hidden;
   background: #FFFFFF;
   border: 1px solid #EAE7E2;
@@ -661,13 +454,21 @@
 .about-email-project-details {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 3px;
   min-width: 0;
+}
+
+.about-email-project-headline-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .about-email-project-name {
   font-family: var(--font-body, system-ui);
-  font-size: 1.05rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: #1C1917;
   margin: 0;
@@ -675,7 +476,7 @@
 
 .about-email-project-type {
   font-family: var(--font-mono, monospace);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: #E11D48;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -683,42 +484,42 @@
 
 .about-email-project-desc {
   font-family: var(--font-body, system-ui);
-  font-size: 0.82rem;
-  line-height: 1.45;
+  font-size: 0.75rem;
+  line-height: 1.4;
   color: #57534E;
   margin: 0;
 }
 
 .about-email-project-action-row {
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .about-email-view-live-btn {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 5px;
   background: #1C1917;
   color: #FFFFFF;
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: 5px 12px;
+  border-radius: 6px;
   font-family: var(--font-body, system-ui);
-  font-size: 0.82rem;
+  font-size: 0.74rem;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
   transition: all 0.2s ease;
-  min-height: 40px;
+  min-height: 30px;
 }
 
 .about-email-view-live-btn:hover {
   background: #000000;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   color: #FFFFFF;
 }
 
 /* --------------------------------------------------------------------------
-   5. MOBILE RESPONSIVE LAYOUT (Dedicated single-column light view)
+   MOBILE RESPONSIVE LAYOUT
    -------------------------------------------------------------------------- */
 @media (max-width: 860px) {
   .about-reviews-body {
@@ -748,44 +549,25 @@
     width: 100%;
   }
 
-  /* Obvious Mobile Back Control */
-  .about-email-back-btn {
-    display: inline-flex;
-  }
-
-  .about-email-quick-nav {
-    display: none;
-  }
-
   .about-email-paper {
-    padding: 1.25rem 1.1rem;
-    gap: 1.25rem;
+    padding: 1rem 0.9rem;
+    gap: 0.75rem;
   }
 
-  /* Stack project preview on mobile */
+  /* Stack project preview cleanly on mobile */
   .about-email-project-card {
     grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 14px;
+    gap: 10px;
+    padding: 12px;
   }
 
   .about-email-project-thumb-frame {
-    height: 160px;
+    height: 120px;
   }
 
   .about-email-view-live-btn {
     width: 100%;
     justify-content: center;
-    min-height: 44px;
-  }
-
-  .about-email-sender-card {
-    gap: 10px;
-  }
-
-  .about-email-sender-top {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+    min-height: 36px;
   }
 }
