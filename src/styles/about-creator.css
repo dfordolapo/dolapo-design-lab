@@ -762,7 +762,7 @@
   margin: 0;
 }
 
-.about-closing-title span {
+.about-closing-title span.about-closing-title-inner {
   display: block;
 }
 
@@ -1364,6 +1364,20 @@
   color: var(--about-gold);
   font-style: italic;
   text-shadow: 0 0 18px rgba(224, 169, 56, 0.28);
+}
+
+/* "workspace" in "Beyond the workspace" -> Electric Lilac */
+.about-highlight-workspace {
+  color: #C084FC;
+  font-style: italic;
+  text-shadow: 0 0 24px rgba(192, 132, 252, 0.4);
+}
+
+/* "Your turn." in "Your turn. What's on your mind?" -> Electric Lime */
+.about-highlight-your-turn {
+  display: inline !important;
+  color: #A3E635;
+  text-shadow: 0 0 24px rgba(163, 230, 53, 0.38);
 }
 
 .about-highlight-role {

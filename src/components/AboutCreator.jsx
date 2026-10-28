@@ -605,7 +605,7 @@ export default function AboutCreator({ onBack }) {
           <div className="about-beyond-inner">
             <header className="about-beyond-header">
               <h2 className="about-beyond-headline">
-                Beyond the <span className="about-highlight-gold">workspace</span>.
+                Beyond the <span className="about-highlight-workspace">workspace</span>.
               </h2>
             </header>
 
@@ -616,7 +616,9 @@ export default function AboutCreator({ onBack }) {
             {/* Closing Statement */}
             <footer className="about-closing-card">
               <h3 className="about-closing-title">
-                <span>Your turn. What's on your mind?</span>
+                <span className="about-closing-title-inner">
+                  <span className="about-highlight-your-turn">Your turn.</span> What's on your mind?
+                </span>
               </h3>
               <p className="about-closing-text">
                 Bring the rough idea, the ambitious brief, or the problem you can't quite crack. We can figure out what it needs and build from there.

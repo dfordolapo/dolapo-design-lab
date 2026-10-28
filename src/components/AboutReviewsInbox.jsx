@@ -68,10 +68,11 @@ export default function AboutReviewsInbox() {
       aria-label="Client feedback"
     >
       <div className="about-reviews-inbox-container">
-        {/* Section Header: Sentence capitalized at beginning, with unique turquoise-cyan highlight */}
+        {/* Section Header: Sentence capitalized at beginning, one line on web or two equal lines */}
         <header className="about-reviews-inbox-header">
           <h2 className="about-reviews-inbox-headline">
-            From <span className="about-reviews-headline-cyan">the other side</span> of the screen
+            <span className="about-reviews-headline-line">From <span className="about-reviews-headline-cyan">the other side</span></span>{' '}
+            <span className="about-reviews-headline-line">of the screen</span>
           </h2>
         </header>
 
