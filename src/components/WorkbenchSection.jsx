@@ -1,6 +1,7 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { WORKBENCH_DRAWERS } from './workbench/workbenchData';
 import { CategoryIcon, ToolBrandIcon } from './workbench/WorkbenchIcons';
+import useScrollLock from '../hooks/useScrollLock';
 import '../styles/workbench-section.css';
 
 /**
@@ -15,6 +16,21 @@ export default function WorkbenchSection() {
   // All drawers and info panel remain closed on default
   const [openDrawerId, setOpenDrawerId] = useState(null);
   const [selectedTool, setSelectedTool] = useState(null);
+
+  // Lock all background page scrolling when the tool description modal is open
+  useScrollLock(Boolean(selectedTool));
+
+  // Close modal on Escape key press
+  useEffect(() => {
+    if (!selectedTool) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setSelectedTool(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedTool]);
 
   // Toggle drawer open/close
   const handleDrawerToggle = useCallback((drawerId) => {

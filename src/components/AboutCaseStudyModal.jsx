@@ -1,13 +1,17 @@
 import React, { useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import useSoundEffects from '../hooks/useSoundEffects'
+import useScrollLock from '../hooks/useScrollLock'
 import '../styles/about-case-study-modal.css'
 
 export default function AboutCaseStudyModal({ project, onClose }) {
   const { playClick, playHover } = useSoundEffects()
   const contentRef = useRef(null)
 
-  // Close on Escape key press & prevent background scrolling
+  // Completely lock all page and container scrolling when case study modal is open
+  useScrollLock(Boolean(project))
+
+  // Close on Escape key press
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
@@ -15,12 +19,9 @@ export default function AboutCaseStudyModal({ project, onClose }) {
       }
     }
     window.addEventListener('keydown', handleKeyDown)
-    const originalOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
-      document.body.style.overflow = originalOverflow
     }
   }, [onClose])
 
