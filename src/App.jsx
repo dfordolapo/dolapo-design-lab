@@ -5,12 +5,13 @@ import { CASE_STUDIES } from './utils/caseStudies'
 import { motion, AnimatePresence } from 'framer-motion'
 import SmoothScroll from './components/SmoothScroll'
 
-// Lazy loaded heavy secondary screens for peak initial performance
+import AboutCreator from './components/AboutCreator'
+
+// Lazy loaded secondary screens (departments, vault, booking)
 const DepartmentSelect = lazy(() => import('./components/DepartmentSelect'))
 const ElevatorScreen = lazy(() => import('./components/ElevatorScreen'))
 const DepartmentVault = lazy(() => import('./components/DepartmentVault'))
 const CaseStudyViewer = lazy(() => import('./components/CaseStudyViewer'))
-const AboutCreator = lazy(() => import('./components/AboutCreator'))
 const BookingPage = lazy(() => import('./components/BookingPage'))
 const CinematicContainer = lazy(() => import('./components/CinematicContainer'))
 const LoadingSequence = lazy(() => import('./components/LoadingSequence'))
@@ -83,6 +84,17 @@ export default function App() {
   useEffect(() => {
     try { sessionStorage.removeItem('portfolio-skip') } catch (e) {}
   }, [])
+
+  useEffect(() => {
+    if (showSplash) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [showSplash])
 
   useEffect(() => {
     const handlePopState = () => {
@@ -496,28 +508,26 @@ export default function App() {
         transition={{ duration: 0.35 }}
         className="screen-wrapper"
       >
-        <Suspense fallback={<ComponentFallback />}>
-          <AboutCreator
-            onBack={() => {
-              window.scrollTo({ top: 0, behavior: 'smooth' })
-            }}
-          />
-        </Suspense>
+        <AboutCreator
+          onBack={() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+          }}
+        />
       </motion.div>
     )
   }
 
   return (
     <SmoothScroll>
+      <AnimatePresence mode="wait">
+        {renderScreen()}
+      </AnimatePresence>
+
       {showSplash && (
         <SplashIntro
           onComplete={handleSplashComplete}
         />
       )}
-
-      <AnimatePresence mode="wait">
-        {!showSplash && renderScreen()}
-      </AnimatePresence>
 
       {elevatorDoorsState !== 'idle' && (
         <div className={`fullscreen-elevator-doors ${elevatorDoorsState}`}>
