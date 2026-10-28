@@ -4,24 +4,26 @@
    ========================================================================== */
 
 .top-bar {
-  position: fixed;
-  top: 16px;
+  position: fixed !important;
+  top: 18px !important;
   left: 50% !important;
   right: auto !important;
-  transform: translateX(-50%);
-  width: max-content;
-  max-width: min(94vw, 1080px);
+  bottom: auto !important;
+  transform: translateX(-50%) !important;
+  width: max-content !important;
+  max-width: min(94vw, 1080px) !important;
   height: 52px !important;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(12px, 1.8vw, 24px);
+  z-index: 1000 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: clamp(12px, 1.8vw, 24px) !important;
   padding: 0 8px 0 8px !important;
   border-radius: 9999px !important;
-  background: rgba(13, 11, 20, 0.85) !important;
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  border-bottom: none !important;
+  background: rgba(13, 11, 20, 0.85);
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
   box-shadow: 
     0 16px 36px -4px rgba(0, 0, 0, 0.65),
@@ -344,12 +346,19 @@
 /* Responsive breakdowns */
 @media (max-width: 768px) {
   .top-bar {
-    top: 10px;
+    position: fixed !important;
+    top: 12px !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translateX(-50%) !important;
     height: 44px !important;
     padding: 0 6px !important;
-    gap: 8px;
-    max-width: calc(100vw - 20px);
-    width: max-content;
+    gap: 8px !important;
+    max-width: calc(100vw - 20px) !important;
+    width: max-content !important;
+    border-radius: 9999px !important;
+    border-bottom: none !important;
   }
 
   .top-bar__left {

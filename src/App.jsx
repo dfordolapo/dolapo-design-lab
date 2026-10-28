@@ -519,14 +519,14 @@ export default function App() {
 
   return (
     <SmoothScroll>
-      <AnimatePresence mode="wait">
-        {renderScreen()}
-      </AnimatePresence>
-
-      {showSplash && (
+      {showSplash ? (
         <SplashIntro
           onComplete={handleSplashComplete}
         />
+      ) : (
+        <AnimatePresence mode="wait">
+          {renderScreen()}
+        </AnimatePresence>
       )}
 
       {elevatorDoorsState !== 'idle' && (

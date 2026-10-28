@@ -8,20 +8,20 @@ export default function SplashIntro({ onComplete }) {
   const [isGlitching, setIsGlitching] = useState(true)
 
   useEffect(() => {
-    // Stop glitching after 1.5 seconds so it resolves to a clean logo
+    // Stop glitching after 1.4 seconds so it resolves to a clean logo
     const glitchTimer = setTimeout(() => {
       setIsGlitching(false)
-    }, 1500)
+    }, 1400)
 
-    // Hold the clean logo until 2.5 seconds, then fade out
+    // Hold the clean logo until 2.2 seconds, then fade out
     const fadeTimer = setTimeout(() => {
       setIsFadingOut(true)
-    }, 2500)
+    }, 2200)
 
     // Complete the sequence after fade out
     const completeTimer = setTimeout(() => {
       onComplete()
-    }, 3200)
+    }, 2700)
 
     return () => {
       clearTimeout(glitchTimer)

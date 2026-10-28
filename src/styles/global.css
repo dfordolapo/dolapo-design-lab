@@ -151,12 +151,6 @@
 }
 
 /* Light mode for Top Bar and Navigation */
-[data-theme="light"] .top-bar {
-  background: rgba(255, 255, 255, 0.95);
-  border-bottom: 1px solid #E2E8F0;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
-}
-
 [data-theme="light"] .top-bar__back {
   background: #FFFFFF;
   border: 1px solid #CBD5E1;
@@ -305,24 +299,7 @@
   --vault-sidebar-bg: rgba(18, 14, 30, 0.65);
 }
 
-/* Force dark styling on TopBar in elevator and vault screens */
-.top-bar--force-dark,
-[data-theme="light"] .top-bar--force-dark,
-[data-theme="light"] .page-with-topbar .top-bar {
-  background: rgba(12, 10, 20, 0.95) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: none !important;
-  color: #F8F7FF !important;
-}
-
-.top-bar--force-dark .top-bar__back,
-[data-theme="light"] .top-bar--force-dark .top-bar__back,
-[data-theme="light"] .page-with-topbar .top-bar__back {
-  background: rgba(255, 255, 255, 0.04) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  color: #F8F7FF !important;
-  box-shadow: none !important;
-}
+/* Elevator and vault styling */
 
 .top-bar--force-dark .top-bar__back:hover,
 [data-theme="light"] .top-bar--force-dark .top-bar__back:hover,
@@ -2980,27 +2957,7 @@ p {
   }
 }
 
-/* TOP BAR - Sticky header for all pages */
-:root {
-  --topbar-height: 56px;
-}
-
-.top-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: var(--topbar-height);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 48px;
-  background: var(--bg-card);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--glass-border);
-}
+/* TOP BAR - Back button and elements (layout managed by topbar-enhanced.css) */
 
 .top-bar__back {
   position: absolute;
@@ -3101,9 +3058,6 @@ p {
     top: 3px;
   }
 
-  .top-bar {
-    padding: 0 16px;
-  }
 
   .top-bar__back {
     left: 16px;
@@ -3585,7 +3539,7 @@ p {
   inset: 0;
   background: #000;
   z-index: 9999;
-  transition: opacity 0.7s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .splash-intro.fade-out {
