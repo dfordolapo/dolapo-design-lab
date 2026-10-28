@@ -171,54 +171,56 @@ export default function WorkbenchSection() {
             </div>
           </div>
 
-          {/* Right Column: Cream Information Panel (only opens on click when a tool is selected) */}
+          {/* Right Column (Desktop) & Floating Modal (Mobile): Tool Description */}
           {selectedTool && (
-            <div className="workbench-info-panel-container">
-              <article
-                className="workbench-info-card"
-                role="region"
-                aria-live="polite"
-                aria-label={`Details for ${selectedTool.name}`}
-              >
-                {/* Header: Tool Icon, Title, Category Badge & Close Control */}
-                <div className="info-card-top-bar">
-                  <div className="info-card-tool-badge-row">
-                    <div className="info-card-icon-frame">
-                      <ToolBrandIcon toolId={selectedTool.id} size={40} />
+            <div className="workbench-info-modal-backdrop" onClick={handleCloseInfoPanel}>
+              <div className="workbench-info-panel-container" onClick={(e) => e.stopPropagation()}>
+                <article
+                  className="workbench-info-card"
+                  role="dialog"
+                  aria-modal="true"
+                  aria-label={`Details for ${selectedTool.name}`}
+                >
+                  {/* Header: Tool Icon, Title, Category Badge & Close Control */}
+                  <div className="info-card-top-bar">
+                    <div className="info-card-tool-badge-row">
+                      <div className="info-card-icon-frame">
+                        <ToolBrandIcon toolId={selectedTool.id} size={32} />
+                      </div>
+                      <div className="info-card-heading-group">
+                        <h3 className="info-card-tool-name">{selectedTool.name}</h3>
+                        <span className="info-card-category-tag">{selectedTool.category}</span>
+                      </div>
                     </div>
-                    <div className="info-card-heading-group">
-                      <h3 className="info-card-tool-name">{selectedTool.name}</h3>
-                      <span className="info-card-category-tag">{selectedTool.category}</span>
-                    </div>
+
+                    <button
+                      type="button"
+                      className="info-card-close-btn"
+                      onClick={handleCloseInfoPanel}
+                      aria-label="Close tool details"
+                    >
+                      &times;
+                    </button>
                   </div>
 
-                  <button
-                    type="button"
-                    className="info-card-close-btn"
-                    onClick={handleCloseInfoPanel}
-                    aria-label="Close tool details"
-                  >
-                    &times;
-                  </button>
-                </div>
+                  {/* Body: Concise Workflow Description & How I Use It */}
+                  <div className="info-card-body">
+                    <p className="info-card-desc">{selectedTool.description}</p>
 
-                {/* Body: Concise Workflow Description & How I Use It */}
-                <div className="info-card-body">
-                  <p className="info-card-desc">{selectedTool.description}</p>
-
-                  <div className="info-card-usage-section">
-                    <h4 className="info-card-usage-title">How I use it</h4>
-                    <ul className="info-card-usage-list">
-                      {selectedTool.howIUseIt.map((item, idx) => (
-                        <li key={idx} className="info-card-usage-item">
-                          <span className="usage-item-check" aria-hidden="true">&#x2713;</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="info-card-usage-section">
+                      <h4 className="info-card-usage-title">How I use it</h4>
+                      <ul className="info-card-usage-list">
+                        {selectedTool.howIUseIt.map((item, idx) => (
+                          <li key={idx} className="info-card-usage-item">
+                            <span className="usage-item-check" aria-hidden="true">&#x2713;</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              </article>
+                </article>
+              </div>
             </div>
           )}
         </div>

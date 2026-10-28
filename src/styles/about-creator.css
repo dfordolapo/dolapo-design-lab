@@ -11,7 +11,7 @@
   --font-handwriting: 'Caveat', 'Segoe Script', cursive;
   
   --about-dark-bg: #000000;
-  --about-dark-surface: #0E0C18;
+  --about-dark-surface: #000000;
   --about-parchment-bg: #F5EFEB;
   --about-parchment-card: #FFFFFF;
   --about-parchment-text: #211B18;
@@ -700,7 +700,7 @@
 .about-beyond-section {
   position: relative;
   width: 100%;
-  background: #090710;
+  background: #000000;
   color: #F8F7FF;
   padding: clamp(5.2rem, 8.5vh, 7rem) clamp(1rem, 3.5vw, 3rem) clamp(3.5rem, 6vw, 6rem);
   overflow: visible;

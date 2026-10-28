@@ -34,10 +34,10 @@ const PROJECT_PREVIEWS = {
 export default function AboutReviewsInbox() {
   const { playClick, playHover } = useSoundEffects();
 
-  // Filter only the verified client reviews / feedback messages
+  // Filter client reviews (Teeraboh is preserved in inboxData & PROJECT_PREVIEWS for future reference)
   const reviews = useMemo(() => {
     return INITIAL_MESSAGES.filter(
-      (msg) => msg.category === 'Client Feedback' || msg.id.startsWith('msg-blurr') || msg.id.startsWith('msg-nail') || msg.id.startsWith('msg-teeraboh')
+      (msg) => (msg.category === 'Client Feedback' || msg.id.startsWith('msg-blurr') || msg.id.startsWith('msg-nail')) && !msg.id.includes('teeraboh')
     );
   }, []);
 

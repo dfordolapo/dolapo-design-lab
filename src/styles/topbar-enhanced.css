@@ -17,8 +17,8 @@
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  gap: clamp(16px, 2.8vw, 38px) !important;
-  padding: 0 10px 0 18px !important;
+  gap: clamp(24px, 3.8vw, 52px) !important;
+  padding: 0 16px 0 24px !important;
   border-radius: 9999px !important;
   border-bottom: none !important;
   background: rgba(13, 11, 20, 0.85);
@@ -174,7 +174,7 @@
 }
 
 .top-bar__logo {
-  height: 28px !important;
+  height: 25px !important;
   width: auto;
   position: static !important;
   top: auto !important;
@@ -353,8 +353,8 @@
     bottom: auto !important;
     transform: translateX(-50%) !important;
     height: 44px !important;
-    padding: 0 6px !important;
-    gap: 8px !important;
+    padding: 0 12px 0 16px !important;
+    gap: 12px !important;
     max-width: calc(100vw - 20px) !important;
     width: max-content !important;
     border-radius: 9999px !important;
@@ -362,7 +362,7 @@
   }
 
   .top-bar__left {
-    gap: 6px;
+    gap: 8px;
   }
 
   .top-bar__nav-links {
@@ -382,7 +382,7 @@
   }
 
   .top-bar__logo {
-    height: 22px !important;
+    height: 19px !important;
   }
 
   /* Show navigation actions on mobile as well */

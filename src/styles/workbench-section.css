@@ -22,15 +22,7 @@
 
 /* Atmospheric Desk Lamp Glow in Upper Left */
 .workbench-lamp-glow {
-  position: absolute;
-  top: -40px;
-  left: 3%;
-  width: clamp(280px, 35vw, 550px);
-  height: clamp(280px, 35vw, 550px);
-  background: radial-gradient(circle, rgba(254, 215, 120, 0.12) 0%, rgba(245, 175, 60, 0.05) 45%, transparent 70%);
-  filter: blur(40px);
-  pointer-events: none;
-  z-index: 1;
+  display: none;
 }
 
 .workbench-container {
@@ -493,7 +485,12 @@
 
 /* ─────────────────────────────────────────────────────────────────────────
    CREAM INFORMATION PANEL (OPENS ON TOOL SELECTION)
+   Desktop: Sticky right column. Mobile: Focused modal overlay.
 ───────────────────────────────────────────────────────────────────────── */
+.workbench-info-modal-backdrop {
+  display: contents;
+}
+
 .workbench-info-panel-container {
   position: sticky;
   top: 90px;
@@ -502,8 +499,8 @@
 
 .workbench-info-card {
   background: #FAF5EE;
-  border-radius: 18px;
-  padding: clamp(1.4rem, 2.8vw, 2.2rem);
+  border-radius: 14px;
+  padding: clamp(1rem, 2vw, 1.4rem);
   box-sizing: border-box;
   color: #1C1713;
   box-shadow:
@@ -513,7 +510,7 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.85rem;
   animation: panelFadeIn 0.28s ease-out;
   position: relative;
 }
@@ -534,36 +531,36 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
   border-bottom: 1px solid rgba(28, 23, 19, 0.08);
-  padding-bottom: 1rem;
+  padding-bottom: 0.65rem;
 }
 
 .info-card-tool-badge-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .info-card-icon-frame {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
 }
 
 .info-card-heading-group {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
 }
 
 .info-card-tool-name {
   font-family: 'Modak', cursive, system-ui;
-  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
   font-weight: 400;
   line-height: 1.1;
   color: #1C1713;
@@ -576,11 +573,11 @@
   background: rgba(28, 23, 19, 0.07);
   color: #4A3E31;
   font-family: var(--font-mono, monospace);
-  font-size: 0.66rem;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 2px 7px;
+  padding: 2px 6px;
   border-radius: 4px;
   width: fit-content;
 }
@@ -589,10 +586,10 @@
   background: none;
   border: none;
   color: rgba(28, 23, 19, 0.45);
-  font-size: 1.6rem;
+  font-size: 1.35rem;
   line-height: 1;
   cursor: pointer;
-  padding: 4px 8px;
+  padding: 2px 6px;
   border-radius: 6px;
   transition: color 0.2s ease, background-color 0.2s ease;
 }
@@ -602,17 +599,17 @@
   background: rgba(28, 23, 19, 0.06);
 }
 
-/* Information Panel Body */
+/* Information Panel Body (Reduced font sizes for compact scannability) */
 .info-card-body {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.8rem;
 }
 
 .info-card-desc {
   font-family: var(--font-body, system-ui);
-  font-size: clamp(0.88rem, 1.05vw, 0.96rem);
-  line-height: 1.65;
+  font-size: 0.82rem;
+  line-height: 1.5;
   color: #383027;
   margin: 0;
 }
@@ -620,17 +617,17 @@
 .info-card-usage-section {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
   background: rgba(28, 23, 19, 0.035);
-  border-radius: 12px;
-  padding: 1rem 1.15rem;
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
   border: 1px solid rgba(28, 23, 19, 0.06);
 }
 
 .info-card-usage-title {
   font-family: var(--font-editorial, 'Newsreader', serif);
   font-style: italic;
-  font-size: 1.15rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: #1C1713;
   margin: 0;
@@ -642,16 +639,16 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.45rem;
 }
 
 .info-card-usage-item {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 8px;
   font-family: var(--font-body, system-ui);
-  font-size: 0.85rem;
-  line-height: 1.5;
+  font-size: 0.78rem;
+  line-height: 1.38;
   color: #3F362D;
 }
 
@@ -659,19 +656,19 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 17px;
-  height: 17px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background: #1C1713;
   color: #FAF5EE;
-  font-size: 0.65rem;
+  font-size: 0.58rem;
   font-weight: 800;
   flex-shrink: 0;
   margin-top: 2px;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   MOBILE LAYOUT & UPWARDS DRAWER ACCORDION
+   MOBILE LAYOUT & TOOL DESCRIPTION MODAL
 ───────────────────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .workbench-stage--with-panel {
@@ -679,9 +676,31 @@
     gap: 1.5rem;
   }
 
+  .workbench-info-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 16px;
+    animation: modalBackdropFadeIn 0.22s ease-out;
+  }
+
+  @keyframes modalBackdropFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
   .workbench-info-panel-container {
-    position: static;
-    margin-top: 1rem;
+    position: relative;
+    top: auto;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
   }
 }
 
@@ -701,15 +720,15 @@
     gap: 10px;
   }
 
-  /* Drawers open UPWARDS on mobile instead of below so they can easily be seen and closed */
+  /* Drawers open DOWNWARDS */
   .workbench-drawer-item--open {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
   .workbench-drawer-tray {
-    margin-top: 0;
-    margin-bottom: 8px;
+    margin-top: 10px;
+    margin-bottom: 0;
     max-height: min(48vh, 380px);
     overflow-y: auto;
     overflow-x: hidden;
@@ -718,13 +737,13 @@
     max-width: 100%;
     box-sizing: border-box;
     padding: 14px 8px;
-    animation: traySlideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: traySlideDown 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  @keyframes traySlideUp {
+  @keyframes traySlideDown {
     0% {
       opacity: 0;
-      transform: translateY(12px) scale(0.98);
+      transform: translateY(-8px) scale(0.98);
     }
     100% {
       opacity: 1;

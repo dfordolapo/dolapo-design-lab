@@ -8,7 +8,6 @@ import SelectedWorkSection from './SelectedWorkSection'
 import WorkbenchSection from './WorkbenchSection'
 import DeckleDivider from './DeckleDivider'
 import AboutCaseStudyModal from './AboutCaseStudyModal'
-import StickyMobileActionBar from './StickyMobileActionBar'
 import AboutReviewsInbox from './AboutReviewsInbox'
 import SocialBubbles from './SocialBubbles'
 import usePageSEO from '../hooks/usePageSEO'
@@ -643,9 +642,6 @@ export default function AboutCreator({ onBack }) {
           />
         )}
       </main>
-
-      {/* Sticky Mobile Action Bar: Fixed to bottom of screen on mobile */}
-      <StickyMobileActionBar onNavigate={handleNavigate} />
     </div>
   )
 }

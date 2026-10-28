@@ -149,15 +149,18 @@ export default function SelectedWorkSection({ onSelectProject }) {
         {/* Desk Shelf Artwork Stage with 5 Interactive Book Hotspots */}
         <div className="desk-shelf-stage">
           <div className="desk-shelf-art-wrapper">
-            <img
-              src="/assets/shelf-img.jpg"
-              alt="Selected Work desk shelf with books: Awwja, Onboarding, Gino World Jollof Festival, SafeRide Mode, and Vurdict"
-              className="desk-shelf-image"
-              width="2752"
-              height="1536"
-              loading="eager"
-              decoding="async"
-            />
+            <picture>
+              <source type="image/webp" srcSet="/assets/shelf-img.webp" />
+              <img
+                src="/assets/shelf-img.jpg"
+                alt="Selected Work desk shelf with books: Awwja, Onboarding, Gino World Jollof Festival, SafeRide Mode, and Vurdict"
+                className="desk-shelf-image"
+                width="2752"
+                height="1536"
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
 
             {/* 5 Transparent Clickable Hotspots strictly within book boundaries */}
             {SHELF_PROJECTS.map((book) => {

@@ -413,14 +413,7 @@
    Smooth gradient under shelf transitioning into the next section.
 ───────────────────────────────────────────────────────────────────────── */
 .selected-work-bottom-gradient {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 90px;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 50%, rgba(245, 239, 235, 0.08) 100%);
-  pointer-events: none;
-  z-index: 4;
+  display: none;
 }
 
 /* Reduced motion */
