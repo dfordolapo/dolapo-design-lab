@@ -218,6 +218,65 @@ export function ToolBrandIcon({ toolId, size = 32 }) {
         </svg>
       );
 
+    case 'chatgpt':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect width="48" height="48" rx="12" fill="#10A37F" />
+          <path
+            d="M33.6 23.2C33.2 21.2 31.9 19.6 30 18.7C29.6 16.5 28.1 14.7 26 14C23.9 13.3 21.6 13.8 20 15.2C18.6 14.5 17 14.5 15.6 15.3C14.2 16.1 13.3 17.6 13.3 19.2C11.9 20.3 11.2 22.1 11.4 23.9C11.6 25.7 12.8 27.2 14.4 27.9C14.4 28.2 14.4 28.5 14.4 28.8C14.4 31 15.8 33 17.9 33.7C19.9 34.4 22.2 33.9 23.8 32.5C25.2 33.2 26.8 33.2 28.2 32.4C29.6 31.6 30.5 30.1 30.5 28.5C32.1 27.3 32.9 25.3 32.5 23.4L33.6 23.2Z"
+            stroke="#FFFFFF"
+            strokeWidth="2.2"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M24 18V30M18.8 21L29.2 27M18.8 27L29.2 21"
+            stroke="#FFFFFF"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+
+    case 'deepseek':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect width="48" height="48" rx="12" fill="#0D6EFD" />
+          <path
+            d="M13 29C15.5 30.5 19 31 23 29.5C28 27.5 31.5 22 34 16C31 18.5 26.5 21 21.5 21C16.5 21 14 18 14 18C14 18 15 22.5 18 24.5C15 25.5 13 29 13 29Z"
+            fill="#FFFFFF"
+          />
+          <circle cx="21" cy="24.5" r="1.5" fill="#0D6EFD" />
+          <path
+            d="M28 26C31 28 34 27 36 25.5C34.5 27.5 31.5 31 27 32C24.5 32.5 21.5 32 19 31"
+            stroke="#FFFFFF"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+
+    case 'codex':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect width="48" height="48" rx="12" fill="#090D16" />
+          <path d="M18 16L12 24L18 32" stroke="#38BDF8" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M30 16L36 24L30 32" stroke="#38BDF8" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="24" cy="24" r="3" fill="#10B981" />
+          <line x1="24" y1="16" x2="24" y2="19" stroke="#10B981" strokeWidth="2" strokeLinecap="round" />
+          <line x1="24" y1="29" x2="24" y2="32" stroke="#10B981" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      );
+
+    case 'kiro':
+      return (
+        <svg width={size} height={size} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect width="48" height="48" rx="12" fill="#6366F1" />
+          <path d="M16 14V34" stroke="#FFFFFF" strokeWidth="3.2" strokeLinecap="round" />
+          <path d="M32 16L21 25L32 34" stroke="#FFFFFF" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="21" cy="25" r="2.5" fill="#FACC15" />
+        </svg>
+      );
+
     case 'vercel':
       return (
         <svg width={size} height={size} viewBox="0 0 48 48" fill="none" aria-hidden="true">

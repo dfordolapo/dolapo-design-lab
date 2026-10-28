@@ -255,6 +255,62 @@ export const WORKBENCH_DRAWERS = [
           'Generating test mocks and data fixtures for rapid component prototyping.',
           'Accelerating terminal-driven refactoring and automated file management.'
         ]
+      },
+      {
+        id: 'chatgpt',
+        name: 'ChatGPT',
+        category: 'AI Assist',
+        badge: 'Ideation & Prototyping',
+        shortDesc: 'Fast conversational ideation, code snippet generation, and algorithmic brainstorming.',
+        description:
+          'OpenAI’s flagship conversational intelligence engine used for rapid prototyping, drafting technical specs, exploring user flows, and brainstorming solutions.',
+        howIUseIt: [
+          'Rapidly prototyping algorithms, data transformations, and utility functions.',
+          'Brainstorming alternate UX flow models and handling tricky product edge cases.',
+          'Comparing copy tone variations and stress-testing system assumptions.'
+        ]
+      },
+      {
+        id: 'deepseek',
+        name: 'DeepSeek',
+        category: 'AI Assist',
+        badge: 'Reasoning & Logic',
+        shortDesc: 'Deep mathematical logic, code synthesis, and architectural cost optimization.',
+        description:
+          'DeepSeek’s specialized reasoning models for complex mathematical computations, algorithmic optimization, and deeply analytical code synthesis.',
+        howIUseIt: [
+          'Solving complex algorithmic puzzles, coordinate math, and geometry calculations.',
+          'Optimizing data structures and evaluating algorithmic computational complexity.',
+          'Analyzing performance bottlenecks across complex client-side renders.'
+        ]
+      },
+      {
+        id: 'codex',
+        name: 'Codex',
+        category: 'AI Assist',
+        badge: 'Code Synthesis',
+        shortDesc: 'Contextual autocomplete, inline code generation, and syntactic suggestions.',
+        description:
+          'OpenAI’s dedicated code intelligence engine powering inline autocomplete, rapid syntax completion, and API usage boilerplate.',
+        howIUseIt: [
+          'Speeding up typing with intelligent inline code completions.',
+          'Translating plain English comments into working functional methods.',
+          'Filling in boilerplate API calls and typing parameters accurately.'
+        ]
+      },
+      {
+        id: 'kiro',
+        name: 'Kiro',
+        category: 'AI Assist',
+        badge: 'Workflow Intelligence',
+        shortDesc: 'Specialized workflow intelligence, agent orchestration, and task automation.',
+        description:
+          'A tailored AI assistant for streamlined developer workflows, context-aware command automation, and multi-agent coordination.',
+        howIUseIt: [
+          'Automating repetitive workspace routines and project setup scaffolds.',
+          'Orchestrating agent workflows and summarizing multi-file project contexts.',
+          'Assisting in task breakdown and engineering execution sprints.'
+        ]
       }
     ]
   },
