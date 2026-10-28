@@ -9,6 +9,7 @@ import WorkbenchSection from './WorkbenchSection'
 import DeckleDivider from './DeckleDivider'
 import AboutCaseStudyModal from './AboutCaseStudyModal'
 import AboutReviewsInbox from './AboutReviewsInbox'
+import InterruptionSection from './InterruptionSection'
 import SocialBubbles from './SocialBubbles'
 import usePageSEO from '../hooks/usePageSEO'
 import useSoundEffects from '../hooks/useSoundEffects'
@@ -283,9 +284,8 @@ export default function AboutCreator({ onBack }) {
     const checkBackground = () => {
       const navY = 44 // Vertical sampling height for floating top bar pill
 
-      // Only Skill Charms and Journey Map have light parchment backgrounds (#F5EFEB).
-      // Hero, Selected Work, Workbench, Scrapbook, and Footer are all on dark/black backgrounds.
-      const lightSections = document.querySelectorAll('.skill-charms-section, .about-journey-section')
+      // Skill Charms, Journey Map, and Interruption Section have light parchment backgrounds (#F5EFEB).
+      const lightSections = document.querySelectorAll('.skill-charms-section, .about-journey-section, .interruption-section')
       let overLight = false
 
       for (const sec of lightSections) {
@@ -596,6 +596,11 @@ export default function AboutCreator({ onBack }) {
             CLIENT FEEDBACK & REVIEWS INBOX (Under divider, on black surface)
             ================================================================== */}
         <AboutReviewsInbox />
+
+        {/* ==================================================================
+            INTERLUDE: "EXCUSE THE INTERRUPTION" (Light Parchment Section with Deckle Dividers)
+            ================================================================== */}
+        <InterruptionSection onSelectProject={setActiveCaseStudy} />
 
         {/* ==================================================================
             SECTION 5: BEYOND THE WORKSPACE
