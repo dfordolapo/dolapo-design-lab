@@ -9,6 +9,8 @@ import WorkbenchSection from './WorkbenchSection'
 import DeckleDivider from './DeckleDivider'
 import AboutCaseStudyModal from './AboutCaseStudyModal'
 import StickyMobileActionBar from './StickyMobileActionBar'
+import AboutReviewsInbox from './AboutReviewsInbox'
+import SocialBubbles from './SocialBubbles'
 import usePageSEO from '../hooks/usePageSEO'
 import useSoundEffects from '../hooks/useSoundEffects'
 import '../styles/about-creator.css'
@@ -592,6 +594,11 @@ export default function AboutCreator({ onBack }) {
         </section>
 
         {/* ==================================================================
+            CLIENT FEEDBACK & REVIEWS INBOX (Under divider, on black surface)
+            ================================================================== */}
+        <AboutReviewsInbox />
+
+        {/* ==================================================================
             SECTION 5: BEYOND THE WORKSPACE
             ================================================================== */}
         <section className="about-beyond-section" aria-label="Beyond the workspace">
@@ -612,7 +619,7 @@ export default function AboutCreator({ onBack }) {
                 <span>got something brewing?</span>
               </h3>
               <p className="about-closing-text">
-                is it a product you need to shape, an idea you want to test or a problem to untangle? there's room on my workbench.
+                if you made your way all the way down here, something must have kept your attention. maybe you're already imagining what we could do together. is it a product you need to shape, an idea you want to test or a problem to untangle? there's room on my workbench.
               </p>
 
               <div className="about-closing-actions">
@@ -631,21 +638,24 @@ export default function AboutCreator({ onBack }) {
                   <span>Hire Me</span>
                 </a>
 
-                <button
-                  type="button"
+                <a
+                  href="mailto:dfordolapo@gmail.com?subject=Say%20Hello"
                   className="about-closing-cta-btn"
-                  onClick={() => handleNavigate('/book')}
+                  onClick={() => playClick()}
                   onMouseEnter={playHover}
-                  aria-label="Book a Call"
+                  aria-label="Say Hello"
                 >
-                  <span>Book a Call</span>
+                  <span>Say Hello</span>
                   <span aria-hidden="true">&rarr;</span>
-                </button>
+                </a>
               </div>
 
               <svg className="about-closing-signature" width="120" height="34" viewBox="0 0 120 34" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M 10 24 C 30 10, 45 30, 65 15 C 80 5, 95 25, 115 18 M 55 26 Q 75 32 105 28" />
               </svg>
+
+              {/* Realistic Colorful Bubbles for Social Media Links */}
+              <SocialBubbles />
             </footer>
           </div>
         </section>

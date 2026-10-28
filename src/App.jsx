@@ -12,7 +12,6 @@ const DepartmentSelect = lazy(() => import('./components/DepartmentSelect'))
 const ElevatorScreen = lazy(() => import('./components/ElevatorScreen'))
 const DepartmentVault = lazy(() => import('./components/DepartmentVault'))
 const CaseStudyViewer = lazy(() => import('./components/CaseStudyViewer'))
-const BookingPage = lazy(() => import('./components/BookingPage'))
 const CinematicContainer = lazy(() => import('./components/CinematicContainer'))
 const LoadingSequence = lazy(() => import('./components/LoadingSequence'))
 
@@ -147,8 +146,9 @@ export default function App() {
           setActiveProject(null)
         }
       } else if (path === '/book') {
+        window.location.href = 'mailto:dfordolapo@gmail.com?subject=Say%20Hello'
+        setShowAboutCreator(true)
         setShowInbox(false)
-        setShowAboutCreator(false)
         setShowDepartmentView(false)
         setShowDeptSelect(false)
         setShowElevator(false)
@@ -191,18 +191,6 @@ export default function App() {
       }
     }
   }, [showElevator, showDepartmentView, showOldLab])
-
-  // Selective idle background preloader (delayed so critical render is instantaneous)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      import('@calcom/embed-react').then(({ getCalApi }) => {
-        getCalApi().then(cal => {
-          cal("preload", { calLink: "dfordolapo/15min" })
-        }).catch(() => {})
-      }).catch(() => {})
-    }, 4000)
-    return () => clearTimeout(timer)
-  }, [])
 
   // Enter lab from old cinematic hero: closes elevator doors and enters department selection
   const handleEnterLabFromOldLab = useCallback(() => {

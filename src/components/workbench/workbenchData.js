@@ -3,7 +3,7 @@
  * Organized into exactly four drawers:
  * 1. Design (Warm Golden Yellow)
  * 2. Build (Coral Pink)
- * 3. AI Assist (Lavender Purple)
+ * 3. AI Stack (Lavender Purple)
  * 4. Ship (Muted Olive Green)
  */
 
@@ -192,7 +192,7 @@ export const WORKBENCH_DRAWERS = [
   {
     id: 'ai-assist',
     number: '03',
-    name: 'AI Assist',
+    name: 'AI Stack',
     themeColor: '#A976F5',
     gradient: 'linear-gradient(180deg, #C7A2FC 0%, #A976F5 42%, #8B4EE6 100%)',
     borderColor: '#6F28D4',
@@ -203,7 +203,7 @@ export const WORKBENCH_DRAWERS = [
       {
         id: 'antigravity',
         name: 'Antigravity',
-        category: 'AI Assist',
+        category: 'AI Stack',
         badge: 'Agentic Coding',
         shortDesc: "Google DeepMind's advanced agentic coding environment for full-stack engineering.",
         description:
@@ -217,7 +217,7 @@ export const WORKBENCH_DRAWERS = [
       {
         id: 'claude',
         name: 'Claude',
-        category: 'AI Assist',
+        category: 'AI Stack',
         badge: 'Architecture & Reasoning',
         shortDesc: 'Deep reasoning, system design synthesis, and precision UX copy refinement.',
         description:
@@ -231,7 +231,7 @@ export const WORKBENCH_DRAWERS = [
       {
         id: 'gemini',
         name: 'Gemini',
-        category: 'AI Assist',
+        category: 'AI Stack',
         badge: 'Multimodal Synthesis',
         shortDesc: 'Multimodal AI for visual code translation, layout audit, and creative exploration.',
         description:
@@ -245,7 +245,7 @@ export const WORKBENCH_DRAWERS = [
       {
         id: 'opencode',
         name: 'OpenCode',
-        category: 'AI Assist',
+        category: 'AI Stack',
         badge: 'CLI & Automation',
         shortDesc: 'Terminal-based scripting, automated pipelines, and fast code transformation.',
         description:
@@ -259,7 +259,7 @@ export const WORKBENCH_DRAWERS = [
       {
         id: 'chatgpt',
         name: 'ChatGPT',
-        category: 'AI Assist',
+        category: 'AI Stack',
         badge: 'Ideation & Prototyping',
         shortDesc: 'Fast conversational ideation, code snippet generation, and algorithmic brainstorming.',
         description:
@@ -273,7 +273,7 @@ export const WORKBENCH_DRAWERS = [
       {
         id: 'deepseek',
         name: 'DeepSeek',
-        category: 'AI Assist',
+        category: 'AI Stack',
         badge: 'Reasoning & Logic',
         shortDesc: 'Deep mathematical logic, code synthesis, and architectural cost optimization.',
         description:
@@ -287,7 +287,7 @@ export const WORKBENCH_DRAWERS = [
       {
         id: 'codex',
         name: 'Codex',
-        category: 'AI Assist',
+        category: 'AI Stack',
         badge: 'Code Synthesis',
         shortDesc: 'Contextual autocomplete, inline code generation, and syntactic suggestions.',
         description:
@@ -301,7 +301,7 @@ export const WORKBENCH_DRAWERS = [
       {
         id: 'kiro',
         name: 'Kiro',
-        category: 'AI Assist',
+        category: 'AI Stack',
         badge: 'Workflow Intelligence',
         shortDesc: 'Specialized workflow intelligence, agent orchestration, and task automation.',
         description:

@@ -7,7 +7,7 @@ import '../styles/workbench-section.css';
  * WORKBENCH SECTION — "Tools on my workbench."
  *
  * Placed immediately after Selected Work on pure black #000000 background.
- * Four glossy metal drawers (Design, Build, AI Assist, Ship), chrome handles,
+ * Four glossy metal drawers (Design, Build, AI Stack, Ship), chrome handles,
  * midway prompt "click on a drawer to explore", and on-click cream editorial information card.
  */
 

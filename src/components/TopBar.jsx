@@ -127,19 +127,20 @@ export default function TopBar({
           </a>
 
           {!hideBookingCTA && (
-            <button
-              type="button"
+            <a
+              href="mailto:dfordolapo@gmail.com?subject=Say%20Hello"
               className="top-bar__btn top-bar__btn--book"
-              onClick={() => handleNavigate('/book')}
+              onClick={() => playClick()}
               onMouseEnter={playHover}
+              aria-label="Say Hello"
             >
               <div className="top-bar__btn-shimmer" aria-hidden="true" />
-              <span>Book a Call</span>
+              <span>Say Hello</span>
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
-            </button>
+            </a>
           )}
         </div>
 
