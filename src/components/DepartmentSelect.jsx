@@ -7,7 +7,7 @@ import ScrollReveal from './ScrollReveal'
 
 const TILT_MAX_DEG = 8
 
-export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
+export default function DepartmentSelect({ onSelect, onBack }) {
   const [entered, setEntered] = useState(false)
   const [selected, setSelected] = useState(null)
   const { playHover, playClick } = useSoundEffects()
@@ -108,17 +108,6 @@ export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
     }
   }
 
-  const handleOpenAbout = (e) => {
-    e?.preventDefault?.()
-    playClick()
-    if (onOpenAbout) {
-      onOpenAbout()
-    } else {
-      window.history.pushState({}, '', '/')
-      window.dispatchEvent(new Event('popstate'))
-    }
-  }
-
   return (
     <div className="page-with-topbar">
       <TopBar onBack={onBack} isMainPage={false} variant="white" />
@@ -134,15 +123,6 @@ export default function DepartmentSelect({ onSelect, onBack, onOpenAbout }) {
       <div className="dept-screen__content">
         <div className="dept-header-container">
           <h1 className="dept-screen__title">Choose a <span>Department</span></h1>
-          <button 
-            type="button"
-            className="about-creator-btn" 
-            onClick={handleOpenAbout}
-            onMouseEnter={playHover}
-            aria-label="Go to About Me"
-          >
-            About Me
-          </button>
         </div>
         
         <ScrollReveal variant="fadeUp" delay={0.3} className="dept-screen__cards">

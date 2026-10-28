@@ -58,14 +58,11 @@ export default function App() {
   const isLab = initialPath === '/lab'
   const isAbout = initialPath === '/about' || initialPath === '/' || initialPath === '' || searchParams?.get('view') === 'about' || hash === '#about'
   const initialDept = isDept ? initialPath.split('/')[2] : null
-  const hasActiveScreen = isAbout || isDept || isDeptSelect || isBook || isLab || isInbox || saved?.showDepartmentView || saved?.showDeptSelect
 
-  // Respect motion sensitivity
-  const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
-  const skipFromPreSplash = typeof window !== 'undefined' && sessionStorage.getItem('portfolio-skip') === '1'
-  const skipIntroAutomatically = (prefersReducedMotion || skipFromPreSplash) || hasActiveScreen
+  // Only bypass splash if directly deep-linking to an inner section (e.g. /departments, /inbox)
+  const isDirectDeepLink = isDept || isDeptSelect || isBook || isLab || isInbox
 
-  const [showSplash, setShowSplash] = useState(!skipIntroAutomatically)
+  const [showSplash, setShowSplash] = useState(!isDirectDeepLink)
   const [showDeptSelect, setShowDeptSelect] = useState(isDeptSelect || (saved?.showDeptSelect || false))
   const [showElevator, setShowElevator] = useState(false)
   const [selectedDept, setSelectedDept] = useState(initialDept || saved?.selectedDept || null)
@@ -374,15 +371,6 @@ export default function App() {
                 setShowAboutCreator(true)
                 pushRoute('/')
               }} 
-              onOpenAbout={() => {
-                setShowDeptSelect(false)
-                setShowDepartmentView(false)
-                setShowElevator(false)
-                setShowInbox(false)
-                setShowOldLab(false)
-                setShowAboutCreator(true)
-                pushRoute('/')
-              }} 
             />
           </Suspense>
         </motion.div>
@@ -524,7 +512,6 @@ export default function App() {
       {showSplash && (
         <SplashIntro
           onComplete={handleSplashComplete}
-          onSkip={handleSkipIntro}
         />
       )}
 
