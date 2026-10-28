@@ -49,7 +49,9 @@ function loadSession() {
 export default function App() {
   const saved = loadSession()
   const initialPath = typeof window !== 'undefined' ? window.location.pathname : '/'
-  const isAbout = initialPath === '/about'
+  const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null
+  const hash = typeof window !== 'undefined' ? window.location.hash : ''
+  const isAbout = initialPath === '/about' || searchParams?.get('view') === 'about' || hash === '#about'
   const isDept = initialPath.startsWith('/department/')
   const isDeptSelect = initialPath === '/departments'
   const isBook = initialPath === '/book'

@@ -1,0 +1,59 @@
+/* ==========================================================================
+   DOT PORTRAIT COMPONENT
+   Supplied dot-art portrait with active stipple assembly directly on site background
+   ========================================================================== */
+
+.dot-portrait-standalone-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 682 / 1024;
+  margin: 0 auto;
+  background: #000000;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+  transition: transform 0.35s ease;
+}
+
+.dot-portrait-standalone-wrapper:hover {
+  transform: translateY(-2px);
+}
+
+/* Living Interactive Canvas */
+.dot-portrait-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000000;
+  z-index: 2;
+  pointer-events: auto;
+  touch-action: pan-y; /* Allows smooth page scrolling on mobile while enabling taps/touches */
+  border-radius: 0;
+}
+
+/* Screen reader / SEO hidden image */
+.dot-portrait-standalone-wrapper .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .dot-portrait-standalone-wrapper {
+    cursor: default;
+  }
+}

@@ -3,13 +3,14 @@
    Editorial, tactile, and cinematic redesign
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&family=Caveat:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Modak&family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&family=Caveat:wght@400..700&display=swap');
 
 :root {
+  --font-modak: 'Modak', cursive, system-ui, sans-serif;
   --font-editorial: 'Newsreader', 'Cormorant Garamond', Georgia, serif;
   --font-handwriting: 'Caveat', 'Segoe Script', cursive;
   
-  --about-dark-bg: #08060D;
+  --about-dark-bg: #000000;
   --about-dark-surface: #0E0C18;
   --about-parchment-bg: #F5EFEB;
   --about-parchment-card: #FFFFFF;
@@ -48,9 +49,7 @@
   display: flex;
   align-items: center;
   padding: clamp(2rem, 4.5vw, 4rem) clamp(1rem, 4vw, 3.5rem);
-  background: radial-gradient(circle at 75% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
-              radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
-              var(--about-dark-bg);
+  background: #000000;
   overflow: visible;
 }
 
@@ -97,28 +96,127 @@
 }
 
 .about-hero-headline {
-  font-family: var(--font-editorial);
-  font-size: clamp(1.4rem, 2.7vw, 2.35rem);
-  font-weight: 500;
+  font-family: var(--font-modak);
+  font-size: clamp(1.7rem, 2.22vw, 2.3rem);
+  font-weight: 400;
   line-height: 1.15;
-  letter-spacing: -0.015em;
+  letter-spacing: 0.02em;
   color: #F8F7FF;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.about-headline-line {
+  display: flex;
+  align-items: center;
+}
+
+.about-headline-line--top {
+  margin-bottom: 0.1rem;
+}
+
+.about-headline-line--bottom {
+  color: #F8F7FF;
   white-space: nowrap;
+}
+
+/* "Creative." Highlight Badge with Colored Background and Black Text Alone */
+.about-highlight-creative {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #FF5A36;
+  color: #08060D;
+  padding: 0.05em 0.35em 0.12em;
+  border-radius: 12px 6px 14px 8px;
+  transform: rotate(-1.5deg);
+  box-shadow: 0 4px 18px rgba(255, 90, 54, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  line-height: 1.05;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease;
+}
+
+.about-highlight-creative:hover {
+  transform: rotate(0deg) scale(1.04);
+  box-shadow: 0 6px 24px rgba(255, 90, 54, 0.58);
+}
+
+.about-creative-stroke {
+  position: absolute;
+  inset: -4px;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  color: #08060D;
+  pointer-events: none;
+  overflow: visible;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.18));
+}
+
+.about-headline-rest {
+  color: #F8F7FF;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Screen reader utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Fast Blinking Typewriter Cursor */
+.about-typewriter-caret {
+  display: inline-block;
+  width: 3px;
+  height: 0.85em;
+  background-color: #FF5A36;
+  margin-left: 3px;
+  vertical-align: middle;
+  animation: typewriterCaretBlink 0.75s infinite;
+}
+
+.about-typewriter-caret--badge {
+  background-color: #08060D;
+  height: 0.8em;
+}
+
+.about-typewriter-caret--quote {
+  background-color: var(--about-copper, #C26143);
+  height: 1.05em;
+  width: 2.5px;
+  vertical-align: -0.15em;
+  margin-left: 2px;
+}
+
+@keyframes typewriterCaretBlink {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 
 .about-hero-intro-group {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.75rem;
 }
 
 .about-hero-intro {
   font-family: var(--font-body);
-  font-size: clamp(0.75rem, 0.88vw, 0.84rem);
-  line-height: 1.62;
-  color: rgba(248, 247, 255, 0.72);
-  max-width: 530px;
+  font-size: clamp(0.78rem, 0.92vw, 0.88rem);
+  line-height: 1.65;
+  color: rgba(248, 247, 255, 0.76);
+  max-width: 540px;
   margin: 0;
 }
 
@@ -126,8 +224,8 @@
 .about-hero-paper-slip {
   position: relative;
   align-self: flex-start;
-  margin: 0.35rem 0;
-  padding: 0.9rem 1.35rem 0.9rem 1.25rem;
+  margin: 0.4rem 0;
+  padding: 0.95rem 1.4rem 1.05rem 1.3rem;
   background: linear-gradient(145deg, #FAF7F2 0%, #F5ECE0 55%, #EFE5D4 100%);
   border: 1px solid rgba(190, 165, 135, 0.45);
   border-radius: 4px;
@@ -137,12 +235,13 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
   transform: rotate(-0.5deg);
   transform-origin: left center;
-  max-width: 530px;
+  max-width: 540px;
   width: 100%;
   box-sizing: border-box;
   min-height: 56px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Washi Tape Accent */
@@ -165,7 +264,7 @@
 /* Paper Quote Typography: Deep Fountain-Pen Ink */
 .about-hero-paper-quote {
   font-family: var(--font-editorial);
-  font-size: clamp(0.94rem, 1.3vw, 1.18rem);
+  font-size: clamp(0.98rem, 1.35vw, 1.22rem);
   font-style: italic;
   font-weight: 500;
   line-height: 1.42;
@@ -175,27 +274,6 @@
   border: none;
   letter-spacing: -0.01em;
   display: inline;
-}
-
-/* Blinking Typewriter Cursor */
-.about-hero-typewriter-caret {
-  display: inline-block;
-  width: 2px;
-  height: 1.05em;
-  background-color: var(--about-copper, #C26143);
-  margin-left: 2px;
-  vertical-align: -0.15em;
-  animation: typewriterCaretBlink 0.75s infinite;
-}
-
-.about-hero-typewriter-caret--done {
-  animation: typewriterCaretBlink 1s ease-in-out 3 forwards;
-  opacity: 0;
-}
-
-@keyframes typewriterCaretBlink {
-  0%, 45% { opacity: 1; }
-  50%, 100% { opacity: 0; }
 }
 
 .about-hero-support-group {
@@ -252,70 +330,42 @@
   transform: translateY(3px);
 }
 
-/* Hero Right Column: Tactile Layered Moodboard (Vertically Centered on Desktop) */
+/* Hero Right Column: Standalone Portrait Directly on Site Background */
 .about-hero-right {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   align-self: center;
-  z-index: 15;
+  z-index: 10;
   margin-bottom: 0;
   animation: heroImageReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.about-hero-moodboard-wrapper {
-  position: relative;
+.about-hero-right picture {
+  display: block;
   width: 100%;
   max-width: 380px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.about-hero-photo-frame {
-  position: relative;
+.about-hero-portrait-standalone {
   width: 100%;
-  border-radius: 8px;
-  background: #FFFFFF;
-  padding: 8px 8px 14px 8px;
-  box-shadow: 
-    0 24px 60px rgba(0, 0, 0, 0.45),
-    0 8px 20px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(255, 255, 255, 0.12);
-  transform: rotate(0.8deg);
+  max-width: 380px;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+  background: #000000;
+  border: none;
+  box-shadow: none;
+  filter: none;
   transition: transform 0.4s ease;
 }
 
-.about-hero-photo-frame:hover {
-  transform: translateY(-4px) rotate(0.4deg);
-}
-
-.about-hero-photo-tape {
-  position: absolute;
-  top: -10px;
-  left: 40px;
-  width: 58px;
-  height: 18px;
-  background: rgba(255, 255, 255, 0.7);
-  border-left: 1px dashed rgba(160, 140, 120, 0.45);
-  border-right: 1px dashed rgba(160, 140, 120, 0.45);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  transform: rotate(-1.5deg);
-  pointer-events: none;
-  z-index: 3;
-}
-
-.about-hero-portrait-img {
-  width: 100%;
-  height: clamp(300px, 42vh, 390px);
-  max-height: 390px;
-  display: block;
-  object-fit: cover;
-  object-position: center 25%;
-  border-radius: 4px;
+.about-hero-portrait-standalone:hover {
+  transform: translateY(-4px);
 }
 
 /* ==========================================================================
@@ -396,11 +446,11 @@
 }
 
 .about-journey-headline {
-  font-family: var(--font-editorial);
-  font-size: clamp(1.65rem, 2.7vw, 2.35rem);
-  font-weight: 500;
-  line-height: 1.18;
-  letter-spacing: -0.015em;
+  font-family: var(--font-modak);
+  font-size: clamp(2rem, 3.4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
   color: #261D1A;
   margin: 0 0 1rem;
 }
@@ -653,7 +703,7 @@
   background: #090710;
   color: #F8F7FF;
   padding: clamp(4.5rem, 7vw, 7rem) clamp(1rem, 3.5vw, 3rem) clamp(3.5rem, 6vw, 6rem);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .about-beyond-inner {
@@ -671,11 +721,11 @@
 }
 
 .about-beyond-headline {
-  font-family: var(--font-editorial);
-  font-size: clamp(2.2rem, 4.4vw, 3.5rem);
+  font-family: var(--font-modak);
+  font-size: clamp(2.4rem, 4.4vw, 4rem);
   font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.18;
+  letter-spacing: 0.02em;
   color: #F8F7FF;
   margin: 0;
 }
@@ -703,11 +753,11 @@
 }
 
 .about-closing-title {
-  font-family: var(--font-editorial);
-  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  font-family: var(--font-modak);
+  font-size: clamp(2.2rem, 3.8vw, 3.6rem);
   font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.015em;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
   color: #FFFFFF;
   margin: 0;
 }
@@ -762,33 +812,62 @@
 
 @media (max-width: 992px) {
   .about-hero-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
-  /* On mobile: The editorial text block is on top */
+  /* Flatten hero left so its children are direct flex items of .about-hero-grid */
   .about-hero-left {
+    display: contents;
+  }
+
+  /* 1. Written-in heading comes first */
+  .about-hero-headline {
     order: 1;
     width: 100%;
   }
 
-  /* The image sits nicely under the editorial text with compact height */
+  /* 2. Dolapo dot portrait image comes directly after written-in heading and before body texts */
   .about-hero-right {
     order: 2;
     width: 100%;
-    max-width: 300px;
-    margin: 1.25rem auto 1.25rem auto;
+    max-width: 310px;
+    margin: 0.5rem auto 1.25rem auto;
     z-index: 15;
+    display: flex;
+    justify-content: center;
     animation: heroImageReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  }
+
+  /* 3. Body text group 1 */
+  .about-hero-intro-group {
+    order: 3;
+    width: 100%;
+  }
+
+  /* 4. Signature paper slip quote note */
+  .about-hero-paper-slip {
+    order: 4;
+    width: 100%;
+  }
+
+  /* 5. Support body text group 2 */
+  .about-hero-support-group {
+    order: 5;
+    width: 100%;
+  }
+
+  /* 6. More about me CTA button */
+  .about-hero-cta-row {
+    order: 6;
+    width: 100%;
   }
 
   .about-hero-portrait-img {
     height: clamp(210px, 32vh, 260px);
     max-height: 260px;
   }
-
-
-
 
   .about-closing-card {
     margin-top: 2rem;
@@ -969,12 +1048,6 @@
     padding: 1.5rem 1rem 2.5rem;
   }
 
-  .about-hero-headline {
-    font-size: clamp(0.72rem, 3.6vw, 1.05rem);
-    white-space: nowrap;
-    letter-spacing: -0.015em;
-  }
-
   .about-hero-intro {
     font-size: 0.78rem;
     line-height: 1.55;
@@ -1058,9 +1131,13 @@
   }
 
   .about-hero-headline {
-    font-size: clamp(1.4rem, 5.4vw, 1.95rem);
-    white-space: nowrap;
-    letter-spacing: -0.02em;
+    font-size: clamp(1.75rem, 6.5vw, 2.3rem);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+
+  .about-headline-line--bottom {
+    white-space: normal;
   }
 }
 

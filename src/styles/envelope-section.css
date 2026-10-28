@@ -1,0 +1,444 @@
+/* ==========================================================================
+   WHITEBOARD THINKING SESSION: "I DON'T STOP AT THE DESIGNS"
+   Photorealistic Rumpled Paper Sticky Notes (Real Crumpled Texture)
+   - NO DROP SHADOW AT ALL (Flat on the board)
+   - Compact 3" Post-it proportions
+   - Truly unaligned human ideation arrangement on web & mobile
+   ========================================================================== */
+
+.envelope-section.whiteboard-session-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--about-parchment-bg, #F5EFEB);
+  color: var(--about-parchment-text, #211B18);
+  padding: clamp(2.8rem, 4.8vh, 4rem) clamp(1rem, 3.5vw, 2.5rem) clamp(2.8rem, 4.8vh, 4rem);
+  box-sizing: border-box;
+  overflow: visible;
+  /* Tactile studio whiteboard grid / dot-matrix canvas */
+  background-image: 
+    radial-gradient(rgba(45, 34, 29, 0.08) 1.2px, transparent 1.2px),
+    linear-gradient(to right, rgba(45, 34, 29, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(45, 34, 29, 0.025) 1px, transparent 1px);
+  background-size: 24px 24px, 120px 120px, 120px 120px;
+}
+
+.whiteboard-session-container {
+  width: 100%;
+  max-width: 1040px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   HEADER: AT TOP OF SECTION WITH AMPLE SPACE BELOW FOR PAPERS
+   ========================================================================== */
+.whiteboard-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 0.2rem;
+  margin-bottom: clamp(1rem, 2.5vh, 2.2rem);
+  position: relative;
+  z-index: 10;
+  max-width: 780px;
+  flex-shrink: 0;
+}
+
+.whiteboard-title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.envelope-strip-white {
+  display: inline-block;
+  background: #FFFFFF;
+  padding: 0.22rem clamp(1.3rem, 2.6vw, 2.4rem) 0.28rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  transform: rotate(-1.8deg);
+  border-radius: 2px;
+  margin-bottom: -0.55rem;
+  z-index: 2;
+  transition: transform 0.25s ease;
+}
+
+.envelope-strip-yellow {
+  display: inline-block;
+  background: #FFE500;
+  padding: 0.22rem clamp(1.3rem, 2.8vw, 2.6rem) 0.28rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+  transform: rotate(0.8deg);
+  border-radius: 2px;
+  z-index: 3;
+  transition: transform 0.25s ease;
+}
+
+.envelope-headline-text {
+  font-family: var(--font-modak, 'Modak', cursive);
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+  color: #08060D;
+  display: block;
+  user-select: none;
+  text-align: center;
+}
+
+/* ==========================================================================
+   WHITEBOARD CANVAS: USES THE REST OF THE SPACE TO SCATTER PAPERS
+   ========================================================================== */
+.whiteboard-canvas {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-around;
+  gap: clamp(1.2rem, 2vw, 2.2rem) clamp(1.2rem, 2.2vw, 2rem);
+  position: relative;
+  z-index: 5;
+  padding: 0.2rem 0.5rem 1rem;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   INDIVIDUAL RUMPLED STICKY NOTE:
+   - Uses actual photographic rumpled paper texture
+   - Blended onto vibrant Post-It colors
+   - NO DROP SHADOW AT ALL (box-shadow: none !important; filter: none !important;)
+   - Compact proportions for small phrases
+   ========================================================================== */
+.rumpled-sticky-note {
+  position: relative;
+  width: 156px;
+  min-height: 118px;
+  padding: 0.92rem 0.86rem 1rem;
+  box-sizing: border-box;
+  transform: rotate(var(--note-rot, 0deg));
+  transform-origin: center center;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* CRITICAL REQUIREMENT: NO DROP SHADOW */
+  box-shadow: none !important;
+  filter: none !important;
+  /* Genuine rumpled, uneven torn paper contour */
+  clip-path: polygon(
+    0% 3px, 6% 0px, 15% 3px, 24% 1px, 33% 3px, 43% 0px, 52% 3px, 62% 1px, 71% 3px, 81% 0px, 90% 3px, 97% 1px, 100% 4px,
+    98.5% 15%, 100% 28%, 98% 44%, 100% 60%, 98.5% 76%, 100% 90%, 98% 100%,
+    92% 98%, 83% 100%, 72% 98%, 63% 100%, 52% 98%, 41% 100%, 30% 98%, 18% 100%, 6% 98%, 0% 97%,
+    2% 82%, 0% 66%, 2% 48%, 0% 32%, 1.5% 16%
+  );
+  /* The authentic rumpled paper photographic texture */
+  background-image: url('/assets/rumpled-paper.jpg');
+  background-size: 280px 280px;
+  background-position: var(--texture-pos, center);
+  background-blend-mode: multiply;
+  transition: transform 0.22s ease;
+}
+
+/* Secondary photographic overlay for ridge highlights and deep paper fibers */
+.rumpled-paper-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background-image: url('/assets/rumpled-paper.jpg');
+  background-size: 280px 280px;
+  background-position: var(--texture-pos, center);
+  mix-blend-mode: overlay;
+  opacity: 0.55;
+}
+
+/* Subtle glue band at top */
+.rumpled-sticky-note::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Translucent rumpled washi tape on select notes */
+.rumpled-tape-strip {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 44px;
+  height: 15px;
+  transform: translateX(-50%) rotate(var(--tape-rot, 0deg));
+  background: rgba(246, 240, 222, 0.78);
+  backdrop-filter: blur(1px);
+  /* NO DROP SHADOW ON TAPE */
+  box-shadow: none !important;
+  clip-path: polygon(
+    0% 2px, 5% 0px, 12% 2px, 20% 0px, 28% 2px, 36% 0px, 45% 2px, 55% 0px, 64% 2px, 73% 0px, 82% 2px, 91% 0px, 100% 1px,
+    98% 100%, 91% 98%, 81% 100%, 72% 98%, 62% 100%, 53% 98%, 44% 100%, 35% 98%, 26% 100%, 17% 98%, 7% 100%, 0% 98%
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ==========================================================================
+   POST-IT COLOR PALETTES (BLEND BEAUTIFULLY WITH PHOTOGRAPHIC TEXTURE)
+   ========================================================================== */
+.rumpled-note--yellow {
+  background-color: #FFF275;
+}
+
+.rumpled-note--purple {
+  background-color: #D8BFFF;
+}
+
+.rumpled-note--pink {
+  background-color: #FFAAC5;
+}
+
+.rumpled-note--green {
+  background-color: #92F4BE;
+}
+
+.rumpled-note--cream {
+  background-color: #FFF3CD;
+}
+
+.rumpled-note--blue {
+  background-color: #A2E2FF;
+}
+
+.rumpled-note--lavender {
+  background-color: #CEBEFE;
+}
+
+.rumpled-note--coral {
+  background-color: #FFA2B2;
+}
+
+/* ==========================================================================
+   FELT-TIP PEN TYPOGRAPHY INSIDE COMPACT NOTE
+   ========================================================================== */
+.rumpled-note-content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+}
+
+.rumpled-note-title {
+  font-family: var(--font-heading, system-ui, -apple-system, sans-serif);
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: #120D1A;
+  margin: 0 0 0.35rem;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  text-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.4);
+}
+
+.rumpled-note-desc {
+  font-family: var(--font-body, system-ui, -apple-system, sans-serif);
+  font-size: 0.77rem;
+  font-weight: 600;
+  color: rgba(18, 13, 26, 0.88);
+  margin: 0;
+  line-height: 1.32;
+  letter-spacing: -0.005em;
+}
+
+/* ==========================================================================
+   HUMAN THINKING SESSION SCATTER (UNALIGNED, ORGANIC POSITIONS ON DESKTOP)
+   ========================================================================== */
+.note-scatter-1 {
+  margin-top: 5px;
+  margin-left: 15px;
+}
+.note-scatter-2 {
+  margin-top: 42px;
+  margin-left: -18px;
+}
+.note-scatter-3 {
+  margin-top: -16px;
+  margin-left: 25px;
+}
+.note-scatter-4 {
+  margin-top: 52px;
+  margin-left: -12px;
+}
+.note-scatter-5 {
+  margin-top: 22px;
+  margin-left: -30px;
+}
+.note-scatter-6 {
+  margin-top: -26px;
+  margin-left: 14px;
+}
+.note-scatter-7 {
+  margin-top: 38px;
+  margin-left: -18px;
+}
+.note-scatter-8 {
+  margin-top: -8px;
+  margin-left: 30px;
+}
+
+/* ==========================================================================
+   MOBILE & TABLET: ORGANIC ZIG-ZAG UNALIGNED SCATTER
+   Not aligned in straight columns! Act like human brainstorm flow
+   ========================================================================== */
+/* ==========================================================================
+   MOBILE & TABLET: HAPHAZARD SCRAPBOOK SCATTER FITTING IN ONE VIEWPORT
+   - Arranged haphazardly like the Scrapbook photos
+   - Full note size preserved (not messed up or shrunk)
+   - Notes pushed towards each other with natural overlaps
+   - Heading at top, entire composition fits within one viewport (100dvh)
+   ========================================================================== */
+@media (max-width: 720px) {
+  .envelope-section.whiteboard-session-section {
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: auto;
+    max-height: none;
+    padding: clamp(3rem, 5vh, 3.8rem) clamp(0.75rem, 3vw, 1.25rem) clamp(3.2rem, 5.5vh, 4rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+
+  .whiteboard-session-container {
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  /* Section heading positioned clearly at the very top */
+  .whiteboard-header {
+    margin-top: 0;
+    margin-bottom: clamp(1.2rem, 2.8vh, 1.8rem);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .envelope-strip-white,
+  .envelope-strip-yellow {
+    padding: 0.18rem 1rem 0.24rem;
+  }
+
+  .envelope-headline-text {
+    font-size: clamp(1.65rem, 6vw, 2.15rem);
+    line-height: 1.1;
+  }
+
+  /* Playful Unaligned Scattered Canvas: notes play freely across the viewport */
+  .whiteboard-canvas {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: clamp(0.85rem, 3vw, 1.4rem);
+    row-gap: clamp(1rem, 2.4vh, 1.5rem);
+    padding: 0.5rem 0.25rem 1rem;
+    box-sizing: border-box;
+  }
+
+  /* Real sized rumpled paper note with breathing room */
+  .rumpled-sticky-note {
+    width: 100%;
+    max-width: 175px;
+    min-height: 104px;
+    padding: 0.82rem 0.75rem 0.9rem;
+    box-sizing: border-box;
+  }
+
+  .rumpled-note-title {
+    font-size: 0.9rem;
+    line-height: 1.18;
+    margin-bottom: 0.3rem;
+  }
+
+  .rumpled-note-desc {
+    font-size: 0.74rem;
+    line-height: 1.32;
+  }
+
+  .rumpled-tape-strip {
+    width: 42px;
+    height: 14px;
+    top: -7px;
+  }
+
+  /* Organic Brainstorm Scatter: natural tilts, staggered offsets playing around the screen */
+  .note-scatter-1 {
+    transform: rotate(-5.5deg);
+    margin-top: 0;
+    margin-left: 2px;
+  }
+  .note-scatter-2 {
+    transform: rotate(6deg);
+    margin-top: 14px;
+    margin-right: 2px;
+  }
+  .note-scatter-3 {
+    transform: rotate(4deg);
+    margin-top: -6px;
+    margin-left: 6px;
+  }
+  .note-scatter-4 {
+    transform: rotate(-6.5deg);
+    margin-top: 8px;
+    margin-right: 4px;
+  }
+  .note-scatter-5 {
+    transform: rotate(-4.5deg);
+    margin-top: -4px;
+    margin-left: -2px;
+  }
+  .note-scatter-6 {
+    transform: rotate(5.5deg);
+    margin-top: 12px;
+    margin-right: -2px;
+  }
+  .note-scatter-7 {
+    transform: rotate(5deg);
+    margin-top: -2px;
+    margin-left: 4px;
+  }
+  .note-scatter-8 {
+    transform: rotate(-5deg);
+    margin-top: 10px;
+    margin-right: 2px;
+  }
+}
