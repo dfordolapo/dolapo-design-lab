@@ -107,14 +107,15 @@ export const CASE_STUDIES = [
             label: 'Product 003',
             name: 'Awwja',
             color: '#E06D28', // Warm Terracotta / Burnt Orange
-            principle: 'Automated negotiation & early access momentum',
+            principle: 'Culture-first open-air market digitization',
             principles: [
-              { name: 'Value Proposition Priming', detail: 'Explaining automated price discovery before asking for contact info.' },
-              { name: 'Zero-Friction Demand Capture', detail: 'Single-field waitlist entry with instant viral queue confirmation.' },
-              { name: 'Dual-Platform Fluidity', detail: 'Seamless visual continuity between mobile feed and desktop web.' }
+              { name: 'Your Market In Your Pocket', detail: 'Brings the lively atmosphere and familiar cadences of open-air street markets ("Last price?") directly into mobile onboarding.' },
+              { name: 'Name Your Price', detail: 'Autonomous price bargaining empowering buyers and sellers to negotiate and close deals on their own terms across Naira and Dollar currencies.' },
+              { name: 'Verified Stalls', detail: 'Vetted merchant credibility with real ratings, authentic reviews, and anti-fraud verification ("No funny business").' },
+              { name: 'Frictionless Entry', detail: 'Streamlined local phone authentication (+234) and a 1-tap "Enter the Market" agreement flow with explicit validation cues.' }
             ],
-            insight: 'A high-converting onboarding and early-access waitlist flow that communicates the value of an automated negotiation machine while capturing qualified demand with zero drop-off.',
-            tags: ['Waitlist', 'Conversion Engine', 'Mobile Flow'],
+            insight: 'An 8-step mobile app onboarding experience engineered to bridge traditional African street markets and modern digital commerce. Preserves cultural bargaining rituals ("Last price?", "Name Your Price") while establishing verified merchant credibility and frictionless local onboarding.',
+            tags: ['Marketplace App', 'Cultural UX', 'Mobile Onboarding', 'Price Bargaining'],
             status: 'complete',
             fullCaseStudyUrl: '#',
             images: [
@@ -133,14 +134,14 @@ export const CASE_STUDIES = [
             label: 'Product 004',
             name: 'Skinfolio',
             color: '#F472B6', // Warm Rose Skincare
-            principle: 'Personalized ritual & ingredient transparency',
+            principle: 'Skincare tracking with a finance-inspired twist',
             principles: [
-              { name: 'Diagnostic Assessment', detail: 'Dynamic multi-step skin profile quiz that personalizes AM/PM routines.' },
-              { name: 'Active Ingredient Breakdown', detail: 'High-clarity formulation callouts highlighting safe vs contraindicated actives.' },
-              { name: 'Progress Calibration', detail: 'Daily habit streaks and photo logging cadence that drive day-1 retention.' }
+              { name: 'Asset Management Mental Model', detail: 'What if skincare worked like asset management? Your daily habits influence your skin value: consistency builds your portfolio, neglect creates debt.' },
+              { name: 'Portfolio Growth & Skin Equity', detail: 'Daily routines (cleanser, barrier serums, SPF) act as asset investments that compound skin health over time.' },
+              { name: 'Debt Avoidance & Accountability', detail: 'Skipped routines and UV exposure compound as skin debt, creating tangible accountability for daily consistency.' }
             ],
-            insight: 'A personalized skincare diagnostic onboarding experience that analyzes skin concerns, decodes complex formulations, and crafts an individualized daily ritual with zero fluff.',
-            tags: ['Skincare Diagnostic', 'Personalization', 'Mobile App'],
+            insight: 'What if skincare worked like asset management?\n\nYour daily habits influence your skin value: consistency builds your portfolio, neglect creates debt.\n\nA skincare tracker with a finance-inspired twist.',
+            tags: ['Asset Management UX', 'Skincare Portfolio', 'Habit Tracking', 'Behavioral Design'],
             status: 'complete',
             fullCaseStudyUrl: '#',
             images: [],
@@ -421,31 +422,87 @@ export const CASE_STUDIES = [
         <path d="M9 13 L15 13" stroke="#FFF" strokeWidth="0.5"></path>
       </svg>
     ),
-    category: 'UX EXPLORATION',
+    category: 'UX FEATURE PROPOSAL',
     title: 'SafeRide Mode™',
-    role: 'Product Design, UX Research',
-    duration: 'Exploration',
-    platform: 'Mobile App',
-    goal: 'A proactive emergency safety and telemetry companion designed for late-night rideshare passengers.',
+    role: 'UX Research • Product Design (Group C | MTL Assignment)',
+    duration: 'Feature Proposal',
+    platform: 'Ride-Hailing Mobile App',
+    goal: 'Reducing rider anxiety and uncertainty during nighttime wait times through proactive safety signals and verified arrival monitoring.',
     content: [
       {
-        type: 'text-block',
-        heading: 'The Problem',
-        body: 'When a passenger senses danger in a rideshare vehicle late at night, pulling out their phone, unlocking the screen, and opening an emergency dialer actively escalates the threat. The glowing screen and overt dialing gesture immediately alert the driver that they are being reported.\n\nExisting rideshare safety features assume an ideal scenario where the rider has free, unobserved access to their phone. In reality, duress requires non-verbal, blind-operable mechanics.'
+        type: 'overview',
+        text: 'SafeRide Mode™ is a UX feature proposal for a ride-hailing app that directly tackles nighttime wait anxiety. By auto-activating proactive safety signals from booking through driver arrival, it transforms the most vulnerable phase of a nocturnal trip into a reassuring, transparent experience.'
+      },
+      {
+        type: 'presentation-slide',
+        image: '/assets/image-1.webp',
+        caption: 'SafeRide Mode™ — Reducing Rider Anxiety During Nighttime Wait Times (UX Feature Proposal for a Ride-Hailing App)'
       },
       {
         type: 'text-block',
-        heading: 'Core UX Mechanics & Design Decisions',
-        body: '• **Non-Verbal Volume Button SOS:** A blind physical key sequence (volume hold + double tap) that immediately logs vehicle telemetry and real-time GPS coordinates to trusted emergency contacts without waking the display or triggering sound.\n• **Live Route Telemetry & Deviation Alerts:** Continuous comparison between the official navigation route and real-time vehicle heading. If the vehicle makes unexpected turns or prolonged stops in unlit areas, subtle haptic pulses prompt the rider for a silent check-in.\n• **Covert Fake-Call Interface:** An ultra-realistic simulated incoming call screen with pre-recorded natural voice responses, giving the rider a plausible excuse to speak out loud and broadcast their location to the cabin.\n• **Stealth Lighting Palette:** High-contrast dark palette designed to avoid illuminating the vehicle cabin while preserving critical legibility under duress.'
+        heading: 'Survey Findings: The Anxious Wait',
+        body: 'Through primary survey research on late-night ride-hailing behaviors, we discovered that rider distress peaks **before the trip even begins**—specifically during the waiting period while standing outside on curbsides.\n\n• **73% of riders** reported feeling anxious while waiting for drivers at night, especially when waiting times exceeded 10 minutes.\n• Riders are **2x more likely to cancel** during night hours due to compounding uncertainty.\n• Nighttime wait distress was reported as the **#1 pain point** in our user survey.\n\n*Core Insight:* **Waiting time feels longer and more stressful when riders feel unsafe.** Common concerns include long wait times increasing distress, feeling exposed while waiting outside, uncertainty about driver arrival, and fear of getting into the wrong car.'
       },
-      { type: 'presentation-slide', image: '/assets/image-1.webp', caption: 'Overview & Covert Safety Paradigm' },
-      { type: 'presentation-slide', image: '/assets/image-2.webp', caption: 'The Silent SOS Hardware Trigger' },
-      { type: 'presentation-slide', image: '/assets/image-3.webp', caption: 'Route Telemetry & Deviation Detection' },
-      { type: 'presentation-slide', image: '/assets/image-4.webp', caption: 'Discreet Emergency Handoff Architecture' },
-      { type: 'presentation-slide', image: '/assets/image-5.webp', caption: 'Simulated Incoming Call Interface' },
-      { type: 'presentation-slide', image: '/assets/image-6.webp', caption: 'Live Location Sharing Matrix' },
-      { type: 'presentation-slide', image: '/assets/image-7.webp', caption: 'Emergency Contact Dashboard' },
-      { type: 'presentation-slide', image: '/assets/image-8.webp', caption: 'Design System & High-Contrast Night Palette' }
+      {
+        type: 'presentation-slide',
+        image: '/assets/image-2.webp',
+        caption: 'Survey Findings: 73% Experience Nighttime Wait Anxiety & 2x Cancellation Spikes'
+      },
+      {
+        type: 'text-block',
+        heading: 'Documenting The Problem: Who, When & What They Feel',
+        body: 'Users experience acute psychological vulnerability during nighttime waiting periods, resulting in canceled rides, perceived safety hazards, and brand distrust.\n\n• **Who Is Affected:**\n  - Nighttime shift workers traveling during off-peak hours\n  - Solo female travelers standing alone outside\n  - Passengers returning from late-night social outings\n  - Elderly passengers vulnerable to roadside risks\n  - First-time ride-hailing app users\n\n• **When Anxiety Spikes:**\n  - Bookings made after 8:00 PM\n  - Extended ETAs exceeding 15 minutes\n  - Unfamiliar or poorly lit pickup locations\n  - Driver approaching slowly or making unpredictable turns\n\n• **Inner Monologue & Emotional Pain Points:**\n  - *"Is the driver real?"*\n  - *"Is this the right car?"*\n  - *"Will I arrive safely?"*\n  - *"Should I cancel?"*\n  - *"No one knows I\'m here."*'
+      },
+      {
+        type: 'presentation-slide',
+        image: '/assets/image-3.webp',
+        caption: 'Documenting The Problem: Vulnerable User Groups, Trigger Conditions & Emotional Pain Points'
+      },
+      {
+        type: 'text-block',
+        heading: 'Proposed Solution: A Dedicated Safety Layer for Nighttime Rides',
+        body: 'SafeRide Mode™ automatically activates during nighttime trips to systematically reduce rider anxiety while waiting.\n\nRather than passive emergency buttons that only function after disaster strikes, SafeRide Mode acts as a **proactive safety layer** that begins at booking and stays active until the driver arrives.'
+      },
+      {
+        type: 'presentation-slide',
+        image: '/assets/image-4.webp',
+        caption: 'Proposed Solution: SafeRide Mode™ — A Dedicated Safety Layer for Nighttime Rides'
+      },
+      {
+        type: 'text-block',
+        heading: 'The 4-Pillar Nighttime Safety System',
+        body: 'Auto-activated between **8:00 PM – 5:00 AM**, SafeRide Mode integrates 4 complementary safety pillars designed to ease cognitive distress:\n\n• **1. Live Safety Status Bar:**\n  Surfaces real-time system confirmations: Driver identity verified, license plate confirmed, and real-time trip GPS tracking active.\n\n• **2. Auto-Share Trip:**\n  Instantly sends a live ride tracking link to trusted contacts at the exact moment of booking with zero manual friction.\n\n• **3. One-Tap Emergency Button:**\n  Persistent, instant access to emergency assistance without digging through nested menus.\n\n• **4. Arrival Verification System:**\n  License plate confirmation and optional QR code scan before boarding to guarantee passengers enter the correct vehicle.'
+      },
+      {
+        type: 'presentation-slide',
+        image: '/assets/image-5.webp',
+        caption: 'Nighttime Safety System: 4 Safety Components Auto-Activated Between 8:00 PM – 5:00 AM'
+      },
+      {
+        type: 'text-block',
+        heading: 'Interface Design: Booking Activation & Arrival Monitoring',
+        body: 'The design focuses on surfacing safety signals without overwhelming the main booking flow. Safety support begins at booking and continues until driver arrival across two coordinated screens:\n\n• **Booking Screen (Activation):** Auto-activates after 7:00 PM. Displays the reassuring banner *"Nighttime Monitoring — You\'re not riding alone"* alongside quick-action toggles for Audio Recording, Live Sharing, and SOS Emergency Standby.\n\n• **Waiting Screen (Arrival Monitoring):** Features prominent Live GPS tracking with real-time driver credentials (Driver name, car model, color, star rating, verified license plate badge), live ETA countdown ("Driver arriving in 4 minutes"), and prominent Emergency + Share Trip actions.'
+      },
+      {
+        type: 'presentation-slide',
+        image: '/assets/image-6.webp',
+        caption: 'SafeRide Mode™ Interface: Booking Activation Screen & Waiting Screen Arrival Monitoring'
+      },
+      {
+        type: 'text-block',
+        heading: 'Why SafeRide Mode™ Will Work: Directly Answering Anxiety',
+        body: 'SafeRide Mode succeeds because every single feature maps directly to one of the four anxiety questions passengers ask themselves under stress:\n\n• **Live Safety Status Bar:** Answers *"Am I going to be safe?"*\n• **Auto-Share Trip:** Answers *"I\'m alone and no one knows where I am."*\n• **One-Tap Emergency Button:** Answers *"What if something goes wrong right now?"*\n• **Driver Arrival Verification:** Answers *"Is this actually my driver\'s car?"*\n\n**Strategic Value & Measured Impact:**\n• **↓ Rider Anxiety:** Transparent status signals replace uncertainty with structured reassurance.\n• **↓ Trip Cancellations:** Mitigates the 2x cancellation spike during late-night hours.\n• **↑ Rider Trust:** Strengthens rider loyalty and transforms the ride-hailing platform into a trusted nighttime guardian.'
+      },
+      {
+        type: 'presentation-slide',
+        image: '/assets/image-7.webp',
+        caption: 'Why SafeRide Mode™ Will Work: Mapping Features to Anxiety Questions (↓ Anxiety, ↓ Cancellations, ↑ Trust)'
+      },
+      {
+        type: 'presentation-slide',
+        image: '/assets/image-8.webp',
+        caption: 'Core Principle: Safety signals can be surfaced to reduce uncertainty and rider anxiety during the waiting period of nighttime rides.'
+      }
     ]
   },
   

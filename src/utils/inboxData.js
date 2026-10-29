@@ -252,39 +252,40 @@ export const INITIAL_MESSAGES = [
   },
   {
     id: 'msg-draft-saferide',
-    sender: 'SafeRide Mode™ Exploration',
+    sender: 'SafeRide Mode™ Proposal',
     senderHandle: 'lab@designwithdolapo.pro',
-    senderRole: 'Discreet Passenger Safety Companion',
+    senderRole: 'Nighttime Ride Safety Layer',
     senderAvatar: null,
     senderInitials: 'SR',
-    subject: 'SafeRide Mode™: Covert emergency companion UX',
-    preview: 'When a passenger feels unsafe, opening a dialer is too dangerous. Designing discreet volume-key SOS triggers, route-deviation alerts, and covert fake-call mechanics...',
+    subject: 'SafeRide Mode™: Reducing rider anxiety during nighttime wait times',
+    preview: '73% of riders experience distress while waiting for rides at night. Proposing a proactive safety layer from booking through driver arrival with status verification and auto-share...',
     timestamp: 'Draft',
-    date: 'Draft · UX Exploration',
+    date: 'Draft · UX Feature Proposal',
     unread: false,
     starred: false,
     folder: 'drafts',
     isDraft: true,
-    category: 'UX Exploration',
+    category: 'UX Proposal',
     projectPreview: {
       id: 'designer-1',
       title: 'SafeRide Mode™',
-      subtitle: 'Safety Companion UX Exploration',
-      description: 'High-contrast, discreet emergency companion designed for passengers traveling alone late at night, featuring covert volume gestures and live telemetry tracking.',
-      tags: ['Safety UX', 'Discreet Gestures', 'Mobile Exploration', 'Route Telemetry'],
+      subtitle: 'Nighttime Safety Feature Proposal',
+      description: 'A proactive safety layer auto-activated between 8:00 PM – 5:00 AM to eliminate passenger wait distress through real-time verification and instant trip sharing.',
+      tags: ['Safety UX', 'Ride-Hailing', 'UX Research', 'Arrival Verification'],
       image: '/assets/saferide-logo.svg'
     },
     body: {
-      salutation: 'SafeRide Mode™: Emergency Companion UX Exploration',
+      salutation: 'SafeRide Mode™: Nighttime Safety Feature Proposal',
       paragraphs: [
-        'When a passenger feels unsafe in a rideshare vehicle late at night, pulling out their phone, unlocking the screen, and opening a dialer can actively escalate danger by signaling to an aggressive driver that they are being reported.',
-        'SafeRide Mode™ explores non-verbal, discreet safety mechanics engineered specifically for high-tension environments:',
-        '1. Non-Verbal Volume Button SOS: A tactile physical key sequence (volume hold + double tap) that immediately logs vehicle telemetry and real-time GPS coordinates to trusted emergency contacts without waking the display or triggering sound.',
-        '2. Live Route Telemetry & Deviation Alerts: Constant background comparison between the mapped navigation path and real-time vehicle heading, triggering subtle haptic pulses if the vehicle makes unexpected turns or prolonged stops.',
-        '3. Covert Fake-Call Screen: An ultra-realistic simulated incoming call interface with pre-recorded natural voice prompts, giving the rider a plausible excuse to speak out loud and broadcast location details to the driver.',
-        'Designed with a high-contrast dark palette to avoid illuminating the vehicle cabin while preserving critical legibility under duress.'
+        'Late-night ride distress peaks before the car even arrives: 73% of riders feel anxious waiting outside at night, wait times feel twice as stressful, and nighttime cancellations double. SafeRide Mode™ introduces an automated safety layer that acts as a proactive guardian between booking and boarding.',
+        'The system is built on 4 core safety pillars:',
+        '1. Live Safety Status Bar: Real-time driver verification, license plate confirmation, and GPS tracking indicators right on the booking sheet.',
+        '2. Auto-Share Trip: Instantly dispatches a live GPS tracking link to trusted contacts the moment a ride is accepted.',
+        '3. One-Tap Emergency Button: Direct, persistent access to local emergency assistance without navigating multi-step menus.',
+        '4. Arrival Verification System: Plate confirmation and optional QR scanning before boarding to eliminate the fear of stepping into the wrong vehicle.',
+        'By directly answering riders\' core psychological fears, SafeRide Mode cuts nighttime cancellation rates, rebuilds rider trust, and makes waiting feel shorter and safer.'
       ],
-      signoff: 'Design Lab Exploration by Dolapo\nProduct Designer · UX Writer',
+      signoff: 'UX Feature Proposal by Dolapo (Group C | MTL Assignment)\nProduct Designer · UX Researcher',
       cta: {
         text: 'View SafeRide Mode™ Case Study',
         action: 'open-project',
@@ -300,7 +301,7 @@ export const INITIAL_MESSAGES = [
     senderAvatar: null,
     senderInitials: 'OS',
     subject: 'Onboarding Screens: First impressions & design principles',
-    preview: 'Every product gets one shot at a first impression. Exploring progressive disclosure in MUVE Fitness and playful bedtime storytelling in Children’s Audiobook App...',
+    preview: 'Every product gets one shot at a first impression. Exploring progressive disclosure in MUVE, African street market onboarding in Awwja, and finance-inspired tracking in Skinfolio...',
     timestamp: 'Draft',
     date: 'Draft · Ongoing Self-Challenge',
     unread: false,
@@ -312,7 +313,7 @@ export const INITIAL_MESSAGES = [
       id: 'designer-onboarding',
       title: 'Onboarding Screens Collection',
       subtitle: 'Principles-First Mobile Onboarding Library',
-      description: 'An ongoing craft challenge exploring single UX principles across products, from progressive goal setting in MUVE Fitness to audio-first warmth in Children’s Audiobook.',
+      description: 'An ongoing craft challenge exploring single UX principles across products, from progressive goal setting in MUVE Fitness to cultural commerce in Awwja and skincare asset management in Skinfolio.',
       tags: ['Onboarding UX', 'Progressive Disclosure', 'Mobile Systems', 'Tactile UI'],
       image: '/assets/onboarding-emblem.webp'
     },
@@ -321,7 +322,7 @@ export const INITIAL_MESSAGES = [
       paragraphs: [
         'Every product gets one shot at a first impression. Onboarding screens are that critical moment. This is an ongoing self-challenge: design one onboarding screen at a time, each focused on a single uncompromising design principle. No briefs, no clients, just the craft.',
         'Current explorations in the collection:',
-        '• Product 001: MUVE Fitness (Motivation Meets Action)\nA complete 8-step onboarding flow designed to inspire users while smoothly capturing their goals and fitness levels. Leverages Progressive Disclosure to prevent cognitive overload, high-energy typography and dark-mode aesthetics to build immediate workout momentum, and tactile interactive choice cards with immediate feedback.\n\n• Product 002: Children’s Audiobook App (Story-First Warmth & Playful Exploration)\nAn immersive storytelling onboarding flow designed for children and parents. Prioritizes voice warmth, vibrant visual cues, oversized tactile controls with intuitive cues for young listeners, transparent screen-time settings, and seamless bedtime auto-pause to build parental reassurance.\n\n• Product 003: In Progress\nExploring generative AI setup flows with adaptive progressive hints.'
+        '• Product 001: MUVE Fitness (Motivation Meets Action)\nA complete 8-step onboarding flow designed to inspire users while smoothly capturing their goals and fitness levels. Leverages Progressive Disclosure to prevent cognitive overload, high-energy typography and dark-mode aesthetics to build immediate workout momentum, and tactile interactive choice cards with immediate feedback.\n\n• Product 002: Children’s Audiobook App (Story-First Warmth & Playful Exploration)\nAn immersive storytelling onboarding flow designed for children and parents. Prioritizes voice warmth, vibrant visual cues, oversized tactile controls with intuitive cues for young listeners, transparent screen-time settings, and seamless bedtime auto-pause to build parental reassurance.\n\n• Product 003: Awwja (Your Market, Now In Your Pocket)\nAn 8-step mobile app onboarding experience engineered to bridge traditional open-air African street markets and modern digital commerce. Preserves cultural bargaining rituals ("Last price?", "Name Your Price") while establishing verified merchant credibility and frictionless local onboarding (+234 phone authentication).\n\n• Product 004: Skinfolio (Skincare as Asset Management)\nWhat if skincare worked like asset management? Your daily habits influence your skin value: consistency builds your portfolio, neglect creates debt. A skincare tracker with a finance-inspired twist.'
       ],
       signoff: 'Craft Challenge by Dolapo\nProduct Designer',
       cta: {
