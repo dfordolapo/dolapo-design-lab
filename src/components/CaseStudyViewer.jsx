@@ -315,6 +315,66 @@ function OnboardingCollectionBlock({ block }) {
                           </p>
                         )}
 
+                        {/* Before & After Evolution Comparison */}
+                        {screen.beforeImage && screen.afterImage && (
+                          <div className="ob-evolution" style={{ '--flow-color': flowColor }}>
+                            <div className="ob-evolution-header">
+                              <span
+                                className="ob-evolution-tag"
+                                style={{
+                                  color: flowColor,
+                                  borderColor: `${flowColor}40`,
+                                  background: `${flowColor}15`
+                                }}
+                              >
+                                DESIGN EVOLUTION
+                              </span>
+                              <h4 className="ob-evolution-title">
+                                {screen.comparisonTitle || 'Before vs. After (The Mascot Transformation)'}
+                              </h4>
+                            </div>
+                            <div className="ob-evolution-grid">
+                              <div className="ob-evolution-col before">
+                                <div className="ob-evolution-badge-wrap">
+                                  <span className="ob-evolution-badge before">Before: Abstract & Sterile</span>
+                                </div>
+                                <div className="ob-evolution-frame">
+                                  <img
+                                    src={screen.beforeImage}
+                                    alt={`${screen.name} Before - Abstract UI`}
+                                    loading="lazy"
+                                    decoding="async"
+                                  />
+                                </div>
+                                <p className="ob-evolution-desc">
+                                  {screen.beforeCaption || 'Sterile inputs and abstract geometric vectors offering zero emotional reassurance to a tired cook.'}
+                                </p>
+                              </div>
+                              <div className="ob-evolution-col after">
+                                <div className="ob-evolution-badge-wrap">
+                                  <span
+                                    className="ob-evolution-badge after"
+                                    style={{ background: flowColor, color: '#FFFFFF' }}
+                                  >
+                                    After: Mascot-Guided Journey
+                                  </span>
+                                </div>
+                                <div className="ob-evolution-frame">
+                                  <img
+                                    src={screen.afterImage}
+                                    alt={`${screen.name} After - Mascot-Guided UI`}
+                                    loading="lazy"
+                                    decoding="async"
+                                  />
+                                </div>
+                                <p className="ob-evolution-desc">
+                                  {screen.afterCaption || 'An expressive culinary chef mascot anchoring the entire experience—from scanner to celebratory start.'}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
                         {/* Expandable Design Principles Accordion */}
                         {screen.principles && screen.principles.length > 0 && (
                           <details className="ob-principles-accordion" style={{ '--flow-color': flowColor }}>

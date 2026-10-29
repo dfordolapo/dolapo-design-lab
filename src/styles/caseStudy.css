@@ -1614,6 +1614,103 @@
   line-height: 1.65;
   color: var(--text-secondary);
   margin: 0;
+  white-space: pre-line;
+}
+
+/* Evolution Comparison (Before vs After) */
+.ob-evolution {
+  margin-top: 18px;
+  margin-bottom: 12px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+}
+
+.ob-evolution-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.ob-evolution-tag {
+  align-self: flex-start;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid;
+}
+
+.ob-evolution-title {
+  font-size: 1.05rem;
+  color: var(--text-primary, #fff);
+  margin: 0;
+  font-weight: 600;
+}
+
+.ob-evolution-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 680px) {
+  .ob-evolution-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+.ob-evolution-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ob-evolution-badge-wrap {
+  display: flex;
+}
+
+.ob-evolution-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.ob-evolution-badge.before {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.ob-evolution-frame {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  background: #000;
+}
+
+.ob-evolution-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ob-evolution-desc {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.65));
+  margin: 0;
 }
 
 /* Expandable Principles Accordion */

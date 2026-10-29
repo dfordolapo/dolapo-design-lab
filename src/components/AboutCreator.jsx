@@ -375,6 +375,10 @@ export default function AboutCreator({ onBack }) {
 
               <div className="about-hero-intro-group">
                 <p className="about-hero-intro">
+                  <strong>I'm the designer you go to when you want something uniquely yours.</strong>
+                </p>
+
+                <p className="about-hero-intro">
                   I’ve always been interested in what happens beneath the surface: the thought behind things, the reason one experience stays with you while another disappears the moment you leave, the strange little gap between what is intended and what another person actually experiences.
                 </p>
 

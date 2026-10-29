@@ -220,6 +220,12 @@
   margin: 0;
 }
 
+.about-hero-intro strong {
+  font-weight: 700;
+  color: #FAF7F2;
+  letter-spacing: -0.01em;
+}
+
 /* Tactile Paper Slip Note for Signature Clause */
 .about-hero-paper-slip {
   position: relative;

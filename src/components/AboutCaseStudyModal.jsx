@@ -485,6 +485,66 @@ export default function AboutCaseStudyModal({ project, onClose }) {
                               </div>
                             )}
 
+                            {/* Before & After Evolution Comparison */}
+                            {screen.beforeImage && screen.afterImage && (
+                              <div className="about-ob-evolution">
+                                <div className="about-ob-evolution-header">
+                                  <span
+                                    className="about-ob-evolution-tag"
+                                    style={{
+                                      color: screen.color || '#10B981',
+                                      borderColor: `${screen.color || '#10B981'}40`,
+                                      background: `${screen.color || '#10B981'}15`
+                                    }}
+                                  >
+                                    DESIGN EVOLUTION
+                                  </span>
+                                  <h4 className="about-ob-evolution-title">
+                                    {screen.comparisonTitle || 'Before vs. After (The Mascot Transformation)'}
+                                  </h4>
+                                </div>
+                                <div className="about-ob-evolution-grid">
+                                  <div className="about-ob-evolution-col before">
+                                    <div className="about-ob-evolution-badge-wrap">
+                                      <span className="about-ob-evolution-badge before">Before: Abstract & Sterile</span>
+                                    </div>
+                                    <div className="about-ob-evolution-frame">
+                                      <img
+                                        src={screen.beforeImage}
+                                        alt={`${screen.name} Before - Abstract UI`}
+                                        loading="lazy"
+                                        decoding="async"
+                                      />
+                                    </div>
+                                    <p className="about-ob-evolution-desc">
+                                      {screen.beforeCaption || 'Sterile inputs and abstract geometric vectors offering zero emotional reassurance to a tired cook.'}
+                                    </p>
+                                  </div>
+                                  <div className="about-ob-evolution-col after">
+                                    <div className="about-ob-evolution-badge-wrap">
+                                      <span
+                                        className="about-ob-evolution-badge after"
+                                        style={{ background: screen.color || '#10B981', color: '#FFFFFF' }}
+                                      >
+                                        After: Mascot-Guided Journey
+                                      </span>
+                                    </div>
+                                    <div className="about-ob-evolution-frame">
+                                      <img
+                                        src={screen.afterImage}
+                                        alt={`${screen.name} After - Mascot-Guided UI`}
+                                        loading="lazy"
+                                        decoding="async"
+                                      />
+                                    </div>
+                                    <p className="about-ob-evolution-desc">
+                                      {screen.afterCaption || 'An expressive culinary chef mascot anchoring the entire experience—from scanner to celebratory start.'}
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+
                             {/* Insight & Principles */}
                             {screen.insight && (
                               <p className="about-ob-insight">

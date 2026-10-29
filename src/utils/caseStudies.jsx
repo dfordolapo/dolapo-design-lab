@@ -157,16 +157,21 @@ export const CASE_STUDIES = [
             label: 'Product\u00A0005',
             name: 'Scan2Supper',
             color: '#10B981', // Fresh Culinary Emerald
-            principle: 'Mascot-guided culinary onboarding & zero-stress kitchen entry',
+            principle: 'The Mascot Shift: Transforming sterile utility into warm culinary momentum',
             principles: [
-              { name: 'Friendly Mascot Guidance', detail: 'An expressive chef character acts as a warm emotional anchor throughout the flow, transforming dinner anxiety into an approachable, encouraging culinary journey.' },
-              { name: 'Zero-Waste Camera Scan', detail: 'De-stresses dinner by translating raw fridge ingredients and pantry staples into actionable recipes in seconds.' },
-              { name: 'Frictionless Entry & Guest Access', detail: 'Warm mascot sign-up offering quick Apple/Google authentication alongside 1-tap guest access so users can start cooking immediately.' },
-              { name: 'Celebratory Completion', detail: 'Positive emotional reinforcement on setup completion ("All Set, Foodie!") building immediate cooking excitement.' }
+              { name: 'Friendly Mascot Anchor', detail: 'An expressive, enthusiastic chef mascot replaces cold abstract vectors, serving as a warm emotional guide that dismantles dinner anxiety.' },
+              { name: 'Visual Camera Model (Snap → Match → Cook)', detail: 'De-stresses the kitchen by translating complex computer-vision camera scanning into a simple 3-step tactile diagram.' },
+              { name: 'Frictionless Guest Access', detail: 'Empathetic sign-up architecture where the mascot peeks over the auth sheet, offering 1-tap Apple/Google auth plus instant guest access so users can cook immediately without gatekeeping.' },
+              { name: 'Celebratory Reinforcement ("All Set, Foodie!")', detail: 'Closes onboarding with high-five celebration and enthusiastic positive reinforcement, priming users with confidence before they view their first recipe.' }
             ],
-            insight: 'Scan2Supper introduces an expressive culinary chef mascot that guides users step-by-step through pantry scanning, camera capture, and instant recipe generation. By pairing tactile visual workflows with friendly emotional guidance, the onboarding turns dinner decision fatigue into an engaging, stress-free cooking adventure.',
-            tags: ['Mascot-Led UX', 'Culinary Onboarding', 'AI Recipe Scanner', 'Zero Waste', 'Emotional Design'],
+            insight: 'Scan2Supper originally launched with a conventional, utilitarian onboarding flow—abstract geometric graphics, sterile input cards, and standard feature lists. While mechanically sound, it failed to solve the real psychological barrier: evening decision fatigue. Users staring into an uninspiring fridge after a long workday don\'t need more software forms; they need reassurance and gentle momentum.\n\nTo bridge this emotional gap, we completely reimagined the experience around a friendly, expressive culinary chef mascot. The mascot acts as a reassuring kitchen companion from the very first frame:\n\n• From Abstract Splash to Warm Welcome: Replacing sterile geometric cards with an animated chef bursting from an ingredient box ("Scan. Cook. Enjoy."), framing dinner preparation as delight rather than a chore.\n• From Dense Instructions to a 3-Step Visual Model: Turning complex camera permissions and AI ingredient scanning into an intuitive 3-step diagram ("Snap → Match → Cook") that instantly demystifies the scanner.\n• From Gatekept Sign-Up to Empathetic Access: Rather than blocking users behind rigid credentials, the mascot playfully peeks over the auth sheet, offering 1-tap social login plus instant "Continue as Guest" so hungry cooks can dive in without barrier.\n• Celebratory Finish ("All Set, Foodie!"): Reinforcing setup completion with high-energy positive feedback, igniting cooking excitement before entering the recipe feed.',
+            tags: ['Mascot-Led UX', 'Culinary Onboarding', 'AI Recipe Scanner', 'Emotional Design', 'Before & After'],
             status: 'complete',
+            beforeImage: '/assets/scan2supper-before.webp',
+            afterImage: '/assets/scan2supper-after.webp',
+            comparisonTitle: 'Evolution: Before vs. After (The Mascot Transformation)',
+            beforeCaption: 'Before: Abstract vectors, disconnected recipe book art, and sterile form fields that added mental friction before cooking.',
+            afterCaption: 'After: Mascot-guided culinary companion, intuitive 3-step scan model, 1-tap guest access, and celebratory launch.',
             fullCaseStudyUrl: '#',
             images: [
               '/assets/s2s-1.webp',
