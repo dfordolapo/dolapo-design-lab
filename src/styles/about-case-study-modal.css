@@ -500,6 +500,11 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
+.about-modal-image-frame--custom-bg {
+  box-shadow: 0 8px 24px rgba(40, 20, 10, 0.25);
+  border: 1px solid rgba(83, 49, 31, 0.6);
+}
+
 .about-modal-image-frame img {
   width: 100%;
   height: auto;

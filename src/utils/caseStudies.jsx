@@ -219,7 +219,10 @@ export const CASE_STUDIES = [
       {
         type: 'full-image',
         image: '/assets/awwja-case-study.webp',
-        caption: 'Complete Awwja UX/UI design system and product presentation.'
+        caption: 'Complete Awwja UX/UI design system and product presentation.',
+        bg: '#53311f',
+        cardBg: '#53311f',
+        borderColor: '#53311f'
       }
     ]
   },

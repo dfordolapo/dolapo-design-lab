@@ -278,9 +278,14 @@ export default function AboutCaseStudyModal({ project, onClose }) {
 
                 if (block.type === 'presentation-slide') {
                   if (!block.image) return null;
+                  const isAwwja = block.image.includes('awwja') || project.id === 'designer-2';
+                  const slideBg = block.cardBg || block.bg || (isAwwja ? '#53311f' : undefined);
                   return (
                     <div key={idx} className="about-modal-block about-modal-slide-frame">
-                      <div className="about-modal-slide-card">
+                      <div 
+                        className="about-modal-slide-card"
+                        style={slideBg ? { background: slideBg, borderColor: block.borderColor || slideBg } : undefined}
+                      >
                         <img
                           src={block.image}
                           alt={block.caption || 'Case study slide'}
@@ -290,7 +295,7 @@ export default function AboutCaseStudyModal({ project, onClose }) {
                         />
                       </div>
                       {block.caption && (
-                        <p className="about-modal-image-caption">
+                        <p className="about-modal-image-caption" style={slideBg ? { color: '#8C7B6E' } : undefined}>
                           <span className="about-modal-caption-bullet" aria-hidden="true">•</span> {block.caption}
                         </p>
                       )}
@@ -357,11 +362,19 @@ export default function AboutCaseStudyModal({ project, onClose }) {
                 if (block.type === 'full-image' || block.type === 'image') {
                   const imgSrc = block.url || block.src || block.image;
                   if (!imgSrc) return null;
+                  const isAwwja = imgSrc.includes('awwja') || project.id === 'designer-2';
+                  const customBg = block.bg || block.cardBg || (isAwwja ? '#53311f' : undefined);
                   return (
-                    <div key={idx} className="about-modal-block about-modal-image-frame">
+                    <div 
+                      key={idx} 
+                      className={`about-modal-block about-modal-image-frame ${customBg ? 'about-modal-image-frame--custom-bg' : ''}`}
+                      style={customBg ? { background: customBg, borderColor: block.borderColor || customBg } : undefined}
+                    >
                       <img src={imgSrc} alt={block.caption || project.title} loading={idx < 4 ? "eager" : "lazy"} decoding="async" />
                       {block.caption && (
-                        <p className="about-modal-image-caption">{block.caption}</p>
+                        <p className="about-modal-image-caption" style={customBg ? { color: '#8C7B6E' } : undefined}>
+                          {block.caption}
+                        </p>
                       )}
                     </div>
                   )

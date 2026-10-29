@@ -484,10 +484,12 @@ export default function CaseStudyViewer({ project, onClose }) {
                 </div>
               );
             } else if (block.type === 'full-image') {
+              const isAwwja = block.image?.includes('awwja') || project.id === 'designer-2';
+              const imgBg = block.bg || block.cardBg || (isAwwja ? '#53311f' : undefined);
               blockContent = (
                 <div 
                   className={`case-study-block full-image-block ${project.hideTitle && index === 0 ? 'pull-up' : ''}`} 
-                  style={{ marginBottom: 0 }}
+                  style={{ marginBottom: 0, ...(imgBg ? { backgroundColor: imgBg } : {}) }}
                 >
                   {block.image ? (
                     <img loading="lazy" decoding="async"
