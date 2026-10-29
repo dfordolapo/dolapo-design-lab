@@ -376,7 +376,7 @@ export default function AboutCaseStudyModal({ project, onClose }) {
                         return (
                           <div key={screen.id} className="about-ob-card">
                             <div className="about-ob-card-header">
-                              <div>
+                              <div className="about-ob-title-group">
                                 <span className="about-ob-label" style={{ color: screen.color || '#C26143' }}>
                                   {screen.label}
                                 </span>

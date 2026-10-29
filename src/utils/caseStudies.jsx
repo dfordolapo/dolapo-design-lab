@@ -53,7 +53,7 @@ export const CASE_STUDIES = [
         screens: [
           {
             id: 'screen-001',
-            label: 'Product 001',
+            label: 'Product\u00A0001',
             name: 'MUVE Fitness',
             color: '#8b5cf6', // Electric Purple
             principle: 'Motivation meets action',
@@ -79,7 +79,7 @@ export const CASE_STUDIES = [
           },
           {
             id: 'screen-002',
-            label: 'Product 002',
+            label: 'Product\u00A0002',
             name: 'Children’s Audiobook App',
             color: '#2563EB', // Cobalt Royal Blue
             principle: 'Story-first warmth & playful exploration',
@@ -104,7 +104,7 @@ export const CASE_STUDIES = [
           },
           {
             id: 'screen-003',
-            label: 'Product 003',
+            label: 'Product\u00A0003',
             name: 'Awwja',
             color: '#E06D28', // Warm Terracotta / Burnt Orange
             principle: 'Culture-first open-air market digitization',
@@ -131,7 +131,7 @@ export const CASE_STUDIES = [
           },
           {
             id: 'screen-004',
-            label: 'Product 004',
+            label: 'Product\u00A0004',
             name: 'Skinfolio',
             color: '#F472B6', // Warm Rose Skincare
             principle: 'Skincare tracking with a finance-inspired twist',
@@ -148,7 +148,7 @@ export const CASE_STUDIES = [
           },
           {
             id: 'screen-005',
-            label: 'Product 005',
+            label: 'Product\u00A0005',
             name: 'Scan2Supper',
             color: '#10B981', // Fresh Culinary Emerald
             principle: 'From pantry chaos to delicious dinner',
@@ -165,7 +165,7 @@ export const CASE_STUDIES = [
           },
           {
             id: 'screen-006',
-            label: 'Product 006',
+            label: 'Product\u00A0006',
             name: 'In Progress',
             color: '#06b6d4', // Cyan
             principle: 'TBD',
