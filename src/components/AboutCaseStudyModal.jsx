@@ -102,7 +102,7 @@ export default function AboutCaseStudyModal({ project, onClose }) {
         return (
           <ul key={pIdx} className="about-modal-ul">
             {lines.map((line, lIdx) => {
-              const cleanLine = line.replace(/^[•*-]\s*/, '')
+              const cleanLine = line.replace(/^\s*[•*-]+\s*/, '').replace(/^[-–—]\s*/, '')
               return (
                 <li
                   key={lIdx}
