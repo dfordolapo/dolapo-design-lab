@@ -206,11 +206,18 @@
 
 .about-modal-hero__desc {
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: clamp(0.78rem, 0.95vw, 0.84rem);
+  font-size: clamp(0.76rem, 0.88vw, 0.84rem);
   line-height: 1.52;
   color: #5A524A;
   margin: 0 0 12px 0;
-  max-width: 740px;
+  max-width: 100%;
+  width: 100%;
+}
+
+@media (min-width: 860px) {
+  .about-modal-hero__desc {
+    white-space: nowrap;
+  }
 }
 
 /* Metadata Ledger Strip: Compact & Scannable with Icons */
