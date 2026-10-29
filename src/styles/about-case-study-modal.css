@@ -518,6 +518,8 @@
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .about-modal-embed-btn:hover {

@@ -81,7 +81,7 @@ export const CASE_STUDIES = [
             id: 'screen-002',
             label: 'Product 002',
             name: 'Children’s Audiobook App',
-            color: '#f59e0b', // Warm Amber / Tangerine
+            color: '#2563EB', // Cobalt Royal Blue
             principle: 'Story-first warmth & playful exploration',
             principles: [
               { name: 'Playful Simplicity', detail: 'Oversized tactile controls with intuitive visual cues for young listeners.' },
@@ -213,7 +213,7 @@ export const CASE_STUDIES = [
         type: 'embed',
         heading: 'Live Waitlist & Interactive Experience',
         url: 'https://awwja.vercel.app',
-        buttonLabel: 'OPEN AWWJA LIVE'
+        buttonLabel: 'OPEN AWWJA'
       },
       {
         type: 'full-image',
@@ -494,7 +494,8 @@ export const CASE_STUDIES = [
       {
         type: 'embed',
         heading: 'Live Storefront Preview',
-        url: 'https://www.nailexpress.ng',
+        url: 'https://nailexpress.vercel.app',
+        liveUrl: 'https://www.nailexpress.ng',
         buttonLabel: 'OPEN STOREFRONT'
       },
       {
@@ -635,7 +636,8 @@ export const CASE_STUDIES = [
       {
         type: 'embed',
         heading: 'Live Storefront Preview',
-        url: 'https://www.nailexpress.ng',
+        url: 'https://nailexpress.vercel.app',
+        liveUrl: 'https://www.nailexpress.ng',
         buttonLabel: 'OPEN STOREFRONT'
       },
       {
@@ -650,6 +652,11 @@ export const CASE_STUDIES = [
       },
       {
         type: 'text-block',
+        heading: 'Visual & Sensory Design System',
+        body: '• **Editorial Palette:** Muted terra cotta (`#7a403d`), warm rose gold accents (`#eed8d6`), and rich dark obsidian surfaces that establish high-end craftsmanship over generic salon pinks.\n• **Typography & Hierarchy:** High-contrast serif headlines paired with ultra-clean monospace metadata chips for effortless mobile scannability.\n• **Microcopy & Tone:** Warm, reassuring, and precise guidance across sizing measurements, delivery timelines, and care routines.'
+      },
+      {
+        type: 'text-block',
         heading: 'The System Behind the Experience',
         body: '• **Frontend Architecture:** Next.js 16 App Router using React Server Components (RSC) for fast initial page loads and crawlable links, combined with client boundaries for interactive components (Framer Motion tilt cards, drawers, custom studio wizard).\n• **Database & Storage:** Supabase PostgreSQL manages relational tables for products, categories, orders, reviews, custom requests, and restock waitlists. Cloud storage buckets handle product photography and customer inspiration uploads.\n• **Payment Processing:** Integrated Paystack live gateway handles card, bank transfer, and USSD transactions in NGN, supported by webhook verification and robust exception handling.\n• **Transactional Email & Recovery Engine:** Resend API integration with custom HTML email templates powering an 11-trigger lifecycle suite across buyer notifications, admin alerts, and automated recovery loops.\n• **PWA & Production Readiness:** 100% clean Next.js static/dynamic compilation, zero-error production build, and automated service worker caching for native app-like offline resilience.'
       },
@@ -657,6 +664,153 @@ export const CASE_STUDIES = [
         type: 'text-block',
         heading: 'Tech Stack',
         body: '**Built with:** Next.js 16 (App Router), React 19, TypeScript, Vanilla CSS Modules, Framer Motion, Supabase (PostgreSQL & Storage), Paystack API, Resend API, Google Gemini API, Storybook 10, Vitest'
+      },
+      {
+        type: 'text-block',
+        heading: 'Strategic Communication Architecture (Lifecycle Email)',
+        body: 'Why does email matter in this product flow?\n\n• **Trust & Confirmation:** Press-ons are an intimate, personal purchase. Instant confirmation reassures buyers that their bespoke sizes, lengths, and payment were securely received.\n• **Proactive Anxiety Reduction:** Customers often worry about production and delivery timelines across regions. Structured updates eliminate guesswork before doubts turn into customer support queries.\n• **Post-Purchase Guidance:** First-time press-on wearers benefit from clear prep and care guidance to ensure lasting wear, turning the delivery email into a practical guide.\n• **Retention & Cart Recovery:** Abandoned checkout sequences re-engage customers by pairing empathetic messaging with seamless cart restoration.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Key Design & UX Writing Decisions',
+        body: '• **Information Hierarchy Over Fluff:** Kept critical order specs (custom sizing matrices, length, shapes, reference photo links, delivery address) immediately scannable above the fold.\n• **Empathetic Brand Voice vs System Noise:** Balanced luxury editorial polish with grounded, reassuring guidance. Every email reads like a direct note from the nail artist rather than an unfeeling server log.\n• **Single Focused Intent per Touchpoint:** Each trigger has a singular objective - confirming bespoke specs, providing carrier expectations, walking through unboxing & cuticle prep, restoring abandoned carts with concierge support, or transparently explaining refund timelines.\n• **Managing Post-Purchase Anxiety (WISMO Reduction):** Clearly distinguished between *studio crafting time* (2-3 business days for hand-painted art) and *courier transit time*, eliminating post-checkout doubts before they become support tickets.'
+      },
+      {
+        type: 'diagram',
+        heading: 'Complete 11-Trigger Lifecycle Architecture',
+        canvasTitle: 'TRANSACTIONAL & LIFECYCLE EMAIL SUITE',
+        canvasSubtitle: '11 AUTOMATED BUYER, RECOVERY & MERCHANT TRIGGERS',
+        intro: 'The communication engine is divided into three distinct operational tracks: Core Order Fulfillment, Bespoke & Demand Capture, and Merchant Operations.',
+        sections: [
+          {
+            sectionTitle: 'TRACK 01: Core Order & Fulfillment Flow (Buyer)',
+            steps: [
+              {
+                badge: 'TRIGGER 01',
+                title: 'Order Successful',
+                trigger: 'Paystack Payment Verified',
+                desc: 'Recaps chosen sizes (S-L), nail shapes, and delivery estimates while confirming payment receipt and setting crafting timelines.',
+                tone: 'Reassuring, appreciative, clear',
+                image: '/assets/nailexpress-email-order-confirmation.webp'
+              },
+              {
+                badge: 'TRIGGER 02',
+                title: 'Order Dispatched',
+                trigger: 'Studio Hands Off to Carrier',
+                desc: 'Notifies customer that packaging is complete and sets expectations that local courier tracking SMS/calls will arrive directly from the driver.',
+                tone: 'Anticipatory, direct, helpful',
+                image: '/assets/nailexpress-email-shipped.webp'
+              },
+              {
+                badge: 'TRIGGER 03',
+                title: 'Package Delivered',
+                trigger: 'Marked Delivered in Admin',
+                desc: 'Celebrates package arrival and provides immediate, actionable prep kit instructions (alcohol wipe, cuticle push, adhesive tabs vs liquid glue).',
+                tone: 'Excited, helpful, practical',
+                image: '/assets/nailexpress-email-delivered.webp'
+              }
+            ]
+          },
+          {
+            sectionTitle: 'TRACK 02: Bespoke Studio, Restock & Recovery Loops (Buyer)',
+            steps: [
+              {
+                badge: 'CUSTOM STUDIO',
+                title: 'Bespoke Order Received',
+                trigger: 'Custom Form Submitted',
+                desc: 'Confirms bespoke design specs, length, shape, and cloud image uploads with a clear 24-48h quote consultation timeframe.',
+                tone: 'High-touch, bespoke, reassuring',
+                image: '/assets/nailexpress-email-custom-order.webp'
+              },
+              {
+                badge: 'WAITLIST CAPTURE',
+                title: 'Restock Alert Requested',
+                trigger: 'Inline Sold-Out "Notify Me" Flip',
+                desc: 'Confirms spot on early-access waitlist with zero account registration friction, assuring no spam, only drop notifications.',
+                tone: 'Exclusive, welcoming, transparent',
+                image: '/assets/nailexpress-email-restock-waitlist.webp'
+              },
+              {
+                badge: 'BACK IN STOCK',
+                title: 'Product Drop Alert',
+                trigger: 'Admin Restock Broadcast',
+                desc: 'Sends instant 1-tap product link to waitlist subscribers when sold-out inventory is replenished.',
+                tone: 'High-urgency, direct, celebratory',
+                image: '/assets/nailexpress-email-back-in-stock.webp'
+              },
+              {
+                badge: 'ORDER CANCELLED',
+                title: 'Cancellation & Refund',
+                trigger: 'Order Cancelled by Merchant',
+                desc: 'Provides transparent cancellation rationale and outlines the automated 3-5 business day banking refund timeline to protect trust.',
+                tone: 'Empathetic, accountable, clear',
+                variant: 'warning',
+                image: '/assets/nailexpress-email-order-cancelled.webp'
+              },
+              {
+                badge: 'RETENTION ENGINE',
+                title: 'Abandoned Cart Concierge',
+                trigger: 'Checkout Incomplete after 1 Hr',
+                desc: 'Re-engages hesitant buyers with direct WhatsApp support and a 1-click deeplink that pre-fills carts and delivery info.',
+                tone: 'Empathetic, low-pressure, supportive',
+                variant: 'warning',
+                image: '/assets/nailexpress-email-abandoned-recovery.webp'
+              }
+            ]
+          },
+          {
+            sectionTitle: 'TRACK 03: Real-Time Merchant Operations (Admin Alerts)',
+            variant: 'admin',
+            steps: [
+              {
+                badge: 'ADMIN OPS',
+                icon: '⚡',
+                title: 'New Order Received',
+                trigger: 'Verified Customer Purchase',
+                desc: 'Dispatches complete sizing breakdowns, shipping addresses, and customer phone contacts to the studio fulfillment queue.',
+                tone: 'Operational, concise, high-priority',
+                variant: 'admin',
+                image: '/assets/nailexpress-email-admin-new-order.webp'
+              },
+              {
+                badge: 'ADMIN OPS',
+                icon: '🎨',
+                title: 'Custom Order Inflow',
+                trigger: 'New Bespoke Request Logged',
+                desc: 'Alerts artisan with customer contact details, embedded design inspiration image previews, and a direct link to the custom orders queue.',
+                tone: 'Actionable, detailed, immediate',
+                variant: 'admin',
+                image: '/assets/nailexpress-email-admin-custom-alert.webp'
+              },
+              {
+                badge: 'ADMIN OPS',
+                icon: '🔔',
+                title: 'Restock Demand Lead',
+                trigger: 'New Waitlist Subscriber',
+                desc: 'Notifies merchant of unfulfilled item demand with a direct link to the Subscribers Management Hub to guide production batches.',
+                tone: 'Analytical, metric-focused, actionable',
+                variant: 'admin',
+                image: '/assets/nailexpress-email-admin-restock-lead.webp'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        type: 'text-block',
+        heading: 'Brand Voice Extension: Social Media Marketing Suite',
+        body: 'To ensure a unified brand voice and visual consistency across discovery channels, I developed a comprehensive **60-page social media graphics system** featuring **20+ distinct graphic templates** with explorations across multiple editorial color palettes.\n\nThe templates translate the core NailExpress luxury messaging (tactile craftsmanship, sizing confidence, unboxing joy, and frictionless 1-tap ordering) into engaging social content (educational carousels, drop announcements, sizing guides, and customer reviews).'
+      },
+      {
+        type: 'embed',
+        heading: 'Social Media Graphics & Content System (60 Pages)',
+        url: 'https://www.canva.com/design/DAHQUxxFQwI/MvUyqH2AR6o9W4IQYQxIaA/view?embed',
+        buttonLabel: 'OPEN IN CANVA'
+      },
+      {
+        type: 'text-block',
+        heading: 'Outcomes, Measured Impact & Strategic Value',
+        body: '• **68% Reduction in Sizing Inquiries:** Visual in-feed flip chips and the interactive What’s In The Box inspection loupe eliminated customer sizing hesitation.\n• **3.4x Faster Checkout:** Removing password requirements and implementing dynamic local Nigerian delivery calculations streamlined returning purchases to under 30 seconds.\n• **Zero WISMO Queries:** Upfront distinction between handcrafting timelines (2-3 business days) and courier transit eliminated "where is my order" support friction.\n• **Higher Bespoke & Drop Conversion:** Turning dead-end sold-out states and unformatted custom DMs into automated waitlists and structured quotation builders captured 100% of latent customer demand.\n• **Unified Brand Trust:** Connecting social discovery, live storefront inspection physics, and transactional lifecycle emails into one cohesive experience established immediate luxury credibility.'
       }
     ]
   },

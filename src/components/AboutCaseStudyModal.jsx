@@ -7,13 +7,23 @@ import '../styles/about-case-study-modal.css'
 function ModalEmbed({ block }) {
   const [loaded, setLoaded] = React.useState(false);
 
+  // Safety timer: reveal iframe within 3s in case third-party tracking delays the load event
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoaded(true);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [block.url]);
+
+  const openUrl = block.liveUrl || block.url;
+
   return (
     <div className="about-modal-block about-modal-embed-box">
       <div className="about-modal-embed-bar">
         <span className="about-modal-embed-title">
           {block.heading || 'Live Interactive Preview'}
         </span>
-        <a href={block.url} target="_blank" rel="noopener noreferrer" className="about-modal-embed-btn">
+        <a href={openUrl} target="_blank" rel="noopener noreferrer" className="about-modal-embed-btn">
           <span>{block.buttonLabel || 'Open Live Site'}</span>
           <span>&rarr;</span>
         </a>
@@ -22,7 +32,7 @@ function ModalEmbed({ block }) {
         {!loaded && (
           <div className="about-modal-embed-skeleton" aria-hidden="true">
             <span className="about-modal-embed-skeleton-spinner" />
-            <span className="about-modal-embed-skeleton-text">Connecting to live storefront...</span>
+            <span className="about-modal-embed-skeleton-text">Connecting to live preview...</span>
           </div>
         )}
         <iframe
@@ -31,6 +41,7 @@ function ModalEmbed({ block }) {
           width="100%"
           height="560"
           frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           loading="eager"
           onLoad={() => setLoaded(true)}
