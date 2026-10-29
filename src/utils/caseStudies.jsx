@@ -144,7 +144,13 @@ export const CASE_STUDIES = [
             tags: ['Asset Management UX', 'Skincare Portfolio', 'Habit Tracking', 'Behavioral Design'],
             status: 'complete',
             fullCaseStudyUrl: '#',
-            images: [],
+            images: [
+              '/assets/skinfolio-1.webp',
+              '/assets/skinfolio-2.webp',
+              '/assets/skinfolio-3.webp',
+              '/assets/skinfolio-4.webp',
+              '/assets/skinfolio-5.webp',
+            ],
           },
           {
             id: 'screen-005',
