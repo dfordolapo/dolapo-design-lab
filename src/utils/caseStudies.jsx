@@ -118,14 +118,14 @@ export const CASE_STUDIES = [
             status: 'complete',
             fullCaseStudyUrl: '#',
             images: [
-              '/assets/awwja - 1.png',
-              '/assets/awwja - 2.png',
-              '/assets/awwja - 3.png',
-              '/assets/awwja - 4.png',
-              '/assets/awwja - 5.png',
-              '/assets/awwja - 6.png',
-              '/assets/awwja - 7.png',
-              '/assets/awwja - 8.png',
+              '/assets/awwja-1.webp',
+              '/assets/awwja-2.webp',
+              '/assets/awwja-3.webp',
+              '/assets/awwja-4.webp',
+              '/assets/awwja-5.webp',
+              '/assets/awwja-6.webp',
+              '/assets/awwja-7.webp',
+              '/assets/awwja-8.webp',
             ],
           },
           {
@@ -186,15 +186,40 @@ export const CASE_STUDIES = [
     backgroundColor: '#52311E',
     vaultImage: '/assets/awwja-thumbnail-preview.webp',
     noGlow: true,
-    hideTitle: true,
     vaultLogo: <img src="/assets/awwja-vault-cover.webp" alt="Awwja" decoding="async" style={{ width: '250px', height: 'auto', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.4))' }} />,
-    category: 'NEGOTIATION MACHINE',
+    category: 'NEGOTIATION PLATFORM',
     title: 'Awwja',
-    role: 'Product Design, Branding',
+    role: 'Product Design • Branding • Frontend Architecture',
     duration: 'Ongoing',
-    platform: 'Web App',
+    platform: 'Web App / Mobile Experience',
+    goal: 'An automated negotiation machine and escrow architecture blending cultural haggling with digital financial security.',
     content: [
-      { type: 'full-image', image: '/assets/awwja-case-study.webp' }
+      {
+        type: 'text-block',
+        heading: 'The Challenge',
+        body: 'Modern African e-commerce forces users to choose between two extremes: the flexibility of social negotiation on messaging apps (where scams and payment fraud run rampant) or the rigid security of corporate platforms that eliminate the cultural necessity of price discovery.\n\nWithout an automated trust bridge, buyers hesitate to commit funds upfront, while sellers waste hours handling repetitive price inquiries from unverified leads.'
+      },
+      {
+        type: 'text-block',
+        heading: 'The Solution',
+        body: 'Awwja introduces an automated negotiation engine paired with a milestone-based escrow mechanism. As lead product designer and builder, I designed a low-friction interaction model that digitizes cultural haggling nuances:\n\n• **Algorithmic Bargaining Corridors:** Sellers define acceptable floor and target margins; the system handles counter-offers automatically in real time without endless chat tag.\n• **Zero-Friction Demand Capture:** Clean single-field waitlist entry with instantaneous viral queue progression.\n• **Escrow State Visibility:** High-clarity visual progression indicators that explicitly inform both buyer and seller when funds are locked, dispatched, and released.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Tech Stack & Architecture',
+        body: '**Built with:** Figma, React 19, TypeScript, Tailwind CSS, Supabase PostgreSQL, Vercel'
+      },
+      {
+        type: 'embed',
+        heading: 'Live Waitlist & Interactive Experience',
+        url: 'https://awwja.vercel.app',
+        buttonLabel: 'OPEN AWWJA LIVE'
+      },
+      {
+        type: 'full-image',
+        image: '/assets/awwja-case-study.webp',
+        caption: 'Complete Awwja UX/UI design system and product presentation.'
+      }
     ]
   },
   
@@ -209,11 +234,8 @@ export const CASE_STUDIES = [
     role: 'Product Strategy • UX/UI Design • Full-Stack Development',
     duration: 'Ongoing',
     platform: 'Progressive Web App',
+    goal: 'An intelligent portfolio critique and heuristic review platform giving designers actionable feedback in under 5 minutes.',
     content: [
-      {
-        type: 'overview',
-        text: 'Vurdict is an AI-powered portfolio reviewer that provides instant, actionable feedback to product designers.'
-      },
       {
         type: 'text-block',
         heading: 'The Challenge',
@@ -404,15 +426,26 @@ export const CASE_STUDIES = [
     role: 'Product Design, UX Research',
     duration: 'Exploration',
     platform: 'Mobile App',
+    goal: 'A proactive emergency safety and telemetry companion designed for late-night rideshare passengers.',
     content: [
-      { type: 'presentation-slide', image: '/assets/image-1.webp' },
-      { type: 'presentation-slide', image: '/assets/image-2.webp' },
-      { type: 'presentation-slide', image: '/assets/image-3.webp' },
-      { type: 'presentation-slide', image: '/assets/image-4.webp' },
-      { type: 'presentation-slide', image: '/assets/image-5.webp' },
-      { type: 'presentation-slide', image: '/assets/image-6.webp' },
-      { type: 'presentation-slide', image: '/assets/image-7.webp' },
-      { type: 'presentation-slide', image: '/assets/image-8.webp' }
+      {
+        type: 'text-block',
+        heading: 'The Problem',
+        body: 'When a passenger senses danger in a rideshare vehicle late at night, pulling out their phone, unlocking the screen, and opening an emergency dialer actively escalates the threat. The glowing screen and overt dialing gesture immediately alert the driver that they are being reported.\n\nExisting rideshare safety features assume an ideal scenario where the rider has free, unobserved access to their phone. In reality, duress requires non-verbal, blind-operable mechanics.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Core UX Mechanics & Design Decisions',
+        body: '• **Non-Verbal Volume Button SOS:** A blind physical key sequence (volume hold + double tap) that immediately logs vehicle telemetry and real-time GPS coordinates to trusted emergency contacts without waking the display or triggering sound.\n• **Live Route Telemetry & Deviation Alerts:** Continuous comparison between the official navigation route and real-time vehicle heading. If the vehicle makes unexpected turns or prolonged stops in unlit areas, subtle haptic pulses prompt the rider for a silent check-in.\n• **Covert Fake-Call Interface:** An ultra-realistic simulated incoming call screen with pre-recorded natural voice responses, giving the rider a plausible excuse to speak out loud and broadcast their location to the cabin.\n• **Stealth Lighting Palette:** High-contrast dark palette designed to avoid illuminating the vehicle cabin while preserving critical legibility under duress.'
+      },
+      { type: 'presentation-slide', image: '/assets/image-1.webp', caption: 'Overview & Covert Safety Paradigm' },
+      { type: 'presentation-slide', image: '/assets/image-2.webp', caption: 'The Silent SOS Hardware Trigger' },
+      { type: 'presentation-slide', image: '/assets/image-3.webp', caption: 'Route Telemetry & Deviation Detection' },
+      { type: 'presentation-slide', image: '/assets/image-4.webp', caption: 'Discreet Emergency Handoff Architecture' },
+      { type: 'presentation-slide', image: '/assets/image-5.webp', caption: 'Simulated Incoming Call Interface' },
+      { type: 'presentation-slide', image: '/assets/image-6.webp', caption: 'Live Location Sharing Matrix' },
+      { type: 'presentation-slide', image: '/assets/image-7.webp', caption: 'Emergency Contact Dashboard' },
+      { type: 'presentation-slide', image: '/assets/image-8.webp', caption: 'Design System & High-Contrast Night Palette' }
     ]
   },
   
@@ -600,10 +633,6 @@ export const CASE_STUDIES = [
     goal: 'A bespoke ecommerce experience designed and engineered for a premium press-on nail brand.',
     content: [
       {
-        type: 'overview',
-        text: 'NailExpress is a full-stack ecommerce storefront and merchant management suite engineered for a premium press-on nail brand. It combines sensory luxury aesthetics, 3D product inspection physics, dynamic quizzes, and an accountless 1-tap checkout flow.'
-      },
-      {
         type: 'embed',
         heading: 'Live Storefront Preview',
         url: 'https://www.nailexpress.ng',
@@ -664,7 +693,7 @@ export const CASE_STUDIES = [
         }}
       />
     ),
-    category: 'GINO WORLD JOLLOF FESTIVAL',
+    category: 'EMAIL AUDIT',
     title: 'Gino Jollof Festival',
     shortTitle: 'Gino',
     role: 'UX Writer',
@@ -958,6 +987,34 @@ export const CASE_STUDIES = [
         body: '• **Minimizing WISMO Inquiries:** Setting upfront crafting vs transit timeline expectations at every milestone eliminates repetitive "where is my order" queries.\n• **Higher Bespoke & Drop Conversion:** Transforming dead-end sold-out states and unformatted custom DMs into structured, automated communication flows captured 100% of latent customer intent.\n• **Unified Omni-Channel Brand Voice:** Seamlessly connecting social media storytelling with transactional email copy and storefront UX created an instantly recognizable, trustworthy brand identity.\n• **Frictionless Recovery:** Context-aware recovery emails with 1-click cart restoration and WhatsApp concierge links turn checkout drop-offs into completed sales.\n• **Operational Agility:** Real-time admin alerts with embedded specs and images enable the solo artisan to triage, price, and pack orders without manual spreadsheet tracking.'
       }
     ]
+  },
+  {
+    id: 'thetoysvirago',
+    departmentId: 'designer',
+    themeColor: '#D97706',
+    backgroundColor: '#FAF7F2',
+    category: 'COMMERCE EXPERIENCE',
+    title: 'TheToysVirago',
+    shortTitle: 'TheToysVirago',
+    role: 'Product Design • Brand Experience',
+    duration: 'Coming Soon',
+    platform: 'Web / E-commerce',
+    goal: 'A playful and curated toys boutique experience designed for intimate retail storytelling and effortless gift discovery.',
+    isEmptyState: true,
+    content: [
+      {
+        type: 'empty-state',
+        title: 'Case Study in Preparation',
+        text: 'Coming soon...'
+      },
+      {
+        type: 'embed',
+        heading: 'Live Storefront Preview',
+        url: 'https://www.thetoysvirago.shop',
+        buttonLabel: 'OPEN STOREFRONT'
+      }
+    ]
   }
 ];
+
 

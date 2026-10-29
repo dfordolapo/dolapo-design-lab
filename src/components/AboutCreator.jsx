@@ -454,6 +454,11 @@ export default function AboutCreator({ onBack }) {
         <SelectedWorkSection onSelectProject={setActiveCaseStudy} />
 
         {/* ==================================================================
+            INTERLUDE: "EXCUSE THE INTERRUPTION" (Light Parchment Section with Deckle Dividers)
+            ================================================================== */}
+        <InterruptionSection onSelectProject={setActiveCaseStudy} />
+
+        {/* ==================================================================
             SECTION: “TOOLS ON MY WORKBENCH”
             ================================================================== */}
         <WorkbenchSection />
@@ -596,11 +601,6 @@ export default function AboutCreator({ onBack }) {
             CLIENT FEEDBACK & REVIEWS INBOX (Under divider, on black surface)
             ================================================================== */}
         <AboutReviewsInbox />
-
-        {/* ==================================================================
-            INTERLUDE: "EXCUSE THE INTERRUPTION" (Light Parchment Section with Deckle Dividers)
-            ================================================================== */}
-        <InterruptionSection onSelectProject={setActiveCaseStudy} />
 
         {/* ==================================================================
             SECTION 5: BEYOND THE WORKSPACE

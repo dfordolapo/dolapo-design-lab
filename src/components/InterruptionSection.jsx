@@ -172,6 +172,68 @@ export default function InterruptionSection({ onSelectProject }) {
       <DeckleDivider type="top" fill="var(--about-parchment-bg)" />
 
       <div className="interruption-container">
+        {/* Tactile Vintage Rubber Ink Award Stamp Badge */}
+        <div
+          className={`interruption-stamp-badge ${hasTriggered ? 'interruption-stamp-badge--stamped' : ''}`}
+          onClick={playClick}
+          title="Best Project Winner — MoonTechLife Bootcamp Cohort"
+          aria-label="Award badge: Best Project Winner at MoonTechLife Bootcamp"
+          role="img"
+        >
+          <svg viewBox="0 0 160 160" className="interruption-stamp-svg" aria-hidden="true">
+            <defs>
+              <path id="stampArcTop" d="M 22,80 A 58,58 0 1,1 138,80" fill="none" />
+              <path id="stampArcBottom" d="M 22,80 A 58,58 0 0,0 138,80" fill="none" />
+            </defs>
+
+            {/* Outer Scalloped / Perforated Ring */}
+            <circle cx="80" cy="80" r="74" fill="none" stroke="#9F1239" strokeWidth="2" strokeDasharray="3 3" opacity="0.75" />
+
+            {/* Double Circular Rings */}
+            <circle cx="80" cy="80" r="69" fill="none" stroke="#9F1239" strokeWidth="2.2" opacity="0.9" />
+            <circle cx="80" cy="80" r="48" fill="none" stroke="#9F1239" strokeWidth="1.2" opacity="0.65" />
+
+            {/* Top Curved Text */}
+            <text fill="#9F1239" fontSize="9.5" fontWeight="800" letterSpacing="1.8" fontFamily="system-ui, -apple-system, sans-serif" opacity="0.95">
+              <textPath href="#stampArcTop" startOffset="50%" textAnchor="middle">
+                ★ BEST PROJECT ★
+              </textPath>
+            </text>
+
+            {/* Bottom Curved Text */}
+            <text fill="#9F1239" fontSize="8" fontWeight="700" letterSpacing="1.4" fontFamily="system-ui, -apple-system, sans-serif" opacity="0.95">
+              <textPath href="#stampArcBottom" startOffset="50%" textAnchor="middle">
+                MOONTECHLIFE
+              </textPath>
+            </text>
+
+            {/* Center Laurel Wreath and Stars */}
+            <g transform="translate(80, 80)" stroke="#9F1239" fill="none" strokeLinecap="round" strokeLinejoin="round" opacity="0.95">
+              {/* Left Laurel */}
+              <path d="M -5,14 C -15,10 -18,-1 -13,-12 C -10,-17 -6,-20 -2,-22" strokeWidth="1.5" />
+              <path d="M -13,-8 C -18,-10 -20,-13 -18,-17 C -16,-16 -12,-13 -11,-10" fill="#9F1239" strokeWidth="0.5" />
+              <path d="M -15,0 C -20,-1 -22,-5 -20,-9 C -17,-8 -14,-5 -13,-2" fill="#9F1239" strokeWidth="0.5" />
+              <path d="M -12,8 C -18,8 -20,4 -18,1 C -15,2 -13,5 -11,7" fill="#9F1239" strokeWidth="0.5" />
+
+              {/* Right Laurel */}
+              <path d="M 5,14 C 15,10 18,-1 13,-12 C 10,-17 6,-20 2,-22" strokeWidth="1.5" />
+              <path d="M 13,-8 C 18,-10 20,-13 18,-17 C 16,-16 12,-13 11,-10" fill="#9F1239" strokeWidth="0.5" />
+              <path d="M 15,0 C 20,-1 22,-5 20,-9 C 17,-8 14,-5 13,-2" fill="#9F1239" strokeWidth="0.5" />
+              <path d="M 12,8 C 18,8 20,4 18,1 C 15,2 13,5 11,7" fill="#9F1239" strokeWidth="0.5" />
+
+              {/* Center Star */}
+              <polygon points="0,-14 3,-5 12,-5 5,1 8,9 0,4 -8,9 -5,1 -12,-5 -3,-5" fill="#9F1239" strokeWidth="0.8" />
+
+              <text y="7" textAnchor="middle" fill="#9F1239" stroke="none" fontSize="8" fontWeight="800" letterSpacing="0.8" fontFamily="system-ui, -apple-system, sans-serif">
+                1ST PLACE
+              </text>
+              <text y="15" textAnchor="middle" fill="#9F1239" stroke="none" fontSize="5.5" fontWeight="700" letterSpacing="0.5" fontFamily="system-ui, -apple-system, sans-serif" opacity="0.85">
+                BOOTCAMP
+              </text>
+            </g>
+          </svg>
+        </div>
+
         {/* Line 1: Modak font with unique deep crimson color */}
         {(hasTriggered || line0.length > 0) && (
           <h2 className="interruption-headline">
