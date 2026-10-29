@@ -96,8 +96,8 @@ export default function AboutCaseStudyModal({ project, onClose }) {
       const trimmed = para.trim()
       if (!trimmed) return null
 
-      // Check if it's a bullet list
-      if (trimmed.startsWith('•') || trimmed.startsWith('*') || trimmed.startsWith('-')) {
+      // Check if it's a bullet list (starts with • or bullet marker followed by space)
+      if (trimmed.startsWith('•') || /^[-*]\s/.test(trimmed)) {
         const lines = trimmed.split('\n')
         return (
           <ul key={pIdx} className="about-modal-ul">
