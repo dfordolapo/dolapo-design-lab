@@ -157,17 +157,23 @@ export const CASE_STUDIES = [
             label: 'Product\u00A0005',
             name: 'Scan2Supper',
             color: '#10B981', // Fresh Culinary Emerald
-            principle: 'From pantry chaos to delicious dinner',
+            principle: 'Mascot-guided culinary onboarding & zero-stress kitchen entry',
             principles: [
-              { name: 'Zero-Waste Camera Scan', detail: 'Instant camera recognition of pantry staples and fridge leftovers.' },
-              { name: 'Dietary & Craving Profiling', detail: 'Tailoring instant recipes around prep time, appliances, and dietary goals.' },
-              { name: 'Frictionless First Cook', detail: 'Immediate 1-tap recipe generation on step one without account gates.' }
+              { name: 'Friendly Mascot Guidance', detail: 'An expressive chef character acts as a warm emotional anchor throughout the flow, transforming dinner anxiety into an approachable, encouraging culinary journey.' },
+              { name: 'Zero-Waste Camera Scan', detail: 'De-stresses dinner by translating raw fridge ingredients and pantry staples into actionable recipes in seconds.' },
+              { name: 'Frictionless Entry & Guest Access', detail: 'Warm mascot sign-up offering quick Apple/Google authentication alongside 1-tap guest access so users can start cooking immediately.' },
+              { name: 'Celebratory Completion', detail: 'Positive emotional reinforcement on setup completion ("All Set, Foodie!") building immediate cooking excitement.' }
             ],
-            insight: 'An intelligent culinary onboarding flow that scans ingredients you already own to eliminate dinner decision fatigue, match dietary goals, and reduce kitchen waste.',
-            tags: ['AI Recipe Engine', 'Pantry Scanner', 'Zero Waste'],
+            insight: 'Scan2Supper introduces an expressive culinary chef mascot that guides users step-by-step through pantry scanning, camera capture, and instant recipe generation. By pairing tactile visual workflows with friendly emotional guidance, the onboarding turns dinner decision fatigue into an engaging, stress-free cooking adventure.',
+            tags: ['Mascot-Led UX', 'Culinary Onboarding', 'AI Recipe Scanner', 'Zero Waste', 'Emotional Design'],
             status: 'complete',
             fullCaseStudyUrl: '#',
-            images: [],
+            images: [
+              '/assets/s2s-1.webp',
+              '/assets/s2s-2.webp',
+              '/assets/s2s-3.webp',
+              '/assets/s2s-4.webp',
+            ],
           },
           {
             id: 'screen-006',

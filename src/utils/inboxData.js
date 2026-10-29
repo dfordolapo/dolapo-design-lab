@@ -301,7 +301,7 @@ export const INITIAL_MESSAGES = [
     senderAvatar: null,
     senderInitials: 'OS',
     subject: 'Onboarding Screens: First impressions & design principles',
-    preview: 'Every product gets one shot at a first impression. Exploring progressive disclosure in MUVE, African street market onboarding in Awwja, and finance-inspired tracking in Skinfolio...',
+    preview: 'Every product gets one shot at a first impression. Exploring progressive disclosure in MUVE, African street market onboarding in Awwja, skincare asset management in Skinfolio, and mascot-led culinary onboarding in Scan2Supper...',
     timestamp: 'Draft',
     date: 'Draft · Ongoing Self-Challenge',
     unread: false,
@@ -313,7 +313,7 @@ export const INITIAL_MESSAGES = [
       id: 'designer-onboarding',
       title: 'Onboarding Screens Collection',
       subtitle: 'Principles-First Mobile Onboarding Library',
-      description: 'An ongoing craft challenge exploring single UX principles across products, from progressive goal setting in MUVE Fitness to cultural commerce in Awwja and skincare asset management in Skinfolio.',
+      description: 'An ongoing craft challenge exploring single UX principles across products, from progressive goal setting in MUVE to cultural commerce in Awwja, skincare asset tracking in Skinfolio, and mascot-led culinary flows in Scan2Supper.',
       tags: ['Onboarding UX', 'Progressive Disclosure', 'Mobile Systems', 'Tactile UI'],
       image: '/assets/onboarding-emblem.webp'
     },
@@ -322,7 +322,7 @@ export const INITIAL_MESSAGES = [
       paragraphs: [
         'Every product gets one shot at a first impression. Onboarding screens are that critical moment. This is an ongoing self-challenge: design one onboarding screen at a time, each focused on a single uncompromising design principle. No briefs, no clients, just the craft.',
         'Current explorations in the collection:',
-        '• Product 001: MUVE Fitness (Motivation Meets Action)\nA complete 8-step onboarding flow designed to inspire users while smoothly capturing their goals and fitness levels. Leverages Progressive Disclosure to prevent cognitive overload, high-energy typography and dark-mode aesthetics to build immediate workout momentum, and tactile interactive choice cards with immediate feedback.\n\n• Product 002: Children’s Audiobook App (Story-First Warmth & Playful Exploration)\nAn immersive storytelling onboarding flow designed for children and parents. Prioritizes voice warmth, vibrant visual cues, oversized tactile controls with intuitive cues for young listeners, transparent screen-time settings, and seamless bedtime auto-pause to build parental reassurance.\n\n• Product 003: Awwja (Your Market, Now In Your Pocket)\nAn 8-step mobile app onboarding experience engineered to bridge traditional open-air African street markets and modern digital commerce. Preserves cultural bargaining rituals ("Last price?", "Name Your Price") while establishing verified merchant credibility and frictionless local onboarding (+234 phone authentication).\n\n• Product 004: Skinfolio (Skincare as Asset Management)\nWhat if skincare worked like asset management? Your daily habits influence your skin value: consistency builds your portfolio, neglect creates debt. A skincare tracker with a finance-inspired twist.'
+        '• Product 001: MUVE Fitness (Motivation Meets Action)\nA complete 8-step onboarding flow designed to inspire users while smoothly capturing their goals and fitness levels. Leverages Progressive Disclosure to prevent cognitive overload, high-energy typography and dark-mode aesthetics to build immediate workout momentum, and tactile interactive choice cards with immediate feedback.\n\n• Product 002: Children’s Audiobook App (Story-First Warmth & Playful Exploration)\nAn immersive storytelling onboarding flow designed for children and parents. Prioritizes voice warmth, vibrant visual cues, oversized tactile controls with intuitive cues for young listeners, transparent screen-time settings, and seamless bedtime auto-pause to build parental reassurance.\n\n• Product 003: Awwja (Your Market, Now In Your Pocket)\nAn 8-step mobile app onboarding experience engineered to bridge traditional open-air African street markets and modern digital commerce. Preserves cultural bargaining rituals ("Last price?", "Name Your Price") while establishing verified merchant credibility and frictionless local onboarding (+234 phone authentication).\n\n• Product 004: Skinfolio (Skincare as Asset Management)\nWhat if skincare worked like asset management? Your daily habits influence your skin value: consistency builds your portfolio, neglect creates debt. A skincare tracker with a finance-inspired twist.\n\n• Product 005: Scan2Supper (Dinner, De-Stressed with Mascot Guidance)\nA friendly culinary onboarding experience that uses an expressive chef mascot to guide home cooks step-by-step through pantry scanning, camera capture, frictionless guest access, and instant recipe generation—transforming dinner decision fatigue into an engaging, stress-free cooking adventure.'
       ],
       signoff: 'Craft Challenge by Dolapo\nProduct Designer',
       cta: {
