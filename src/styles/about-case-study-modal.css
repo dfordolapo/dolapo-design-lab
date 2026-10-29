@@ -79,7 +79,7 @@
 }
 
 .about-modal-overview__text {
-  color: #38302A !important;
+  color: #211B18 !important;
 }
 
 .about-modal-hero__desc {
@@ -264,20 +264,51 @@
   margin-bottom: 22px;
 }
 
-/* Overview Callout Block */
+/* Overview Proposal Summary Block: Redesigned with NO outer stroke */
 .about-modal-overview {
-  padding: 12px 16px;
-  background: rgba(237, 232, 222, 0.55);
-  border-left: 3px solid #C26143;
-  border-radius: 4px 8px 8px 4px;
+  position: relative;
+  padding: clamp(16px, 2.4vw, 22px) clamp(18px, 2.8vw, 26px);
+  background: linear-gradient(135deg, rgba(246, 241, 235, 0.92) 0%, rgba(239, 232, 223, 0.6) 100%);
+  border: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  outline: none !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+  border-radius: 14px;
+  margin: 12px 0 24px 0;
+}
+
+.about-modal-overview__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #C26143;
+  margin-bottom: 8px;
+}
+
+.about-modal-overview__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #C26143;
 }
 
 .about-modal-overview__text {
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.82rem;
-  line-height: 1.55;
-  color: #38302A;
+  font-family: var(--font-editorial, 'Newsreader', Georgia, serif);
+  font-size: clamp(1.02rem, 1.25vw, 1.15rem) !important;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.68 !important;
+  color: #211B18 !important;
   margin: 0;
+  letter-spacing: -0.005em;
 }
 
 /* Subheadings */
@@ -827,8 +858,8 @@
   }
 
   .about-modal-overview__text {
-    font-size: 0.76rem;
-    line-height: 1.48;
+    font-size: 0.94rem !important;
+    line-height: 1.6 !important;
   }
 
   .about-modal-quote {

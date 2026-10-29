@@ -232,6 +232,10 @@ export default function AboutCaseStudyModal({ project, onClose }) {
 
                   return (
                     <div key={idx} className="about-modal-block about-modal-overview">
+                      <div className="about-modal-overview__eyebrow">
+                        <span className="about-modal-overview__dot" aria-hidden="true" />
+                        <span>Proposal Summary</span>
+                      </div>
                       <p className="about-modal-overview__text">{block.text}</p>
                     </div>
                   )
