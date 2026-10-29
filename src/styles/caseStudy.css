@@ -178,8 +178,34 @@
 
 .full-image-block p {
   color: #FFFFFF !important;
-  font-weight: 600 !important;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+  font-weight: 400 !important;
+  text-shadow: none !important;
+  line-height: 1.45 !important;
+}
+
+@media (min-width: 769px) {
+  .full-image-block .awwja-presentation-caption {
+    white-space: nowrap !important;
+    text-align: center !important;
+  }
+  .full-image-block .awwja-caption-line {
+    display: inline !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .full-image-block .awwja-presentation-caption {
+    white-space: normal !important;
+    text-align: center !important;
+    max-width: 290px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+  }
+  .full-image-block .awwja-caption-line {
+    display: block !important;
+    text-align: center !important;
+  }
 }
 
 .full-image-block.pull-up {

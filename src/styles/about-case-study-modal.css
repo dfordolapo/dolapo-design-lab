@@ -508,11 +508,41 @@
 .about-modal-image-frame--custom-bg .about-modal-image-caption,
 .about-modal-slide-card .about-modal-image-caption {
   color: #FFFFFF !important;
-  font-weight: 600 !important;
-  font-size: 0.86rem !important;
-  opacity: 1 !important;
-  letter-spacing: 0.015em !important;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45) !important;
+  font-weight: 400 !important;
+  font-size: 0.82rem !important;
+  opacity: 0.95 !important;
+  letter-spacing: 0.01em !important;
+  text-shadow: none !important;
+  line-height: 1.45 !important;
+}
+
+.awwja-caption-line {
+  display: inline;
+}
+
+@media (min-width: 769px) {
+  .awwja-presentation-caption {
+    white-space: nowrap !important;
+    text-align: center !important;
+  }
+  .awwja-caption-line {
+    display: inline !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .awwja-presentation-caption {
+    white-space: normal !important;
+    text-align: center !important;
+    max-width: 290px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+  }
+  .awwja-caption-line {
+    display: block !important;
+    text-align: center !important;
+  }
 }
 
 .about-modal-image-frame img {

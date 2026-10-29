@@ -513,8 +513,25 @@ export default function CaseStudyViewer({ project, onClose }) {
                   </div>
                   {block.caption && (
                     <div style={{ textAlign: 'center', padding: '14px 16px 16px 16px' }}>
-                      <p style={{ color: block.captionColor || '#FFFFFF', fontSize: '0.86rem', fontWeight: 600, margin: 0, letterSpacing: '0.015em', textShadow: '0 1px 3px rgba(0, 0, 0, 0.45)' }}>
-                        {block.caption}
+                      <p 
+                        className="awwja-presentation-caption"
+                        style={{ 
+                          color: block.captionColor || '#FFFFFF', 
+                          fontSize: '0.84rem', 
+                          fontWeight: 400, 
+                          margin: 0, 
+                          letterSpacing: '0.01em',
+                          lineHeight: 1.45
+                        }}
+                      >
+                        {block.caption.includes('Complete Awwja UX/UI design system and product presentation.') ? (
+                          <>
+                            <span className="awwja-caption-line">Complete Awwja UX/UI design system</span>{' '}
+                            <span className="awwja-caption-line">and product presentation.</span>
+                          </>
+                        ) : (
+                          block.caption
+                        )}
                       </p>
                     </div>
                   )}

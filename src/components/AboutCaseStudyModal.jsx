@@ -295,19 +295,28 @@ export default function AboutCaseStudyModal({ project, onClose }) {
                         />
                         {block.caption && slideBg && (
                           <p 
-                            className="about-modal-image-caption" 
+                            className="about-modal-image-caption awwja-presentation-caption" 
                             style={{ 
                               color: block.captionColor || '#FFFFFF', 
-                              fontSize: '0.86rem', 
-                              fontWeight: 600, 
+                              fontSize: '0.82rem', 
+                              fontWeight: 400, 
                               marginTop: '12px', 
                               textAlign: 'center', 
-                              opacity: 1,
-                              textShadow: '0 1px 3px rgba(0, 0, 0, 0.45)',
-                              letterSpacing: '0.015em' 
+                              opacity: 0.95,
+                              letterSpacing: '0.01em',
+                              lineHeight: 1.45
                             }}
                           >
-                            <span className="about-modal-caption-bullet" style={{ color: '#F59E0B' }} aria-hidden="true">•</span> {block.caption}
+                            {block.caption.includes('Complete Awwja UX/UI design system and product presentation.') ? (
+                              <>
+                                <span className="awwja-caption-line">Complete Awwja UX/UI design system</span>{' '}
+                                <span className="awwja-caption-line">and product presentation.</span>
+                              </>
+                            ) : (
+                              <>
+                                <span className="about-modal-caption-bullet" style={{ color: '#F59E0B' }} aria-hidden="true">•</span> {block.caption}
+                              </>
+                            )}
                           </p>
                         )}
                       </div>
@@ -390,19 +399,26 @@ export default function AboutCaseStudyModal({ project, onClose }) {
                       <img src={imgSrc} alt={block.caption || project.title} loading={idx < 4 ? "eager" : "lazy"} decoding="async" />
                       {block.caption && (
                         <p 
-                          className="about-modal-image-caption" 
+                          className="about-modal-image-caption awwja-presentation-caption" 
                           style={customBg ? { 
                             color: block.captionColor || '#FFFFFF', 
-                            fontSize: '0.86rem', 
-                            fontWeight: 600, 
+                            fontSize: '0.82rem', 
+                            fontWeight: 400, 
                             marginTop: '12px', 
                             textAlign: 'center', 
-                            opacity: 1,
-                            textShadow: '0 1px 3px rgba(0, 0, 0, 0.45)',
-                            letterSpacing: '0.015em' 
+                            opacity: 0.95,
+                            letterSpacing: '0.01em',
+                            lineHeight: 1.45
                           } : undefined}
                         >
-                          {block.caption}
+                          {block.caption.includes('Complete Awwja UX/UI design system and product presentation.') ? (
+                            <>
+                              <span className="awwja-caption-line">Complete Awwja UX/UI design system</span>{' '}
+                              <span className="awwja-caption-line">and product presentation.</span>
+                            </>
+                          ) : (
+                            block.caption
+                          )}
                         </p>
                       )}
                     </div>
