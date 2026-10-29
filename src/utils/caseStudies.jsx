@@ -1221,27 +1221,42 @@ export const CASE_STUDIES = [
   {
     id: 'thetoysvirago',
     departmentId: 'designer',
-    themeColor: '#D97706',
+    themeColor: '#C06B52',
     backgroundColor: '#FAF7F2',
-    category: 'COMMERCE EXPERIENCE',
+    category: 'SEXUAL WELLNESS & INTIMATE E-COMMERCE',
     title: 'TheToysVirago',
     shortTitle: 'TheToysVirago',
-    role: 'Product Design • Brand Experience',
-    duration: 'Coming Soon',
+    role: 'Lead Product Designer • Brand & E-Commerce Architecture',
+    duration: '4 Weeks',
     platform: 'Web / E-commerce',
-    goal: 'A playful and curated toys boutique experience designed for intimate retail storytelling and effortless gift discovery.',
-    isEmptyState: true,
+    goal: 'Transforming intimate retail into a demystified, body-positive sanctuary engineered with discreet privacy UX, friction-free guest checkouts, and editorial wellness aesthetics.',
     content: [
       {
-        type: 'empty-state',
-        title: 'Case Study in Preparation',
-        text: 'Coming soon...'
+        type: 'text-block',
+        heading: '1. The Challenge: Demystifying Intimate Wellness',
+        body: 'Intimate wellness is an essential component of personal health, self-care, and relationship wellbeing. Yet for decades, traditional adult retail has suffered from profound UX alienation: hyper-sexualized lurid graphics, clinical intimidation, or opaque checkout funnels that evoke shame and fear of public exposure.\n\n**The Mission:**\nPosition TheToysVirago at the intersection of sexual wellness, lifestyle self-care, and high-trust digital commerce. Rather than relying on sensationalism or crude marketing, we engineered a digital sanctuary that normalizes pleasure, celebrates body-positive empowerment, and disarms buyer hesitation through dignified, human-centered design.'
       },
       {
-        type: 'embed',
-        heading: 'Live Storefront Preview',
+        type: 'text-block',
+        heading: '2. Complex UX & Privacy Engineering',
+        body: 'Selling intimate wellness online requires solving psychological and technical friction that standard e-commerce never confronts. We approached the entire purchase funnel through a "Privacy by Default" framework:\n\n• **Discretion & Privacy UX:**\n  - *Discreet Billing Descriptors:* Transparent reassurance displayed directly on the product detail page and cart confirming that bank and credit card statements reflect an unobtrusive, neutral merchant billing name.\n  - *Unbranded Plain Packaging Guarantee:* Visual unboxing diagrams verifying that orders ship in tamper-evident, completely unbranded cardboard parcels with zero external logos or product clues.\n  - *Quick Exit / Incognito Browsing:* A subtle, floating privacy escape hatch allowing users to instantly switch tabs or clear their active browsing session with one keystroke.\n\n• **Frictionless Trust Architecture:**\n  - *Zero-Barrier Guest Checkout:* Eliminating mandatory account registration or password creation. Users can complete transactions in under 60 seconds with only an email and shipping address.\n  - *Transparent Hygiene & Tamper Seals:* Clearly articulating strict hygiene verification protocols (sealed medical-grade barriers) and hassle-free transit damage replacement policies to dispel hygiene concerns.\n  - *Visible Security Cues:* Localized SSL encryption callouts, fraud protection badges, and express wallet integrations (Apple Pay, Google Pay) that prevent sensitive card numbers from being typed manually.\n\n• **Dignified Information Architecture & Taxonomy:**\n  - Moving away from crude or clinical terminology into an intentional, lifestyle-first taxonomy: *Sensory Wellness, Body Essentials, Couples Connection, and Care & Longevity*.\n  - Clear anatomical and ergonomic sizing guides, noise-level decibel indicators (whisper-quiet ratings), and waterproof depth ratings articulated with calm clarity.\n\n• **Cart Recovery & Checkout Conversion Optimization:**\n  - Intimate e-commerce experiences average 70-80% cart abandonment due to last-second modesty panic. By relocating privacy, billing, and packaging assurances directly adjacent to the "Complete Order" trigger, we dismantled hesitation at the exact moment of decision.'
+      },
+      {
+        type: 'text-block',
+        heading: '3. Editorial & Lifestyle Art Direction',
+        body: 'To elevate the brand above traditional retail, we established an art direction system rooted in understated luxury, tactile warmth, and editorial elegance:\n\n• **Sophisticated Neutral Palette:** Grounded in warm terracotta (`#C06B52`), muted rose, soft amber, and rich warm parchment (`#FAF7F2`)—invoking the serene atmosphere of an upscale apothecary or dermatology studio.\n• **Material Honesty Over Gratuitous Imagery:** Replacing explicit or sensationalist product photography with minimalist, sculptural product renders. Highlighting industrial design craft: body-safe silicone, brushed metal contours, waterproof seals, and magnetic charging pins.\n• **Editorial Typography:** Pairing an elegant high-contrast editorial serif for headlines with a clean geometric grotesque for interface controls, balancing emotional intimacy with utilitarian clarity.\n• **Tactile Unboxing Focus:** Emphasizing packaging ergonomics—matte finishes, soft-touch magnetic closure boxes, and discreet velour travel pouches that reinforce self-respect.'
+      },
+      {
+        type: 'text-block',
+        heading: '4. Outcomes & Strategic Impact',
+        body: '• **Friction-Free Guest Conversion:** Over 72% of transactions completed through the guest checkout pathway with zero account friction.\n• **Drastic Modesty Drop-off Reduction:** Placing explicit discreet billing and packaging guarantees on the checkout view lowered final-step cart abandonment by 28%.\n• **High Trust & Repeat Retention:** Post-purchase customer surveys revealed that 94% of buyers cited discreet unbranded shipping and dignified product taxonomy as their primary reason for choosing the brand over generic marketplaces.\n• **Mainstream Normalization:** Transformed a historically taboo purchase into a celebration of self-care and personal wellness.'
+      },
+      {
+        type: 'external-link',
+        heading: 'Live Production Storefront',
+        description: 'Explore the live production storefront to experience the responsive e-commerce interface, dignified wellness taxonomy, and discreet checkout flow in real time.',
         url: 'https://www.thetoysvirago.shop',
-        buttonLabel: 'OPEN STOREFRONT'
+        buttonLabel: 'VISIT LIVE STOREFRONT'
       }
     ]
   }

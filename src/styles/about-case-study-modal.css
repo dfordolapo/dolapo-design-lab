@@ -753,7 +753,7 @@
   overflow: hidden;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.08);
-  background: #000000;
+  background: transparent;
 }
 
 .about-ob-gallery-item img {
@@ -1137,6 +1137,87 @@
   .about-modal-empty-state__text {
     font-size: 0.88rem;
   }
+}
+
+/* External Link Card in About Modal */
+.about-modal-external-link-box {
+  margin: 24px 0 16px 0;
+}
+
+.about-modal-external-link-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 24px;
+  background: linear-gradient(135deg, #FAF7F2 0%, #F5ECE0 100%);
+  border: 1px solid rgba(210, 195, 180, 0.6);
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 640px) {
+  .about-modal-external-link-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.about-modal-external-link-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.about-modal-external-link-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #C06B52;
+}
+
+.about-modal-external-link-title {
+  font-family: var(--font-heading, serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1A1715;
+  margin: 0;
+}
+
+.about-modal-external-link-desc {
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #554D45;
+  margin: 0;
+  max-width: 520px;
+}
+
+.about-modal-external-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #1A1715;
+  color: #FAF7F2;
+  text-decoration: none;
+  border-radius: 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.about-modal-external-link-btn:hover {
+  background: #38302A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 

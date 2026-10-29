@@ -741,6 +741,28 @@ export default function CaseStudyViewer({ project, onClose }) {
                   ))}
                 </div>
               );
+            } else if (block.type === 'external-link' || (block.type === 'embed' && block.externalOnly)) {
+              blockContent = (
+                <div className="case-study-block external-link-block">
+                  <div className="external-link-card">
+                    <div className="external-link-info">
+                      <span className="external-link-tag">LIVE PLATFORM</span>
+                      <h3 className="external-link-title">{block.heading || 'Live Storefront'}</h3>
+                      <p className="external-link-desc">
+                        {block.description || 'Visit the live production storefront to explore the responsive e-commerce experience, discreet privacy architecture, and editorial wellness catalog.'}
+                      </p>
+                    </div>
+                    <a
+                      href={block.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="external-link-btn"
+                    >
+                      {block.buttonLabel || 'VISIT LIVE STOREFRONT'} &rarr;
+                    </a>
+                  </div>
+                </div>
+              );
             } else if (block.type === 'embed') {
               blockContent = (
                 <div className="case-study-block embed-block">

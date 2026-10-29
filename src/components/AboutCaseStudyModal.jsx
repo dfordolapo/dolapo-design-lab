@@ -425,6 +425,31 @@ export default function AboutCaseStudyModal({ project, onClose }) {
                   )
                 }
 
+                if (block.type === 'external-link' || (block.type === 'embed' && block.externalOnly)) {
+                  return (
+                    <div key={idx} className="about-modal-block about-modal-external-link-box">
+                      <div className="about-modal-external-link-card">
+                        <div className="about-modal-external-link-info">
+                          <span className="about-modal-external-link-tag">LIVE PLATFORM</span>
+                          <h4 className="about-modal-external-link-title">{block.heading || 'Live Storefront'}</h4>
+                          <p className="about-modal-external-link-desc">
+                            {block.description || 'Visit the live production storefront to explore the responsive e-commerce experience, discreet privacy architecture, and editorial wellness catalog.'}
+                          </p>
+                        </div>
+                        <a
+                          href={block.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="about-modal-external-link-btn"
+                        >
+                          <span>{block.buttonLabel || 'VISIT LIVE STOREFRONT'}</span>
+                          <span>&rarr;</span>
+                        </a>
+                      </div>
+                    </div>
+                  )
+                }
+
                 if (block.type === 'embed') {
                   return <ModalEmbed key={idx} block={block} />
                 }
