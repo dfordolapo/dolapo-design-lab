@@ -494,8 +494,7 @@ export const CASE_STUDIES = [
       {
         type: 'embed',
         heading: 'Live Storefront Preview',
-        url: 'https://nailexpress.vercel.app',
-        liveUrl: 'https://www.nailexpress.ng',
+        url: 'https://www.nailexpress.ng',
         buttonLabel: 'OPEN STOREFRONT'
       },
       {
@@ -636,8 +635,7 @@ export const CASE_STUDIES = [
       {
         type: 'embed',
         heading: 'Live Storefront Preview',
-        url: 'https://nailexpress.vercel.app',
-        liveUrl: 'https://www.nailexpress.ng',
+        url: 'https://www.nailexpress.ng',
         buttonLabel: 'OPEN STOREFRONT'
       },
       {
