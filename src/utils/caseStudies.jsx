@@ -1215,8 +1215,8 @@ export const CASE_STUDIES = [
   {
     id: 'thetoysvirago',
     departmentId: 'designer',
-    themeColor: '#C06B52',
-    backgroundColor: '#FAF7F2',
+    themeColor: '#E11D48',
+    backgroundColor: '#FFFFFF',
     category: 'SEXUAL WELLNESS & INTIMATE E-COMMERCE',
     title: 'TheToysVirago',
     shortTitle: 'TheToysVirago',
@@ -1238,7 +1238,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: '3. Editorial & Lifestyle Art Direction',
-        body: 'To elevate the brand above traditional retail, we established an art direction system rooted in understated luxury, tactile warmth, and editorial elegance:\n\n• **Sophisticated Neutral Palette:** Grounded in warm terracotta (`#C06B52`), muted rose, soft amber, and rich warm parchment (`#FAF7F2`) - invoking the serene atmosphere of an upscale apothecary or dermatology studio.\n• **Material Honesty Over Gratuitous Imagery:** Replacing explicit or sensationalist product photography with minimalist, sculptural product renders. Highlighting industrial design craft: body-safe silicone, brushed metal contours, waterproof seals, and magnetic charging pins.\n• **Editorial Typography:** Pairing an elegant high-contrast editorial serif for headlines with a clean geometric grotesque for interface controls, balancing emotional intimacy with utilitarian clarity.\n• **Tactile Unboxing Focus:** Emphasizing packaging ergonomics - matte finishes, soft-touch magnetic closure boxes, and discreet velour travel pouches that reinforce self-respect.'
+        body: 'To elevate the brand above traditional retail, we established an art direction system rooted in modern clarity, visual contrast, and editorial confidence:\n\n• **Bold High-Contrast Palette:** Built on a clean, intentional foundation of crisp white, deep black, and an energetic, confident red - delivering modern visual clarity and passionate brand presence.\n• **Editorial Typography:** Pairing an elegant high-contrast editorial serif for headlines with a clean geometric grotesque for interface controls, balancing emotional intimacy with utilitarian clarity.\n• **Tactile Packaging & Presentation Focus:** Emphasizing discretion and quality through completely unbranded courier packaging, protective internal padding, and travel pouches that ensure privacy and care.'
       },
       {
         type: 'text-block',
