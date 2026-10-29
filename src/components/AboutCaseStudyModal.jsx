@@ -433,7 +433,7 @@ export default function AboutCaseStudyModal({ project, onClose }) {
                           <span className="about-modal-external-link-tag">LIVE PLATFORM</span>
                           <h4 className="about-modal-external-link-title">{block.heading || 'Live Storefront'}</h4>
                           <p className="about-modal-external-link-desc">
-                            {block.description || 'Visit the live production storefront to explore the responsive e-commerce experience, discreet privacy architecture, and editorial wellness catalog.'}
+                            {block.description || 'Step into the active shop to see how thoughtful privacy safeguards, warm art direction, and curated product discovery come together in practice.'}
                           </p>
                         </div>
                         <a
@@ -563,7 +563,7 @@ export default function AboutCaseStudyModal({ project, onClose }) {
                                       />
                                     </div>
                                     <p className="about-ob-evolution-desc">
-                                      {screen.afterCaption || 'An expressive culinary chef mascot anchoring the entire experience—from scanner to celebratory start.'}
+                                      {screen.afterCaption || 'An expressive culinary chef mascot anchoring the entire experience - from scanner to celebratory start.'}
                                     </p>
                                   </div>
                                 </div>

@@ -3,7 +3,7 @@ import DeckleDivider from './DeckleDivider';
 import '../styles/skill-charms-section.css';
 
 /**
- * SKILL CHARMS SECTION — "I don't stop at the designs."
+ * SKILL CHARMS SECTION - "I don't stop at the designs."
  * Parchment background (alternating from dark intro).
  * Top DeckleDivider transitions from dark intro into parchment.
  * Uses skills-web.png on desktop and skills-mobile.png on mobile.
@@ -37,7 +37,7 @@ export default function SkillCharmsSection() {
             <source media="(max-width: 768px)" srcSet="/assets/skills-mobile.png" />
             <img
               src="/assets/skills-web.png"
-              alt="I don't stop at the designs — Skill Charms: 01 UX Research, 02 UI Design, 03 Code Development, 04 Database, 05 Admin Tools, 06 Email Systems, 07 Google Search / SEO, 08 Live Product"
+              alt="I don't stop at the designs - Skill Charms: 01 UX Research, 02 UI Design, 03 Code Development, 04 Database, 05 Admin Tools, 06 Email Systems, 07 Google Search / SEO, 08 Live Product"
               className="charms-image"
               width="2172"
               height="724"

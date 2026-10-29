@@ -5,7 +5,7 @@ import DeckleDivider from './DeckleDivider';
 import '../styles/selected-work-section.css';
 
 /**
- * SELECTED WORK SECTION — Interactive Desk Shelf
+ * SELECTED WORK SECTION - Interactive Desk Shelf
  * Reverts to original heading: "Some of the things I've built."
  * Pure black #000000 background (alternating from parchment).
  * Top DeckleDivider transitions from parchment into black.

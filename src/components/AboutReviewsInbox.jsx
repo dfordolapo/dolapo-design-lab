@@ -190,7 +190,7 @@ export default function AboutReviewsInbox() {
 
                 {/* Signoff block */}
                 <div className="about-email-signoff">
-                  <span className="about-email-signoff-dash">&mdash;</span>
+                  <span className="about-email-signoff-dash">-</span>
                   <span className="about-email-signoff-name">{activeReview.body?.signoff || activeReview.sender}</span>
                 </div>
 

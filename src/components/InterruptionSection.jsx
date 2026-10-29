@@ -176,7 +176,7 @@ export default function InterruptionSection({ onSelectProject }) {
         <div
           className={`interruption-stamp-badge ${hasTriggered ? 'interruption-stamp-badge--stamped' : ''}`}
           onClick={playClick}
-          title="Best Project Winner — MoonTechLife Bootcamp Cohort"
+          title="Best Project Winner - MoonTechLife Bootcamp Cohort"
           aria-label="Award badge: Best Project Winner at MoonTechLife Bootcamp"
           role="img"
         >

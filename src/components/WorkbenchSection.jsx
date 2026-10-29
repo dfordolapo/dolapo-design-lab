@@ -6,7 +6,7 @@ import useScrollLock from '../hooks/useScrollLock';
 import '../styles/workbench-section.css';
 
 /**
- * WORKBENCH SECTION — "Tools on my workbench."
+ * WORKBENCH SECTION - "Tools on my workbench."
  *
  * Placed immediately after Selected Work on pure black #000000 background.
  * Four glossy metal drawers (Design, Build, AI Stack, Ship), chrome handles,
@@ -188,7 +188,7 @@ export default function WorkbenchSection() {
             </div>
           </div>
 
-          {/* Tool Description Modal — Portalled directly to document.body so it escapes all stacking contexts */}
+          {/* Tool Description Modal - Portalled directly to document.body so it escapes all stacking contexts */}
           {selectedTool && typeof document !== 'undefined' && createPortal(
             <div className="workbench-info-modal-backdrop" onClick={handleCloseInfoPanel}>
               <div className="workbench-info-panel-container" onClick={(e) => e.stopPropagation()}>

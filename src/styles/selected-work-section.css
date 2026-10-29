@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
 
 /* ==========================================================================
-   SELECTED WORK SECTION — Interactive Desk Shelf Artwork & Preview Drawer
+   SELECTED WORK SECTION - Interactive Desk Shelf Artwork & Preview Drawer
    Pure black #000000 background, full artwork with zero cutoff, smooth gradient.
    ========================================================================== */
 
@@ -143,7 +143,7 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   DESK SHELF ARTWORK STAGE — Full Width Edge-to-Edge on Mobile & Web
+   DESK SHELF ARTWORK STAGE - Full Width Edge-to-Edge on Mobile & Web
 ───────────────────────────────────────────────────────────────────────── */
 .desk-shelf-stage {
   position: relative;

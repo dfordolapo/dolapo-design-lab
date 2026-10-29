@@ -212,11 +212,13 @@
   margin: 0 0 12px 0;
   max-width: 100%;
   width: 100%;
+  white-space: pre-line;
+  text-wrap: balance;
 }
 
 @media (min-width: 860px) {
   .about-modal-hero__desc {
-    white-space: nowrap;
+    white-space: pre-line;
   }
 }
 
@@ -1093,7 +1095,7 @@
 
 /* ==========================================================================
    CLASSY EDITORIAL EMPTY STATE (TheToysVirago & In-Preparation Studies)
-   Simple, clean, typography-focused — just 'Coming soon...'
+   Simple, clean, typography-focused - just 'Coming soon...'
    ========================================================================== */
 
 .about-modal-empty-state {
