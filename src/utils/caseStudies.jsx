@@ -203,7 +203,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'The Solution',
-        body: 'Awwja introduces an automated negotiation engine paired with a milestone-based escrow mechanism. As lead product designer and builder, I designed a low-friction interaction model that digitizes cultural haggling nuances:\n\n• **Algorithmic Bargaining Corridors:** Sellers define acceptable floor and target margins; the system handles counter-offers automatically in real time without endless chat tag.\n• **Zero-Friction Demand Capture:** Clean single-field waitlist entry with instantaneous viral queue progression.\n• **Escrow State Visibility:** High-clarity visual progression indicators that explicitly inform both buyer and seller when funds are locked, dispatched, and released.'
+        body: 'Awwja introduces an automated negotiation engine paired with a milestone-based escrow mechanism. As lead product designer and builder, I designed a low-friction interaction model that digitizes cultural haggling nuances:\n\n• **Algorithmic Bargaining Corridors:** Sellers define acceptable floor and target margins; the system handles counter-offers automatically in real time without endless chat tag.\n• **Zero-Friction Demand Capture:** Clean single-field waitlist entry with instantaneous viral queue progression.\n• **Escrow Engine & Planned State Visibility:** The platform operates on escrow protection to secure transaction funds between parties. While real-time visual state tracking isn’t currently in the live app yet, we will be adding high-clarity progression indicators that explicitly inform both buyer and seller when funds are locked, dispatched, and released.'
       },
       {
         type: 'text-block',

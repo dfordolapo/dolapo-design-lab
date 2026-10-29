@@ -511,6 +511,13 @@ export default function CaseStudyViewer({ project, onClose }) {
                   <div className="placeholder-text" style={{ display: block.image ? 'none' : 'block' }}>
                     Add {block.image?.split('/').pop()} to public/assets
                   </div>
+                  {block.caption && (
+                    <div style={{ textAlign: 'center', padding: '14px 16px 16px 16px' }}>
+                      <p style={{ color: '#FFF6EB', fontSize: '0.84rem', fontWeight: 500, margin: 0, letterSpacing: '0.01em' }}>
+                        {block.caption}
+                      </p>
+                    </div>
+                  )}
                 </div>
               );
             } else if (block.type === 'overview') {

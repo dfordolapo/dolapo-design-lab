@@ -284,7 +284,7 @@ export default function AboutCaseStudyModal({ project, onClose }) {
                     <div key={idx} className="about-modal-block about-modal-slide-frame">
                       <div 
                         className="about-modal-slide-card"
-                        style={slideBg ? { background: slideBg, borderColor: block.borderColor || slideBg } : undefined}
+                        style={slideBg ? { background: slideBg, borderColor: block.borderColor || slideBg, paddingBottom: block.caption ? '12px' : '5px' } : undefined}
                       >
                         <img
                           src={block.image}
@@ -293,9 +293,25 @@ export default function AboutCaseStudyModal({ project, onClose }) {
                           fetchPriority={idx < 2 ? "high" : "auto"}
                           decoding="async"
                         />
+                        {block.caption && slideBg && (
+                          <p 
+                            className="about-modal-image-caption" 
+                            style={{ 
+                              color: '#FFF6EB', 
+                              fontSize: '0.82rem', 
+                              fontWeight: 500, 
+                              marginTop: '10px', 
+                              textAlign: 'center', 
+                              opacity: 0.95,
+                              letterSpacing: '0.01em' 
+                            }}
+                          >
+                            <span className="about-modal-caption-bullet" style={{ color: '#D97706' }} aria-hidden="true">•</span> {block.caption}
+                          </p>
+                        )}
                       </div>
-                      {block.caption && (
-                        <p className="about-modal-image-caption" style={slideBg ? { color: '#8C7B6E' } : undefined}>
+                      {block.caption && !slideBg && (
+                        <p className="about-modal-image-caption">
                           <span className="about-modal-caption-bullet" aria-hidden="true">•</span> {block.caption}
                         </p>
                       )}
@@ -368,11 +384,22 @@ export default function AboutCaseStudyModal({ project, onClose }) {
                     <div 
                       key={idx} 
                       className={`about-modal-block about-modal-image-frame ${customBg ? 'about-modal-image-frame--custom-bg' : ''}`}
-                      style={customBg ? { background: customBg, borderColor: block.borderColor || customBg } : undefined}
+                      style={customBg ? { background: customBg, borderColor: block.borderColor || customBg, paddingBottom: block.caption ? '14px' : undefined } : undefined}
                     >
                       <img src={imgSrc} alt={block.caption || project.title} loading={idx < 4 ? "eager" : "lazy"} decoding="async" />
                       {block.caption && (
-                        <p className="about-modal-image-caption" style={customBg ? { color: '#8C7B6E' } : undefined}>
+                        <p 
+                          className="about-modal-image-caption" 
+                          style={customBg ? { 
+                            color: '#FFF6EB', 
+                            fontSize: '0.82rem', 
+                            fontWeight: 500, 
+                            marginTop: '10px', 
+                            textAlign: 'center', 
+                            opacity: 0.95,
+                            letterSpacing: '0.01em' 
+                          } : undefined}
+                        >
                           {block.caption}
                         </p>
                       )}
