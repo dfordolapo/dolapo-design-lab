@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { WORKBENCH_DRAWERS } from './workbench/workbenchData';
 import { CategoryIcon, ToolBrandIcon } from './workbench/WorkbenchIcons';
 import useScrollLock from '../hooks/useScrollLock';
@@ -187,8 +188,8 @@ export default function WorkbenchSection() {
             </div>
           </div>
 
-          {/* Right Column (Desktop) & Floating Modal (Mobile): Tool Description */}
-          {selectedTool && (
+          {/* Tool Description Modal — Portalled directly to document.body so it escapes all stacking contexts */}
+          {selectedTool && typeof document !== 'undefined' && createPortal(
             <div className="workbench-info-modal-backdrop" onClick={handleCloseInfoPanel}>
               <div className="workbench-info-panel-container" onClick={(e) => e.stopPropagation()}>
                 <article
@@ -237,7 +238,8 @@ export default function WorkbenchSection() {
                   </div>
                 </article>
               </div>
-            </div>
+            </div>,
+            document.body
           )}
         </div>
       </div>

@@ -486,13 +486,15 @@
 .workbench-info-modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.72);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  width: 100vw;
+  height: 100dvh;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2000;
+  z-index: 999999;
   padding: clamp(16px, 3vw, 32px);
   animation: modalBackdropFadeIn 0.22s ease-out;
   overscroll-behavior: contain;
@@ -695,6 +697,14 @@
 }
 
 @media (max-width: 768px) {
+  .workbench-info-modal-backdrop {
+    background: rgba(0, 0, 0, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 14px;
+    z-index: 999999;
+  }
+
   .workbench-stage {
     width: 100%;
     max-width: 100vw;
