@@ -176,6 +176,12 @@
   width: calc(100% + (2 * var(--space-2xl)));
 }
 
+.full-image-block p {
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+
 .full-image-block.pull-up {
   margin-top: calc(-1 * var(--space-3xl));
 }

@@ -505,6 +505,16 @@
   border: 1px solid rgba(83, 49, 31, 0.6);
 }
 
+.about-modal-image-frame--custom-bg .about-modal-image-caption,
+.about-modal-slide-card .about-modal-image-caption {
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  font-size: 0.86rem !important;
+  opacity: 1 !important;
+  letter-spacing: 0.015em !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45) !important;
+}
+
 .about-modal-image-frame img {
   width: 100%;
   height: auto;

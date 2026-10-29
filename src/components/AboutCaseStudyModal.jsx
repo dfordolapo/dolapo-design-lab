@@ -297,16 +297,17 @@ export default function AboutCaseStudyModal({ project, onClose }) {
                           <p 
                             className="about-modal-image-caption" 
                             style={{ 
-                              color: '#FFF6EB', 
-                              fontSize: '0.82rem', 
-                              fontWeight: 500, 
-                              marginTop: '10px', 
+                              color: block.captionColor || '#FFFFFF', 
+                              fontSize: '0.86rem', 
+                              fontWeight: 600, 
+                              marginTop: '12px', 
                               textAlign: 'center', 
-                              opacity: 0.95,
-                              letterSpacing: '0.01em' 
+                              opacity: 1,
+                              textShadow: '0 1px 3px rgba(0, 0, 0, 0.45)',
+                              letterSpacing: '0.015em' 
                             }}
                           >
-                            <span className="about-modal-caption-bullet" style={{ color: '#D97706' }} aria-hidden="true">•</span> {block.caption}
+                            <span className="about-modal-caption-bullet" style={{ color: '#F59E0B' }} aria-hidden="true">•</span> {block.caption}
                           </p>
                         )}
                       </div>
@@ -391,13 +392,14 @@ export default function AboutCaseStudyModal({ project, onClose }) {
                         <p 
                           className="about-modal-image-caption" 
                           style={customBg ? { 
-                            color: '#FFF6EB', 
-                            fontSize: '0.82rem', 
-                            fontWeight: 500, 
-                            marginTop: '10px', 
+                            color: block.captionColor || '#FFFFFF', 
+                            fontSize: '0.86rem', 
+                            fontWeight: 600, 
+                            marginTop: '12px', 
                             textAlign: 'center', 
-                            opacity: 0.95,
-                            letterSpacing: '0.01em' 
+                            opacity: 1,
+                            textShadow: '0 1px 3px rgba(0, 0, 0, 0.45)',
+                            letterSpacing: '0.015em' 
                           } : undefined}
                         >
                           {block.caption}
