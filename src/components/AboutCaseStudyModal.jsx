@@ -96,23 +96,46 @@ export default function AboutCaseStudyModal({ project, onClose }) {
       const trimmed = para.trim()
       if (!trimmed) return null
 
-      // Check if it's a bullet list (starts with • or bullet marker followed by space)
-      if (trimmed.startsWith('•') || /^[-*]\s/.test(trimmed)) {
+      // Check if it's a bullet list or contains bulleted items
+      if (trimmed.startsWith('•') || /^[-*]\s/.test(trimmed) || trimmed.includes('\n•')) {
         const lines = trimmed.split('\n')
         return (
-          <ul key={pIdx} className="about-modal-ul">
+          <div key={pIdx} className="about-modal-list-group" style={{ marginBottom: '0.85rem' }}>
             {lines.map((line, lIdx) => {
-              const cleanLine = line.replace(/^\s*[•*-]+\s*/, '').replace(/^[-–—]\s*/, '')
+              const lineTrimmed = line.trim()
+              if (!lineTrimmed) return null
+
+              const isBullet = lineTrimmed.startsWith('•') || /^[-*]\s/.test(lineTrimmed)
+              if (isBullet) {
+                const cleanLine = lineTrimmed.replace(/^\s*[•*-]+\s*/, '').replace(/^[-–—]\s*/, '')
+                return (
+                  <div key={lIdx} className="about-modal-bullet-item" style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', marginTop: lIdx > 0 ? '10px' : '0' }}>
+                    <span style={{ color: '#8C7F72', fontSize: '0.85rem', lineHeight: '1.55', flexShrink: 0, fontWeight: 700 }}>–</span>
+                    <span
+                      style={{ color: '#1A1715', fontSize: '0.82rem', lineHeight: '1.55' }}
+                      dangerouslySetInnerHTML={{ __html: formatInlineMarkdown(cleanLine) }}
+                    />
+                  </div>
+                )
+              }
+
+              // Sub-lines (e.g. Problem, Decision, Result) start without bullets, indented as bold text
               return (
-                <li
+                <div
                   key={lIdx}
-                  className="about-modal-li"
-                  style={{ color: '#38302A' }}
-                  dangerouslySetInnerHTML={{ __html: formatInlineMarkdown(cleanLine) }}
+                  className="about-modal-sub-point"
+                  style={{
+                    paddingLeft: '18px',
+                    marginTop: '4px',
+                    fontSize: '0.8rem',
+                    lineHeight: '1.55',
+                    color: '#38302A'
+                  }}
+                  dangerouslySetInnerHTML={{ __html: formatInlineMarkdown(lineTrimmed) }}
                 />
               )
             })}
-          </ul>
+          </div>
         )
       }
 
@@ -452,6 +475,57 @@ export default function AboutCaseStudyModal({ project, onClose }) {
 
                 if (block.type === 'embed') {
                   return <ModalEmbed key={idx} block={block} />
+                }
+
+                if (block.type === 'competitor-matrix') {
+                  return (
+                    <div key={idx} className="about-modal-block about-modal-competitor-matrix">
+                      {block.heading && <h2 className="about-modal-heading">{block.heading}</h2>}
+                      {block.description && (
+                        <p className="about-modal-competitor-intro">{block.description}</p>
+                      )}
+                      <div className="about-modal-table-scroll">
+                        <table className="about-modal-competitor-table">
+                          <thead>
+                            <tr>
+                              {block.headers?.map((header, hIdx) => (
+                                <th key={hIdx}>{header}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {block.rows?.map((row, rIdx) => {
+                              const isVurdict = row.isHighlight || row.tool?.toLowerCase() === 'vurdict';
+                              return (
+                                <tr key={rIdx} className={isVurdict ? 'about-modal-row-highlight' : ''}>
+                                  <td className="about-modal-tool-cell">
+                                    {isVurdict ? (
+                                      <span className="about-modal-tool-badge">{row.tool}</span>
+                                    ) : (
+                                      <strong>{row.tool}</strong>
+                                    )}
+                                  </td>
+                                  <td>{row.feedbackType}</td>
+                                  <td>
+                                    <span className={`about-modal-goal-tag ${row.goalAware === 'YES' ? 'goal-yes' : row.goalAware === 'Partial' ? 'goal-partial' : 'goal-no'}`}>
+                                      {row.goalAware}
+                                    </span>
+                                  </td>
+                                  <td className="about-modal-gap-cell">{row.gap}</td>
+                                </tr>
+                              );
+                            })}
+                          </tbody>
+                        </table>
+                      </div>
+                      {block.callout && (
+                        <div className="about-modal-competitor-callout">
+                          <span className="about-modal-callout-bullet" aria-hidden="true" />
+                          <p>{block.callout}</p>
+                        </div>
+                      )}
+                    </div>
+                  );
                 }
 
                 if (block.type === 'onboarding-collection') {

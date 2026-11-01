@@ -103,18 +103,18 @@ const SHELF_PROJECTS = [
     height: '63.0%'
   },
   {
-    id: 'saferide',
-    caseStudyId: 'designer-1',
-    name: 'SafeRide Mode™',
-    shortName: 'SafeRide',
-    category: 'UX FEATURE PROPOSAL',
-    color: '#A4B69B',
-    bgTint: 'rgba(164, 182, 155, 0.16)',
-    borderTint: 'rgba(164, 182, 155, 0.32)',
-    platform: 'Mobile App',
-    role: 'Product Design • UX Research',
-    desc: 'A proactive nighttime safety framework for ride-hailing apps that reduces rider wait anxiety through status verification and instant trip sharing.',
-    accessibleLabel: 'Select SafeRide Mode project',
+    id: 'vurdict',
+    caseStudyId: 'designer-3',
+    name: 'Vurdict',
+    shortName: 'Vurdict',
+    category: 'AI PORTFOLIO REVIEWER',
+    color: '#8B5CF6',
+    bgTint: 'rgba(139, 92, 246, 0.16)',
+    borderTint: 'rgba(139, 92, 246, 0.35)',
+    platform: 'Progressive Web App',
+    role: 'Product Strategy • UX/UI • Full-Stack Dev',
+    desc: 'A goal-aware AI portfolio reviewer calibrated against six core hiring dimensions, delivering comprehensive, actionable case study critique in under 5 minutes.',
+    accessibleLabel: 'Select Vurdict project',
     left: '79.2%',
     top: '13.0%',
     width: '10.0%',
@@ -176,14 +176,15 @@ export default function SelectedWorkSection({ onSelectProject }) {
         <div className="desk-shelf-stage">
           <div className="desk-shelf-art-wrapper">
             <picture>
-              <source type="image/webp" srcSet="/assets/shelf-img.webp" />
+              <source type="image/webp" srcSet="/assets/shelf.webp" />
               <img
-                src="/assets/shelf-img.jpg"
-                alt="Selected Work desk shelf with books: NailExpress, TheToysVirago, Awwja, Onboarding Screens, Gino World Jollof Festival, and SafeRide Mode"
+                src="/assets/shelf.jpg"
+                alt="Selected Work desk shelf with books: NailExpress, TheToysVirago, Awwja, Onboarding Screens, Gino World Jollof Festival, and Vurdict"
                 className="desk-shelf-image"
                 width="2752"
                 height="1536"
                 loading="eager"
+                fetchPriority="high"
                 decoding="async"
               />
             </picture>

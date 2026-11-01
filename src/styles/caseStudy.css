@@ -1975,3 +1975,152 @@
   border-color: rgba(255, 255, 255, 0.35);
   transform: translateY(-2px);
 }
+
+/* Competitor Matrix Table (Dark Theme in CaseStudyViewer) */
+.competitor-matrix-block {
+  margin-bottom: var(--space-2xl);
+}
+
+.competitor-matrix-intro {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+  max-width: 820px;
+}
+
+.competitor-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.competitor-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  text-align: left;
+  min-width: 600px;
+}
+
+.competitor-table th {
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.competitor-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  vertical-align: middle;
+}
+
+.competitor-table tr:last-child td {
+  border-bottom: none;
+}
+
+.competitor-table .tool-cell {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.competitor-table tr.highlight-row {
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.competitor-table tr.highlight-row td {
+  color: #EDE8DE;
+  border-bottom-color: rgba(139, 92, 246, 0.25);
+}
+
+.tool-highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  background: #8B5CF6;
+  color: #FFFFFF;
+  border-radius: 6px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.4);
+}
+
+.goal-tag {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.goal-tag.goal-yes {
+  background: rgba(16, 185, 129, 0.18);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.goal-tag.goal-partial {
+  background: rgba(245, 158, 11, 0.18);
+  color: #FBBF24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.goal-tag.goal-no {
+  background: rgba(239, 68, 68, 0.14);
+  color: #F87171;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.gap-cell {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.competitor-table tr.highlight-row .gap-cell {
+  color: #E2E8F0;
+  font-weight: 500;
+}
+
+.competitor-callout-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  background: rgba(139, 92, 246, 0.08);
+  border: none;
+  border-radius: var(--radius-md);
+}
+
+.callout-indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8B5CF6;
+  margin-top: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px #8B5CF6;
+}
+
+.competitor-callout-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #E2E8F0;
+}
+

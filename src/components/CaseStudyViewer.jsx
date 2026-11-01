@@ -626,11 +626,59 @@ export default function CaseStudyViewer({ project, onClose }) {
             } else if (block.type === 'text-block') {
               const renderText = (text) => {
                 if (!text) return null;
-                return text.split('\n\n').map((paragraph, i) => {
-                  const htmlString = paragraph
+                const formatInline = (str) =>
+                  str
                     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                     .replace(/\*(.*?)\*/g, '<em>$1</em>')
-                    .replace(/\n/g, '<br />');
+                    .replace(/`([^`]+)`/g, '<code>$1</code>');
+
+                return text.split('\n\n').map((paragraph, i) => {
+                  const trimmed = paragraph.trim();
+                  if (!trimmed) return null;
+
+                  if (trimmed.startsWith('•') || /^[-*]\s/.test(trimmed) || trimmed.includes('\n•')) {
+                    const lines = trimmed.split('\n');
+                    return (
+                      <div key={i} className="case-study-list-group" style={{ marginBottom: '1.25rem' }}>
+                        {lines.map((line, lIdx) => {
+                          const lineTrimmed = line.trim();
+                          if (!lineTrimmed) return null;
+
+                          const isBullet = lineTrimmed.startsWith('•') || /^[-*]\s/.test(lineTrimmed);
+                          if (isBullet) {
+                            const cleanLine = lineTrimmed.replace(/^\s*[•*-]+\s*/, '').replace(/^[-–—]\s*/, '');
+                            return (
+                              <div key={lIdx} className="case-study-bullet-heading" style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginTop: lIdx > 0 ? '14px' : '0' }}>
+                                <span style={{ color: 'var(--accent, #8b5cf6)', fontSize: '0.98rem', lineHeight: '1.6', flexShrink: 0, fontWeight: 700 }}>–</span>
+                                <span
+                                  style={{ color: 'var(--text-primary)', fontSize: '1.02rem', lineHeight: '1.6', fontWeight: 500 }}
+                                  dangerouslySetInnerHTML={{ __html: formatInline(cleanLine) }}
+                                />
+                              </div>
+                            );
+                          }
+
+                          // Sub-points underneath (Problem, Decision, Result, etc.) start directly as bold text without bullets
+                          return (
+                            <div
+                              key={lIdx}
+                              className="case-study-sub-point"
+                              style={{
+                                paddingLeft: '22px',
+                                marginTop: '6px',
+                                fontSize: '0.96rem',
+                                lineHeight: '1.65',
+                                color: 'var(--text-secondary)'
+                              }}
+                              dangerouslySetInnerHTML={{ __html: formatInline(lineTrimmed) }}
+                            />
+                          );
+                        })}
+                      </div>
+                    );
+                  }
+
+                  const htmlString = formatInline(trimmed).replace(/\n/g, '<br />');
                   return <p key={i} dangerouslySetInnerHTML={{ __html: htmlString }} />;
                 });
               };
@@ -739,6 +787,57 @@ export default function CaseStudyViewer({ project, onClose }) {
                       {img.caption && <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', textAlign: 'center', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>{img.caption}</span>}
                     </div>
                   ))}
+                </div>
+              );
+            } else if (block.type === 'competitor-matrix') {
+              blockContent = (
+                <div className="case-study-block competitor-matrix-block">
+                  {block.heading && <h2>{block.heading}</h2>}
+                  {block.description && (
+                    <p className="competitor-matrix-intro">{block.description}</p>
+                  )}
+                  <div className="competitor-table-wrapper">
+                    <table className="competitor-table">
+                      <thead>
+                        <tr>
+                          {block.headers?.map((header, hIdx) => (
+                            <th key={hIdx} className={hIdx === 0 ? 'th-tool' : ''}>
+                              {header}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {block.rows?.map((row, rIdx) => {
+                          const isVurdict = row.isHighlight || row.tool?.toLowerCase() === 'vurdict';
+                          return (
+                            <tr key={rIdx} className={isVurdict ? 'highlight-row' : ''}>
+                              <td className="tool-cell">
+                                {isVurdict ? (
+                                  <span className="tool-highlight-badge">{row.tool}</span>
+                                ) : (
+                                  <strong>{row.tool}</strong>
+                                )}
+                              </td>
+                              <td>{row.feedbackType}</td>
+                              <td>
+                                <span className={`goal-tag ${row.goalAware === 'YES' ? 'goal-yes' : row.goalAware === 'Partial' ? 'goal-partial' : 'goal-no'}`}>
+                                  {row.goalAware}
+                                </span>
+                              </td>
+                              <td className="gap-cell">{row.gap}</td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                  {block.callout && (
+                    <div className="competitor-callout-card">
+                      <div className="callout-indicator-dot" />
+                      <p>{block.callout}</p>
+                    </div>
+                  )}
                 </div>
               );
             } else if (block.type === 'external-link' || (block.type === 'embed' && block.externalOnly)) {

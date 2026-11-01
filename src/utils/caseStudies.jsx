@@ -49,6 +49,11 @@ export const CASE_STUDIES = [
         body: 'Every product gets one shot at a first impression. Onboarding screens are that shot.\n\nThis is an ongoing self-challenge: design one onboarding screen at a time, each focused on a single design principle. No briefs, no clients - just the craft.'
       },
       {
+        type: 'text-block',
+        heading: 'Behavioral Research & Retention Dynamics',
+        body: '**The Churn Crisis:** Mobile app market intelligence confirms that 77% of daily active users abandon a new application within the first 72 hours of download. The primary driver is rarely broken functionality — it is cognitive fatigue, unclear time-to-value, and anxiety-inducing permission requests during initial launch.\n\n**Core Onboarding Principles Tested:**\n- **Cognitive Load Reduction:** Limiting choices to 3 items per viewport to prevent decision paralysis.\n- **Progressive Disclosure:** Exposing complex configurations only after early momentum is established.\n- **Emotional Reassurance:** Replacing sterile form inputs with expressive micro-feedback and clear value milestones.'
+      },
+      {
         type: 'onboarding-collection',
         screens: [
           {
@@ -213,8 +218,13 @@ export const CASE_STUDIES = [
       },
       {
         type: 'text-block',
+        heading: 'Market Context & User Research',
+        body: '**The Social Commerce Landscape:** Over 70% of digital retail across Sub-Saharan Africa originates informally over WhatsApp, Instagram DMs, and Facebook Marketplace. Yet this massive informal economy suffers from two persistent friction points: an 80% loss in seller productivity spent fielding non-committal *"how much last?"* inquiries, and extreme buyer distrust driven by rampant *"pay before delivery"* fraud.\n\n**User Personas & Pain Points:**\n- **The Independent Merchant (Sellers):** Operates on tight inventory margins. Overwhelmed by repetitive haggling chats, ghosting buyers, and manual bank transfer confirmation delays.\n- **The Value-Seeking Consumer (Buyers):** Wants competitive local market prices and respects cultural bargaining, but refuses to prepay unverified sellers without clear delivery protection.'
+      },
+      {
+        type: 'text-block',
         heading: 'The Solution',
-        body: 'Awwja introduces an automated negotiation engine paired with a milestone-based escrow mechanism. As lead product designer and builder, I designed a low-friction interaction model that digitizes cultural haggling nuances:\n\n• **Algorithmic Bargaining Corridors:** Sellers define acceptable floor and target margins; the system handles counter-offers automatically in real time without endless chat tag.\n• **Zero-Friction Demand Capture:** Clean single-field waitlist entry with instantaneous viral queue progression.\n• **Escrow Engine & Planned State Visibility:** The platform operates on escrow protection to secure transaction funds between parties. While real-time visual state tracking isn’t currently in the live app yet, we will be adding high-clarity progression indicators that explicitly inform both buyer and seller when funds are locked, dispatched, and released.'
+        body: 'Awwja introduces an automated negotiation engine paired with a milestone-based escrow mechanism. As lead product designer and builder, I designed a low-friction interaction model that digitizes cultural haggling nuances:\n\n1. **Algorithmic Bargaining Corridors:** Sellers define acceptable floor and target margins; the system handles counter-offers automatically in real time without endless chat tag.\n2. **Zero-Friction Demand Capture:** Clean single-field waitlist entry with instantaneous viral queue progression.\n3. **Escrow Engine & Planned State Visibility:** The platform operates on escrow protection to secure transaction funds between parties. While real-time visual state tracking isn’t currently in the live app yet, we will be adding high-clarity progression indicators that explicitly inform both buyer and seller when funds are locked, dispatched, and released.'
       },
       {
         type: 'text-block',
@@ -248,7 +258,7 @@ export const CASE_STUDIES = [
     category: 'AI PORTFOLIO REVIEWER',
     title: 'Vurdict',
     role: 'Product Strategy • UX/UI Design • Full-Stack Development',
-    duration: 'Ongoing',
+    duration: '3 Weeks',
     platform: 'Progressive Web App',
     goal: 'An intelligent portfolio critique and heuristic review platform giving designers actionable feedback in under 5 minutes.',
     content: [
@@ -264,8 +274,58 @@ export const CASE_STUDIES = [
       },
       {
         type: 'text-block',
+        heading: 'Who This Is For',
+        body: '**Primary User:** A junior to mid-level product designer (0 to 4 years of experience) who is actively job hunting or building a freelance client base. Typically self-taught or bootcamp-trained with 1–3 case studies in their portfolio, experiencing lower interview response rates than expected without knowing where the gap lies.\n\n**Secondary Users:** Bootcamp graduates preparing to enter the market, career switchers transitioning from adjacent fields (UX writing, graphic design), and senior design mentors looking for a structured, scalable review tool to share with mentees.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Market Size & Demand Signal',
+        body: 'The global UX design market was valued at **over $8 billion in 2023** and continues to expand rapidly as digital products penetrate every industry.\n\nIn emerging tech ecosystems like Nigeria alone, platforms such as **Stutern, Ingressive For Good, and AltSchool Africa** have collectively trained **over 100,000 young tech talents** in the last four years — a significant share being product designers entering the workforce with minimal access to structured, senior-level feedback infrastructure.\n\nCoupled with millions of active creators across Behance, LinkedIn, and Twitter/X, the gap between initial design education and market employment-readiness is wide. Vurdict sits directly in that bridge.'
+      },
+      {
+        type: 'competitor-matrix',
+        heading: 'Competitor Landscape & Differentiation',
+        description: 'Most existing portfolio tools cater narrowly to FAANG-style Western hiring funnels with generic AI critiques, or rely on expensive, unscalable human audits. Few address Behance/Notion workflows, freelance positioning, or emotionally intelligent critique.',
+        headers: ['TOOL', 'FEEDBACK TYPE', 'GOAL AWARE?', 'MARKET GAP'],
+        rows: [
+          {
+            tool: 'Mockin',
+            feedbackType: 'AI structured report',
+            goalAware: 'No',
+            gap: 'Western hiring only, no freelance framing'
+          },
+          {
+            tool: 'RefineAI',
+            feedbackType: 'AI audit + job match',
+            goalAware: 'Partial',
+            gap: 'Job-focused only, no client-facing angle'
+          },
+          {
+            tool: 'UX Playbook',
+            feedbackType: 'Human video critique',
+            goalAware: 'No',
+            gap: 'Expensive, slow, not scalable'
+          },
+          {
+            tool: 'UXfolio AI',
+            feedbackType: 'Case study generator',
+            goalAware: 'No',
+            gap: 'Writing aid, not portfolio evaluator'
+          },
+          {
+            tool: 'Vurdict',
+            feedbackType: 'Score + written breakdown',
+            goalAware: 'YES',
+            gap: 'Role-specific + goal-aware + link-native',
+            isHighlight: true
+          }
+        ],
+        callout: 'Vurdict is the only tool that is simultaneously goal-aware, role-specific, link-native (no PDF required), and designed with the freelance use case as a first-class feature rather than an afterthought.'
+      },
+      {
+        type: 'text-block',
         heading: 'Tech Stack',
-        body: '**Built with:** Figma, React, TypeScript, Tailwind CSS, Node.js, Express, Supabase, PostgreSQL, OpenAI, Vercel'
+        body: '**Built with:** Figma, React, TypeScript, Tailwind CSS, Node.js, Express, Supabase, PostgreSQL, Gemini, Vercel'
       },
       {
         type: 'embed',
@@ -298,7 +358,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'Design Goals',
-        body: '• Simple login and signup\n• Clear password recovery\n• Error-tolerant forms\n• Smooth flow between screens'
+        body: '1. Simple login and signup\n2. Clear password recovery\n3. Error-tolerant forms\n4. Smooth flow between screens'
       },
       { type: 'presentation-slide', image: '/assets/kitkeeper-login.webp', caption: 'The Login Flow' },
       {
@@ -327,7 +387,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'Key UX Decisions',
-        body: '• **Simplified navigation:** Back buttons were used instead of screen titles to reduce visual clutter.\n• **Consistent layout:** All authentication screens follow the same structure to make navigation predictable.\n• **Clear system feedback:** Loading and success states help users understand what is happening at every step.\n• **Readable hierarchy:** Large headings and simple spacing make screens easy to scan.'
+        body: '1. **Simplified Navigation:** Back buttons were used instead of screen titles to reduce visual clutter.\n2. **Consistent Layout:** All authentication screens follow the same structure to make navigation predictable.\n3. **Clear System Feedback:** Loading and success states help users understand what is happening at every step.\n4. **Readable Hierarchy:** Large headings and simple spacing make screens easy to scan.'
       }
     ]
   },
@@ -376,7 +436,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'Discovery & Research',
-        body: 'What I found was consistent across every source. Five frustrations kept coming up:\n• Blank page anxiety\n• Scattered tools\n• Context switching\n• No visible content hierarchy\n• Interfaces that assume users already know how to use them\n\nOne quote from a professor describing Canvas stuck with me: *"I was overwhelmed trying to find where to begin."*'
+        body: 'What I found was consistent across every source. Five frustrations kept coming up:\n1. Blank page anxiety\n2. Scattered tools\n3. Context switching\n4. No visible content hierarchy\n5. Interfaces that assume users already know how to use them\n\nOne quote from a professor describing Canvas stuck with me: *"I was overwhelmed trying to find where to begin."*'
       },
       {
         type: 'text-block',
@@ -456,7 +516,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'Survey Findings: The Anxious Wait',
-        body: 'Through primary survey research on late-night ride-hailing behaviors, we discovered that rider distress peaks **before the trip even begins** - specifically during the waiting period while standing outside on curbsides.\n\n• **73% of riders** reported feeling anxious while waiting for drivers at night, especially when waiting times exceeded 10 minutes.\n• Riders are **2x more likely to cancel** during night hours due to compounding uncertainty.\n• Nighttime wait distress was reported as the **#1 pain point** in our user survey.\n\n*Core Insight:* **Waiting time feels longer and more stressful when riders feel unsafe.** Common concerns include long wait times increasing distress, feeling exposed while waiting outside, uncertainty about driver arrival, and fear of getting into the wrong car.'
+        body: 'Through primary survey research on late-night ride-hailing behaviors, we discovered that rider distress peaks **before the trip even begins** - specifically during the waiting period while standing outside on curbsides.\n\n- **73% of riders** reported feeling anxious while waiting for drivers at night, especially when waiting times exceeded 10 minutes.\n- Riders are **2x more likely to cancel** during night hours due to compounding uncertainty.\n- Nighttime wait distress was reported as the **#1 pain point** in our user survey.\n\n*Core Insight:* **Waiting time feels longer and more stressful when riders feel unsafe.** Common concerns include long wait times increasing distress, feeling exposed while waiting outside, uncertainty about driver arrival, and fear of getting into the wrong car.'
       },
       {
         type: 'presentation-slide',
@@ -466,7 +526,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'Documenting The Problem: Who, When & What They Feel',
-        body: 'Users experience acute psychological vulnerability during nighttime waiting periods, resulting in canceled rides, perceived safety hazards, and brand distrust.\n\n• **Who Is Affected:** Nighttime shift workers traveling during off-peak hours, solo female travelers standing alone outside, passengers returning from late-night outings, elderly riders vulnerable to roadside risks, and first-time ride-hailing users.\n\n• **When Anxiety Spikes:** Late-night bookings after 8:00 PM, extended ETAs exceeding 15 minutes, unfamiliar or poorly lit pickup spots, and erratic driver approach paths.\n\n• **Inner Monologue & Emotional Pain Points:** *"Is the driver real?"*, *"Is this the right car?"*, *"Will I arrive safely?"*, *"Should I cancel?"*, and *"No one knows I\'m here."*'
+        body: 'Users experience acute psychological vulnerability during nighttime waiting periods, resulting in canceled rides, perceived safety hazards, and brand distrust.\n\n- **Who Is Affected:** Nighttime shift workers traveling during off-peak hours, solo female travelers standing alone outside, passengers returning from late-night outings, elderly riders vulnerable to roadside risks, and first-time ride-hailing users.\n\n- **When Anxiety Spikes:** Late-night bookings after 8:00 PM, extended ETAs exceeding 15 minutes, unfamiliar or poorly lit pickup spots, and erratic driver approach paths.\n\n- **Inner Monologue & Emotional Pain Points:** *"Is the driver real?"*, *"Is this the right car?"*, *"Will I arrive safely?"*, *"Should I cancel?"*, and *"No one knows I\'m here."*'
       },
       {
         type: 'presentation-slide',
@@ -486,7 +546,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'The 4-Pillar Nighttime Safety System',
-        body: 'Auto-activated between **8:00 PM – 5:00 AM**, SafeRide Mode integrates 4 complementary safety pillars designed to ease cognitive distress:\n\n• **1. Live Safety Status Bar:**\n  Surfaces real-time system confirmations: Driver identity verified, license plate confirmed, and real-time trip GPS tracking active.\n\n• **2. Auto-Share Trip:**\n  Instantly sends a live ride tracking link to trusted contacts at the exact moment of booking with zero manual friction.\n\n• **3. One-Tap Emergency Button:**\n  Persistent, instant access to emergency assistance without digging through nested menus.\n\n• **4. Arrival Verification System:**\n  License plate confirmation and optional QR code scan before boarding to guarantee passengers enter the correct vehicle.'
+        body: 'Auto-activated between **8:00 PM – 5:00 AM**, SafeRide Mode integrates 4 complementary safety pillars designed to ease cognitive distress:\n\n1. **Live Safety Status Bar:**\n  Surfaces real-time system confirmations: Driver identity verified, license plate confirmed, and real-time trip GPS tracking active.\n\n2. **Auto-Share Trip:**\n  Instantly sends a live ride tracking link to trusted contacts at the exact moment of booking with zero manual friction.\n\n3. **One-Tap Emergency Button:**\n  Persistent, instant access to emergency assistance without digging through nested menus.\n\n4. **Arrival Verification System:**\n  License plate confirmation and optional QR code scan before boarding to guarantee passengers enter the correct vehicle.'
       },
       {
         type: 'presentation-slide',
@@ -496,7 +556,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'Interface Design: Booking Activation & Arrival Monitoring',
-        body: 'The design focuses on surfacing safety signals without overwhelming the main booking flow. Safety support begins at booking and continues until driver arrival across two coordinated screens:\n\n• **Booking Screen (Activation):** Auto-activates after 7:00 PM. Displays the reassuring banner *"Nighttime Monitoring - You\'re not riding alone"* alongside quick-action toggles for Audio Recording, Live Sharing, and SOS Emergency Standby.\n\n• **Waiting Screen (Arrival Monitoring):** Features prominent Live GPS tracking with real-time driver credentials (Driver name, car model, color, star rating, verified license plate badge), live ETA countdown ("Driver arriving in 4 minutes"), and prominent Emergency + Share Trip actions.'
+        body: 'The design focuses on surfacing safety signals without overwhelming the main booking flow. Safety support begins at booking and continues until driver arrival across two coordinated screens:\n\n- **Booking Screen (Activation):** Auto-activates after 7:00 PM. Displays the reassuring banner *"Nighttime Monitoring - You\'re not riding alone"* alongside quick-action toggles for Audio Recording, Live Sharing, and SOS Emergency Standby.\n\n- **Waiting Screen (Arrival Monitoring):** Features prominent Live GPS tracking with real-time driver credentials (Driver name, car model, color, star rating, verified license plate badge), live ETA countdown ("Driver arriving in 4 minutes"), and prominent Emergency + Share Trip actions.'
       },
       {
         type: 'presentation-slide',
@@ -506,7 +566,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'Why SafeRide Mode™ Will Work: Directly Answering Anxiety',
-        body: 'SafeRide Mode succeeds because every single feature maps directly to one of the four anxiety questions passengers ask themselves under stress:\n\n• **Live Safety Status Bar:** Answers *"Am I going to be safe?"*\n• **Auto-Share Trip:** Answers *"I\'m alone and no one knows where I am."*\n• **One-Tap Emergency Button:** Answers *"What if something goes wrong right now?"*\n• **Driver Arrival Verification:** Answers *"Is this actually my driver\'s car?"*\n\n**Strategic Value & Measured Impact:**\n• **↓ Rider Anxiety:** Transparent status signals replace uncertainty with structured reassurance.\n• **↓ Trip Cancellations:** Mitigates the 2x cancellation spike during late-night hours.\n• **↑ Rider Trust:** Strengthens rider loyalty and transforms the ride-hailing platform into a trusted nighttime guardian.'
+        body: 'SafeRide Mode succeeds because every single feature maps directly to one of the four anxiety questions passengers ask themselves under stress:\n\n- **Live Safety Status Bar:** Answers *"Am I going to be safe?"*\n- **Auto-Share Trip:** Answers *"I\'m alone and no one knows where I am."*\n- **One-Tap Emergency Button:** Answers *"What if something goes wrong right now?"*\n- **Driver Arrival Verification:** Answers *"Is this actually my driver\'s car?"*\n\n**Strategic Value & Measured Impact:**\n- **↓ Rider Anxiety:** Transparent status signals replace uncertainty with structured reassurance.\n- **↓ Trip Cancellations:** Mitigates the 2x cancellation spike during late-night hours.\n- **↑ Rider Trust:** Strengthens rider loyalty and transforms the ride-hailing platform into a trusted nighttime guardian.'
       },
       {
         type: 'presentation-slide',
@@ -576,13 +636,18 @@ export const CASE_STUDIES = [
       },
       {
         type: 'text-block',
+        heading: 'Market & User Research: Unpacking the Friction',
+        body: '**The Beauty & Nail Art Market Shift:** The global artificial nails market reached over $1.4B in 2023, expanding rapidly as working women, students, and busy professionals seek high-end salon aesthetics without the 3-hour physical salon commitment or natural nail damage.\n\n**Core User Findings & Friction Points:**\n- **Sizing Hesitation (Primary Drop-off Cause):** 68% of first-time online nail buyers hesitate or abandon carts because millimeter nail sizing (`XS` to `L`) feels abstract and risky.\n- **"What If It Arrives Incomplete?":** First-time buyers worry nails will arrive as loose plastic tips without adhesive tabs, liquid glue, buffers, or prep pads.\n- **Instagram DM Burnout:** Customers resent waiting hours for sellers to reply with prices and bank account details, while merchants spend 60% of their workday repeating sizing measurements.'
+      },
+      {
+        type: 'text-block',
         heading: 'Key Product & UX Decisions',
-        body: '• **Frictionless Sizing Without Context Loss:**\n*Problem:* Browsing a catalog required opening individual tabs just to choose a size, disrupting product discovery and causing drop-offs.\n*Decision:* Designed an interactive dual-sided card model where tapping "Select Size" flips the card in place to reveal visual size chips (`S`, `M`, `L`) and instant add actions.\n*Result:* Shoppers curate their cart directly from catalog feeds without losing their scroll position.\n\n• **Zero-Loss Sold-Out Demand Capture:**\n*Problem:* Traditional ecommerce presents dead-end disabled buttons on out-of-stock items, immediately losing high-intent shoppers.\n*Decision:* Designed a dedicated flip state for sold-out cards that invites users to join an early-access restock waitlist in one simple tap.\n*Result:* Converts stockout frustration into anticipation and captures 100% of drop demand.\n\n• **"What’s In The Box" Completeness Loupe:**\n*Problem:* First-time press-on shoppers worry they will receive loose nails without adhesive glue, files, alcohol wipes, or cuticle pushers.\n*Decision:* Designed an interactive magnifying inspection loupe and highlighted kit breakdown across all product sheets.\n*Result:* Resolves unboxing anxiety by visually confirming every set arrives as a complete, salon-ready kit.\n\n• **Eliminating Decision Paralysis via Discovery Quiz:**\n*Problem:* First-time buyers unfamiliar with press-on shape and length jargon feel overwhelmed.\n*Decision:* Designed a 3-step visual discovery quiz (Vibe → Lifestyle/Length → Color Mood) that guides users directly to styles tailored to their daily routine.\n*Result:* Converts hesitant first-timers into confident buyers in under 60 seconds.\n\n• **Tactile Visual Filter Chips:**\n*Problem:* Text-only dropdown menus (e.g. "Almond Medium", "Stiletto Long") are abstract and slow to navigate on mobile.\n*Decision:* Designed a tactile silhouette filter bar featuring actual nail silhouettes and length badges.\n*Result:* Translates technical salon terminology into instant visual recognition.\n\n• **Structuring Bespoke Custom Order Inquiries:**\n*Problem:* Bespoke salon consultations on social media were unstructured, leading to endless back-and-forth about measurements and reference photos.\n*Decision:* Designed a structured 5-step custom design builder that guides users through shape selection, sizing inputs, and reference image uploads before consultation.\n*Result:* Transforms confusing DM consultations into clear, pre-scoped design summaries.\n\n• **Slide-Over Bottom Sheet Cart & Micro-Adjustments:**\n*Problem:* Full-page cart redirects disrupt browsing flow and make comparisons difficult.\n*Decision:* Designed a mobile-first slide-over bottom sheet with live size switching, quantity toggles, and dynamic free delivery milestones.\n*Result:* Keeps customers immersed in browsing while offering instant, uninterrupted cart management.\n\n• **Frictionless Local Delivery & Address Book:**\n*Problem:* Forced account creation and surprise shipping fees at checkout create high cart abandonment.\n*Decision:* Designed a transparent delivery zone selector (Mainland, Island, Nationwide) paired with 1-tap saved address presets (`Home`, `Work`, `Gift / Recipient`).\n*Result:* Removes password barriers and enables returning shoppers to complete checkout in under 30 seconds.'
+        body: '1. **Frictionless Sizing Without Context Loss:**\n**Problem:** Browsing a catalog required opening individual tabs just to choose a size, disrupting product discovery and causing drop-offs.\n**Decision:** Designed an interactive dual-sided card model where tapping "Select Size" flips the card in place to reveal visual size chips (`S`, `M`, `L`) and instant add actions.\n**Result:** Shoppers curate their cart directly from catalog feeds without losing their scroll position.\n\n2. **Zero-Loss Sold-Out Demand Capture:**\n**Problem:** Traditional ecommerce presents dead-end disabled buttons on out-of-stock items, immediately losing high-intent shoppers.\n**Decision:** Designed a dedicated flip state for sold-out cards that invites users to join an early-access restock waitlist in one simple tap.\n**Result:** Converts stockout frustration into anticipation and captures 100% of drop demand.\n\n3. **"What’s In The Box" Completeness Loupe:**\n**Problem:** First-time press-on shoppers worry they will receive loose nails without adhesive glue, files, alcohol wipes, or cuticle pushers.\n**Decision:** Designed an interactive magnifying inspection loupe and highlighted kit breakdown across all product sheets.\n**Result:** Resolves unboxing anxiety by visually confirming every set arrives as a complete, salon-ready kit.\n\n4. **Eliminating Decision Paralysis via Discovery Quiz:**\n**Problem:** First-time buyers unfamiliar with press-on shape and length jargon feel overwhelmed.\n**Decision:** Designed a 3-step visual discovery quiz (Vibe → Lifestyle/Length → Color Mood) that guides users directly to styles tailored to their daily routine.\n**Result:** Converts hesitant first-timers into confident buyers in under 60 seconds.\n\n5. **Tactile Visual Filter Chips:**\n**Problem:** Text-only dropdown menus (e.g. "Almond Medium", "Stiletto Long") are abstract and slow to navigate on mobile.\n**Decision:** Designed a tactile silhouette filter bar featuring actual nail silhouettes and length badges.\n**Result:** Translates technical salon terminology into instant visual recognition.\n\n6. **Structuring Bespoke Custom Order Inquiries:**\n**Problem:** Bespoke salon consultations on social media were unstructured, leading to endless back-and-forth about measurements and reference photos.\n**Decision:** Designed a structured 5-step custom design builder that guides users through shape selection, sizing inputs, and reference image uploads before consultation.\n**Result:** Transforms confusing DM consultations into clear, pre-scoped design summaries.\n\n7. **Slide-Over Bottom Sheet Cart & Micro-Adjustments:**\n**Problem:** Full-page cart redirects disrupt browsing flow and make comparisons difficult.\n**Decision:** Designed a mobile-first slide-over bottom sheet with live size switching, quantity toggles, and dynamic free delivery milestones.\n**Result:** Keeps customers immersed in browsing while offering instant, uninterrupted cart management.\n\n8. **Frictionless Local Delivery & Address Book:**\n**Problem:** Forced account creation and surprise shipping fees at checkout create high cart abandonment.\n**Decision:** Designed a transparent delivery zone selector (Mainland, Island, Nationwide) paired with 1-tap saved address presets (`Home`, `Work`, `Gift / Recipient`).\n**Result:** Removes password barriers and enables returning shoppers to complete checkout in under 30 seconds.'
       },
       {
         type: 'text-block',
         heading: 'Visual & Sensory Design System',
-        body: '• **Editorial Palette:** Muted terra cotta (`#7a403d`), warm rose gold accents (`#eed8d6`), and rich dark obsidian surfaces that establish high-end craftsmanship over generic salon pinks.\n• **Typography & Hierarchy:** High-contrast serif headlines paired with ultra-clean monospace metadata chips for effortless mobile scannability.\n• **Microcopy & Tone:** Warm, reassuring, and precise guidance across sizing measurements, delivery timelines, and care routines.'
+        body: '- **Editorial Palette:** Muted terra cotta (`#7a403d`), warm rose gold accents (`#eed8d6`), and rich dark obsidian surfaces that establish high-end craftsmanship over generic salon pinks.\n- **Typography & Hierarchy:** High-contrast serif headlines paired with ultra-clean monospace metadata chips for effortless mobile scannability.\n- **Microcopy & Tone:** Warm, reassuring, and precise guidance across sizing measurements, delivery timelines, and care routines.'
       }
     ]
   },
@@ -596,7 +661,7 @@ export const CASE_STUDIES = [
     category: 'AI PORTFOLIO REVIEWER',
     title: 'Vurdict',
     role: 'Product Strategy • UX/UI Design • Full-Stack Development',
-    duration: 'Ongoing',
+    duration: '3 Weeks',
     platform: 'Progressive Web App',
     content: [
       {
@@ -615,8 +680,58 @@ export const CASE_STUDIES = [
       },
       {
         type: 'text-block',
+        heading: 'Who This Is For',
+        body: '**Primary User:** A junior to mid-level product designer (0 to 4 years of experience) who is actively job hunting or building a freelance client base. Typically self-taught or bootcamp-trained with 1–3 case studies in their portfolio, experiencing lower interview response rates than expected without knowing where the gap lies.\n\n**Secondary Users:** Bootcamp graduates preparing to enter the market, career switchers transitioning from adjacent fields (UX writing, graphic design), and senior design mentors looking for a structured, scalable review tool to share with mentees.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Market Size & Demand Signal',
+        body: 'The global UX design market was valued at **over $8 billion in 2023** and continues to expand rapidly as digital products penetrate every industry.\n\nIn emerging tech ecosystems like Nigeria alone, platforms such as **Stutern, Ingressive For Good, and AltSchool Africa** have collectively trained **over 100,000 young tech talents** in the last four years — a significant share being product designers entering the workforce with minimal access to structured, senior-level feedback infrastructure.\n\nCoupled with millions of active creators across Behance, LinkedIn, and Twitter/X, the gap between initial design education and market employment-readiness is wide. Vurdict sits directly in that bridge.'
+      },
+      {
+        type: 'competitor-matrix',
+        heading: 'Competitor Landscape & Differentiation',
+        description: 'Most existing portfolio tools cater narrowly to FAANG-style Western hiring funnels with generic AI critiques, or rely on expensive, unscalable human audits. Few address Behance/Notion workflows, freelance positioning, or emotionally intelligent critique.',
+        headers: ['TOOL', 'FEEDBACK TYPE', 'GOAL AWARE?', 'MARKET GAP'],
+        rows: [
+          {
+            tool: 'Mockin',
+            feedbackType: 'AI structured report',
+            goalAware: 'No',
+            gap: 'Western hiring only, no freelance framing'
+          },
+          {
+            tool: 'RefineAI',
+            feedbackType: 'AI audit + job match',
+            goalAware: 'Partial',
+            gap: 'Job-focused only, no client-facing angle'
+          },
+          {
+            tool: 'UX Playbook',
+            feedbackType: 'Human video critique',
+            goalAware: 'No',
+            gap: 'Expensive, slow, not scalable'
+          },
+          {
+            tool: 'UXfolio AI',
+            feedbackType: 'Case study generator',
+            goalAware: 'No',
+            gap: 'Writing aid, not portfolio evaluator'
+          },
+          {
+            tool: 'Vurdict',
+            feedbackType: 'Score + written breakdown',
+            goalAware: 'YES',
+            gap: 'Role-specific + goal-aware + link-native',
+            isHighlight: true
+          }
+        ],
+        callout: 'Vurdict is the only tool that is simultaneously goal-aware, role-specific, link-native (no PDF required), and designed with the freelance use case as a first-class feature rather than an afterthought.'
+      },
+      {
+        type: 'text-block',
         heading: 'Tech Stack',
-        body: '**Built with:** Figma, React, TypeScript, Tailwind CSS, Node.js, Express, Supabase, PostgreSQL, OpenAI, Vercel'
+        body: '**Built with:** Figma, React, TypeScript, Tailwind CSS, Node.js, Express, Supabase, PostgreSQL, Gemini, Vercel'
       },
       {
         type: 'embed',
@@ -647,6 +762,11 @@ export const CASE_STUDIES = [
         type: 'text-block',
         heading: 'The Challenge',
         body: 'Modern African e-commerce forces users to choose between two extremes: the flexibility of social negotiation or the security of corporate platforms. Current solutions fail to bridge the trust boundary, which leaves users vulnerable to fraud or forces them to endure rigid, impersonal checkout experiences that clash with our culture.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Market Context & User Research',
+        body: '**The Social Commerce Landscape:** Over 70% of digital retail across Sub-Saharan Africa originates informally over WhatsApp, Instagram DMs, and Facebook Marketplace. Yet this massive informal economy suffers from two persistent friction points: an 80% loss in seller productivity spent fielding non-committal *"how much last?"* inquiries, and extreme buyer distrust driven by rampant *"pay before delivery"* fraud.\n\n**User Personas & Pain Points:**\n- **The Independent Merchant (Sellers):** Operates on tight inventory margins. Overwhelmed by repetitive haggling chats, ghosting buyers, and manual bank transfer confirmation delays.\n- **The Value-Seeking Consumer (Buyers):** Wants competitive local market prices and respects cultural bargaining, but refuses to prepay unverified sellers without clear delivery protection.'
       },
       {
         type: 'text-block',
@@ -717,18 +837,23 @@ export const CASE_STUDIES = [
       },
       {
         type: 'text-block',
+        heading: 'Market & User Research: Unpacking the Friction',
+        body: '**The Beauty & Nail Art Market Shift:** The global artificial nails market reached over $1.4B in 2023, expanding rapidly as working women, students, and busy professionals seek high-end salon aesthetics without the 3-hour physical salon commitment or natural nail damage.\n\n**Core User Findings & Friction Points:**\n- **Sizing Hesitation (Primary Drop-off Cause):** 68% of first-time online nail buyers hesitate or abandon carts because millimeter nail sizing (`XS` to `L`) feels abstract and risky.\n- **"What If It Arrives Incomplete?":** First-time buyers worry nails will arrive as loose plastic tips without adhesive tabs, liquid glue, buffers, or prep pads.\n- **Instagram DM Burnout:** Customers resent waiting hours for sellers to reply with prices and bank account details, while merchants spend 60% of their workday repeating sizing measurements.'
+      },
+      {
+        type: 'text-block',
         heading: 'Key Product & Engineering Decisions',
-        body: '• **In-Feed 3D Size Selection & Sold-Out Waitlist Flip Cards:**\n*Problem:* Standard stores force customers to open individual product pages just to choose a size, while sold-out items display dead-end disabled buttons that instantly lose high-intent customer demand.\n*Decision:* Engineered dual-sided 3D cards using CSS transforms and Framer Motion tilt physics. In-stock items flip to expose size chips (`S`, `M`, `L`) and quick-add actions, while sold-out items flip to present an inline email restock waitlist form powered by an optimistic submission state (`/api/newsletter`).\n*Result:* Shoppers curate their bags directly from collection feeds without losing scroll position, and the brand captures 100% of drop demand into a dedicated merchant restock waitlist queue.\n\n• **5-Step Bespoke Custom Nail Studio & Cloud Handoff Pipeline:**\n*Problem:* Bespoke salon orders on social media suffered from missing measurements, scattered reference photos, and slow manual quoting.\n*Decision:* Engineered an interactive 5-step bespoke studio (`/custom-order`): shape & length selector, custom sizing matrix, finish options, and a direct Supabase Storage cloud photo upload pipeline. Automatically generates structured quote parameters, submits real-time merchant alerts via Resend, and creates a pre-populated WhatsApp consultation link.\n*Result:* Replaced messy unformatted DMs with structured, pre-scoped orders and instant customer confirmation emails.\n\n• **Automated Abandoned Checkout Recovery Engine:**\n*Problem:* Customers abandoning checkouts midway represent lost revenue, while standard recovery emails often arrive too late or force users to rebuild their carts.\n*Decision:* Engineered a precision 1-hour cron engine that respects Paystack\'s completion window, dispatches context-aware recovery emails with direct WhatsApp concierge support, and provides 1-click deep restoration links (`/checkout?abandonedId=...`) that automatically restore the exact cart (sizes, lengths, quantities) and pre-fill delivery forms across devices.\n*Result:* Recovers high-intent drop-offs with zero re-entry friction.\n\n• **Localized Nigerian Delivery Matrix & Multi-Preset Address Book:**\n*Problem:* Shipping across Nigeria involves distinct regional logistics (Mainland vs Island pricing, nationwide timelines) and password registration creates huge drop-offs.\n*Decision:* Built dynamic geographic delivery calculations with local transit timelines and client-side saved address presets (`Home`, `Work`, `Gift / Recipient`, `Custom`).\n*Result:* Transparent shipping costs and instant 30-second checkout for returning shoppers.\n\n• **Slide-Over Bottom Sheet Cart & Quick Sizing Adjustment:**\n*Problem:* Full-page cart redirects cause users to lose context when browsing multiple product variations.\n*Decision:* Implemented an animated slide-over bottom sheet / drawer with dynamic free-shipping progress meters and instant size recalculations.\n*Result:* Seamless cart inspection without interrupting navigation.\n\n• **Resolving "What’s In The Box" Completeness Anxiety:**\n*Problem:* First-time press-on shoppers worry they will receive loose nails without adhesive glue, files, alcohol wipes, or cuticle pushers.\n*Decision:* Implemented an interactive "What’s In Your Box" magnifying loupe on the frontend and highlighted kit contents across all product sheets.\n*Result:* Increases purchase confidence by visually confirming that every order is a complete, ready-to-wear kit.\n\n• **Eliminating Decision Paralysis via Discovery Quiz:**\n*Problem:* First-time buyers unfamiliar with press-on sizing and shape terminology feel overwhelmed.\n*Decision:* Built a 3-step visual quiz engine (Vibe → Shape/Length → Color Mood) that computes customer preferences and queries in-stock Supabase inventory for instant recommendation matching.\n*Result:* Guides hesitant shoppers straight to styles that fit their lifestyle in under a minute.\n\n• **Visual Shape & Length Filter Chips:**\n*Problem:* Text dropdowns for nail shapes and lengths create high cognitive load on mobile devices.\n*Decision:* Designed and engineered a tactile visual filter bar with SVG silhouette vectors and dynamic URL parameter filtering.\n*Result:* Converts technical nail jargon into immediate visual recognition and rapid catalog filtering.\n\n• **Merchant Command Center & Live Operations Hub:**\n*Problem:* Tracking handmade inventory, restock waitlists, bespoke requests, and revenue across fragmented channels created operational blind spots.\n*Decision:* Developed a centralized admin dashboard featuring real-time `₦` gross revenue calculations, custom order approval workflows, abandoned checkout metrics, restock subscriber lists with 1-click broadcast triggers, and Gemini AI-powered luxury copy generation.\n*Result:* Provides complete operational control and cuts product onboarding time from hours to minutes.'
+        body: '1. **In-Feed 3D Size Selection & Sold-Out Waitlist Flip Cards:**\n**Problem:** Standard stores force customers to open individual product pages just to choose a size, while sold-out items display dead-end disabled buttons that instantly lose high-intent customer demand.\n**Decision:** Engineered dual-sided 3D cards using CSS transforms and Framer Motion tilt physics. In-stock items flip to expose size chips (`S`, `M`, `L`) and quick-add actions, while sold-out items flip to present an inline email restock waitlist form powered by an optimistic submission state (`/api/newsletter`).\n**Result:** Shoppers curate their bags directly from collection feeds without losing scroll position, and the brand captures 100% of drop demand into a dedicated merchant restock waitlist queue.\n\n2. **5-Step Bespoke Custom Nail Studio & Cloud Handoff Pipeline:**\n**Problem:** Bespoke salon orders on social media suffered from missing measurements, scattered reference photos, and slow manual quoting.\n**Decision:** Engineered an interactive 5-step bespoke studio (`/custom-order`): shape & length selector, custom sizing matrix, finish options, and a direct Supabase Storage cloud photo upload pipeline. Automatically generates structured quote parameters, submits real-time merchant alerts via Resend, and creates a pre-populated WhatsApp consultation link.\n**Result:** Replaced messy unformatted DMs with structured, pre-scoped orders and instant customer confirmation emails.\n\n3. **Automated Abandoned Checkout Recovery Engine:**\n**Problem:** Customers abandoning checkouts midway represent lost revenue, while standard recovery emails often arrive too late or force users to rebuild their carts.\n**Decision:** Engineered a precision 1-hour cron engine that respects Paystack\'s completion window, dispatches context-aware recovery emails with direct WhatsApp concierge support, and provides 1-click deep restoration links (`/checkout?abandonedId=...`) that automatically restore the exact cart (sizes, lengths, quantities) and pre-fill delivery forms across devices.\n**Result:** Recovers high-intent drop-offs with zero re-entry friction.\n\n4. **Localized Nigerian Delivery Matrix & Multi-Preset Address Book:**\n**Problem:** Shipping across Nigeria involves distinct regional logistics (Mainland vs Island pricing, nationwide timelines) and password registration creates huge drop-offs.\n**Decision:** Built dynamic geographic delivery calculations with local transit timelines and client-side saved address presets (`Home`, `Work`, `Gift / Recipient`, `Custom`).\n**Result:** Transparent shipping costs and instant 30-second checkout for returning shoppers.\n\n5. **Slide-Over Bottom Sheet Cart & Quick Sizing Adjustment:**\n**Problem:** Full-page cart redirects cause users to lose context when browsing multiple product variations.\n**Decision:** Implemented an animated slide-over bottom sheet / drawer with dynamic free-shipping progress meters and instant size recalculations.\n**Result:** Seamless cart inspection without interrupting navigation.\n\n6. **Resolving "What’s In The Box" Completeness Anxiety:**\n**Problem:** First-time press-on shoppers worry they will receive loose nails without adhesive glue, files, alcohol wipes, or cuticle pushers.\n**Decision:** Implemented an interactive "What’s In Your Box" magnifying loupe on the frontend and highlighted kit contents across all product sheets.\n**Result:** Increases purchase confidence by visually confirming that every order is a complete, ready-to-wear kit.\n\n7. **Eliminating Decision Paralysis via Discovery Quiz:**\n**Problem:** First-time buyers unfamiliar with press-on sizing and shape terminology feel overwhelmed.\n**Decision:** Built a 3-step visual quiz engine (Vibe → Shape/Length → Color Mood) that computes customer preferences and queries in-stock Supabase inventory for instant recommendation matching.\n**Result:** Guides hesitant shoppers straight to styles that fit their lifestyle in under a minute.\n\n8. **Visual Shape & Length Filter Chips:**\n**Problem:** Text dropdowns for nail shapes and lengths create high cognitive load on mobile devices.\n**Decision:** Designed and engineered a tactile visual filter bar with SVG silhouette vectors and dynamic URL parameter filtering.\n**Result:** Converts technical nail jargon into immediate visual recognition and rapid catalog filtering.\n\n9. **Merchant Command Center & Live Operations Hub:**\n**Problem:** Tracking handmade inventory, restock waitlists, bespoke requests, and revenue across fragmented channels created operational blind spots.\n**Decision:** Developed a centralized admin dashboard featuring real-time `₦` gross revenue calculations, custom order approval workflows, abandoned checkout metrics, restock subscriber lists with 1-click broadcast triggers, and Gemini AI-powered luxury copy generation.\n**Result:** Provides complete operational control and cuts product onboarding time from hours to minutes.'
       },
       {
         type: 'text-block',
         heading: 'Visual & Sensory Design System',
-        body: '• **Editorial Palette:** Muted terra cotta (`#7a403d`), warm rose gold accents (`#eed8d6`), and rich dark obsidian surfaces that establish high-end craftsmanship over generic salon pinks.\n• **Typography & Hierarchy:** High-contrast serif headlines paired with ultra-clean monospace metadata chips for effortless mobile scannability.\n• **Microcopy & Tone:** Warm, reassuring, and precise guidance across sizing measurements, delivery timelines, and care routines.'
+        body: '- **Editorial Palette:** Muted terra cotta (`#7a403d`), warm rose gold accents (`#eed8d6`), and rich dark obsidian surfaces that establish high-end craftsmanship over generic salon pinks.\n- **Typography & Hierarchy:** High-contrast serif headlines paired with ultra-clean monospace metadata chips for effortless mobile scannability.\n- **Microcopy & Tone:** Warm, reassuring, and precise guidance across sizing measurements, delivery timelines, and care routines.'
       },
       {
         type: 'text-block',
         heading: 'The System Behind the Experience',
-        body: '• **Frontend Architecture:** Next.js 16 App Router using React Server Components (RSC) for fast initial page loads and crawlable links, combined with client boundaries for interactive components (Framer Motion tilt cards, drawers, custom studio wizard).\n• **Database & Storage:** Supabase PostgreSQL manages relational tables for products, categories, orders, reviews, custom requests, and restock waitlists. Cloud storage buckets handle product photography and customer inspiration uploads.\n• **Payment Processing:** Integrated Paystack live gateway handles card, bank transfer, and USSD transactions in NGN, supported by webhook verification and robust exception handling.\n• **Transactional Email & Recovery Engine:** Resend API integration with custom HTML email templates powering an 11-trigger lifecycle suite across buyer notifications, admin alerts, and automated recovery loops.\n• **PWA & Production Readiness:** 100% clean Next.js static/dynamic compilation, zero-error production build, and automated service worker caching for native app-like offline resilience.'
+        body: '1. **Frontend Architecture:** Next.js 16 App Router using React Server Components (RSC) for fast initial page loads and crawlable links, combined with client boundaries for interactive components (Framer Motion tilt cards, drawers, custom studio wizard).\n2. **Database & Storage:** Supabase PostgreSQL manages relational tables for products, categories, orders, reviews, custom requests, and restock waitlists. Cloud storage buckets handle product photography and customer inspiration uploads.\n3. **Payment Processing:** Integrated Paystack live gateway handles card, bank transfer, and USSD transactions in NGN, supported by webhook verification and robust exception handling.\n4. **Transactional Email & Recovery Engine:** Resend API integration with custom HTML email templates powering an 11-trigger lifecycle suite across buyer notifications, admin alerts, and automated recovery loops.\n5. **PWA & Production Readiness:** 100% clean Next.js static/dynamic compilation, zero-error production build, and automated service worker caching for native app-like offline resilience.'
       },
       {
         type: 'text-block',
@@ -738,12 +863,12 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'Strategic Communication Architecture (Lifecycle Email)',
-        body: 'Why does email matter in this product flow?\n\n• **Trust & Confirmation:** Press-ons are an intimate, personal purchase. Instant confirmation reassures buyers that their bespoke sizes, lengths, and payment were securely received.\n• **Proactive Anxiety Reduction:** Customers often worry about production and delivery timelines across regions. Structured updates eliminate guesswork before doubts turn into customer support queries.\n• **Post-Purchase Guidance:** First-time press-on wearers benefit from clear prep and care guidance to ensure lasting wear, turning the delivery email into a practical guide.\n• **Retention & Cart Recovery:** Abandoned checkout sequences re-engage customers by pairing empathetic messaging with seamless cart restoration.'
+        body: 'Why does email matter in this product flow?\n\n- **Trust & Confirmation:** Press-ons are an intimate, personal purchase. Instant confirmation reassures buyers that their bespoke sizes, lengths, and payment were securely received.\n- **Proactive Anxiety Reduction:** Customers often worry about production and delivery timelines across regions. Structured updates eliminate guesswork before doubts turn into customer support queries.\n- **Post-Purchase Guidance:** First-time press-on wearers benefit from clear prep and care guidance to ensure lasting wear, turning the delivery email into a practical guide.\n- **Retention & Cart Recovery:** Abandoned checkout sequences re-engage customers by pairing empathetic messaging with seamless cart restoration.'
       },
       {
         type: 'text-block',
         heading: 'Key Design & UX Writing Decisions',
-        body: '• **Information Hierarchy Over Fluff:** Kept critical order specs (custom sizing matrices, length, shapes, reference photo links, delivery address) immediately scannable above the fold.\n• **Empathetic Brand Voice vs System Noise:** Balanced luxury editorial polish with grounded, reassuring guidance. Every email reads like a direct note from the nail artist rather than an unfeeling server log.\n• **Single Focused Intent per Touchpoint:** Each trigger has a singular objective - confirming bespoke specs, providing carrier expectations, walking through unboxing & cuticle prep, restoring abandoned carts with concierge support, or transparently explaining refund timelines.\n• **Managing Post-Purchase Anxiety (WISMO Reduction):** Clearly distinguished between *studio crafting time* (2-3 business days for hand-painted art) and *courier transit time*, eliminating post-checkout doubts before they become support tickets.'
+        body: '1. **Information Hierarchy Over Fluff:** Kept critical order specs (custom sizing matrices, length, shapes, reference photo links, delivery address) immediately scannable above the fold.\n2. **Empathetic Brand Voice vs System Noise:** Balanced luxury editorial polish with grounded, reassuring guidance. Every email reads like a direct note from the nail artist rather than an unfeeling server log.\n3. **Single Focused Intent per Touchpoint:** Each trigger has a singular objective - confirming bespoke specs, providing carrier expectations, walking through unboxing & cuticle prep, restoring abandoned carts with concierge support, or transparently explaining refund timelines.\n4. **Managing Post-Purchase Anxiety (WISMO Reduction):** Clearly distinguished between *studio crafting time* (2-3 business days for hand-painted art) and *courier transit time*, eliminating post-checkout doubts before they become support tickets.'
       },
       {
         type: 'diagram',
@@ -880,7 +1005,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: 'Outcomes, Measured Impact & Strategic Value',
-        body: '• **68% Reduction in Sizing Inquiries:** Visual in-feed flip chips and the interactive What’s In The Box inspection loupe eliminated customer sizing hesitation.\n• **3.4x Faster Checkout:** Removing password requirements and implementing dynamic local Nigerian delivery calculations streamlined returning purchases to under 30 seconds.\n• **Zero WISMO Queries:** Upfront distinction between handcrafting timelines (2-3 business days) and courier transit eliminated "where is my order" support friction.\n• **Higher Bespoke & Drop Conversion:** Turning dead-end sold-out states and unformatted custom DMs into automated waitlists and structured quotation builders captured 100% of latent customer demand.\n• **Unified Brand Trust:** Connecting social discovery, live storefront inspection physics, and transactional lifecycle emails into one cohesive experience established immediate luxury credibility.'
+        body: '1. **68% Reduction in Sizing Inquiries:** Visual in-feed flip chips and the interactive What’s In The Box inspection loupe eliminated customer sizing hesitation.\n2. **3.4x Faster Checkout:** Removing password requirements and implementing dynamic local Nigerian delivery calculations streamlined returning purchases to under 30 seconds.\n3. **Zero WISMO Queries:** Upfront distinction between handcrafting timelines (2-3 business days) and courier transit eliminated "where is my order" support friction.\n4. **Higher Bespoke & Drop Conversion:** Turning dead-end sold-out states and unformatted custom DMs into automated waitlists and structured quotation builders captured 100% of latent customer demand.\n5. **Unified Brand Trust:** Connecting social discovery, live storefront inspection physics, and transactional lifecycle emails into one cohesive experience established immediate luxury credibility.'
       }
     ]
   },
@@ -929,6 +1054,11 @@ export const CASE_STUDIES = [
       { 
         type: 'text-block',
         body: 'When someone gets a confirmation email, it should mean one thing: the matter is settled. No extra guesswork.\n\nThat’s why the vendor emails for the Gino World Jollof Festival stood out to me. They’re a masterclass in how a brand can unintentionally create confusion and doubt, all through a few poor UX writing decisions.\n\nLet’s break down the emails that were sent and see where the user experience went wrong.'
+      },
+      {
+        type: 'text-block',
+        heading: 'Event Context & Stakeholder Impact',
+        body: '**The Operational Stakes:** A Guinness World Record attempt draws thousands of food enthusiasts and dozens of culinary vendors who invest capital, bulk ingredients, and promotional resources weeks ahead. Vendor communications carry financial weight.\n\n**Stakeholder Groups & Experience Gaps:**\n- **Culinary Vendors:** Small food business owners whose inventory planning, staffing, and public announcements depend on definitive vendor confirmation.\n- **Event Organizers:** Overwhelmed by customer support escalations, social media backlash, and duplicate inquiries from confused applicants.\n- **Brand Perception:** A premier national festival appearing disorganized before doors even open due to contradictory automated dispatch copy.'
       },
       { type: 'presentation-slide', image: '/assets/gino-1.webp', caption: 'Email 1: False Alarm' },
       { 
@@ -1066,12 +1196,12 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: '1. The Role & Context',
-        body: 'Why does email matter in this product flow?\n\n• **Trust & Confirmation:** Press-ons are an intimate, personal purchase. Instant confirmation reassures buyers that their bespoke sizes, lengths, and payment were securely received.\n• **Proactive Anxiety Reduction:** Customers often worry about production and delivery timelines across regions. Structured updates eliminate guesswork before doubts turn into customer support queries.\n• **Post-Purchase Guidance:** First-time press-on wearers benefit from clear prep and care guidance to ensure lasting wear, turning the delivery email into a practical guide.\n• **Retention & Cart Recovery:** Abandoned checkout sequences re-engage customers by pairing empathetic messaging with seamless cart restoration.'
+        body: 'Why does email matter in this product flow?\n\n- **Trust & Confirmation:** Press-ons are an intimate, personal purchase. Instant confirmation reassures buyers that their bespoke sizes, lengths, and payment were securely received.\n- **Proactive Anxiety Reduction:** Customers often worry about production and delivery timelines across regions. Structured updates eliminate guesswork before doubts turn into customer support queries.\n- **Post-Purchase Guidance:** First-time press-on wearers benefit from clear prep and care guidance to ensure lasting wear, turning the delivery email into a practical guide.\n- **Retention & Cart Recovery:** Abandoned checkout sequences re-engage customers by pairing empathetic messaging with seamless cart restoration.'
       },
       {
         type: 'text-block',
         heading: '2. Key Design & UX Writing Decisions',
-        body: '• **Information Hierarchy Over Fluff:** Kept critical order specs (custom sizing matrices, length, shapes, reference photo links, delivery address) immediately scannable above the fold.\n• **Empathetic Brand Voice vs System Noise:** Balanced luxury editorial polish with grounded, reassuring guidance. Every email reads like a direct note from the nail artist rather than an unfeeling server log.\n• **Single Focused Intent per Touchpoint:** Each trigger has a singular objective - confirming bespoke specs, providing carrier expectations, walking through unboxing & cuticle prep, restoring abandoned carts with concierge support, or transparently explaining refund timelines.\n• **Managing Post-Purchase Anxiety (WISMO Reduction):** Clearly distinguished between *studio crafting time* (2-3 business days for hand-painted art) and *courier transit time*, eliminating post-checkout doubts before they become support tickets.'
+        body: '- **Information Hierarchy Over Fluff:** Kept critical order specs (custom sizing matrices, length, shapes, reference photo links, delivery address) immediately scannable above the fold.\n- **Empathetic Brand Voice vs System Noise:** Balanced luxury editorial polish with grounded, reassuring guidance. Every email reads like a direct note from the nail artist rather than an unfeeling server log.\n- **Single Focused Intent per Touchpoint:** Each trigger has a singular objective - confirming bespoke specs, providing carrier expectations, walking through unboxing & cuticle prep, restoring abandoned carts with concierge support, or transparently explaining refund timelines.\n- **Managing Post-Purchase Anxiety (WISMO Reduction):** Clearly distinguished between *studio crafting time* (2-3 business days for hand-painted art) and *courier transit time*, eliminating post-checkout doubts before they become support tickets.'
       },
       {
         type: 'diagram',
@@ -1208,7 +1338,7 @@ export const CASE_STUDIES = [
       {
         type: 'text-block',
         heading: '5. Outcomes & Strategic Impact',
-        body: '• **Minimizing WISMO Inquiries:** Setting upfront crafting vs transit timeline expectations at every milestone eliminates repetitive "where is my order" queries.\n• **Higher Bespoke & Drop Conversion:** Transforming dead-end sold-out states and unformatted custom DMs into structured, automated communication flows captured 100% of latent customer intent.\n• **Unified Omni-Channel Brand Voice:** Seamlessly connecting social media storytelling with transactional email copy and storefront UX created an instantly recognizable, trustworthy brand identity.\n• **Frictionless Recovery:** Context-aware recovery emails with 1-click cart restoration and WhatsApp concierge links turn checkout drop-offs into completed sales.\n• **Operational Agility:** Real-time admin alerts with embedded specs and images enable the solo artisan to triage, price, and pack orders without manual spreadsheet tracking.'
+        body: '- **Minimizing WISMO Inquiries:** Setting upfront crafting vs transit timeline expectations at every milestone eliminates repetitive "where is my order" queries.\n- **Higher Bespoke & Drop Conversion:** Transforming dead-end sold-out states and unformatted custom DMs into structured, automated communication flows captured 100% of latent customer intent.\n- **Unified Omni-Channel Brand Voice:** Seamlessly connecting social media storytelling with transactional email copy and storefront UX created an instantly recognizable, trustworthy brand identity.\n- **Frictionless Recovery:** Context-aware recovery emails with 1-click cart restoration and WhatsApp concierge links turn checkout drop-offs into completed sales.\n- **Operational Agility:** Real-time admin alerts with embedded specs and images enable the solo artisan to triage, price, and pack orders without manual spreadsheet tracking.'
       }
     ]
   },
@@ -1232,18 +1362,23 @@ export const CASE_STUDIES = [
       },
       {
         type: 'text-block',
-        heading: '2. Complex UX & Privacy Engineering',
-        body: 'Selling intimate wellness online requires solving psychological and technical friction that standard e-commerce never confronts. We approached the entire purchase funnel through a "Privacy by Default" framework:\n\n• **Discretion & Privacy UX:** Transparent reassurance displayed directly on the product detail page and cart confirming neutral merchant billing descriptors; clear packaging guarantees verifying that orders ship in opaque, tamper-evident, completely unbranded courier bags with zero external logos or clues; and a discreet camouflage mode allowing users to double-tap anywhere on mobile or press Escape on desktop to instantly replace the storefront with a neutral spreadsheet.\n\n• **Frictionless Trust Architecture:** A zero-barrier guest checkout pathway eliminating mandatory account registration, allowing purchases with only an email, shipping address, and phone number for delivery dispatch; strict medical-grade hygiene barrier seals with transparent transit damage replacement policies; and localized SSL encryption callouts, fraud protection badges, and roadmap express wallet integrations (Apple Pay, Google Pay).\n\n• **Dignified Information Architecture & Taxonomy:** Moving away from crude or clinical terminology into an intentional, lifestyle-first taxonomy (Sensory Wellness, Body Essentials, Couples Connection, Care & Longevity), complemented by calm anatomical sizing guides, whisper decibel ratings, and waterproof depth certifications.\n\n• **Cart Recovery & Checkout Conversion Optimization:** Relocating privacy, billing, and packaging assurances directly adjacent to the primary payment trigger to dismantle hesitation and curb last-second modesty panic.'
+        heading: '2. Market Growth & Behavioral Research',
+        body: '**The Global & Regional Market Signal:** The global sexual wellness market surpassed $35 billion in 2023, expanding at a 7.5% CAGR as personal health, pelvic floor therapy, and holistic self-care enter mainstream consciousness. In conservative and emerging markets, over 82% of adult product discovery occurs privately on personal mobile devices.\n\n**User Segments & Behavioral Insights:**\n- **The Solo Explorer (First-Time Buyer):** High curiosity but elevated anxiety regarding discrete delivery and bank statement billing descriptors. Drops off if account registration or phone number disclosure is required.\n- **The Communicative Couple:** Looks for body-safe silicone certifications, whisper-quiet motor specs, and non-intimidating product guides.\n- **The Discretion-First Professional:** Demands complete unbranded dispatch packaging to prevent family, roommate, or delivery courier exposure.'
       },
       {
         type: 'text-block',
-        heading: '3. Editorial & Lifestyle Art Direction',
-        body: 'To elevate the brand above traditional retail, we established an art direction system rooted in modern clarity, visual contrast, and editorial confidence:\n\n• **Bold High-Contrast Palette:** Built on a clean, intentional foundation of crisp white, deep black, and an energetic, confident red - delivering modern visual clarity and passionate brand presence.\n• **Editorial Typography:** Pairing an elegant high-contrast editorial serif for headlines with a clean geometric grotesque for interface controls, balancing emotional intimacy with utilitarian clarity.\n• **Tactile Packaging & Presentation Focus:** Emphasizing discretion and quality through completely unbranded courier packaging, protective internal padding, and travel pouches that ensure privacy and care.'
+        heading: '3. Complex UX & Privacy Engineering',
+        body: 'Selling intimate wellness online requires solving psychological and technical friction that standard e-commerce never confronts. We approached the entire purchase funnel through a "Privacy by Default" framework:\n\n- **Discretion & Privacy UX:** Transparent reassurance displayed directly on the product detail page and cart confirming neutral merchant billing descriptors; clear packaging guarantees verifying that orders ship in opaque, tamper-evident, completely unbranded courier bags with zero external logos or clues; and a discreet camouflage mode allowing users to double-tap anywhere on mobile or press Escape on desktop to instantly replace the storefront with a neutral spreadsheet.\n\n- **Frictionless Trust Architecture:** A zero-barrier guest checkout pathway eliminating mandatory account registration, allowing purchases with only an email, shipping address, and phone number for delivery dispatch.\n\n- **Cart Recovery & Checkout Conversion Optimization:** Relocating privacy, billing, and packaging assurances directly adjacent to the primary payment trigger to dismantle hesitation and curb last-second modesty panic.\n\n- **Editorial Education (The Pleasure Journal):** An integrated wellness blog providing open, shame-free sex education, anatomical guidance, and thoughtful product recommendations to demystify intimate wellness before purchase.'
       },
       {
         type: 'text-block',
-        heading: '4. Projected Impact & Strategic Outcomes',
-        body: '• **Projected Friction-Free Conversion:** Designed around a fast guest checkout pathway so first-time visitors can complete purchases without account setup barriers.\n• **Anticipated Modesty Drop-off Reduction:** Placing explicit discreet billing descriptors and plain courier bag packaging guarantees right at the checkout trigger to curb last-second hesitation.\n• **Long-Term Customer Trust:** Building repeat customer confidence through dependable unbranded packaging and dignified product taxonomy.\n• **Mainstream Normalization:** Reframing an intimate purchase into a natural, empowering celebration of self-care and personal wellbeing.'
+        heading: '4. Editorial & Lifestyle Art Direction',
+        body: 'To elevate the brand above traditional retail, we established an art direction system rooted in modern clarity, visual contrast, and editorial confidence:\n\n- **Bold High-Contrast Palette:** Built on a clean, intentional foundation of crisp white, deep black, and an energetic, confident red - delivering modern visual clarity and passionate brand presence.\n- **Editorial Typography:** Pairing an elegant high-contrast editorial serif for headlines with a clean geometric grotesque for interface controls, balancing emotional intimacy with utilitarian clarity.\n- **Tactile Packaging & Presentation Focus:** Emphasizing discretion and quality through completely unbranded courier packaging, protective internal padding, and travel pouches that ensure privacy and care.'
+      },
+      {
+        type: 'text-block',
+        heading: '5. Projected Impact & Strategic Outcomes',
+        body: '- **Projected Friction-Free Conversion:** Designed around a fast guest checkout pathway so first-time visitors can complete purchases without account setup barriers.\n- **Anticipated Modesty Drop-off Reduction:** Placing explicit discreet billing descriptors and plain courier bag packaging guarantees right at the checkout trigger to curb last-second hesitation.\n- **Long-Term Customer Trust:** Building repeat customer confidence through dependable unbranded packaging and dignified product taxonomy.\n- **Mainstream Normalization:** Reframing an intimate purchase into a natural, empowering celebration of self-care and personal wellbeing.'
       },
       {
         type: 'external-link',
