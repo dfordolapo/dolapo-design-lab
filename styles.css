@@ -309,12 +309,6 @@ body {
   background: var(--green-status);
   border-radius: 50%;
   box-shadow: 0 0 8px var(--green-status);
-  animation: statusBlink 3s ease-in-out infinite;
-}
-
-@keyframes statusBlink {
-  0%, 80%, 100% { opacity: 1; }
-  90% { opacity: 0.3; }
 }
 
 .system-status__text {
@@ -662,23 +656,8 @@ body {
   transition: opacity 0.8s ease;
 }
 
-.sensor-dot::after {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  border: 1px solid var(--cyan-glow);
-  opacity: 0;
-  animation: sensorPing 2s ease-out infinite;
-}
-
 .cinematic-container.phase-walking .sensor-dot {
   opacity: 1;
-}
-
-@keyframes sensorPing {
-  0% { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(3); opacity: 0; }
 }
 
 .sensor-dot--1 { top: 45%; right: 38%; animation-delay: 0s; }

@@ -618,18 +618,7 @@
   z-index: 4;
 }
 
-/* Milestone Dot Node with Pulse Animation */
-@keyframes journeyDotPulse {
-  0%, 100% {
-    box-shadow: 0 0 0 3px var(--about-copper-glow);
-    transform: scale(1);
-  }
-  50% {
-    box-shadow: 0 0 0 7px rgba(194, 97, 67, 0.45);
-    transform: scale(1.08);
-  }
-}
-
+/* Milestone Dot Node */
 .about-milestone-dot-anchor {
   display: flex;
   align-items: center;
@@ -641,7 +630,6 @@
   box-shadow: 0 0 0 4px var(--about-copper-glow);
   margin: 1rem 0;
   z-index: 3;
-  animation: journeyDotPulse 2.8s ease-in-out infinite;
 }
 
 .about-milestone-dot-inner {
@@ -1016,7 +1004,6 @@
     align-items: center;
     justify-content: center;
     z-index: 3;
-    animation: journeyDotPulse 2.8s ease-in-out infinite;
   }
 
   .about-mobile-step-card--left .about-mobile-step-dot {
